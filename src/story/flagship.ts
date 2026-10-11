@@ -325,19 +325,57 @@ export function flagshipLesson(): Lesson {
     19,
     "Untuk fungsi kuadrat, gantikan nilai fungsi dengan rumusnya. Kuadrat dari x tambah h adalah x kuadrat tambah dua x h tambah h kuadrat. Ini berasal dari mengalikan x tambah h dengan dirinya sendiri. Kedua suku x kuadrat kemudian saling menghapus.",
   );
-  const quotientLabelOffset =
-    mathLayout("q(h) =", { seed: 20261011, height: 36 }).width -
-    mathLayout("=", { seed: 20261011, height: 36 }).width;
+  // Locate the cancellable x² terms from the same vector layout, rather than fixed pixels.
+  const expandedIndex = c4.actions.findIndex(
+    (a) =>
+      a.type === "write" &&
+      typeof a.content === "object" &&
+      a.content.type === "row" &&
+      JSON.stringify(a.content).includes("x^2 + 2xh"),
+  );
+  const cancellationStyle = {
+    seed:
+      20261011 +
+      (c1.actions.length +
+        c2.actions.length +
+        c3.actions.length +
+        expandedIndex +
+        1) *
+        271,
+    height: 36,
+  };
+  const numeratorText = "x^2 + 2xh + h^2 - x^2";
+  const equationLayout = mathLayout(
+    row("q(h) =", fraction(numeratorText, "h")),
+    cancellationStyle,
+  );
+  const prefixCount = mathLayout("q(h) =", cancellationStyle).paths.length;
+  const numeratorCount = mathLayout(numeratorText, cancellationStyle).paths
+    .length;
+  const termCount = mathLayout("x^2", cancellationStyle).paths.length;
+  const xCount = mathLayout("x", cancellationStyle).paths.length;
+  const strikeTerm = (start: number) => {
+    const term = equationLayout.paths
+      .slice(start, start + termCount)
+      .flatMap((p) => p.points);
+    const glyph = equationLayout.paths
+      .slice(start, start + xCount)
+      .flatMap((p) => p.points);
+    const xMin = Math.min(...term.map((p) => p.x)),
+      xMax = Math.max(...term.map((p) => p.x)),
+      y =
+        (Math.min(...glyph.map((p) => p.y)) +
+          Math.max(...glyph.map((p) => p.y))) /
+        2;
+    return [
+      [80 + xMin - 4, 635 + y],
+      [80 + xMax + 4, 635 + y],
+    ];
+  };
   add(c4, "draw", 45, 1, {
     points: [
-      [
-        [155 + quotientLabelOffset, 662],
-        [215 + quotientLabelOffset, 662],
-      ],
-      [
-        [485 + quotientLabelOffset, 662],
-        [545 + quotientLabelOffset, 662],
-      ],
+      strikeTerm(prefixCount),
+      strikeTerm(prefixCount + numeratorCount - termCount),
     ],
     color: "red",
     group: expansion,
