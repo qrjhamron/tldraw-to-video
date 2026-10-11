@@ -22,7 +22,11 @@
     "verify:handwriting": "tsx scripts/verify-handwriting.ts",
     "mcp": "tsx scripts/mcp-server.ts",
     "visual:poc": "tsx scripts/create-visual-poc.ts",
-    "verify:visual": "tsx scripts/verify-visual-poc.ts"
+    "verify:visual": "tsx scripts/verify-visual-poc.ts",
+    "tricks:compile": "tsx scripts/compile-tricks.ts",
+    "tricks:narrate": "tsx scripts/narrate-tricks.ts",
+    "tricks:export": "tsx scripts/export-tricks.ts",
+    "tricks:combine": "tsx scripts/combine-tricks.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.1",

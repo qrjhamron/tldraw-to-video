@@ -1,0 +1,58 @@
+{
+  "output": "output/tricks/showcase.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 2483,
+  "durationMs": 82765,
+  "recordingEvents": 2822,
+  "samples": [
+    {
+      "frame": 0,
+      "t": 0,
+      "sha256": "78df51dc8ac18a7b44a72cccedb5364bf3d1e2fa8387fa226f62d255633b2137"
+    },
+    {
+      "frame": 300,
+      "t": 10000,
+      "sha256": "44c3d09a4c5637a4ee8636ea4e6b53b4554e72ec25bdc4622d8f9ae761c07893"
+    },
+    {
+      "frame": 600,
+      "t": 20000,
+      "sha256": "7a33bf81a0bd7574dcfc876bdba88faead78a4e8c83c5fe1b5242dbef07f54a3"
+    },
+    {
+      "frame": 900,
+      "t": 30000,
+      "sha256": "42608dbea1f15f125c247c5eb10ab3f75a78cf097623187d7408de477247c601"
+    },
+    {
+      "frame": 1200,
+      "t": 40000,
+      "sha256": "9138573ce1e7155405c356a440a0c00b88cf8ac23bc9f78ebbcf6fa8310acca5"
+    },
+    {
+      "frame": 1500,
+      "t": 50000,
+      "sha256": "f07c646add4b7a735a07d977efe4d51880acfa341e800c987c5d0d5a36dea10c"
+    },
+    {
+      "frame": 1800,
+      "t": 60000,
+      "sha256": "cc52974bc56dd92c07a0874954f6b231721e11fe8ce717aba3ecacbe0f38ff3b"
+    },
+    {
+      "frame": 2100,
+      "t": 70000,
+      "sha256": "c7ac0412154beae07b2b6ec2974cb923f48517b35d0827bdf6f54e1df00cd38a"
+    },
+    {
+      "frame": 2400,
+      "t": 80000,
+      "sha256": "7aea08a2c20f3ec5265ea889141516f088f7567d021825747aeb7c5c374531bc"
+    }
+  ],
+  "browserErrors": [],
+  "renderSeconds": 120.989
+}

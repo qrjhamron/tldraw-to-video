@@ -1,0 +1,2014 @@
+{
+  "status": "available",
+  "voice": "id-ID-GadisNeural",
+  "durationMs": 376024,
+  "originalDurationMs": 376024,
+  "clips": 30,
+  "schedule": [
+    {
+      "id": "t21-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/7f084439a1a1fc6d4920545907309c0a2e9ff66627e856ca52bf6896c2c81a7e.mp3",
+      "durationMs": 7824,
+      "sha256": "51d7849c4664c16544da21e5bdff91a8519db9778c2dd6716f5d72ca8b07e585",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 282.625,
+          "text": "Dua"
+        },
+        {
+          "offsetMs": 382.625,
+          "durationMs": 271.708,
+          "text": "x"
+        },
+        {
+          "offsetMs": 654.333,
+          "durationMs": 315.208,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 969.583,
+          "durationMs": 326.083,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 1295.666,
+          "durationMs": 423.916,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 1719.583,
+          "durationMs": 391.291,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 2110.875,
+          "durationMs": 608.708,
+          "text": "sepuluh"
+        },
+        {
+          "offsetMs": 3441.291,
+          "durationMs": 326.083,
+          "text": "Kurang"
+        },
+        {
+          "offsetMs": 3767.375,
+          "durationMs": 358.708,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 4126.083,
+          "durationMs": 76.083,
+          "text": "di"
+        },
+        {
+          "offsetMs": 4202.166,
+          "durationMs": 282.625,
+          "text": "kedua"
+        },
+        {
+          "offsetMs": 4484.791,
+          "durationMs": 369.541,
+          "text": "sisi"
+        },
+        {
+          "offsetMs": 4854.333,
+          "durationMs": 369.583,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 5223.916,
+          "durationMs": 260.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 5484.791,
+          "durationMs": 293.458,
+          "text": "x"
+        },
+        {
+          "offsetMs": 5778.25,
+          "durationMs": 402.166,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 6180.416,
+          "durationMs": 380.416,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 6560.875,
+          "durationMs": 521.75,
+          "text": "enam"
+        }
+      ],
+      "t": 3700,
+      "slotMs": 12049
+    },
+    {
+      "id": "t21-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/679e2feb9df4b7ad8f7ceadde4cd6db0f6a2f92d5e6206b9bbfcf32d23e508dd.mp3",
+      "durationMs": 3528,
+      "sha256": "36bed865e54902ea9d7d7398c3a3bf17fd214f581a5a19e05e591d44e046cd08",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 402.166,
+          "text": "Bagi"
+        },
+        {
+          "offsetMs": 502.166,
+          "durationMs": 326.083,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 828.25,
+          "durationMs": 358.708,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 1186.958,
+          "durationMs": 315.208,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1502.166,
+          "durationMs": 380.416,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 1882.625,
+          "durationMs": 391.291,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 2273.916,
+          "durationMs": 510.875,
+          "text": "tiga"
+        }
+      ],
+      "t": 15749,
+      "slotMs": 8141
+    },
+    {
+      "id": "t21-nar-18",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/b989dd8f8b083173870b8e320661f743a4763ab66e1e72f5322cf5a0e7d7f33b.mp3",
+      "durationMs": 5928,
+      "sha256": "27838fc2396315d1d82826a7d97978a3fbb3acc699b20e82dc09000d620703fb",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 717.375,
+          "text": "Selesaikan"
+        },
+        {
+          "offsetMs": 2995.666,
+          "durationMs": 815.2079,
+          "text": "3x"
+        },
+        {
+          "offsetMs": 4071.75,
+          "durationMs": 380.416,
+          "text": "7"
+        },
+        {
+          "offsetMs": 4452.166,
+          "durationMs": 728.25,
+          "text": "11"
+        }
+      ],
+      "t": 23890,
+      "slotMs": 8506
+    },
+    {
+      "id": "t22-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/65634acf093b6ab114e61181e8aaf240ef21364ef75112d9e711a8b77e39972e.mp3",
+      "durationMs": 9432,
+      "sha256": "de8d3dbf541f5633853139b0919e8b32cd2a194dbd8cb6b6d5410739da313ff7",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 608.708,
+          "text": "Sistemnya"
+        },
+        {
+          "offsetMs": 708.708,
+          "durationMs": 326.083,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1034.791,
+          "durationMs": 358.666,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 1393.458,
+          "durationMs": 173.916,
+          "text": "y"
+        },
+        {
+          "offsetMs": 1567.375,
+          "durationMs": 532.625,
+          "text": "tujuh"
+        },
+        {
+          "offsetMs": 2382.625,
+          "durationMs": 250,
+          "text": "x"
+        },
+        {
+          "offsetMs": 2632.625,
+          "durationMs": 358.666,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 2991.291,
+          "durationMs": 195.666,
+          "text": "y"
+        },
+        {
+          "offsetMs": 3186.958,
+          "durationMs": 586.958,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 4495.666,
+          "durationMs": 597.791,
+          "text": "Jumlahkan"
+        },
+        {
+          "offsetMs": 5093.458,
+          "durationMs": 293.458,
+          "text": "kedua"
+        },
+        {
+          "offsetMs": 5386.958,
+          "durationMs": 771.75,
+          "text": "persamaan"
+        },
+        {
+          "offsetMs": 6452.166,
+          "durationMs": 315.208,
+          "text": "y-nya"
+        },
+        {
+          "offsetMs": 6767.375,
+          "durationMs": 413.041,
+          "text": "hilang"
+        },
+        {
+          "offsetMs": 7180.416,
+          "durationMs": 380.416,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 7560.875,
+          "durationMs": 293.458,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 7854.333,
+          "durationMs": 260.875,
+          "text": "x"
+        },
+        {
+          "offsetMs": 8115.208,
+          "durationMs": 576.083,
+          "text": "sepuluh"
+        }
+      ],
+      "t": 37296,
+      "slotMs": 12512
+    },
+    {
+      "id": "t22-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/c0f49e58d2286e55122a2c0c5b1f02079579ad05cc5a91b2c7f5f1175e459a51.mp3",
+      "durationMs": 4512,
+      "sha256": "54effe2cf4e864e7757a804a1feff1492481ecb63f17ad5f9950961b37fca4fc",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 358.708,
+          "text": "Jadi"
+        },
+        {
+          "offsetMs": 458.708,
+          "durationMs": 206.5,
+          "text": "x"
+        },
+        {
+          "offsetMs": 665.208,
+          "durationMs": 271.75,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 936.958,
+          "durationMs": 282.625,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 1219.583,
+          "durationMs": 478.25,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 1991.291,
+          "durationMs": 358.708,
+          "text": "lalu"
+        },
+        {
+          "offsetMs": 2350,
+          "durationMs": 184.791,
+          "text": "y"
+        },
+        {
+          "offsetMs": 2534.791,
+          "durationMs": 413.041,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 2947.833,
+          "durationMs": 369.541,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 3317.375,
+          "durationMs": 456.541,
+          "text": "dua"
+        }
+      ],
+      "t": 49808,
+      "slotMs": 11414
+    },
+    {
+      "id": "t22-nar-24",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/b12ba511ea17dff148daec3c1e9677270ca5b3a27c53934524a2b0f95b1629a8.mp3",
+      "durationMs": 6984,
+      "sha256": "ce7e309be62e4cbdd50a32a2b7907edebd9bd6432a7682671176f1d013a63bea",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 695.666,
+          "text": "Selesaikan"
+        },
+        {
+          "offsetMs": 2973.916,
+          "durationMs": 630.4159,
+          "text": "2x"
+        },
+        {
+          "offsetMs": 3767.375,
+          "durationMs": 206.541,
+          "text": "y"
+        },
+        {
+          "offsetMs": 3973.916,
+          "durationMs": 489.125,
+          "text": "9"
+        },
+        {
+          "offsetMs": 4463.041,
+          "durationMs": 217.375,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 4680.416,
+          "durationMs": 467.375,
+          "text": "x"
+        },
+        {
+          "offsetMs": 5408.708,
+          "durationMs": 206.5,
+          "text": "y"
+        },
+        {
+          "offsetMs": 5615.208,
+          "durationMs": 641.291,
+          "text": "3"
+        }
+      ],
+      "t": 61222,
+      "slotMs": 10020
+    },
+    {
+      "id": "t23-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/d10e0bbb615f78bd9738ea2c22d45bd06799e4973441ebadcc89e9b7bbc5fbaf.mp3",
+      "durationMs": 9048,
+      "sha256": "5d9cd3e4abba099823a2f3887e5edcb0c1160969958212019cfa3fd3ea5881e8",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 271.75,
+          "text": "Dari"
+        },
+        {
+          "offsetMs": 371.75,
+          "durationMs": 489.125,
+          "text": "persamaan"
+        },
+        {
+          "offsetMs": 860.875,
+          "durationMs": 586.958,
+          "text": "pertama"
+        },
+        {
+          "offsetMs": 1741.291,
+          "durationMs": 217.375,
+          "text": "y"
+        },
+        {
+          "offsetMs": 1958.708,
+          "durationMs": 369.541,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 2328.25,
+          "durationMs": 304.333,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 2632.625,
+          "durationMs": 336.958,
+          "text": "tujuh"
+        },
+        {
+          "offsetMs": 2969.583,
+          "durationMs": 304.333,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 3273.916,
+          "durationMs": 532.625,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3806.541,
+          "durationMs": 532.583,
+          "text": "Gantikan"
+        },
+        {
+          "offsetMs": 4339.125,
+          "durationMs": 76.083,
+          "text": "ke"
+        },
+        {
+          "offsetMs": 4415.208,
+          "durationMs": 478.25,
+          "text": "persamaan"
+        },
+        {
+          "offsetMs": 4893.458,
+          "durationMs": 336.958,
+          "text": "kedua"
+        },
+        {
+          "offsetMs": 5230.416,
+          "durationMs": 336.958,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 5567.375,
+          "durationMs": 282.625,
+          "text": "x"
+        },
+        {
+          "offsetMs": 5850,
+          "durationMs": 293.458,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 6143.458,
+          "durationMs": 304.333,
+          "text": "tujuh"
+        },
+        {
+          "offsetMs": 6447.833,
+          "durationMs": 271.75,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 6719.583,
+          "durationMs": 326.083,
+          "text": "x"
+        },
+        {
+          "offsetMs": 7045.666,
+          "durationMs": 358.666,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 7404.333,
+          "durationMs": 380.416,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 7784.791,
+          "durationMs": 521.75,
+          "text": "tiga"
+        }
+      ],
+      "t": 76142,
+      "slotMs": 14046
+    },
+    {
+      "id": "t23-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/2563351943eeae298c9b2780cf55e36de099f91d242f897fe4fc5e991128f30b.mp3",
+      "durationMs": 5160,
+      "sha256": "6a358cc48d5fe83bc3975e5939db8167919502f726c2f207f06cbd06b56f6313",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 760.875,
+          "text": "Sederhanakan"
+        },
+        {
+          "offsetMs": 860.875,
+          "durationMs": 358.708,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 1219.583,
+          "durationMs": 271.708,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 1491.291,
+          "durationMs": 271.75,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1763.041,
+          "durationMs": 304.333,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 2067.375,
+          "durationMs": 304.333,
+          "text": "tujuh"
+        },
+        {
+          "offsetMs": 2371.75,
+          "durationMs": 510.875,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 3154.333,
+          "durationMs": 380.416,
+          "text": "jadi"
+        },
+        {
+          "offsetMs": 3534.791,
+          "durationMs": 413.041,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3947.833,
+          "durationMs": 489.125,
+          "text": "lima"
+        }
+      ],
+      "t": 90188,
+      "slotMs": 12723
+    },
+    {
+      "id": "t23-nar-28",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/a0fe0ddd955df9f5574d5ff29cdf1a55c1d6277050d506bd48a50c8fac93318f.mp3",
+      "durationMs": 6552,
+      "sha256": "168f57368b23dd92cd9db5c5a4ccc74103fd35bb7e2b2373ae47a8482822825b",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 695.666,
+          "text": "Selesaikan"
+        },
+        {
+          "offsetMs": 2973.916,
+          "durationMs": 228.25,
+          "text": "y"
+        },
+        {
+          "offsetMs": 3202.166,
+          "durationMs": 641.2909,
+          "text": "2x"
+        },
+        {
+          "offsetMs": 3843.458,
+          "durationMs": 206.541,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 4050,
+          "durationMs": 434.791,
+          "text": "x"
+        },
+        {
+          "offsetMs": 4636.958,
+          "durationMs": 293.458,
+          "text": "y"
+        },
+        {
+          "offsetMs": 4930.416,
+          "durationMs": 891.333,
+          "text": "12"
+        }
+      ],
+      "t": 102911,
+      "slotMs": 9671
+    },
+    {
+      "id": "t24-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/7f26f22a62652676a3e45be1a536744f9b2aec969b0f73fd2f3ed41322b387b0.mp3",
+      "durationMs": 7416,
+      "sha256": "a69369d07dcbc3fe5e995e65f54089a6a08d6f9d1acaa43404454bac5ddcd596",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 413.041,
+          "text": "Gambar"
+        },
+        {
+          "offsetMs": 513.041,
+          "durationMs": 369.583,
+          "text": "garis"
+        },
+        {
+          "offsetMs": 882.625,
+          "durationMs": 108.666,
+          "text": "y"
+        },
+        {
+          "offsetMs": 991.291,
+          "durationMs": 391.291,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 1382.625,
+          "durationMs": 315.208,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 1697.833,
+          "durationMs": 358.708,
+          "text": "x"
+        },
+        {
+          "offsetMs": 2056.541,
+          "durationMs": 336.916,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 2393.458,
+          "durationMs": 510.875,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 3626.083,
+          "durationMs": 413.041,
+          "text": "Gambar"
+        },
+        {
+          "offsetMs": 4039.125,
+          "durationMs": 369.583,
+          "text": "garis"
+        },
+        {
+          "offsetMs": 4408.708,
+          "durationMs": 108.666,
+          "text": "y"
+        },
+        {
+          "offsetMs": 4517.375,
+          "durationMs": 358.708,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 4876.083,
+          "durationMs": 293.458,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 5169.583,
+          "durationMs": 217.375,
+          "text": "min"
+        },
+        {
+          "offsetMs": 5386.958,
+          "durationMs": 347.833,
+          "text": "x"
+        },
+        {
+          "offsetMs": 5734.791,
+          "durationMs": 326.083,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 6060.875,
+          "durationMs": 619.583,
+          "text": "sembilan"
+        }
+      ],
+      "t": 122482,
+      "slotMs": 11414
+    },
+    {
+      "id": "t24-nar-10",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/6af3bb3bda7c0bf72a30954569eaeb4489dc0d44829bd6ae15ef4fee8b1b723a.mp3",
+      "durationMs": 3744,
+      "sha256": "5d338ccb88b8bf9740f2d1bc63cd5ac1377eb2b688faf4ef857622029e66d566",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 554.333,
+          "text": "Keduanya"
+        },
+        {
+          "offsetMs": 654.333,
+          "durationMs": 434.791,
+          "text": "bertemu"
+        },
+        {
+          "offsetMs": 1089.125,
+          "durationMs": 152.166,
+          "text": "di"
+        },
+        {
+          "offsetMs": 1241.291,
+          "durationMs": 304.333,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1545.666,
+          "durationMs": 434.791,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 2230.416,
+          "durationMs": 206.541,
+          "text": "y"
+        },
+        {
+          "offsetMs": 2436.958,
+          "durationMs": 586.958,
+          "text": "lima"
+        }
+      ],
+      "t": 133896,
+      "slotMs": 6966
+    },
+    {
+      "id": "t24-nar-15",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/c6e64038a6449dd8db1b1d5b490d6022e0969ec9a8a96e30dceb0e21c21846dd.mp3",
+      "durationMs": 6408,
+      "sha256": "b3a286afc329ce7a7e3b4f0987e50d5f64b81bad41242e751fa22773a7d52d7b",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 206.541,
+          "text": "Di"
+        },
+        {
+          "offsetMs": 2484.791,
+          "durationMs": 358.666,
+          "text": "mana"
+        },
+        {
+          "offsetMs": 2843.458,
+          "durationMs": 228.25,
+          "text": "y"
+        },
+        {
+          "offsetMs": 3071.75,
+          "durationMs": 652.1659,
+          "text": "2x"
+        },
+        {
+          "offsetMs": 3723.916,
+          "durationMs": 217.375,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 3941.291,
+          "durationMs": 206.541,
+          "text": "y"
+        },
+        {
+          "offsetMs": 4147.833,
+          "durationMs": 434.791,
+          "text": "x"
+        },
+        {
+          "offsetMs": 4702.166,
+          "durationMs": 304.333,
+          "text": "6"
+        },
+        {
+          "offsetMs": 5006.541,
+          "durationMs": 663.041,
+          "text": "berpotongan"
+        }
+      ],
+      "t": 140862,
+      "slotMs": 10719
+    },
+    {
+      "id": "t25-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/7da1bfdc6dc1f1d6154d0f25e37e634bd7e03734e4d2c72d906a22fad5b6415f.mp3",
+      "durationMs": 6144,
+      "sha256": "1e31c6909db3fb8dd20524d30cb0955e3fd016cefbd7be9f2128361a4efd76fe",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 315.208,
+          "text": "Cari"
+        },
+        {
+          "offsetMs": 415.208,
+          "durationMs": 217.375,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 632.625,
+          "durationMs": 456.5,
+          "text": "bilangan"
+        },
+        {
+          "offsetMs": 1089.125,
+          "durationMs": 119.583,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 1208.708,
+          "durationMs": 445.625,
+          "text": "jumlahnya"
+        },
+        {
+          "offsetMs": 1654.333,
+          "durationMs": 467.375,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 2121.75,
+          "durationMs": 239.125,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 2360.875,
+          "durationMs": 434.791,
+          "text": "kalinya"
+        },
+        {
+          "offsetMs": 2795.666,
+          "durationMs": 500,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 4017.375,
+          "durationMs": 347.833,
+          "text": "Dua"
+        },
+        {
+          "offsetMs": 4365.208,
+          "durationMs": 250,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 4615.208,
+          "durationMs": 358.708,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 4973.916,
+          "durationMs": 434.791,
+          "text": "cocok"
+        }
+      ],
+      "t": 156481,
+      "slotMs": 9506
+    },
+    {
+      "id": "t25-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/ea4d068bf4bb156e07c24f7b0d1aaa6771504a25c85a305965845f0c556cd61d.mp3",
+      "durationMs": 4296,
+      "sha256": "5eb84e93ac3f0b257e8e7bf7b06504e85a1a4a8bc1300880182da0ad413c2dd3",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 423.916,
+          "text": "Jadi"
+        },
+        {
+          "offsetMs": 523.916,
+          "durationMs": 521.75,
+          "text": "faktornya"
+        },
+        {
+          "offsetMs": 1045.666,
+          "durationMs": 380.416,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1426.083,
+          "durationMs": 347.833,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 1773.916,
+          "durationMs": 239.125,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 2013.041,
+          "durationMs": 260.875,
+          "text": "kali"
+        },
+        {
+          "offsetMs": 2273.916,
+          "durationMs": 380.416,
+          "text": "x"
+        },
+        {
+          "offsetMs": 2654.333,
+          "durationMs": 380.416,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 3034.791,
+          "durationMs": 532.625,
+          "text": "tiga"
+        }
+      ],
+      "t": 165987,
+      "slotMs": 13192
+    },
+    {
+      "id": "t25-nar-22",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/ca01efbb24fc55eb9d1048557f6467a3c20a5b6a46884ce5fc6825ed2de9fcb2.mp3",
+      "durationMs": 6528,
+      "sha256": "880c5e45980030098a3d7a6afc8f6d9be125ddb29422ac01f1350fac7a578cb6",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 663.041,
+          "text": "Faktorkan"
+        },
+        {
+          "offsetMs": 2941.291,
+          "durationMs": 282.625,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3223.916,
+          "durationMs": 434.791,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 3963.041,
+          "durationMs": 782.6249,
+          "text": "7x"
+        },
+        {
+          "offsetMs": 4876.083,
+          "durationMs": 902.208,
+          "text": "12"
+        }
+      ],
+      "t": 179179,
+      "slotMs": 9321
+    },
+    {
+      "id": "t26-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/96ff02efb94465dba488facc2ab0dabfe076db60553ed97db0bf2577afb49816.mp3",
+      "durationMs": 8664,
+      "sha256": "767e1b7d894ed8e5a3a60004327bd42c4547cf1601c740c2c12599d59fd97fe5",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 152.166,
+          "text": "a"
+        },
+        {
+          "offsetMs": 252.166,
+          "durationMs": 293.458,
+          "text": "kali"
+        },
+        {
+          "offsetMs": 545.666,
+          "durationMs": 195.625,
+          "text": "c"
+        },
+        {
+          "offsetMs": 741.291,
+          "durationMs": 358.708,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 1100,
+          "durationMs": 282.625,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 1382.625,
+          "durationMs": 467.375,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 2143.458,
+          "durationMs": 228.25,
+          "text": "cari"
+        },
+        {
+          "offsetMs": 2371.75,
+          "durationMs": 500,
+          "text": "pasangan"
+        },
+        {
+          "offsetMs": 2871.75,
+          "durationMs": 173.916,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 3045.666,
+          "durationMs": 521.708,
+          "text": "jumlahnya"
+        },
+        {
+          "offsetMs": 3567.375,
+          "durationMs": 565.208,
+          "text": "tujuh"
+        },
+        {
+          "offsetMs": 4854.333,
+          "durationMs": 532.625,
+          "text": "Satu"
+        },
+        {
+          "offsetMs": 5386.958,
+          "durationMs": 184.791,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 5571.75,
+          "durationMs": 336.958,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 5908.708,
+          "durationMs": 391.291,
+          "text": "cocok"
+        },
+        {
+          "offsetMs": 6539.125,
+          "durationMs": 369.583,
+          "text": "pecah"
+        },
+        {
+          "offsetMs": 6908.708,
+          "durationMs": 336.958,
+          "text": "suku"
+        },
+        {
+          "offsetMs": 7245.666,
+          "durationMs": 673.916,
+          "text": "tengahnya"
+        }
+      ],
+      "t": 193400,
+      "slotMs": 11739
+    },
+    {
+      "id": "t26-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/239f3322dfc9ff0d1d08e9805ec34be2f74cfc5a0eaa4df118f0147044db49b1.mp3",
+      "durationMs": 4656,
+      "sha256": "ffbd474b0c5b3e59a5f6afb302094354895bf49d5287f96a63573633457202d9",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Kelompokkan"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 358.666,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 1078.25,
+          "durationMs": 260.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 1339.125,
+          "durationMs": 347.833,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1686.958,
+          "durationMs": 326.083,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 2013.041,
+          "durationMs": 326.083,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 2339.125,
+          "durationMs": 260.875,
+          "text": "kali"
+        },
+        {
+          "offsetMs": 2600,
+          "durationMs": 380.416,
+          "text": "x"
+        },
+        {
+          "offsetMs": 2980.416,
+          "durationMs": 391.291,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 3371.75,
+          "durationMs": 543.458,
+          "text": "tiga"
+        }
+      ],
+      "t": 205139,
+      "slotMs": 12566
+    },
+    {
+      "id": "t26-nar-20",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/38a4a21f2d124f869b5ffd04f2aefdd75e19c1f20c5dee01863761f6d2c90dc6.mp3",
+      "durationMs": 6384,
+      "sha256": "0d3d4b47161733ef8e67e4acf2092c44d786da8d23fb47fbef8a87e65b5a0bb1",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 695.666,
+          "text": "Faktorkan"
+        },
+        {
+          "offsetMs": 2973.916,
+          "durationMs": 586.9589,
+          "text": "3x"
+        },
+        {
+          "offsetMs": 3560.875,
+          "durationMs": 489.125,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4136.958,
+          "durationMs": 836.958,
+          "text": "11x"
+        },
+        {
+          "offsetMs": 5126.083,
+          "durationMs": 510.875,
+          "text": "6"
+        }
+      ],
+      "t": 217705,
+      "slotMs": 9438
+    },
+    {
+      "id": "t27-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/f21862d0af8a1ec9a81a4e26d59faaf0c5b7fb9cf1790522623f317402a5dba4.mp3",
+      "durationMs": 7920,
+      "sha256": "d6c5b6257cc425d87353766d45876606fff821d708811694c967a6378564ba42",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 586.958,
+          "text": "Setengah"
+        },
+        {
+          "offsetMs": 686.958,
+          "durationMs": 217.375,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 904.333,
+          "durationMs": 369.583,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 1273.916,
+          "durationMs": 380.416,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 1654.333,
+          "durationMs": 532.625,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 2480.416,
+          "durationMs": 630.416,
+          "text": "kuadratnya"
+        },
+        {
+          "offsetMs": 3110.875,
+          "durationMs": 717.375,
+          "text": "sembilan"
+        },
+        {
+          "offsetMs": 4550,
+          "durationMs": 467.375,
+          "text": "Tambah"
+        },
+        {
+          "offsetMs": 5017.375,
+          "durationMs": 206.541,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 5223.916,
+          "durationMs": 271.75,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 5495.666,
+          "durationMs": 445.625,
+          "text": "sembilan"
+        },
+        {
+          "offsetMs": 5941.291,
+          "durationMs": 380.416,
+          "text": "untuk"
+        },
+        {
+          "offsetMs": 6321.75,
+          "durationMs": 423.916,
+          "text": "membentuk"
+        },
+        {
+          "offsetMs": 6745.666,
+          "durationMs": 445.666,
+          "text": "kuadrat"
+        }
+      ],
+      "t": 232043,
+      "slotMs": 11802
+    },
+    {
+      "id": "t27-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/b2ec38e910ab1cfb9d5cb134ca52487edf78e32eaef66633e135e7d1d1f2c8aa.mp3",
+      "durationMs": 3648,
+      "sha256": "743189b4236f9e74bbc979c575dff2088aff017d4de74cb73ebfb6fd2e0b8c76",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 586.958,
+          "text": "Hasilnya"
+        },
+        {
+          "offsetMs": 686.958,
+          "durationMs": 380.416,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1067.375,
+          "durationMs": 336.958,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 1404.333,
+          "durationMs": 315.208,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 1719.583,
+          "durationMs": 434.75,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 2154.333,
+          "durationMs": 369.583,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 2523.916,
+          "durationMs": 391.291,
+          "text": "empat"
+        }
+      ],
+      "t": 243845,
+      "slotMs": 11193
+    },
+    {
+      "id": "t27-nar-20",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/4e8bd7d7e2b84f60d8901bde71b517bd01674cfb505ba65400ec51fb0f1bb5f4.mp3",
+      "durationMs": 5976,
+      "sha256": "69fa5f73b9132bbe3d4d42eeedc3c88fe33d8ef283e6641030b9c36f05859eec",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 500,
+          "text": "Lengkapi"
+        },
+        {
+          "offsetMs": 2778.25,
+          "durationMs": 271.75,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3050,
+          "durationMs": 434.791,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 3778.25,
+          "durationMs": 728.2909,
+          "text": "4x"
+        },
+        {
+          "offsetMs": 4658.708,
+          "durationMs": 586.958,
+          "text": "1"
+        }
+      ],
+      "t": 255038,
+      "slotMs": 9089
+    },
+    {
+      "id": "t28-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/442d7150a0ea12896fc35f3c706885056f2d4385b8e99b69beb8fe648c205aea.mp3",
+      "durationMs": 9312,
+      "sha256": "a8eee8c42823bae06c9c0c9071f008c6b8674e506eef1478458a5da1ef444a07",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 152.166,
+          "text": "a"
+        },
+        {
+          "offsetMs": 252.166,
+          "durationMs": 565.208,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 1132.625,
+          "durationMs": 260.833,
+          "text": "b"
+        },
+        {
+          "offsetMs": 1393.458,
+          "durationMs": 217.375,
+          "text": "min"
+        },
+        {
+          "offsetMs": 1610.875,
+          "durationMs": 532.625,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 2382.625,
+          "durationMs": 206.5,
+          "text": "c"
+        },
+        {
+          "offsetMs": 2589.125,
+          "durationMs": 489.125,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 3360.875,
+          "durationMs": 826.083,
+          "text": "diskriminannya"
+        },
+        {
+          "offsetMs": 4186.958,
+          "durationMs": 586.958,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 5495.666,
+          "durationMs": 532.583,
+          "text": "Akarnya"
+        },
+        {
+          "offsetMs": 6028.25,
+          "durationMs": 358.708,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 6386.958,
+          "durationMs": 315.208,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 6702.166,
+          "durationMs": 369.583,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 7071.75,
+          "durationMs": 163.041,
+          "text": "per"
+        },
+        {
+          "offsetMs": 7234.791,
+          "durationMs": 510.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 7984.791,
+          "durationMs": 597.833,
+          "text": "tiga"
+        }
+      ],
+      "t": 269027,
+      "slotMs": 11560
+    },
+    {
+      "id": "t28-nar-7",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/3bb9748b2353cec512549616ca134a7584308fdaf2984b2b166aa5fd3b165ddb.mp3",
+      "durationMs": 3456,
+      "sha256": "9787b06d8f58941d78b0f950a93ba44d544d360b0389ad7b044c6a4938a2c9c2",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 271.75,
+          "text": "Dan"
+        },
+        {
+          "offsetMs": 371.75,
+          "durationMs": 304.333,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 676.083,
+          "durationMs": 315.208,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 991.291,
+          "durationMs": 326.083,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 1317.375,
+          "durationMs": 152.166,
+          "text": "per"
+        },
+        {
+          "offsetMs": 1469.583,
+          "durationMs": 500,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 2186.958,
+          "durationMs": 532.625,
+          "text": "dua"
+        }
+      ],
+      "t": 280587,
+      "slotMs": 12134
+    },
+    {
+      "id": "t28-nar-22",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/888ed91120e6d7c6358b29c855d649b9fdf14faf317617dcc9c0a72adbfcc4e4.mp3",
+      "durationMs": 6816,
+      "sha256": "fa6eb544b1f6106a2e2064c9785dff098033859022587cdb02ff5f9752c10796",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2278.25,
+          "durationMs": 750,
+          "text": "Selesaikan"
+        },
+        {
+          "offsetMs": 3028.25,
+          "durationMs": 521.75,
+          "text": "2x"
+        },
+        {
+          "offsetMs": 3550,
+          "durationMs": 434.791,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4289.125,
+          "durationMs": 782.6239,
+          "text": "7x"
+        },
+        {
+          "offsetMs": 5213.041,
+          "durationMs": 445.666,
+          "text": "3"
+        },
+        {
+          "offsetMs": 5658.708,
+          "durationMs": 413.041,
+          "text": "0"
+        }
+      ],
+      "t": 292721,
+      "slotMs": 9904
+    },
+    {
+      "id": "t29-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/60f057ee5d8b960efba82ae0add5d21acc2731414ef0b8a15d4048cadf1c5b50.mp3",
+      "durationMs": 7104,
+      "sha256": "36d5a51b76b1ef87b352fe182eba168eb99d902ab85856d98e8a0e330f965888",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 728.25,
+          "text": "Diskriminan"
+        },
+        {
+          "offsetMs": 828.25,
+          "durationMs": 423.916,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 1252.166,
+          "durationMs": 206.541,
+          "text": "b"
+        },
+        {
+          "offsetMs": 1458.708,
+          "durationMs": 402.166,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 1860.875,
+          "durationMs": 336.958,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 2197.833,
+          "durationMs": 326.083,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 2523.916,
+          "durationMs": 184.791,
+          "text": "a"
+        },
+        {
+          "offsetMs": 2708.708,
+          "durationMs": 315.208,
+          "text": "c"
+        },
+        {
+          "offsetMs": 3023.916,
+          "durationMs": 326.083,
+          "text": "Min"
+        },
+        {
+          "offsetMs": 3350,
+          "durationMs": 304.333,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 3654.333,
+          "durationMs": 358.708,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4013.041,
+          "durationMs": 347.833,
+          "text": "kurang"
+        },
+        {
+          "offsetMs": 4360.875,
+          "durationMs": 217.375,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 4578.25,
+          "durationMs": 228.25,
+          "text": "puluh"
+        },
+        {
+          "offsetMs": 4806.541,
+          "durationMs": 326.083,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 5132.625,
+          "durationMs": 380.416,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 5513.041,
+          "durationMs": 358.708,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 5871.75,
+          "durationMs": 500,
+          "text": "satu"
+        }
+      ],
+      "t": 307325,
+      "slotMs": 12387
+    },
+    {
+      "id": "t29-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/ea02f25e9267bdf0ca3e62a565f76c1f013499ff80aca7dc923ba0a8628ef9f1.mp3",
+      "durationMs": 4032,
+      "sha256": "9703ec760e315120dff21fe581c5b21c73142d6074311e83803e51fefc255fbb",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 750,
+          "text": "Positif"
+        },
+        {
+          "offsetMs": 1186.958,
+          "durationMs": 336.958,
+          "text": "jadi"
+        },
+        {
+          "offsetMs": 1523.916,
+          "durationMs": 260.875,
+          "text": "ada"
+        },
+        {
+          "offsetMs": 1784.791,
+          "durationMs": 293.458,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 2078.25,
+          "durationMs": 380.416,
+          "text": "akar"
+        },
+        {
+          "offsetMs": 2458.708,
+          "durationMs": 206.5,
+          "text": "real"
+        },
+        {
+          "offsetMs": 2665.208,
+          "durationMs": 641.291,
+          "text": "berbeda"
+        }
+      ],
+      "t": 319712,
+      "slotMs": 11452
+    },
+    {
+      "id": "t29-nar-14",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/8f8890e1a416ecbca3d58243b64339394c02418e98e6d864308b0925a606b457.mp3",
+      "durationMs": 6336,
+      "sha256": "b73d6738533ba31e1c45fbfd39be2f2f8126fe271c52c476bdc2f1767fce8f63",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 847.833,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2289.125,
+          "durationMs": 380.416,
+          "text": "Berapa"
+        },
+        {
+          "offsetMs": 2669.583,
+          "durationMs": 358.666,
+          "text": "jenis"
+        },
+        {
+          "offsetMs": 3028.25,
+          "durationMs": 369.583,
+          "text": "akar"
+        },
+        {
+          "offsetMs": 3397.833,
+          "durationMs": 282.583,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3680.416,
+          "durationMs": 423.916,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4180.416,
+          "durationMs": 663.0409,
+          "text": "2x"
+        },
+        {
+          "offsetMs": 4952.166,
+          "durationMs": 271.75,
+          "text": "5"
+        },
+        {
+          "offsetMs": 5223.916,
+          "durationMs": 369.583,
+          "text": "0"
+        }
+      ],
+      "t": 331164,
+      "slotMs": 10602
+    },
+    {
+      "id": "t30-nar-2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/1acca29033265e212e85b733905b0b66ad7e0960cea50c91abde58ab6b6f385f.mp3",
+      "durationMs": 6216,
+      "sha256": "f9d943e9b812ccb7f874a9cba16d297e32d4727b64c1b93b075e0b873d15ece4",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 413.041,
+          "text": "Jumlah"
+        },
+        {
+          "offsetMs": 513.041,
+          "durationMs": 358.708,
+          "text": "kedua"
+        },
+        {
+          "offsetMs": 871.75,
+          "durationMs": 293.458,
+          "text": "akar"
+        },
+        {
+          "offsetMs": 1165.208,
+          "durationMs": 423.916,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 1589.125,
+          "durationMs": 380.416,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 1969.583,
+          "durationMs": 500,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 3191.291,
+          "durationMs": 445.666,
+          "text": "Hasil"
+        },
+        {
+          "offsetMs": 3636.958,
+          "durationMs": 478.25,
+          "text": "kalinya"
+        },
+        {
+          "offsetMs": 4115.208,
+          "durationMs": 445.666,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 4560.875,
+          "durationMs": 369.541,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 4930.416,
+          "durationMs": 543.458,
+          "text": "enam"
+        }
+      ],
+      "t": 346466,
+      "slotMs": 9699
+    },
+    {
+      "id": "t30-nar-5",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/e5da0203a097f2cad2259f31167e56c0d85d12f6c6a5bd4a83db5b916c478631.mp3",
+      "durationMs": 3624,
+      "sha256": "51c5dff43e09e09c893c3c9e00098dc5cd632975f93c3fc572efb266e962b8aa",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 413.041,
+          "text": "Tiga"
+        },
+        {
+          "offsetMs": 513.041,
+          "durationMs": 217.375,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 730.416,
+          "durationMs": 217.375,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 947.833,
+          "durationMs": 456.541,
+          "text": "cocok"
+        },
+        {
+          "offsetMs": 1686.958,
+          "durationMs": 456.5,
+          "text": "itulah"
+        },
+        {
+          "offsetMs": 2143.458,
+          "durationMs": 750,
+          "text": "akarnya"
+        }
+      ],
+      "t": 356165,
+      "slotMs": 8755
+    },
+    {
+      "id": "t30-nar-12",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/f57cda56e0b6a7d74efa3b56562bb239b9086d533e9af2324e8ff6d58e404e11.mp3",
+      "durationMs": 6792,
+      "sha256": "459eb8c0120ff363e5d0174f3d5e1b5aca11c90f01e50623c21887ee2fd401ee",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 847.833,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2289.125,
+          "durationMs": 358.708,
+          "text": "Tebak"
+        },
+        {
+          "offsetMs": 2647.833,
+          "durationMs": 347.833,
+          "text": "akar"
+        },
+        {
+          "offsetMs": 2995.666,
+          "durationMs": 304.333,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3300,
+          "durationMs": 434.791,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4017.375,
+          "durationMs": 880.457,
+          "text": "9x"
+        },
+        {
+          "offsetMs": 5039.125,
+          "durationMs": 597.833,
+          "text": "20"
+        },
+        {
+          "offsetMs": 5636.958,
+          "durationMs": 413.041,
+          "text": "0"
+        }
+      ],
+      "t": 364920,
+      "slotMs": 9904
+    }
+  ]
+}

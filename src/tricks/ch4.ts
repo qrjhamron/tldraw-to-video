@@ -46,7 +46,7 @@ export const CHAPTER_4: Trick[] = [
       { source: "1+3+5+7+9 = 25", reason: "Contoh: lima ganjil pertama", rule: "given" },
       { source: "5^2 = 25", reason: "Sama dengan 5 kuadrat", rule: "persegi" },
     ],
-    diagram: { kind: "areaModel", params: { x: 0, y: 0, w: 250, h: 250, rows: 5, cols: 5 } },
+    diagram: { kind: "areaModel", params: { x: 80, y: 150, w: 250, h: 250, rows: 5, cols: 5 } },
   },
   {
     id: "t33",
@@ -186,7 +186,15 @@ export const CHAPTER_4: Trick[] = [
       { source: "9 + 16 = 25", reason: "Hitung kuadratnya", rule: "kuadrat" },
     ],
     lines: ["tripel: 5-12-13, 8-15-17, 7-24-25"],
-    diagram: { kind: "rightTriangle", params: { x: 0, y: 0, legX: 240, legY: 180 } },
+    diagram: {
+      kind: "rightTriangle",
+      params: { x: 80, y: 420, legX: 240, legY: 180 },
+      labels: [
+        { text: "4", x: 190, y: 428, height: 30, color: "blue" },
+        { text: "3", x: 52, y: 310, height: 30, color: "red" },
+        { text: "5", x: 205, y: 300, height: 30, color: "green" },
+      ],
+    },
   },
   {
     id: "t39",
@@ -207,7 +215,7 @@ export const CHAPTER_4: Trick[] = [
       { source: "2 = 2", reason: "Keduanya bernilai 2", rule: "bagi" },
     ],
     lines: ["tinggi/bayang sama untuk semua"],
-    diagram: { kind: "triangle", params: { a: [0, 160], b: [240, 160], c: [240, 0] } },
+    diagram: { kind: "triangle", params: { a: [80, 400], b: [320, 400], c: [320, 240] } },
   },
   {
     id: "t40",
@@ -227,6 +235,14 @@ export const CHAPTER_4: Trick[] = [
       { source: "(5-2)^2 + (7-3)^2 = 25", reason: "Jumlah kuadrat selisih", rule: "given" },
       { source: "sqrt((5-2)^2 + (7-3)^2) = 5", reason: "Akar dari jumlah itu", rule: "jarak" },
     ],
-    diagram: { kind: "rightTriangle", params: { x: 0, y: 0, legX: 240, legY: 180 } },
+    diagram: {
+      kind: "rightTriangle",
+      params: { x: 80, y: 420, legX: 240, legY: 180 },
+      labels: [
+        { text: "4", x: 190, y: 428, height: 30, color: "blue" },
+        { text: "3", x: 52, y: 310, height: 30, color: "red" },
+        { text: "5", x: 205, y: 300, height: 30, color: "green" },
+      ],
+    },
   },
 ];

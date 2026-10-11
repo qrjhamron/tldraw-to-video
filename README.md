@@ -20,6 +20,17 @@ The flagship Indonesian lesson, **Kalkulus: Matematika untuk Memahami Perubahan*
 
 Both flagship videos are 1920×1080, 30 FPS H.264, **9:37.167** long. The narrated version contains real Indonesian TTS; the silent version has no audio track. Media checks, 40 unit tests and browser suites pass; representative decoded frames were visually inspected.
 
+## 50 Trik Hitung Cepat Matematika (4.0 flagship)
+
+The autonomous directing stack produces **50 Trik Hitung Cepat Matematika — Dari Akar sampai Integral**: five individually renderable chapters of ten verified techniques each, a short opening, a 60–90s showcase, and a combined full-length flagship, all with Indonesian `id-ID-GadisNeural` narration warped to measured audio.
+
+- `output/tricks/showcase.mp4` — narrated showcase (82.8s, 1920×1080, 30 FPS)
+- `output/tricks/ch1.mp4` … `ch5.mp4` — narrated chapters (~6 min each)
+- `output/tricks/full.mp4` — combined flagship with chapter markers (`output/tricks/full-manifest.json`)
+- `src/tricks/` — technique catalog; every worked example is machine-verified (no `invalid` step) and every shortcut is tested against exact arithmetic (`tests/tricks.test.ts`, 112 tests)
+
+Pipeline: `npx tsx scripts/compile-tricks.ts` (assemble + static QA) → `scripts/narrate-tricks.ts` (TTS + warp) → `scripts/export-tricks.ts` (MP4 + mux). Preview any lesson with `render_lesson_preview` (MCP) or `scripts/render-preview.ts`. New capabilities: semantic math AST with verified transforms, seven-pattern scene director with measured layout, narration director with math reading rules, and 16 new MCP tools — see [architecture](docs/ARCHITECTURE.md), [lesson authoring](docs/LESSON_AUTHORING.md), and [MCP tools](docs/MCP_TOOLS.md).
+
 ## Run
 
 Node 22+, Python 3.10+ only for optional TTS, FFmpeg/FFprobe, Chromium:
@@ -73,7 +84,7 @@ npm run verify:media      # original media verification
 - [Algebra example](examples/algebra.lesson.json)
 - [Legacy implementation reference](docs/LEGACY.md)
 
-Core modules: `engine` (recorder/replay), `handwriting` (seeded ordered centerlines, structured math layout, honest font mode), `assets` (registry, provenance, sanitization), `math` (analytic models and projected geometry), `story` (typed content/compiler/camera/themes), `audio` (duration validation and time warp), `editing` (materialized clips and document diffs), `mcp` (tool implementations). Rendering has no calculus-specific logic. Strict TypeScript, a pinned lockfile, Node tests and real-browser CI checks support reproducibility.
+Core modules: `engine` (recorder/replay), `handwriting` (seeded ordered centerlines, structured math layout, honest font mode), `assets` (registry, provenance, sanitization), `math` (semantic AST, verified transforms, analytic models, projected geometry), `story` (typed content/compiler/camera/themes), `director` (scene plans, measured layout, static QA), `tricks` (50-technique catalog + assembly), `audio` (TTS, math speech rules, duration warp), `editing` (materialized clips and document diffs), `mcp` (tool implementations). Rendering has no lesson-specific logic. Strict TypeScript, a pinned lockfile, Node tests and real-browser CI checks support reproducibility.
 
 ## Scope and limitations
 

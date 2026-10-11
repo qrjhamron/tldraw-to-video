@@ -33,3 +33,31 @@ Compile with `window.studio.compile(lesson)` in the browser or import JSON. The 
 `write.handwritingStyle` selects `title`, `heading`, `explanation`, `annotation` or `math` explicitly; `write.handwritingFont` selects `stroke` (default) or `Patrick Hand`/`Kalam`/`Caveat` font mode. Otherwise the compiler selects a profile from expression structure, height and notation. Stroke mode uses authored pen-centerline glyphs with seeded variation, pressure and stroke timing; unsupported glyphs are errors, never silent text substitution — provide a supported symbol or extend `src/handwriting/glyphs.ts`. Font mode renders honestly labeled native text shapes (single-line text only; structured math stays in stroke mode). See [the handwriting audit and comparison](HANDWRITING.md) for construction and visual verification.
 
 A `draw` action can also supply `strokes: InkPath[]` to retain existing native point pressure and weight (set `points: []` when using it). This is used by the comparison fixture to preserve the previous engine's geometry. Ordinary coordinate-only diagram actions continue to use `points`.
+
+## Scene director and trick catalog (4.0)
+
+For long-form lessons, author a `LessonPlan` (`src/director/plan.ts`) instead
+of raw actions: objectives, scenes with a documented pedagogical purpose, one
+of seven visual patterns (`derivation`, `compare`, `graph`, `diagram`,
+`bars`, `factor`, `ask`), beats with narration + equations + lines, an
+optional semantic palette, and optional `graph`/`diagram` specs. Equation
+sources use the strict parser (`2x^2 + 3(x+1) = 14`, `sqrt(144)`,
+`log(100, 10)`); `^` in equations builds real superscripts, while free lines
+must stay within the glyph set (no `^` — write "kuadrat").
+
+`directScene` lowers a scene deterministically: measured word-wrap and
+equation shrink-to-fit keep every mark inside the 1640×920 safe frame,
+adaptive heights fit tall scenes, reason annotations sit beside their
+equations, and `budgetMs` compresses scenes that must fit a slot (the
+60–90s showcase budgets each scene to ~20s). Layout QA reports overlaps,
+clipping, and contrast as warnings; `run_visual_qa` fails on errors.
+
+The 50-trick flagship (`src/tricks/ch1..ch5.ts`) shows the full pipeline:
+each trick carries a verified worked example (every consecutive pair checks
+`equivalent`/`conditional`/`implication`/`approximation`/`heuristic`, never
+`invalid`), numeric shortcut checks against exact arithmetic, Indonesian
+narration, and a visual strategy. `scripts/compile-tricks.ts` assembles the
+opening, five chapters, and showcase; `scripts/narrate-tricks.ts`
+synthesizes `id-ID-GadisNeural` audio and warps to measured durations;
+`scripts/export-tricks.ts` renders MP4 and muxes narration. Run
+`npx tsx --test tests/tricks.test.ts` to revalidate all 50 techniques.

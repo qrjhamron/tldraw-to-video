@@ -5,6 +5,9 @@ import { validateMathSteps } from "../src/mcp/math-tools";
 import { verifyTrick } from "../src/math/verify";
 import { validateScenePlan } from "../src/director/plan";
 import { directScene } from "../src/director/templates";
+import { trickChapter } from "../src/tricks/assemble";
+import { validateLesson } from "../src/story/types";
+import { runVisualQa } from "../src/mcp/director-tools";
 
 test("catalog holds 50 distinct tricks in 5 chapters of 10", () => {
   assert.equal(ALL_TRICKS.length, 50);
@@ -43,5 +46,23 @@ for (const t of ALL_TRICKS) {
     const d = directScene(scene, 11);
     assert.ok(d.actions.length > 0);
     assert.ok(d.durationMs > 0);
+  });
+
+  test(`${t.id} scene has no overlapping marks`, () => {
+    const { chapter } = trickChapter(t, 0, 0, 11);
+    const lesson = validateLesson({
+      format: "stroke-lesson",
+      version: 1,
+      id: `qa-${t.id}`,
+      title: t.title,
+      language: "id",
+      seed: 11,
+      duration: chapter.duration,
+      canvasTheme: "whiteboard",
+      chapters: [chapter],
+    });
+    const qa = runVisualQa({ lesson });
+    assert.deepEqual(qa.errors, []);
+    assert.deepEqual(qa.warnings.filter((w) => w.includes("overlap")), []);
   });
 }

@@ -23,3 +23,33 @@ Limitations: whole-shape native erasure, finite SDK zoom bounds, polynomial/sine
 The flagship draw-only fast path uses the public `ShapeUtil.toSvg` method and `EditorProvider`, serializing the SDK's own pressure-aware renderer with React's static SVG serializer. This avoids mounting a second reactive export tree on every frame. Immutable fragments are cached by native record identity and theme; transforms and opacity come from the editor. Only unfilled top-level native draw shapes use this path. Other documents retain generic `Editor.getSvgString`. The browser QA compares rasterized results against the official generic exporter. This is an export adapter around the SDK renderer, not a custom freehand algorithm. Active strokes are regenerated from actual partial point records each frame; completed-stroke caching does not cache or mask whole words.
 
 Offline rendering uses the supported `Canvas` component override to suppress the interactive React canvas tree while retaining the real Editor and native shape utilities. The normal application keeps the SDK canvas. Theme/option/component objects are stable references; recreating them can reinitialize the editor. A browser seek-equivalence test exposed this lifecycle bug during development and verifies the fix. Generated z-order indices are explicitly assigned deterministic valid fractional keys instead of relying on the SDK's jittered default index generation.
+
+## Autonomous directing stack (4.0)
+
+`math/ast` + `math/transform` add a semantic expression AST (stable term
+ids, strict parser, structural expand/factor/simplify/substitute/balance/
+solve/complete-square/cancel) and `math/verify` classifies every rewrite by
+differential numeric testing over a deterministic sample grid:
+`equivalent`, `conditional` (domain change), `implication` (one-way rules
+such as squaring), `approximation`, `heuristic` (shortcuts valid only under
+stated conditions), or `invalid`. `verifyTrick` checks mental-math shortcuts
+against exact arithmetic on representative and edge cases. Rendering lowers
+the AST to colored `MathExpr`, preserving per-node ink.
+
+`director/plan` defines `LessonPlan`/`ScenePlan`/`Beat` (purpose, pattern,
+palette, narration, equations, lines, graph/diagram specs, budget);
+`director/templates` lowers scenes to timed actions with measured layout
+(word-wrap, equation shrink-to-fit, adaptive heights, reason annotations,
+per-pattern composition, budget scaling); `director/layout` measures real
+text/equation bounds, checks ink contrast per theme, and reserves regions;
+`director/inspect` statically reports overlap/clipping/contrast issues.
+
+`audio/speech` holds Indonesian math reading rules (`x²` → "x kuadrat",
+`√144`, `2³`, `∫ 2x dx`, `SPLDV`) and measured-vs-estimated cue alignment;
+`audio/edge` is the reusable Edge TTS provider (`id-ID-GadisNeural`).
+`tricks/` is the 50-technique flagship catalog plus chapter/showcase
+assembly; `scripts/compile-tricks.ts`, `narrate-tricks.ts`, and
+`export-tricks.ts` run the full pipeline from catalog to narrated MP4.
+`src/mcp/math-tools.ts` + `director-tools.ts` expose all of this over MCP
+(see [MCP tools](MCP_TOOLS.md)); `scripts/render-preview.ts` renders
+deterministic preview frames through headless Chromium for visual QA.

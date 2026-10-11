@@ -1,0 +1,355 @@
+{
+  "lessons": [
+    {
+      "id": "trik-opening",
+      "file": "output/tricks/opening.lesson.json",
+      "durationMs": 24000
+    },
+    {
+      "id": "trik-1",
+      "file": "output/tricks/ch1.lesson.json",
+      "durationMs": 407559,
+      "scenes": [
+        {
+          "id": "t01",
+          "title": "Kali 11 bilangan dua digit",
+          "durationMs": 40755
+        },
+        {
+          "id": "t02",
+          "title": "Kali bilangan dekat 100",
+          "durationMs": 42561
+        },
+        {
+          "id": "t03",
+          "title": "Kuadrat bilangan berakhiran 5",
+          "durationMs": 38737
+        },
+        {
+          "id": "t04",
+          "title": "Kuadrat bilangan dekat 100",
+          "durationMs": 39266
+        },
+        {
+          "id": "t05",
+          "title": "Selisih dua kuadrat",
+          "durationMs": 44491
+        },
+        {
+          "id": "t06",
+          "title": "Kali 25 lewat bagi 4",
+          "durationMs": 34968
+        },
+        {
+          "id": "t07",
+          "title": "Kali 125 lewat bagi 8",
+          "durationMs": 35411
+        },
+        {
+          "id": "t08",
+          "title": "Kali cepat dengan distributif",
+          "durationMs": 39330
+        },
+        {
+          "id": "t09",
+          "title": "Persen dari 10, 5, dan 1 persen",
+          "durationMs": 42689
+        },
+        {
+          "id": "t10",
+          "title": "Tukar operan persen",
+          "durationMs": 37351
+        }
+      ],
+      "directorWarnings": [],
+      "qa": {
+        "ok": true,
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "trik-2",
+      "file": "output/tricks/ch2.lesson.json",
+      "durationMs": 387951,
+      "scenes": [
+        {
+          "id": "t11",
+          "title": "Coret pecahan sebelum kali",
+          "durationMs": 35725
+        },
+        {
+          "id": "t12",
+          "title": "Bandingkan pecahan dengan kali silang",
+          "durationMs": 41992
+        },
+        {
+          "id": "t13",
+          "title": "Kenali kuadrat sempurna",
+          "durationMs": 35588
+        },
+        {
+          "id": "t14",
+          "title": "Sederhanakan akar dengan faktor kuadrat",
+          "durationMs": 37205
+        },
+        {
+          "id": "t15",
+          "title": "Taksir akar di antara kuadrat",
+          "durationMs": 38173
+        },
+        {
+          "id": "t16",
+          "title": "Kuadratkan binomial",
+          "durationMs": 37420
+        },
+        {
+          "id": "t17",
+          "title": "Pangkatkan tiga binomial",
+          "durationMs": 38313
+        },
+        {
+          "id": "t18",
+          "title": "Aturan kali pangkat",
+          "durationMs": 36304
+        },
+        {
+          "id": "t19",
+          "title": "Aturan bagi pangkat",
+          "durationMs": 35107
+        },
+        {
+          "id": "t20",
+          "title": "Pangkat negatif dan pecahan",
+          "durationMs": 40124
+        }
+      ],
+      "directorWarnings": [
+        "[t11] Region t11-rg-33 leaves the safe frame"
+      ],
+      "qa": {
+        "ok": true,
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "trik-3",
+      "file": "output/tricks/ch3.lesson.json",
+      "durationMs": 376024,
+      "scenes": [
+        {
+          "id": "t21",
+          "title": "Isolasi persamaan linear cepat",
+          "durationMs": 32396
+        },
+        {
+          "id": "t22",
+          "title": "SPLDV dengan eliminasi",
+          "durationMs": 37646
+        },
+        {
+          "id": "t23",
+          "title": "SPLDV dengan substitusi",
+          "durationMs": 40140
+        },
+        {
+          "id": "t24",
+          "title": "SPLDV dari titik potong grafik",
+          "durationMs": 37799
+        },
+        {
+          "id": "t25",
+          "title": "Faktorkan kuadrat berkoefisien 1",
+          "durationMs": 35719
+        },
+        {
+          "id": "t26",
+          "title": "Faktorkan kuadrat umum",
+          "durationMs": 37443
+        },
+        {
+          "id": "t27",
+          "title": "Lengkapi kuadrat sempurna",
+          "durationMs": 35784
+        },
+        {
+          "id": "t28",
+          "title": "Rumus kuadrat abc",
+          "durationMs": 37298
+        },
+        {
+          "id": "t29",
+          "title": "Diskriminan penentu jenis akar",
+          "durationMs": 37941
+        },
+        {
+          "id": "t30",
+          "title": "Rumus Vieta jumlah dan kali akar",
+          "durationMs": 31858
+        }
+      ],
+      "directorWarnings": [],
+      "qa": {
+        "ok": true,
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "trik-4",
+      "file": "output/tricks/ch4.lesson.json",
+      "durationMs": 358512,
+      "scenes": [
+        {
+          "id": "t31",
+          "title": "Jumlah bilangan berurutan",
+          "durationMs": 31489
+        },
+        {
+          "id": "t32",
+          "title": "Jumlah bilangan ganjil berurutan",
+          "durationMs": 34265
+        },
+        {
+          "id": "t33",
+          "title": "Rumus deret aritmetika",
+          "durationMs": 30041
+        },
+        {
+          "id": "t34",
+          "title": "Rumus deret geometri",
+          "durationMs": 32141
+        },
+        {
+          "id": "t35",
+          "title": "Uji habis bagi 3 dan 9",
+          "durationMs": 33945
+        },
+        {
+          "id": "t36",
+          "title": "Uji habis bagi 11",
+          "durationMs": 38110
+        },
+        {
+          "id": "t37",
+          "title": "FPB dan KPK dari faktorisasi prima",
+          "durationMs": 37183
+        },
+        {
+          "id": "t38",
+          "title": "Tripel Pythagoras",
+          "durationMs": 36496
+        },
+        {
+          "id": "t39",
+          "title": "Kesebangunan segitiga",
+          "durationMs": 40950
+        },
+        {
+          "id": "t40",
+          "title": "Jarak koordinat Pythagoras",
+          "durationMs": 31892
+        }
+      ],
+      "directorWarnings": [],
+      "qa": {
+        "ok": true,
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "trik-5",
+      "file": "output/tricks/ch5.lesson.json",
+      "durationMs": 382402,
+      "scenes": [
+        {
+          "id": "t41",
+          "title": "Persamaan eksponen basis sama",
+          "durationMs": 34485
+        },
+        {
+          "id": "t42",
+          "title": "Substitusi eksponen t = 2 pangkat x",
+          "durationMs": 42268
+        },
+        {
+          "id": "t43",
+          "title": "Logaritma sebagai invers pangkat",
+          "durationMs": 32460
+        },
+        {
+          "id": "t44",
+          "title": "Aturan kali dan bagi logaritma",
+          "durationMs": 36387
+        },
+        {
+          "id": "t45",
+          "title": "Kemiringan garis lurus cepat",
+          "durationMs": 37221
+        },
+        {
+          "id": "t46",
+          "title": "Puncak parabola -b per 2a",
+          "durationMs": 37455
+        },
+        {
+          "id": "t47",
+          "title": "Turunan aturan pangkat",
+          "durationMs": 37546
+        },
+        {
+          "id": "t48",
+          "title": "Turunan kelipatan dan jumlah",
+          "durationMs": 39534
+        },
+        {
+          "id": "t49",
+          "title": "Antiturunan polinom dasar",
+          "durationMs": 35617
+        },
+        {
+          "id": "t50",
+          "title": "Integral tentu lewat antiturunan",
+          "durationMs": 37429
+        }
+      ],
+      "directorWarnings": [
+        "[t48] Scene t48: equation \"((x+h)^2 + (x+h)^3 - x^2 - x^3)/h = 2*x + h + 3*x^2 + 3*x*h + h^2\" wider than 680px"
+      ],
+      "qa": {
+        "ok": true,
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "id": "trik-showcase",
+      "file": "output/tricks/showcase.lesson.json",
+      "durationMs": 63600,
+      "scenes": [
+        {
+          "id": "t24",
+          "title": "SPLDV dari titik potong grafik",
+          "durationMs": 20000
+        },
+        {
+          "id": "t38",
+          "title": "Tripel Pythagoras",
+          "durationMs": 20000
+        },
+        {
+          "id": "t50",
+          "title": "Integral tentu lewat antiturunan",
+          "durationMs": 20000
+        }
+      ],
+      "qa": {
+        "ok": true,
+        "errors": [],
+        "warnings": []
+      }
+    }
+  ]
+}

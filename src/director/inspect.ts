@@ -122,12 +122,17 @@ export function inspectChapter(
         b = regions[j];
       if (!overlaps(a.rect, b.rect, 4)) continue;
       // Emphasis marks intentionally overlap their target; skip highlight-like pairs.
-      const types = new Map(ch.actions.map((x) => [x.id, x.type]));
-      const ta = types.get(a.id),
-        tb = types.get(b.id);
+      // Graph family marks (curves on shared axes) intentionally coincide too.
+      const meta = new Map(ch.actions.map((x) => [x.id, { type: x.type, group: (x as { group?: string }).group }]));
+      const ma = meta.get(a.id),
+        mb = meta.get(b.id);
       const emphatic = (t: string | undefined) =>
         t === "highlight" || t === "underline" || t === "crossOut" || t === "diagram";
-      if (emphatic(ta) || emphatic(tb)) continue;
+      if (emphatic(ma?.type) || emphatic(mb?.type)) continue;
+      const graphFamily = (t: string | undefined) =>
+        t === "drawAxes" || t === "drawGraph" || t === "animateCurve" || t === "animateSecant" ||
+        t === "animateTangent" || t === "shadeArea" || t === "drawRiemannRectangles" || t === "plotPoint";
+      if (graphFamily(ma?.type) && graphFamily(mb?.type) && ma?.group === mb?.group) continue;
       overlapsOut.push([a.id, b.id]);
     }
   const outOfFrame = regions

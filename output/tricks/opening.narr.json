@@ -1,0 +1,185 @@
+{
+  "status": "available",
+  "voice": "id-ID-GadisNeural",
+  "durationMs": 25120,
+  "originalDurationMs": 24000,
+  "clips": 3,
+  "schedule": [
+    {
+      "id": "n1",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/b6e025645a6d01ed09858aace45206b4817aabb80cb091a04f249bd919d23967.mp3",
+      "durationMs": 4584,
+      "sha256": "c12b0174840ec7f4331580f35b070aec03d7a11b237402152c69907645ad6ac6",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 336.958,
+          "text": "Lima"
+        },
+        {
+          "offsetMs": 436.958,
+          "durationMs": 293.458,
+          "text": "puluh"
+        },
+        {
+          "offsetMs": 730.416,
+          "durationMs": 250,
+          "text": "trik"
+        },
+        {
+          "offsetMs": 980.416,
+          "durationMs": 347.833,
+          "text": "hitung"
+        },
+        {
+          "offsetMs": 1328.25,
+          "durationMs": 369.583,
+          "text": "cepat"
+        },
+        {
+          "offsetMs": 2002.166,
+          "durationMs": 228.25,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 2230.416,
+          "durationMs": 369.583,
+          "text": "akar"
+        },
+        {
+          "offsetMs": 2600,
+          "durationMs": 467.375,
+          "text": "sampai"
+        },
+        {
+          "offsetMs": 3067.375,
+          "durationMs": 793.458,
+          "text": "integral"
+        }
+      ],
+      "t": 1200,
+      "slotMs": 4984
+    },
+    {
+      "id": "n2",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/8e7a1b029bbf999a73512ff89951c3f9292186ea0b7f54796c74c3c320803f1e.mp3",
+      "durationMs": 4872,
+      "sha256": "c3b79529b7893616a65034b80ece9a82b9aa830d4bd0839a2ebdfedb8d7d0113",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 434.791,
+          "text": "Setiap"
+        },
+        {
+          "offsetMs": 534.791,
+          "durationMs": 260.875,
+          "text": "trik"
+        },
+        {
+          "offsetMs": 795.666,
+          "durationMs": 521.708,
+          "text": "dibuktikan"
+        },
+        {
+          "offsetMs": 1317.375,
+          "durationMs": 369.583,
+          "text": "langkah"
+        },
+        {
+          "offsetMs": 1686.958,
+          "durationMs": 228.25,
+          "text": "demi"
+        },
+        {
+          "offsetMs": 1915.208,
+          "durationMs": 532.625,
+          "text": "langkah"
+        },
+        {
+          "offsetMs": 2708.708,
+          "durationMs": 271.708,
+          "text": "lalu"
+        },
+        {
+          "offsetMs": 2980.416,
+          "durationMs": 369.583,
+          "text": "kamu"
+        },
+        {
+          "offsetMs": 3350,
+          "durationMs": 163.041,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 3513.041,
+          "durationMs": 630.416,
+          "text": "mencoba"
+        }
+      ],
+      "t": 6484,
+      "slotMs": 5500
+    },
+    {
+      "id": "n3",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/9499bd81eadb32313dc6d4d5ee0bfb3c5f66af4d9b1b3e008db27001ddd987be.mp3",
+      "durationMs": 5736,
+      "sha256": "2970f180c2a6bb20c60c3654c9a000924e8370a6fc8aed5ab474a5367e3aa3b7",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 565.208,
+          "text": "Siapkan"
+        },
+        {
+          "offsetMs": 665.208,
+          "durationMs": 543.458,
+          "text": "pensil"
+        },
+        {
+          "offsetMs": 1208.708,
+          "durationMs": 260.875,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 1469.583,
+          "durationMs": 684.791,
+          "text": "kertas"
+        },
+        {
+          "offsetMs": 2876.083,
+          "durationMs": 315.208,
+          "text": "Kita"
+        },
+        {
+          "offsetMs": 3191.291,
+          "durationMs": 380.416,
+          "text": "mulai"
+        },
+        {
+          "offsetMs": 3571.75,
+          "durationMs": 250,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 3821.75,
+          "durationMs": 760.875,
+          "text": "aritmetika"
+        },
+        {
+          "offsetMs": 4582.625,
+          "durationMs": 413.041,
+          "text": "kilat"
+        }
+      ],
+      "t": 17484,
+      "slotMs": 6136
+    }
+  ]
+}

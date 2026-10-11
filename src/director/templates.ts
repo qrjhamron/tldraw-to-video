@@ -12,6 +12,7 @@ import {
   type Expr,
 } from "../math/ast";
 import type { Color } from "../handwriting/engine";
+import type { MathExpr } from "../handwriting/math-layout";
 import { parse } from "../math/transform";
 import {
   CanvasPlanner,
@@ -77,16 +78,32 @@ function spanRect(line: Rect, full: string, sub: string, pad = 10): Rect | null 
   return { x: Math.max(0, x0), y: line.y - 4, w: x1 - x0, h: line.h + 12 };
 }
 
-function writeEquation(
+/** Greedy word-wrap so every visual line fits maxW (measured, deterministic). */
+function wrapLine(text: string, maxW: number, height: number): string[] {
+  if (measureText(text, height, 1).w <= maxW) return [text];
+  const words = text.split(/\s+/).filter(Boolean);
+  const lines: string[] = [];
+  let cur = "";
+  for (const w of words) {
+    const cand = cur ? `${cur} ${w}` : w;
+    if (measureText(cand, height, 1).w <= maxW || !cur) cur = cand;
+    else {
+      lines.push(cur);
+      cur = w;
+    }
+  }
+  if (cur) lines.push(cur);
+  return lines.length ? lines : [text];
+}
+
+/** Parse + colorize + measure one equation step (shared by placement and writing). */
+function layoutStep(
   ctx: Ctx,
   step: EquationStep,
-  x: number,
-  y: number,
   height: number,
-  at: number,
-  duration: number,
-  group: string,
-): Rect {
+  maxW: number,
+  warn = false,
+): { ast: Expr; expr: MathExpr; fitH: number } {
   let ast: Expr;
   try {
     ast = parse(step.source, ctx.scope);
@@ -103,6 +120,51 @@ function writeEquation(
       paintSym(ast);
     }
   const expr = toMathExpr(ast);
+  let fitH = height;
+  while (fitH > 20 && measureExpr(expr, fitH, 1).w > maxW) fitH -= 2;
+  if (warn && measureExpr(expr, fitH, 1).w > maxW)
+    ctx.warnings.push(`Scene ${ctx.scene.id}: equation ${JSON.stringify(step.source)} wider than ${maxW}px`);
+  return { ast, expr, fitH };
+}
+
+/** Reserve a measured equation region (flow or explicit y) and write into it.
+ * Tall constructs (stacked fractions) reserve their true height so the
+ * following rows never overlap them. */
+function placeEquation(
+  ctx: Ctx,
+  step: EquationStep,
+  x: number,
+  height: number,
+  at: number,
+  duration: number,
+  group: string,
+  beatId: string,
+  maxW: number,
+  y?: number,
+  minH = 0,
+): Rect {
+  const { expr, fitH } = layoutStep(ctx, step, height, maxW);
+  const m = measureExpr(expr, fitH, 1);
+  const h = Math.max(1, m.h, minH);
+  const r =
+    y === undefined
+      ? ctx.planner.reserve(aid(ctx, "rg"), x, Math.max(1, m.w), h, beatId)
+      : ctx.planner.reserve(aid(ctx, "rg"), x, Math.max(1, m.w), h, beatId, { y });
+  return writeEquation(ctx, step, r.x, r.y, height, at, duration, group, maxW);
+}
+
+function writeEquation(
+  ctx: Ctx,
+  step: EquationStep,
+  x: number,
+  y: number,
+  height: number,
+  at: number,
+  duration: number,
+  group: string,
+  maxW = 1560 - x,
+): Rect {
+  const { expr, fitH } = layoutStep(ctx, step, height, maxW, true);
   const id = aid(ctx, "eq");
   ctx.actions.push({
     id,
@@ -112,12 +174,12 @@ function writeEquation(
     handwritingStyle: "math",
     x,
     y,
-    height,
+    height: fitH,
     at,
     duration,
   });
   // Region for emphasis/cancel/camera, measured with the real layout.
-  const m = measureExpr(expr, height, 1);
+  const m = measureExpr(expr, fitH, 1);
   const line: Rect = { x, y, w: m.w, h: m.h };
   let cursor = at + duration;
   for (const sub of step.emphasize ?? []) {
@@ -192,6 +254,37 @@ function writeLine(
   return { x, y, w: m.w, h: m.h };
 }
 
+/** Write a (possibly wrapped) explanation line in a width-capped column.
+ * Reserves one planner region per visual line; returns the visual line count. */
+function writeColumnLine(
+  ctx: Ctx,
+  text: string,
+  x: number,
+  maxW: number,
+  height: number,
+  color: Color,
+  at: number,
+  duration: number,
+  group: string,
+  beatId: string,
+  style: "heading" | "explanation" | "annotation" = "explanation",
+  y?: number,
+  end = Infinity,
+): number {
+  const parts = wrapLine(text, maxW, height);
+  parts.forEach((part, i) => {
+    const m = measureText(part, height, 1);
+    const r =
+      y === undefined
+        ? ctx.planner.textLine(aid(ctx, "rg"), part, x, height, beatId)
+        : ctx.planner.reserve(aid(ctx, "rg"), x, m.w, m.h, beatId, { y: y + i * (m.h + 8) });
+    const atI = Math.min(at + i * 400, end);
+    const durI = Math.max(0, Math.min(Math.max(600, duration - i * 300), end - atI));
+    writeLine(ctx, part, r.x, r.y, height, color, atI, durI, group, style);
+  });
+  return parts.length;
+}
+
 function narrate(
   ctx: Ctx,
   id: string,
@@ -221,6 +314,7 @@ function beatTiming(beat: Beat, startMs: number): { at: number; duration: number
 function directDerivation(ctx: Ctx, beats: Beat[], startMs: number): number {
   let t = startMs;
   const group = `${ctx.scene.id}-deriv`;
+  const { eqH, lineH } = pickHeights(beats, 1080);
   // Title.
   writeLine(ctx, ctx.scene.title, 80, 60, 44, "blue", t, 2200, group, "heading");
   t += 2400;
@@ -230,7 +324,7 @@ function directDerivation(ctx: Ctx, beats: Beat[], startMs: number): number {
     let cursor = t;
     // Narration spans the beat.
     const ntext = beat.narration.join(" ");
-    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, beat.id);
+    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, group);
     for (const [ci, cue] of (beat.cues ?? []).entries()) {
       const idx = ntext.indexOf(cue);
       ctx.cues.push({
@@ -242,19 +336,20 @@ function directDerivation(ctx: Ctx, beats: Beat[], startMs: number): number {
       void ci;
     }
     for (const line of beat.lines ?? []) {
-      const r = ctx.planner.textLine(aid(ctx, "rg"), line, 80, 30, beat.id);
-      writeLine(ctx, line, r.x, r.y, 30, "black", cursor, Math.min(2500, duration / 2), group);
-      cursor += 1200;
+      const n = writeColumnLine(ctx, line, 80, 1080, lineH, "black", cursor, Math.min(2500, duration / 2), group, beat.id, "explanation", undefined, end);
+      cursor += n * 900 + 300;
     }
     for (const step of beat.equations ?? []) {
       const slot = Math.min(3500, Math.max(1400, (end - cursor) / ((beat.equations ?? []).length + 1)));
-      const r = ctx.planner.reserve(aid(ctx, "rg"), 80, 1100, 64, beat.id);
-      writeEquation(ctx, step, r.x, r.y, 36, cursor, slot, group);
-      // Reason annotation to the right.
+      const nRw = wrapLine(step.reason, 330, 24).length;
+      const nCw = step.conditions?.length ? wrapLine(`syarat: ${step.conditions.join(", ")}`, 330, 22).length : 0;
+      const rowMin = 8 + nRw * 42 + (nCw ? nCw * 39 + 8 : 8);
+      const line = placeEquation(ctx, step, 80, eqH, cursor, slot, group, beat.id, 1080, undefined, rowMin);
+      // Reason annotation to the right, conditions stacked below the reason block.
       const rx = 1230;
-      writeLine(ctx, step.reason, rx, r.y + 8, 24, "grey", cursor + slot * 0.4, 1400, group, "annotation");
+      const nReason = writeColumnLine(ctx, step.reason, rx, 330, 24, "grey", cursor + slot * 0.4, 1400, group, beat.id, "annotation", line.y + 8, end);
       if (step.conditions?.length)
-        writeLine(ctx, `syarat: ${step.conditions.join(", ")}`, rx, r.y + 38, 22, "orange", cursor + slot * 0.6, 1400, group, "annotation");
+        writeColumnLine(ctx, `syarat: ${step.conditions.join(", ")}`, rx, 330, 22, "orange", cursor + slot * 0.6, 1400, group, beat.id, "annotation", line.y + 8 + nReason * 42, end);
       cursor += slot + 500;
     }
     if (beat.mode === "pause" || beat.mode === "ask") {
@@ -281,7 +376,7 @@ function directCompare(ctx: Ctx, beats: Beat[], startMs: number): number {
   for (const beat of beats) {
     const { duration } = beatTiming(beat, t);
     const ntext = beat.narration.join(" ");
-    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, beat.id);
+    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, group);
     ctx.checkpoints.push({ beatId: beat.id, mode: beat.mode, purpose: beat.purpose, tMs: t, durationMs: duration });
     t += duration;
   }
@@ -289,16 +384,27 @@ function directCompare(ctx: Ctx, beats: Beat[], startMs: number): number {
   let cursor = startMs + 2400;
   const perRow = rows.length ? (t - cursor - 500) / rows.length : 0;
   for (const r of rows) {
+    let rowH = 0;
     if (r.left) {
-      const reg = ctx.planner.reserve(aid(ctx, "rg"), 80, 680, 64, r.left.beat.id, { y });
-      writeEquation(ctx, r.left.step, reg.x, reg.y, 32, cursor, Math.min(3000, perRow * 0.8), group);
+      const line = placeEquation(ctx, r.left.step, 80, 32, cursor, Math.min(3000, perRow * 0.8), group, r.left.beat.id, 680, y);
+      rowH = Math.max(rowH, line.h);
     }
     if (r.right) {
-      const reg = ctx.planner.reserve(aid(ctx, "rg"), 880, 680, 64, r.right.beat.id, { y });
-      writeEquation(ctx, r.right.step, reg.x, reg.y, 32, cursor + 400, Math.min(3000, perRow * 0.8), group);
+      const line = placeEquation(ctx, r.right.step, 880, 32, cursor + 400, Math.min(3000, perRow * 0.8), group, r.right.beat.id, 680, y);
+      rowH = Math.max(rowH, line.h);
     }
-    y += 120;
+    y += Math.max(120, rowH + 56);
     cursor += perRow;
+  }
+  // Beat lines (statements, challenges) full-width under the pairs.
+  const allLines = beats.flatMap((b) => (b.lines ?? []).map((line) => ({ beat: b, line })));
+  const lineSlot = allLines.length ? (t - cursor) / allLines.length : 0;
+  let ly = y + 10;
+  for (const { beat, line } of allLines) {
+    const dur = Math.max(300, Math.min(2200, t - cursor));
+    const n = writeColumnLine(ctx, line, 80, 1480, 30, "black", cursor, dur, group, beat.id, "explanation", ly, t);
+    ly += n * 44 + 14;
+    cursor += lineSlot;
   }
   return t;
 }
@@ -330,16 +436,14 @@ function directGraph(ctx: Ctx, beats: Beat[], startMs: number): number {
     const { duration } = beatTiming(beat, t);
     const end = t + duration;
     const ntext = beat.narration.join(" ");
-    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, beat.id);
+    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, group);
     let cursor = t;
     for (const line of beat.lines ?? []) {
-      const r = ctx.planner.textLine(aid(ctx, "rg"), line, 800, 30, beat.id);
-      writeLine(ctx, line, Math.max(800, r.x), r.y, 30, "black", cursor, 2000, group);
-      cursor += 1400;
+      const n = writeColumnLine(ctx, line, 800, 760, 30, "black", cursor, 2000, group, beat.id, "explanation", undefined, end);
+      cursor += n * 900 + 500;
     }
     for (const step of beat.equations ?? []) {
-      const r = ctx.planner.reserve(aid(ctx, "rg"), 800, 700, 60, beat.id);
-      writeEquation(ctx, step, r.x, Math.max(220, r.y), 32, cursor, 2500, group);
+      placeEquation(ctx, step, 800, 32, cursor, 2500, group, beat.id, 760);
       cursor += 2200;
     }
     ctx.checkpoints.push({ beatId: beat.id, mode: beat.mode, purpose: beat.purpose, tMs: t, durationMs: duration });
@@ -385,6 +489,27 @@ function directGraph(ctx: Ctx, beats: Beat[], startMs: number): number {
   return t;
 }
 
+/** Pick equation/line heights so the estimated rows fit the 920px frame. */
+function pickHeights(beats: Beat[], maxW: number): { eqH: number; lineH: number } {
+  const steps: [number, number, number][] = [
+    [36, 30, 74],
+    [32, 28, 66],
+    [30, 26, 60],
+    [28, 24, 54],
+  ];
+  for (const [eqH, lineH, rowH] of steps) {
+    const rows = beats.reduce(
+      (s, b) =>
+        s +
+        (b.lines ?? []).reduce((s2, l) => s2 + wrapLine(l, maxW, lineH).length, 0) +
+        (b.equations ?? []).length * 2,
+      0,
+    );
+    if (rows * rowH + 186 <= 900) return { eqH, lineH };
+  }
+  return { eqH: 28, lineH: 24 };
+}
+
 function directTextColumn(
   ctx: Ctx,
   beats: Beat[],
@@ -392,21 +517,22 @@ function directTextColumn(
   x: number,
   group: string,
 ): number {
+  // Adaptive line height: count wrapped rows up front and shrink to fit the frame.
+  const maxW = 1560 - x;
+  const { lineH: lh } = pickHeights(beats, maxW);
   let t = startMs;
   for (const beat of beats) {
     const { duration } = beatTiming(beat, t);
     const end = t + duration;
     const ntext = beat.narration.join(" ");
-    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, beat.id);
+    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, group);
     let cursor = t;
     for (const line of beat.lines ?? []) {
-      const r = ctx.planner.textLine(aid(ctx, "rg"), line, x, 30, beat.id);
-      writeLine(ctx, line, r.x, r.y, 30, "black", cursor, 2000, group);
-      cursor += 1300;
+      const n = writeColumnLine(ctx, line, x, maxW, lh, "black", cursor, 2000, group, beat.id, "explanation", undefined, end);
+      cursor += n * 900 + 400;
     }
     for (const step of beat.equations ?? []) {
-      const r = ctx.planner.reserve(aid(ctx, "rg"), x, 600, 60, beat.id);
-      writeEquation(ctx, step, r.x, r.y, 32, cursor, 2400, group);
+      placeEquation(ctx, step, x, 32, cursor, 2400, group, beat.id, maxW);
       cursor += 2100;
     }
     if (beat.mode === "pause" || beat.mode === "ask") {
@@ -466,16 +592,17 @@ function directDerivationSub(
   circleFactors: boolean,
 ): number {
   let t = startMs;
+  const { eqH, lineH } = pickHeights(beats, 1420);
   for (const beat of beats) {
     const { duration } = beatTiming(beat, t);
     const end = t + duration;
     const ntext = beat.narration.join(" ");
-    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, beat.id);
+    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, group);
     let cursor = t;
     for (const step of beat.equations ?? []) {
       const slot = Math.min(3200, Math.max(1400, (end - cursor) / ((beat.equations ?? []).length + 1)));
-      const r = ctx.planner.reserve(aid(ctx, "rg"), 140, 1000, 64, beat.id);
-      const line = writeEquation(ctx, step, r.x, r.y, 36, cursor, slot, group);
+      const nRw = wrapLine(step.reason, 330, 24).length;
+      const line = placeEquation(ctx, step, 140, eqH, cursor, slot, group, beat.id, 1420, undefined, 16 + nRw * 42);
       if (circleFactors) {
         // Circle the whole factor line's composite part (heuristic: after "=").
         const idx = step.source.indexOf("=");
@@ -491,13 +618,12 @@ function directDerivationSub(
         }
       }
       const rx = 1230;
-      writeLine(ctx, step.reason, rx, r.y + 8, 24, "grey", cursor + slot * 0.4, 1400, group, "annotation");
+      writeColumnLine(ctx, step.reason, rx, 330, 24, "grey", cursor + slot * 0.4, 1400, group, beat.id, "annotation", line.y + 8, end);
       cursor += slot + 600;
     }
     for (const line of beat.lines ?? []) {
-      const r = ctx.planner.textLine(aid(ctx, "rg"), line, 140, 30, beat.id);
-      writeLine(ctx, line, r.x, r.y, 30, "black", cursor, 1800, group);
-      cursor += 1200;
+      const n = writeColumnLine(ctx, line, 140, 1420, lineH, "black", cursor, 1800, group, beat.id, "explanation", undefined, end);
+      cursor += n * 900 + 300;
     }
     ctx.checkpoints.push({ beatId: beat.id, mode: beat.mode, purpose: beat.purpose, tMs: t, durationMs: duration });
     t = end;
@@ -510,21 +636,20 @@ function directAsk(ctx: Ctx, beats: Beat[], startMs: number): number {
   const group = `${ctx.scene.id}-ask`;
   writeLine(ctx, ctx.scene.title, 80, 60, 40, "blue", t, 2000, group, "heading");
   t += 2200;
+  const { eqH, lineH } = pickHeights(beats, 1420);
   for (const beat of beats) {
     const { duration } = beatTiming(beat, t);
     const end = t + duration;
     const ntext = beat.narration.join(" ");
-    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, beat.id);
+    if (ntext) narrate(ctx, aid(ctx, "nar"), ntext, t, duration, group);
     let cursor = t;
-    const big = beat.mode === "ask" ? 40 : 34;
+    const big = beat.mode === "ask" ? Math.max(34, lineH + 6) : lineH;
     for (const line of beat.lines ?? []) {
-      const r = ctx.planner.textLine(aid(ctx, "rg"), line, 140, big, beat.id);
-      writeLine(ctx, line, r.x, r.y, big, beat.mode === "ask" ? "blue" : "black", cursor, 2400, group);
-      cursor += 1800;
+      const n = writeColumnLine(ctx, line, 140, 1420, big, beat.mode === "ask" ? "blue" : "black", cursor, 2400, group, beat.id, "explanation", undefined, end);
+      cursor += n * 1100 + 700;
     }
     for (const step of beat.equations ?? []) {
-      const r = ctx.planner.reserve(aid(ctx, "rg"), 140, 1000, 70, beat.id);
-      writeEquation(ctx, step, r.x, r.y, 38, cursor, 2600, group);
+      placeEquation(ctx, step, 140, eqH, cursor, 2600, group, beat.id, 1420);
       cursor += 2200;
     }
     if (beat.mode === "ask" || beat.mode === "pause") {
@@ -549,6 +674,9 @@ export function directScene(scene: ScenePlan, seed = 1): DirectedScene {
     serial: 0,
     theme: scene.theme ?? "whiteboard",
   };
+  // Title band: every pattern writes its title at (80,60); reserve it so the
+  // flow cursor starts below the title instead of overlapping it.
+  ctx.planner.reserve(`${scene.id}-title`, 80, 1480, 70, "title band");
   // Contrast gate: palette + emphasis colors must read on the scene theme.
   const inks = new Set<Color>(["black", "blue", "orange", "red", "grey", "green"]);
   for (const c of Object.values(scene.palette ?? {})) inks.add(c);
@@ -604,17 +732,24 @@ export function directScene(scene: ScenePlan, seed = 1): DirectedScene {
   }
   for (const id of ctx.planner.outOfFrame()) ctx.warnings.push(`Region ${id} leaves the safe frame`);
   // Fit to budget by scaling beat timings (never below 800ms/beat).
+  // Narration estimates scale with the visuals; the TTS pass later warps
+  // everything to measured audio, so budgeted scenes stay self-consistent.
   let durationMs = end;
   if (scene.budgetMs !== undefined && end > scene.budgetMs) {
     const beatsOnly = ctx.checkpoints.reduce((s, c) => s + c.durationMs, 0);
     const fixed = end - beatsOnly;
     const target = Math.max(scene.budgetMs - fixed, ctx.checkpoints.length * 800);
     const f = target / beatsOnly;
+    const scaleT = (t: number): number => Math.round(t * (t < 1300 ? 1 : f));
     for (const a of ctx.actions) {
-      if (a.type === "narrate" || a.type === "pause") continue;
-      a.at = Math.round(a.at * (a.at < 1300 ? 1 : f));
+      a.at = scaleT(a.at);
       a.duration = Math.round(a.duration * f);
     }
+    for (const c of ctx.checkpoints) {
+      c.tMs = scaleT(c.tMs);
+      c.durationMs = Math.round(c.durationMs * f);
+    }
+    for (const c of ctx.cues) c.tMs = scaleT(c.tMs);
     durationMs = Math.round(fixed + target);
   }
   // Deterministic order: time, then creation.

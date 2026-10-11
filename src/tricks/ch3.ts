@@ -87,7 +87,6 @@ export const CHAPTER_3: Trick[] = [
       { source: "4 + 1 = 5", reason: "Titik (4,5) di garis pertama", rule: "given" },
       { source: "-4 + 9 = 5", reason: "Titik (4,5) di garis kedua", rule: "given" },
     ],
-    lines: ["potong di (4, 5)"],
     graph: {
       xMin: 0,
       xMax: 8,

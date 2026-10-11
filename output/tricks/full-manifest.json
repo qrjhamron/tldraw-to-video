@@ -1,0 +1,42 @@
+{
+  "output": "output/tricks/full.mp4",
+  "totalS": 1937.568,
+  "markers": [
+    {
+      "id": "opening",
+      "file": "output/tricks/opening.mp4",
+      "startS": 0,
+      "durationS": 25.12
+    },
+    {
+      "id": "ch1",
+      "file": "output/tricks/ch1.mp4",
+      "startS": 25.12,
+      "durationS": 407.559
+    },
+    {
+      "id": "ch2",
+      "file": "output/tricks/ch2.mp4",
+      "startS": 432.67900000000003,
+      "durationS": 387.951
+    },
+    {
+      "id": "ch3",
+      "file": "output/tricks/ch3.mp4",
+      "startS": 820.6300000000001,
+      "durationS": 376.024
+    },
+    {
+      "id": "ch4",
+      "file": "output/tricks/ch4.mp4",
+      "startS": 1196.654,
+      "durationS": 358.512
+    },
+    {
+      "id": "ch5",
+      "file": "output/tricks/ch5.mp4",
+      "startS": 1555.166,
+      "durationS": 382.402
+    }
+  ]
+}
