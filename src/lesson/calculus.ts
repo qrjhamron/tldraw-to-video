@@ -1,6 +1,7 @@
 import { b64Vecs, createShapeId, type Editor, type TLDrawShape, type TLShapeId } from 'tldraw'
 import { Recorder } from '../engine/recorder'
-import { lettering, length, path, prefix, type InkPath } from './paths'
+import { length, path, prefix, type InkPath } from './paths'
+import { textLayout, strokeProgress } from '../handwriting/engine'
 import type { Recording } from '../engine/schema'
 interface Task {t:number;order:number;run:()=>void}
 
@@ -14,7 +15,7 @@ export function createCalculusLesson(editor:Editor):Recording{
   let now=0, order=0,serial=0
   const recorder=new Recorder(editor,()=>now,'generated')
   recorder.recording.viewport={width:1920,height:1080}
-  recorder.recording.metadata={title:'Kalkulus: perubahan dan akumulasi',language:'id',origin:'generated',generatedBy:'Hershey vector pen author / native tldraw SDK',chapters:[
+  recorder.recording.metadata={title:'Kalkulus: perubahan dan akumulasi',language:'id',origin:'generated',generatedBy:'Authored stroke handwriting 3.0 / native tldraw SDK',chapters:[
     {t:0,title:'Apa itu kalkulus?'},{t:20000,title:'Dari sekan ke tangen'},{t:62000,title:'Turunan dari definisi'},
     {t:98000,title:'Contoh turunan'},{t:115000,title:'Menghapus papan'},{t:121000,title:'Integral sebagai akumulasi'},
     {t:158000,title:'Contoh integral'},{t:173000,title:'Ringkasan'},
@@ -23,24 +24,24 @@ export function createCalculusLesson(editor:Editor):Recording{
   const at=(t:number,run:()=>void)=>tasks.push({t,run,order:order++})
   const regions=new Map<number,TLShapeId[]>()
   function write(paths:InkPath[],start:number,duration:number,region:number){
-    const weights=paths.map(p=>Math.max(12,length(p.points)))
+    const weights=paths.map(p=>Math.max(12,length(p.points))*(p.pen?.tempo??1))
     const total=weights.reduce((a,b)=>a+b,0)
     let cursor=start
     const ids:TLShapeId[]=[]
     paths.forEach((p,j)=>{
       const id=createShapeId(`lesson-${serial++}`), first=p.points[0]
       ids.push(id)
-      const d=duration*weights[j]/total, ink=d*.86
+      const d=duration*weights[j]/total, ink=d-Math.min(d*.3,p.pen?.liftMs??d*.14)
       const local=p.points.map(q=>({...q,x:q.x-first.x,y:q.y-first.y}))
-      at(cursor,()=>editor.createShape<TLDrawShape>({id,type:'draw',x:region+first.x,y:first.y,meta:{origin:'generated',generator:'vector-pen',region},props:{color:p.color,fill:'none',dash:'draw',size:'s',isPen:true,isComplete:false,isClosed:false,scale:p.scale,segments:[{type:'free',path:b64Vecs.encodePoints(prefix(local,0))}]}}))
+      at(cursor,()=>editor.createShape<TLDrawShape>({id,type:'draw',x:region+first.x,y:first.y,meta:{origin:'generated',generator:'pen-v3',pen:p.pen??null,region},props:{color:p.color,fill:'none',dash:'draw',size:'s',isPen:true,isComplete:false,isClosed:false,scale:p.scale,segments:[{type:'free',path:b64Vecs.encodePoints(prefix(local,0))}]}}))
       const steps=Math.max(1,Math.ceil(ink/(1000/60)))
-      for(let k=1;k<=steps;k++)at(cursor+ink*k/steps,()=>editor.updateShape<TLDrawShape>({id,type:'draw',props:{segments:[{type:'free',path:b64Vecs.encodePoints(prefix(local,k/steps))}],isComplete:k===steps}}))
+      for(let k=1;k<=steps;k++)at(cursor+ink*k/steps,()=>editor.updateShape<TLDrawShape>({id,type:'draw',props:{segments:[{type:'free',path:b64Vecs.encodePoints(prefix(local,strokeProgress(local,k/steps)))}],isComplete:k===steps}}))
       cursor+=d
     })
     regions.set(region,[...(regions.get(region)??[]),...ids])
     return ids
   }
-  function text(s:string,x:number,y:number,t:number,d:number,region=0,h=40,color:InkPath['color']='black'){return write(lettering(s,x,y,h,color),t,d,region)}
+  function text(s:string,x:number,y:number,t:number,d:number,region=0,h=40,color:InkPath['color']='black'){return write(textLayout(s,x,y,{seed:20261011+serial*271+region,height:h,color,style:/[=+∫^]/.test(s)?'math':h>=42?'heading':'explanation'}).paths,t,d,region)}
   function ink(coords:number[][],t:number,d:number,region=0,color:InkPath['color']='black',scale=.85){return write([path(coords,color,scale)],t,d,region)[0]}
   function camera(t:number,duration:number,region:number,z=1.2,offsetX=0,offsetY=0){
     at(t,()=>recorder.cameraKey({...editor.getCamera()},'hold'))

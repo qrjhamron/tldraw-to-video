@@ -1,0 +1,32 @@
+{
+  "output": "output/handwriting-comparison.mp4",
+  "narrated": false,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 900,
+  "duration": 30,
+  "logicalDurationMs": 30000,
+  "recordingSha256": "10a1df697413ff4c625750e5d7a9e1ac7d82790e4eb2c9bd96ca8cbc654e63f0",
+  "events": 3173,
+  "rendered": 900,
+  "resumed": 0,
+  "elapsedSeconds": 65.104,
+  "samples": [
+    {
+      "frame": 300,
+      "t": 10000,
+      "sha256": "dbb137d32872a6f5cc6689f1987bf95bfa9b59153c12038f3f4a50d40d0c6b1b",
+      "nativeDraws": 207
+    },
+    {
+      "frame": 855,
+      "t": 28500,
+      "sha256": "09f26510d59e58c9bf13b05efed79da04a3aac7f412bda1689305342ac6d1968",
+      "nativeDraws": 400
+    }
+  ],
+  "browserErrors": [],
+  "colorConversion": "Chromium sRGB/full-range JPEG BT.601 matrix → zscale transfer/matrix conversion → limited-range Rec.709 H.264",
+  "pipeline": "Absolute frame time → native tldraw replay → native SDK SVG → Chromium JPEG raster → resumable H.264 chunks → lossless concat"
+}

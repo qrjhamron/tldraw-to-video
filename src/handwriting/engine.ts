@@ -1,56 +1,64 @@
-import font from "../lesson/hershey.json";
-import { length, resample, type InkPath, type Point } from "../lesson/paths";
+import { length, resample, type InkPath, type Point } from "./strokes";
+import { handwritingGlyphs, mathGlyphs } from "./glyphs";
+export { mathGlyphs } from "./glyphs";
 export type Color = InkPath["color"];
+export type HandwritingStyle =
+  | "title"
+  | "heading"
+  | "explanation"
+  | "annotation"
+  | "math";
 export interface PenStyle {
   seed: number;
   variation?: number;
   slant?: number;
   color?: Color;
   height?: number;
+  style?: HandwritingStyle;
 }
 export interface Layout {
   paths: InkPath[];
   width: number;
   height: number;
+  baseline?: number;
 }
-// Custom centerline glyphs: ordered pen-down paths, authored for this project.
-export const mathGlyphs: Record<string, { d: string; advance: number }> = {
-  "·": { d: "M5,11 L6,12 5,13 4,12 5,11", advance: 12 },
-  "≤": { d: "M20,3 L2,11 20,19 M2,23 L20,23", advance: 25 },
-  "≥": { d: "M2,3 L20,11 2,19 M2,23 L20,23", advance: 25 },
-  "∫": {
-    d: "M18,1 L15,0 12,1 10,4 9,9 8,16 7,23 5,28 2,30 -1,29",
-    advance: 23,
+export const penStyles = {
+  title: {
+    slant: 0.01,
+    width: 1.06,
+    weight: 1.1,
+    variation: 0.55,
+    spacing: 0.07,
   },
-  Σ: { d: "M22,1 L1,1 12,11 1,22 22,22", advance: 26 },
-  "√": { d: "M0,13 L4,12 8,22 14,0 27,0", advance: 29 },
-  π: { d: "M1,7 L23,7 M7,7 L6,22 M18,7 L17,19 19,22 22,21", advance: 26 },
-  θ: {
-    d: "M12,1 L7,2 3,7 2,14 5,20 10,22 16,20 20,14 19,7 16,2 12,1 M3,11 L19,11",
-    advance: 25,
+  heading: {
+    slant: 0.015,
+    width: 1.04,
+    weight: 1.02,
+    variation: 0.65,
+    spacing: 0.065,
   },
-  α: {
-    d: "M19,7 L14,6 9,8 5,13 5,18 8,22 13,21 18,16 21,7 M18,16 L21,22 24,21",
-    advance: 27,
+  explanation: {
+    slant: 0.09,
+    width: 0.96,
+    weight: 0.77,
+    variation: 1,
+    spacing: 0.035,
   },
-  β: {
-    d: "M3,29 L5,7 8,2 12,0 17,2 18,6 15,10 7,12 M7,12 L15,12 19,15 18,19 14,22 5,22",
-    advance: 24,
+  annotation: {
+    slant: 0.12,
+    width: 0.94,
+    weight: 0.72,
+    variation: 1.1,
+    spacing: 0.03,
   },
-  Δ: { d: "M12,1 L1,22 23,22 12,1", advance: 26 },
-  "→": { d: "M1,12 L23,12 M17,6 L23,12 17,18", advance: 27 },
-  "↔": { d: "M1,12 L23,12 M17,6 L23,12 17,18 M7,6 L1,12 7,18", advance: 27 },
-  "≠": { d: "M2,9 L22,9 M2,16 L22,16 M17,2 L7,23", advance: 26 },
-  "≈": {
-    d: "M1,9 L5,6 10,7 16,11 21,10 24,7 M1,17 L5,14 10,15 16,19 21,18 24,15",
-    advance: 28,
+  math: {
+    slant: 0.035,
+    width: 1,
+    weight: 0.8,
+    variation: 0.45,
+    spacing: 0.045,
   },
-  "×": { d: "M3,4 L19,20 M19,4 L3,20", advance: 25 },
-  "∞": {
-    d: "M12,12 L9,7 5,6 1,8 0,12 2,16 6,17 10,14 15,8 19,6 23,8 24,12 22,16 18,17 14,14 12,12",
-    advance: 28,
-  },
-};
+} as const;
 export function random(seed: number) {
   let n = seed >>> 0;
   return () => {
@@ -61,6 +69,75 @@ export function random(seed: number) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
+/** Sample authored Bézier centerlines. Separate M commands stay separate pen strokes.
+ * Smooth variation deforms control points once, rather than shaking every sample. */
+export function sampleGlyph(
+  d: string,
+  deform = (x: number, y: number): Point => ({ x, y, z: 0.5 }),
+): Point[][] {
+  const tokens = d.match(/[MLQC]|-?\d+(?:\.\d+)?/g);
+  if (!tokens || tokens.join("") !== d.replace(/[\s,]/g, ""))
+    throw Error("Invalid authored stroke path");
+  const strokes: Point[][] = [];
+  let i = 0,
+    command = "",
+    current: Point = { x: 0, y: 0, z: 0.5 },
+    out: Point[] = [];
+  const point = () => deform(Number(tokens[i++]), Number(tokens[i++]));
+  while (i < tokens.length) {
+    if (/^[MLQC]$/.test(tokens[i])) command = tokens[i++];
+    if (command === "M") {
+      current = point();
+      out = [current];
+      strokes.push(out);
+      command = "L";
+      continue;
+    }
+    const a = current;
+    if (command === "L") {
+      current = point();
+      out.push(current);
+      continue;
+    }
+    if (command !== "Q" && command !== "C")
+      throw Error("Invalid stroke command");
+    const b = point(),
+      c = point(),
+      end = command === "C" ? point() : c;
+    const polygonLength =
+      Math.hypot(b.x - a.x, b.y - a.y) +
+      Math.hypot(c.x - b.x, c.y - b.y) +
+      (command === "C" ? Math.hypot(end.x - c.x, end.y - c.y) : 0);
+    const steps = Math.max(4, Math.ceil(polygonLength / 1.2));
+    for (let k = 1; k <= steps; k++) {
+      const t = k / steps,
+        u = 1 - t;
+      out.push(
+        command === "Q"
+          ? {
+              x: u * u * a.x + 2 * u * t * b.x + t * t * c.x,
+              y: u * u * a.y + 2 * u * t * b.y + t * t * c.y,
+              z: 0.5,
+            }
+          : {
+              x:
+                u * u * u * a.x +
+                3 * u * u * t * b.x +
+                3 * u * t * t * c.x +
+                t * t * t * end.x,
+              y:
+                u * u * u * a.y +
+                3 * u * u * t * b.y +
+                3 * u * t * t * c.y +
+                t * t * t * end.y,
+              z: 0.5,
+            },
+      );
+    }
+    current = end;
+  }
+  return strokes.map(resample);
+}
 export function textLayout(
   text: string,
   x = 0,
@@ -69,78 +146,135 @@ export function textLayout(
 ): Layout {
   const rng = random(style.seed),
     h = style.height ?? 40,
-    v = style.variation ?? 0.35,
+    profile = penStyles[style.style ?? "explanation"],
+    v = Math.max(0, Math.min(1.5, style.variation ?? profile.variation)),
     color = style.color ?? "black";
   const paths: InkPath[] = [];
   let cursor = x,
-    baseline = y,
-    maxWidth = 0;
-  let superscript = false;
-  for (const ch of text) {
+    line = y,
+    maxWidth = 0,
+    superscript = false,
+    drift = 0;
+  for (const ch of text.normalize("NFC")) {
     if (ch === "\n") {
       maxWidth = Math.max(maxWidth, cursor - x);
       cursor = x;
-      baseline += h * 2;
+      line += h * 1.65;
+      drift = 0;
       continue;
     }
     if (ch === "^") {
+      if (superscript) throw Error("Empty superscript");
       superscript = true;
       continue;
     }
     if (ch === " ") {
-      cursor += h * (0.4 + (rng() - 0.5) * 0.04 * v);
+      cursor += h * (0.32 + (rng() - 0.5) * 0.045 * v);
       continue;
     }
-    const glyph = font.chars[ch.charCodeAt(0) - 33],
-      special = mathGlyphs[ch];
-    const d = special?.d ?? glyph?.d;
-    if (!d) throw Error(`Unsupported stroke glyph: ${ch}`);
-    const s =
-      (h / 21) * (superscript ? 0.62 : 1) * (1 + (rng() - 0.5) * 0.025 * v);
-    const dy = (superscript ? -h * 0.44 : 0) + (rng() - 0.5) * h * 0.045 * v;
-    const slant = (style.slant ?? 0.045) + (rng() - 0.5) * 0.04 * v;
-    for (const segment of d.split("M").filter(Boolean)) {
-      const nums = segment
-        .replace(/L/g, " ")
-        .match(/-?\d+(?:\.\d+)?/g)!
-        .map(Number);
-      const vertices: Point[] = [];
-      for (let i = 0; i < nums.length; i += 2)
-        vertices.push({
-          x: cursor + (nums[i] + slant * (22 - nums[i + 1])) * s,
-          y: baseline + (nums[i + 1] - 1) * s + dy,
-          z: 0.5,
-        });
-      const dense = resample(vertices),
-        phase = rng() * 6.28;
-      // Pressure tapers at pen entry/exit; restrained deterministic microvariation.
+    const glyph = mathGlyphs[ch] ?? handwritingGlyphs[ch];
+    if (!glyph) throw Error(`Unsupported stroke glyph: ${ch}`);
+    const s = (h / 21) * (superscript ? 0.62 : 1),
+      sx = s * profile.width * (1 + (rng() - 0.5) * 0.065 * v),
+      sy = s * (1 + (rng() - 0.5) * 0.06 * v),
+      slant = (style.slant ?? profile.slant) + (rng() - 0.5) * 0.09 * v,
+      bend = (rng() - 0.5) * 0.8 * v,
+      bow = (rng() - 0.5) * 0.65 * v;
+    drift = drift * 0.72 + (rng() - 0.5) * h * 0.027 * v;
+    const dy =
+      drift + (rng() - 0.5) * h * 0.035 * v - (superscript ? h * 0.44 : 0);
+    const strokes = sampleGlyph(glyph.d, (gx, gy) => ({
+      x:
+        cursor +
+        gx * sx +
+        slant * (21 - gy) * s +
+        Math.sin((gy / 21) * Math.PI) * bend * s,
+      y: line + (gy - 1) * sy + dy + Math.sin((gx / 24) * Math.PI) * bow * s,
+      z: 0.5,
+    }));
+    for (let j = 0; j < strokes.length; j++) {
+      const dense = strokes[j],
+        phase = rng() * Math.PI * 2,
+        bias = (rng() - 0.5) * 0.07 * v;
+      let travelled = 0;
+      const total = length(dense);
       const points = dense.map((p, i) => {
-        const f = i / Math.max(1, dense.length - 1),
-          taper = Math.sin(Math.PI * f) ** 0.3;
+        if (i)
+          travelled += Math.hypot(p.x - dense[i - 1].x, p.y - dense[i - 1].y);
+        const f = travelled / (total || 1),
+          taper = Math.sin(Math.PI * f) ** 0.35;
         return {
           ...p,
-          x: p.x + Math.sin(i * 0.19 + phase) * 0.12 * v,
-          y: p.y + Math.cos(i * 0.17 + phase) * 0.12 * v,
-          z: 0.25 + 0.35 * taper + 0.035 * Math.sin(f * 9 + phase),
+          z: Math.max(
+            0.21,
+            Math.min(
+              0.64,
+              0.24 + 0.32 * taper + bias + 0.025 * v * Math.sin(f * 6 + phase),
+            ),
+          ),
         };
       });
-      paths.push({ points, color, scale: h >= 48 ? 1.05 : 0.85 });
+      paths.push({
+        points,
+        color,
+        scale: profile.weight * Math.max(0.72, Math.min(1.15, h / 40)),
+        pen: {
+          glyph: ch,
+          stroke: j,
+          style: style.style ?? "explanation",
+          tempo: 0.93 + rng() * 0.14,
+          liftMs: 25 + rng() * 35 + (j === strokes.length - 1 ? 20 : 0),
+        },
+      });
     }
     cursor +=
-      (special?.advance ?? glyph.o * 2 + 2) * s +
-      h * (0.025 + (rng() - 0.5) * 0.04 * v);
+      glyph.advance * sx + h * (profile.spacing + (rng() - 0.5) * 0.045 * v);
     superscript = false;
   }
+  if (superscript) throw Error("Empty superscript");
   return {
     paths,
     width: Math.max(maxWidth, cursor - x),
-    height: baseline - y + h * 1.4,
+    height: line - y + h * 1.4,
+    baseline: (h * 20) / 21,
   };
 }
-/** Minimum-jerk velocity profile: entry/exit slow down with no frame integration. */
+/** Minimum-jerk velocity profile; absolute time makes seeks reproducible. */
 export function penProgress(t: number) {
   t = Math.max(0, Math.min(1, t));
   return t * t * t * (10 + t * (-15 + 6 * t));
+}
+/** Curvature adds a small time cost at turns. Distance remains monotonic and
+ * the end points remain exact; this also avoids racing through tight bowls. */
+export function strokeProgress(points: Point[], t: number) {
+  const f = penProgress(t);
+  if (f === 0 || f === 1 || points.length < 3) return f;
+  const distances: number[] = [0],
+    costs: number[] = [0];
+  for (let i = 1; i < points.length; i++) {
+    const a = points[i - 1],
+      b = points[i],
+      d = Math.hypot(b.x - a.x, b.y - a.y);
+    let turn = 0;
+    if (i < points.length - 1) {
+      const c = points[i + 1];
+      turn = Math.abs(
+        Math.atan2(
+          (b.x - a.x) * (c.y - b.y) - (b.y - a.y) * (c.x - b.x),
+          (b.x - a.x) * (c.x - b.x) + (b.y - a.y) * (c.y - b.y),
+        ),
+      );
+    }
+    distances.push(distances[i - 1] + d);
+    costs.push(costs[i - 1] + d * (1 + turn * 1.8));
+  }
+  const target = f * costs.at(-1)!;
+  const i = costs.findIndex((c) => c >= target);
+  const q = (target - costs[i - 1]) / (costs[i] - costs[i - 1] || 1);
+  return (
+    (distances[i - 1] + q * (distances[i] - distances[i - 1])) /
+    (distances.at(-1) || 1)
+  );
 }
 export function strokeDuration(points: Point[], speed = 210) {
   return 1000 * Math.max(0.08, length(points) / speed);

@@ -1,4 +1,5 @@
 import type { TLEditorSnapshot, TLRecord } from "tldraw";
+import type { CanvasThemeId } from "../story/canvas-themes";
 export type Camera = { x: number; y: number; z: number };
 export type Origin = "human" | "generated" | "unknown";
 export type EventKind =
@@ -8,7 +9,8 @@ export type EventKind =
   | "erase"
   | "delete"
   | "camera"
-  | "page";
+  | "page"
+  | "theme";
 export interface StrokeEvent {
   seq: number;
   t: number; // milliseconds, monotonic clock; equal times are ordered by seq
@@ -22,6 +24,7 @@ export interface StrokeEvent {
   camera?: Camera;
   pageId?: string;
   easing?: "hold" | "linear" | "smooth";
+  theme?: CanvasThemeId;
 }
 export interface Recording {
   format: "tldraw-stroke-recording";
@@ -41,6 +44,7 @@ export interface Recording {
     lessonId?: string;
     seed?: number;
     theme?: "default" | "teaching";
+    canvasTheme?: CanvasThemeId;
     narration?: {
       id: string;
       t: number;
@@ -95,6 +99,13 @@ export function parseRecording(value: unknown): Recording {
     !["default", "teaching"].includes(r.metadata.theme)
   )
     throw Error("Unsupported recording theme");
+  if (
+    r.metadata.canvasTheme !== undefined &&
+    !["whiteboard", "graph", "notebook", "darkboard"].includes(
+      r.metadata.canvasTheme,
+    )
+  )
+    throw Error("Unsupported canvas theme");
   if (r.metadata.narration) {
     let end = 0;
     const ids = new Set<string>();
@@ -145,6 +156,7 @@ export function parseRecording(value: unknown): Recording {
         "delete",
         "camera",
         "page",
+        "theme",
       ].includes(e.kind)
     )
       throw Error(`Invalid event kind at ${i}`);
@@ -158,6 +170,11 @@ export function parseRecording(value: unknown): Recording {
     )
       throw Error("Missing record");
     if (e.kind === "page" && !e.pageId) throw Error("Missing page");
+    if (
+      e.kind === "theme" &&
+      !["whiteboard", "graph", "notebook", "darkboard"].includes(e.theme ?? "")
+    )
+      throw Error("Invalid theme event");
     last = e.t;
   }
   return r;

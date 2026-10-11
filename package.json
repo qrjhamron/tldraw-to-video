@@ -17,14 +17,20 @@
     "export:flagship": "tsx scripts/export-flagship.ts",
     "test:v2:browser": "tsx scripts/verify-v2-browser.ts",
     "verify:flagship": "tsx scripts/verify-flagship-media.ts",
-    "test:editing": "tsx scripts/verify-editing-browser.ts"
+    "test:editing": "tsx scripts/verify-editing-browser.ts",
+    "handwriting:compare": "tsx scripts/compare-handwriting.ts && tsx scripts/export-flagship.ts --recording output/handwriting-comparison.recording.json --output output/handwriting-comparison.mp4",
+    "verify:handwriting": "tsx scripts/verify-handwriting.ts",
+    "mcp": "tsx scripts/mcp-server.ts",
+    "visual:poc": "tsx scripts/create-visual-poc.ts",
+    "verify:visual": "tsx scripts/verify-visual-poc.ts"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
     "@tldraw/assets": "5.5.2",
+    "@tldraw/tlschema": "5.5.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tldraw": "5.5.2",
-    "@tldraw/tlschema": "5.5.2"
+    "tldraw": "5.5.2"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

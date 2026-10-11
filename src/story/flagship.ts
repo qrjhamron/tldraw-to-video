@@ -89,7 +89,15 @@ function frame(
 }
 function header(c: Chapter, title: string) {
   frame(c);
-  write(c, title, 80, 50, 3, 4, 42, "blue");
+  add(c, "write", 3, 4, {
+    content: title,
+    x: 80,
+    y: 50,
+    height: title.length >= 35 ? 40 : 42,
+    color: "blue",
+    handwritingStyle: "heading",
+    maxWidth: 1480,
+  });
   add(c, "underline", 7.2, 0.8, { x: 80, y: 118, width: 1480 });
 }
 const graph = (xMin = 0, xMax = 4, yMin = 0, yMax = 16): Graph => ({
@@ -213,10 +221,10 @@ export function flagshipLesson(): Lesson {
     ],
     color: "orange",
   });
-  write(c2, "Newton", 130, 410, 21, 2.5, 46, "blue");
-  write(c2, "Leibniz", 920, 410, 24, 2.5, 46, "blue");
-  write(c2, "Gerak dan laju perubahan", 130, 505, 27, 3.5, 30);
-  write(c2, "Notasi dan metode umum", 920, 505, 30.5, 3.5, 29);
+  write(c2, "Newton", 380, 430, 21, 2.5, 40, "blue");
+  write(c2, "Leibniz", 1130, 430, 24, 2.5, 40, "blue");
+  write(c2, "Gerak dan laju perubahan", 380, 500, 27, 3.5, 26);
+  write(c2, "Notasi dan metode umum", 1130, 500, 30.5, 3.5, 26);
   say(
     c2,
     21,
@@ -326,57 +334,54 @@ export function flagshipLesson(): Lesson {
     "Untuk fungsi kuadrat, gantikan nilai fungsi dengan rumusnya. Kuadrat dari x tambah h adalah x kuadrat tambah dua x h tambah h kuadrat. Ini berasal dari mengalikan x tambah h dengan dirinya sendiri. Kedua suku x kuadrat kemudian saling menghapus.",
   );
   // Locate the cancellable x² terms from the same vector layout, rather than fixed pixels.
-  const expandedIndex = c4.actions.findIndex(
-    (a) =>
-      a.type === "write" &&
-      typeof a.content === "object" &&
-      a.content.type === "row" &&
-      JSON.stringify(a.content).includes("x^2 + 2xh"),
-  );
-  const cancellationStyle = {
-    seed:
-      20261011 +
-      (c1.actions.length +
-        c2.actions.length +
-        c3.actions.length +
-        expandedIndex +
-        1) *
-        271,
-    height: 36,
-  };
   const numeratorText = "x^2 + 2xh + h^2 - x^2";
-  const equationLayout = mathLayout(
-    row("q(h) =", fraction(numeratorText, "h")),
-    cancellationStyle,
-  );
-  const prefixCount = mathLayout("q(h) =", cancellationStyle).paths.length;
-  const numeratorCount = mathLayout(numeratorText, cancellationStyle).paths
-    .length;
-  const termCount = mathLayout("x^2", cancellationStyle).paths.length;
-  const xCount = mathLayout("x", cancellationStyle).paths.length;
-  const strikeTerm = (start: number) => {
-    const term = equationLayout.paths
-      .slice(start, start + termCount)
-      .flatMap((p) => p.points);
-    const glyph = equationLayout.paths
-      .slice(start, start + xCount)
-      .flatMap((p) => p.points);
-    const xMin = Math.min(...term.map((p) => p.x)),
-      xMax = Math.max(...term.map((p) => p.x)),
-      y =
-        (Math.min(...glyph.map((p) => p.y)) +
-          Math.max(...glyph.map((p) => p.y))) /
-        2;
+  function cancellationStrikes(seed: number): number[][][] {
+    const style = { seed, height: 36 };
+    const layout = mathLayout(
+      row("q(h) =", fraction(numeratorText, "h")),
+      style,
+    );
+    const prefixCount = mathLayout("q(h) =", style).paths.length;
+    const numeratorCount = mathLayout(numeratorText, style).paths.length;
+    const termCount = mathLayout("x^2", style).paths.length;
+    const xCount = mathLayout("x", style).paths.length;
+    const strikeTerm = (start: number) => {
+      const term = layout.paths
+        .slice(start, start + termCount)
+        .flatMap((p) => p.points);
+      const glyph = layout.paths
+        .slice(start, start + xCount)
+        .flatMap((p) => p.points);
+      const xMin = Math.min(...term.map((p) => p.x)),
+        xMax = Math.max(...term.map((p) => p.x)),
+        y =
+          (Math.min(...glyph.map((p) => p.y)) +
+            Math.max(...glyph.map((p) => p.y))) /
+          2;
+      return [
+        [80 + xMin - 4, 635 + y],
+        [80 + xMax + 4, 635 + y],
+      ];
+    };
     return [
-      [80 + xMin - 4, 635 + y],
-      [80 + xMax + 4, 635 + y],
-    ];
-  };
-  add(c4, "draw", 45, 1, {
-    points: [
       strikeTerm(prefixCount),
       strikeTerm(prefixCount + numeratorCount - termCount),
-    ],
+    ];
+  }
+  function expandedActionCount() {
+    const expandedIndex = c4.actions.findIndex(
+      (a) =>
+        a.type === "write" &&
+        typeof a.content === "object" &&
+        a.content.type === "row" &&
+        JSON.stringify(a.content).includes("x^2 + 2xh"),
+    );
+    return (
+      c1.actions.length + c2.actions.length + c3.actions.length + expandedIndex + 1
+    );
+  }
+  const strikeId = add(c4, "draw", 45, 1, {
+    points: cancellationStrikes(20261011 + expandedActionCount() * 271),
     color: "red",
     group: expansion,
   });
@@ -666,6 +671,120 @@ export function flagshipLesson(): Lesson {
     duration: 3000,
     bounds: { x: -2250, y: 0, w: 3890, h: 920 },
   });
+  // Visual upgrade (append-only with explicit ids): existing action ids, order,
+  // narration windows, and chapter durations are untouched, so measured TTS
+  // alignment still applies. Portraits fade and zoom; history uses the
+  // notebook theme, derivations use graph paper, the challenge returns clean.
+  c2.actions.push(
+    { id: "history-theme", type: "setCanvas", theme: "notebook", at: 0, duration: 0 },
+    {
+      id: "history-portrait-newton",
+      type: "addImage",
+      assetId: "newton-portrait",
+      x: 150,
+      y: 375,
+      w: 200,
+      h: 281,
+      at: 20000,
+      duration: 1500,
+      altText: "Portrait of Isaac Newton",
+    },
+    {
+      id: "history-portrait-leibniz",
+      type: "addImage",
+      assetId: "leibniz-portrait",
+      x: 900,
+      y: 375,
+      w: 200,
+      h: 247,
+      at: 22500,
+      duration: 1500,
+      altText: "Portrait of Gottfried Wilhelm Leibniz",
+    },
+    {
+      id: "history-era",
+      type: "annotateImage",
+      content: "abad ke-17",
+      x: 1240,
+      y: 282,
+      height: 26,
+      color: "orange",
+      handwritingStyle: "annotation",
+      handwritingFont: "Caveat",
+      maxWidth: 300,
+      arrowFrom: { x: 1310, y: 310 },
+      arrowTo: { x: 1310, y: 340 },
+      at: 20500,
+      duration: 2500,
+    },
+    {
+      id: "history-date-newton",
+      type: "annotateImage",
+      content: "(1643–1727)",
+      x: 380,
+      y: 545,
+      height: 24,
+      color: "grey",
+      handwritingStyle: "annotation",
+      handwritingFont: "Caveat",
+      maxWidth: 300,
+      at: 30500,
+      duration: 2000,
+    },
+    {
+      id: "history-date-leibniz",
+      type: "annotateImage",
+      content: "(1646–1716)",
+      x: 1130,
+      y: 545,
+      height: 24,
+      color: "grey",
+      handwritingStyle: "annotation",
+      handwritingFont: "Caveat",
+      maxWidth: 300,
+      at: 34000,
+      duration: 2000,
+    },
+    {
+      id: "history-zoom-newton",
+      type: "animateImage",
+      target: "history-portrait-newton",
+      effect: "zoom",
+      scale: 1.08,
+      at: 33000,
+      duration: 2000,
+    },
+    {
+      id: "history-zoom-leibniz",
+      type: "animateImage",
+      target: "history-portrait-leibniz",
+      effect: "zoom",
+      scale: 1.08,
+      at: 35500,
+      duration: 2000,
+    },
+  );
+  c3.actions.push({
+    id: "limits-theme",
+    type: "setCanvas",
+    theme: "graph",
+    at: 0,
+    duration: 0,
+  });
+  c8.actions.push({
+    id: "challenge-theme",
+    type: "setCanvas",
+    theme: "whiteboard",
+    at: 0,
+    duration: 0,
+  });
+  // Appended history actions shift compiler seeds for later chapters; recompute
+  // the layout-derived cancellation marks with the final seed and patch in place.
+  const strikeAction = c4.actions.find((a) => a.id === strikeId);
+  if (strikeAction?.type === "draw")
+    strikeAction.points = cancellationStrikes(
+      20261011 + expandedActionCount() * 271,
+    );
   return {
     format: "stroke-lesson",
     version: 1,
@@ -674,6 +793,7 @@ export function flagshipLesson(): Lesson {
     language: "id",
     seed: 20261011,
     duration: 540000,
+    canvasTheme: "whiteboard",
     chapters: [c1, c2, c3, c4, c5, c6, c7, c8],
     sources: [
       {

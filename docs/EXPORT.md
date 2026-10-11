@@ -8,7 +8,7 @@ npm run test
 npm run build
 npm run tts                 # optional; silent export works without it
 npm run lesson:compile
-npm run export:flagship
+npm run export:flagship -- --cache output/render-cache-handwriting-final
 npm run verify:flagship
 ```
 

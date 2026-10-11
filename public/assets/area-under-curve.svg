@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+  <title>Luas daerah di bawah kurva x kuadrat</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 380 L40 30 M40 380 L610 380" stroke="#263238" stroke-width="3"/>
+    <path d="M60 375 C 220 370 360 300 560 60 L560 380 L60 380 Z" fill="#3e7869" fill-opacity="0.22" stroke="none"/>
+    <path d="M60 375 C 220 370 360 300 560 60" stroke="#285d92" stroke-width="5"/>
+    <g stroke="#3e7869" stroke-width="2.5">
+      <path d="M120 380 L120 372 L180 372 L180 380"/>
+      <path d="M180 380 L180 368 L240 368 L240 380"/>
+      <path d="M240 380 L240 358 L300 358 L300 380"/>
+      <path d="M300 380 L300 340 L360 340 L360 380"/>
+      <path d="M360 380 L360 312 L420 312 L420 380"/>
+      <path d="M420 380 L420 272 L480 272 L480 380"/>
+    </g>
+  </g>
+  <g font-family="sans-serif" font-size="22" fill="#263238">
+    <text x="90" y="410" font-size="20">0</text>
+    <text x="480" y="410" font-size="20">2</text>
+    <text x="250" y="250" fill="#3e7869">jumlah Riemann</text>
+  </g>
+</svg>

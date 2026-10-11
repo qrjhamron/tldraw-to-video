@@ -1,15 +1,19 @@
 {
   "checks": [
     {
-      "test": "Eight-chapter flagship uses exclusively generated native draw records",
+      "test": "Eight-chapter flagship uses honest native generators and theme events",
       "passed": true,
       "details": {
         "duration": 577160,
-        "events": 24071,
+        "events": 23135,
         "chapters": 8,
         "narration": 23,
-        "native": true,
-        "generated": true
+        "draws": 22770,
+        "texts": 35,
+        "images": 124,
+        "honest": true,
+        "canvasTheme": "whiteboard",
+        "themeEvents": 3
       }
     },
     {
@@ -20,7 +24,7 @@
       "test": "Cached public DrawShapeUtil SVG adapter matches official SDK export",
       "passed": true,
       "details": {
-        "meanChannelDifference": 0.0010707626028806584,
+        "meanChannelDifference": 0.0006372170781893004,
         "changedPixelFraction": 0
       }
     },
@@ -28,7 +32,7 @@
       "test": "Progressive native point paths and pressure are present",
       "passed": true,
       "details": {
-        "prefixes": 2341,
+        "prefixes": 2081,
         "pressures": true
       }
     },

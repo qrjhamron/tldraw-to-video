@@ -39,8 +39,11 @@ export function axes(g: Graph, seed = 1): InkPath[] {
         [px, py - 5],
         [px, py + 5],
       ]),
-      ...textLayout(String(t), px - 10, py + 18, { seed: seed++, height: 22 })
-        .paths,
+      ...textLayout(String(t), px - 10, py + 18, {
+        seed: seed++,
+        height: 22,
+        style: "math",
+      }).paths,
     );
   }
   for (const t of ticks(g.yMin, g.yMax)) {
@@ -51,8 +54,11 @@ export function axes(g: Graph, seed = 1): InkPath[] {
         [px - 5, py],
         [px + 5, py],
       ]),
-      ...textLayout(String(t), px - 55, py - 12, { seed: seed++, height: 22 })
-        .paths,
+      ...textLayout(String(t), px - 55, py - 12, {
+        seed: seed++,
+        height: 22,
+        style: "math",
+      }).paths,
     );
   }
   return out;

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 900,
+  "duration": 30,
+  "progressivelyConstructed": 198,
+  "styles": [
+    "heading",
+    "explanation",
+    "math"
+  ],
+  "samples": [
+    {
+      "t": 1.05,
+      "inkPixels": 53,
+      "points": 3,
+      "nativeDraws": 1
+    },
+    {
+      "t": 1.15,
+      "inkPixels": 383,
+      "points": 30,
+      "nativeDraws": 1
+    },
+    {
+      "t": 1.3,
+      "inkPixels": 739,
+      "points": 83,
+      "nativeDraws": 1
+    },
+    {
+      "t": 10.5,
+      "inkPixels": 13305,
+      "points": 2805,
+      "nativeDraws": 80
+    },
+    {
+      "t": 15,
+      "inkPixels": 13307,
+      "points": 3844,
+      "nativeDraws": 116
+    },
+    {
+      "t": 20.5,
+      "inkPixels": 13305,
+      "points": 4648,
+      "nativeDraws": 143
+    },
+    {
+      "t": 29.5,
+      "inkPixels": 13310,
+      "points": 5773,
+      "nativeDraws": 170
+    }
+  ],
+  "visualReview": "Decoded frames reviewed separately; native records and pixel growth alone do not establish visual handwriting quality."
+}

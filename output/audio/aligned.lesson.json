@@ -6,6 +6,7 @@
   "language": "id",
   "seed": 20261011,
   "duration": 577160,
+  "canvasTheme": "whiteboard",
   "chapters": [
     {
       "id": "motion",
@@ -43,6 +44,7 @@
           "y": 50,
           "height": 42,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -536,6 +538,7 @@
           "y": 50,
           "height": 42,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -623,11 +626,11 @@
           "at": 21000,
           "duration": 2504.7619047619046,
           "content": "Newton",
-          "x": 130,
-          "y": 410,
-          "height": 46,
+          "x": 380,
+          "y": 430,
+          "height": 40,
           "color": "blue",
-          "maxWidth": 1430
+          "maxWidth": 1180
         },
         {
           "id": "history-28",
@@ -635,11 +638,11 @@
           "at": 24005.714285714286,
           "duration": 2504.7619047619046,
           "content": "Leibniz",
-          "x": 920,
-          "y": 410,
-          "height": 46,
+          "x": 1130,
+          "y": 430,
+          "height": 40,
           "color": "blue",
-          "maxWidth": 640
+          "maxWidth": 430
         },
         {
           "id": "history-29",
@@ -647,11 +650,11 @@
           "at": 27011.428571428572,
           "duration": 3506.6666666666642,
           "content": "Gerak dan laju perubahan",
-          "x": 130,
-          "y": 505,
-          "height": 30,
+          "x": 380,
+          "y": 500,
+          "height": 26,
           "color": "black",
-          "maxWidth": 1430
+          "maxWidth": 1180
         },
         {
           "id": "history-30",
@@ -659,11 +662,11 @@
           "at": 30518.095238095237,
           "duration": 3506.6666666666715,
           "content": "Notasi dan metode umum",
-          "x": 920,
-          "y": 505,
-          "height": 29,
+          "x": 1130,
+          "y": 500,
+          "height": 26,
           "color": "black",
-          "maxWidth": 640
+          "maxWidth": 430
         },
         {
           "id": "history-31",
@@ -695,6 +698,105 @@
           "height": 32,
           "color": "black",
           "maxWidth": 1380
+        },
+        {
+          "id": "history-theme",
+          "type": "setCanvas",
+          "theme": "notebook",
+          "at": 0,
+          "duration": 0
+        },
+        {
+          "id": "history-portrait-newton",
+          "type": "addImage",
+          "assetId": "newton-portrait",
+          "x": 150,
+          "y": 375,
+          "w": 200,
+          "h": 281,
+          "at": 20000,
+          "duration": 1500.9523809523816,
+          "altText": "Portrait of Isaac Newton"
+        },
+        {
+          "id": "history-portrait-leibniz",
+          "type": "addImage",
+          "assetId": "leibniz-portrait",
+          "x": 900,
+          "y": 375,
+          "w": 200,
+          "h": 247,
+          "at": 22502.85714285714,
+          "duration": 1502.857142857145,
+          "altText": "Portrait of Gottfried Wilhelm Leibniz"
+        },
+        {
+          "id": "history-era",
+          "type": "annotateImage",
+          "content": "abad ke-17",
+          "x": 1240,
+          "y": 282,
+          "height": 26,
+          "color": "orange",
+          "handwritingStyle": "annotation",
+          "handwritingFont": "Caveat",
+          "maxWidth": 300,
+          "arrowFrom": {
+            "x": 1310,
+            "y": 310
+          },
+          "arrowTo": {
+            "x": 1310,
+            "y": 340
+          },
+          "at": 20500,
+          "duration": 2503.809523809523
+        },
+        {
+          "id": "history-date-newton",
+          "type": "annotateImage",
+          "content": "(1643–1727)",
+          "x": 380,
+          "y": 545,
+          "height": 24,
+          "color": "grey",
+          "handwritingStyle": "annotation",
+          "handwritingFont": "Caveat",
+          "maxWidth": 300,
+          "at": 30518.095238095237,
+          "duration": 2003.8095238095266
+        },
+        {
+          "id": "history-date-leibniz",
+          "type": "annotateImage",
+          "content": "(1646–1716)",
+          "x": 1130,
+          "y": 545,
+          "height": 24,
+          "color": "grey",
+          "handwritingStyle": "annotation",
+          "handwritingFont": "Caveat",
+          "maxWidth": 300,
+          "at": 34024.76190476191,
+          "duration": 2003.8095238095193
+        },
+        {
+          "id": "history-zoom-newton",
+          "type": "animateImage",
+          "target": "history-portrait-newton",
+          "effect": "zoom",
+          "scale": 1.08,
+          "at": 33022.857142857145,
+          "duration": 2003.8095238095193
+        },
+        {
+          "id": "history-zoom-leibniz",
+          "type": "animateImage",
+          "target": "history-portrait-leibniz",
+          "effect": "zoom",
+          "scale": 1.08,
+          "at": 35527.619047619046,
+          "duration": 2003.8095238095266
         }
       ]
     },
@@ -734,6 +836,7 @@
           "y": 50,
           "height": 42,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -970,6 +1073,13 @@
           "at": 53000,
           "duration": 19528,
           "text": "Garis batas itu adalah tangen. Di titik P, kemiringannya dua: bergerak satu satuan ke kanan pada garis tangen berarti naik dua. Ini intuisi laju sesaat. Pada langkah berikutnya kita akan membuktikannya, sambil memastikan tidak pernah membagi dengan nol."
+        },
+        {
+          "id": "limits-theme",
+          "type": "setCanvas",
+          "theme": "graph",
+          "at": 0,
+          "duration": 0
         }
       ]
     },
@@ -1010,6 +1120,7 @@
           "y": 50,
           "height": 42,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -1139,22 +1250,22 @@
           "points": [
             [
               [
-                297.662130155867,
-                659.0414900788296
+                235.08072923044682,
+                658.0540183728164
               ],
               [
-                353.9512288573295,
-                659.0414900788296
+                283.08776126346487,
+                658.0540183728164
               ]
             ],
             [
               [
-                766.4280078866148,
-                659.2527319687875
+                593.3641291871548,
+                658.0747772796411
               ],
               [
-                822.3429784416389,
-                659.2527319687875
+                640.6727877270381,
+                658.0747772796411
               ]
             ]
           ],
@@ -1296,6 +1407,7 @@
           "y": 50,
           "height": 42,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -1525,8 +1637,9 @@
           "content": "INTEGRAL: MENGUMPULKAN BAGIAN KECIL",
           "x": 80,
           "y": 50,
-          "height": 42,
+          "height": 40,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -1953,6 +2066,7 @@
           "y": 50,
           "height": 42,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -2185,8 +2299,9 @@
           "content": "TANTANGAN: DUA PERTANYAAN, SATU GERAK",
           "x": 80,
           "y": 50,
-          "height": 42,
+          "height": 40,
           "color": "blue",
+          "handwritingStyle": "heading",
           "maxWidth": 1480
         },
         {
@@ -2309,6 +2424,13 @@
           "at": 56164,
           "duration": 15448,
           "text": "Turunan membantu kita memahami perubahan. Integral membantu kita memahami akumulasi. Dua arah dari satu ide: memahami dunia dengan membagi perubahan menjadi bagian kecil, lalu menghubungkannya kembali."
+        },
+        {
+          "id": "challenge-theme",
+          "type": "setCanvas",
+          "theme": "whiteboard",
+          "at": 0,
+          "duration": 0
         }
       ]
     }

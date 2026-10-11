@@ -1,0 +1,46 @@
+/* Vendored handwriting fonts (SIL OFL 1.1). Served offline from /fonts/.
+ * Patrick Hand © Patrick Wagesreiter; Kalam © Indian Type Foundry;
+ * Caveat © The Caveat Project Authors. See OFL-*.txt in this directory. */
+@font-face {
+  font-family: 'Patrick Hand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/PatrickHand-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Kalam-latin-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Kalam-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Caveat-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Caveat-latin.woff2') format('woff2');
+}
+/* Map tldraw text-shape font props to handwriting families for font mode.
+ * Stroke mode is unaffected (draw shapes carry their own geometry).
+ * Scoped to the tldraw canvas so app UI keeps its own fonts. */
+.tldraw__editor, .tl-container, .tl-handwriting-fonts {
+  --tl-font-draw: 'Patrick Hand', 'Shantell Sans', cursive;
+  --tl-font-sans: 'Kalam', 'Shantell Sans', cursive;
+  --tl-font-serif: 'Caveat', 'Shantell Sans', cursive;
+}

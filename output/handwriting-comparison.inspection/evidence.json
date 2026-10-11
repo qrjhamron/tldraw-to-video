@@ -1,0 +1,413 @@
+{
+  "samples": [
+    {
+      "content": "Memahami perubahan",
+      "x": 0,
+      "y": 145,
+      "at": 1000,
+      "duration": 4500,
+      "height": 38,
+      "style": "heading"
+    },
+    {
+      "content": "Turunan mengukur laju",
+      "x": 0,
+      "y": 230,
+      "at": 5500,
+      "duration": 4000,
+      "height": 30,
+      "style": "explanation"
+    },
+    {
+      "content": "perubahan sesaat.",
+      "x": 0,
+      "y": 282,
+      "at": 9500,
+      "duration": 3500,
+      "height": 30,
+      "style": "explanation"
+    },
+    {
+      "content": {
+        "type": "row",
+        "items": [
+          "f'(x) =",
+          {
+            "type": "limit",
+            "under": "h → 0",
+            "body": {
+              "type": "fraction",
+              "numerator": "f(x+h) - f(x)",
+              "denominator": "h"
+            }
+          }
+        ]
+      },
+      "x": 0,
+      "y": 380,
+      "at": 13000,
+      "duration": 6000,
+      "height": 24,
+      "style": "math"
+    },
+    {
+      "content": {
+        "type": "row",
+        "items": [
+          {
+            "type": "integral",
+            "lower": "0",
+            "upper": "2",
+            "body": {
+              "type": "script",
+              "base": "x",
+              "sup": "2"
+            }
+          },
+          "dx =",
+          {
+            "type": "fraction",
+            "numerator": "8",
+            "denominator": "3"
+          }
+        ]
+      },
+      "x": 0,
+      "y": 550,
+      "at": 19000,
+      "duration": 5000,
+      "height": 30,
+      "style": "math"
+    },
+    {
+      "content": "α + β = π; θ → 0",
+      "x": 0,
+      "y": 735,
+      "at": 24000,
+      "duration": 3500,
+      "height": 30,
+      "style": "math"
+    }
+  ],
+  "evidence": [
+    {
+      "t": 1050,
+      "nativeOnly": true,
+      "shapes": 58,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-56",
+          "points": 10,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-0",
+            "stroke": 0
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-92",
+          "points": 3,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "M",
+              "stroke": 0,
+              "style": "heading",
+              "tempo": 0.9301641159318388,
+              "liftMs": 64.13357013603672
+            },
+            "seed": 123,
+            "action": "after-0",
+            "stroke": 0
+          }
+        }
+      ],
+      "points": 2187
+    },
+    {
+      "t": 1150,
+      "nativeOnly": true,
+      "shapes": 59,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-92",
+          "points": 30,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "M",
+              "stroke": 0,
+              "style": "heading",
+              "tempo": 0.9301641159318388,
+              "liftMs": 64.13357013603672
+            },
+            "seed": 123,
+            "action": "after-0",
+            "stroke": 0
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-57",
+          "points": 5,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-0",
+            "stroke": 1
+          }
+        }
+      ],
+      "points": 2226
+    },
+    {
+      "t": 1300,
+      "nativeOnly": true,
+      "shapes": 60,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-92",
+          "points": 83,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "M",
+              "stroke": 0,
+              "style": "heading",
+              "tempo": 0.9301641159318388,
+              "liftMs": 64.13357013603672
+            },
+            "seed": 123,
+            "action": "after-0",
+            "stroke": 0
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-58",
+          "points": 12,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-0",
+            "stroke": 2
+          }
+        }
+      ],
+      "points": 2304
+    },
+    {
+      "t": 3000,
+      "nativeOnly": true,
+      "shapes": 86,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-71",
+          "points": 15,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-0",
+            "stroke": 15
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-105",
+          "points": 3,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "m",
+              "stroke": 2,
+              "style": "heading",
+              "tempo": 0.9802494039805607,
+              "liftMs": 57.55656269262545
+            },
+            "seed": 123,
+            "action": "after-0",
+            "stroke": 13
+          }
+        }
+      ],
+      "points": 3121
+    },
+    {
+      "t": 5500,
+      "nativeOnly": true,
+      "shapes": 127,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-125",
+          "points": 2,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-1",
+            "stroke": 0
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-163",
+          "points": 2,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "T",
+              "stroke": 0,
+              "style": "explanation",
+              "tempo": 0.9787428019847721,
+              "liftMs": 38.28159001888707
+            },
+            "seed": 123,
+            "action": "after-1",
+            "stroke": 0
+          }
+        }
+      ],
+      "points": 4369
+    },
+    {
+      "t": 10500,
+      "nativeOnly": true,
+      "shapes": 219,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-209",
+          "points": 2,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-2",
+            "stroke": 8
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-236",
+          "points": 2,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "b",
+              "stroke": 1,
+              "style": "explanation",
+              "tempo": 1.0600170961441473,
+              "liftMs": 75.2708430273924
+            },
+            "seed": 123,
+            "action": "after-2",
+            "stroke": 8
+          }
+        }
+      ],
+      "points": 6429
+    },
+    {
+      "t": 15000,
+      "nativeOnly": true,
+      "shapes": 292,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-273",
+          "points": 14,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-3",
+            "stroke": 18
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-312",
+          "points": 8,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "→",
+              "stroke": 0,
+              "style": "math",
+              "tempo": 1.0155495096463711,
+              "liftMs": 36.48972888360731
+            },
+            "seed": 123,
+            "action": "after-3",
+            "stroke": 17
+          }
+        }
+      ],
+      "points": 8043
+    },
+    {
+      "t": 20500,
+      "nativeOnly": true,
+      "shapes": 345,
+      "active": [
+        {
+          "id": "shape:handwriting-comparison-339",
+          "points": 12,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": null,
+            "seed": 123,
+            "action": "before-4",
+            "stroke": 4
+          }
+        },
+        {
+          "id": "shape:handwriting-comparison-354",
+          "points": 14,
+          "meta": {
+            "origin": "generated",
+            "generator": "pen-v3",
+            "pen": {
+              "glyph": "x",
+              "stroke": 1,
+              "style": "math",
+              "tempo": 1.0210751938587055,
+              "liftMs": 57.42313518188894
+            },
+            "seed": 123,
+            "action": "after-4",
+            "stroke": 4
+          }
+        }
+      ],
+      "points": 9340
+    },
+    {
+      "t": 27500,
+      "nativeOnly": true,
+      "shapes": 400,
+      "active": [],
+      "points": 11006
+    },
+    {
+      "t": 29500,
+      "nativeOnly": true,
+      "shapes": 400,
+      "active": [],
+      "points": 11006
+    }
+  ],
+  "browserErrors": []
+}

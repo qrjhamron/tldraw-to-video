@@ -14,21 +14,36 @@ try {
     const shapes = r.events.flatMap((e) =>
       e.record?.typeName === "shape" ? [e.record] : [],
     );
+    const honest = shapes.every((s) => {
+      if (s.meta.origin !== "generated") return false;
+      if (s.type === "draw") return s.meta.generator === "pen-v3";
+      if (s.type === "text")
+        return s.meta.generator === "font-v1" && s.meta.mode === "font";
+      if (s.type === "image") return s.meta.generator === "asset-v1";
+      return false;
+    });
     return {
       duration: r.durationMs,
       events: r.events.length,
       chapters: r.metadata.chapters?.length,
       narration: r.metadata.narration?.length,
-      native: shapes.every((s) => s.type === "draw"),
-      generated: shapes.every((s) => s.meta.origin === "generated"),
+      draws: shapes.filter((s) => s.type === "draw").length,
+      texts: shapes.filter((s) => s.type === "text").length,
+      images: shapes.filter((s) => s.type === "image").length,
+      honest,
+      canvasTheme: r.metadata.canvasTheme,
+      themeEvents: r.events.filter((e) => e.kind === "theme").length,
     };
   });
   assert.ok(stats.duration >= 480000 && stats.duration <= 600000);
   assert.equal(stats.chapters, 8);
-  assert.ok(stats.native && stats.generated);
+  assert.ok(stats.honest);
+  assert.ok(stats.draws > 1000 && stats.texts >= 3 && stats.images >= 2);
+  assert.equal(stats.canvasTheme, "whiteboard");
+  assert.ok(stats.themeEvents >= 3);
   assert.ok(stats.events > 10000);
   pass(
-    "Eight-chapter flagship uses exclusively generated native draw records",
+    "Eight-chapter flagship uses honest native generators and theme events",
     stats,
   );
   const t = await page.evaluate(
@@ -111,7 +126,7 @@ try {
       if (
         s?.typeName !== "shape" ||
         s.type !== "draw" ||
-        s.meta.generator !== "pen-v2"
+        s.meta.generator !== "pen-v3"
       )
         continue;
       const key = s.id;

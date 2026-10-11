@@ -155,6 +155,17 @@ export class Recorder {
       });
     this.easing = "linear";
   }
+  /** Theme keys switch canvas backgrounds without touching shapes. */
+  themeKey(theme: import("../story/canvas-themes").CanvasThemeId) {
+    this.append({
+      kind: "theme",
+      id: `theme:${theme}`,
+      theme,
+      origin: this.recording.metadata.origin,
+      source: "user",
+      tool: this.editor.getCurrentToolId(),
+    });
+  }
   stop(durationMs = this.clock() - this.start): Recording {
     this.running = false;
     this.cleanup.splice(0).forEach((fn) => fn());

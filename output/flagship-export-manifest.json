@@ -7,65 +7,107 @@
   "frames": 17315,
   "duration": 577.1666666666666,
   "logicalDurationMs": 577160,
-  "recordingSha256": "3946db0ddda7668db1c55dcd65665a107861696a59b82109426929fc301f42ec",
-  "events": 24071,
-  "rendered": 0,
-  "resumed": 17315,
-  "elapsedSeconds": 21.691,
+  "recordingSha256": "6b8f6b73587af24a1baec9d43214b97abf65930a73c99be00f6150a6473912eb",
+  "events": 23135,
+  "rendered": 17315,
+  "resumed": 0,
+  "elapsedSeconds": 1248.074,
   "samples": [
+    {
+      "frame": 300,
+      "t": 10000,
+      "sha256": "11a9ce72e7b5753124d1cb779824406b9300ede7472f3a9424785c45f994a530",
+      "nativeDraws": 68
+    },
+    {
+      "frame": 1939,
+      "t": 64633.333333333336,
+      "sha256": "ee552e10b5ce766539b2af5842c36e96b926f257276f371cca0b17ebe56bfeea",
+      "nativeDraws": 322
+    },
+    {
+      "frame": 2284,
+      "t": 76133.33333333333,
+      "sha256": "9d708e834fb03c6af3ac685143c71fdbfa121a002ae5012220ae889c51452c85",
+      "nativeDraws": 361
+    },
+    {
+      "frame": 3290,
+      "t": 109666.66666666667,
+      "sha256": "bdce9c319a408de03f72e7533406f4c4ac6b44d0e6f2f2890120ec69f59c5348",
+      "nativeDraws": 621
+    },
+    {
+      "frame": 3635,
+      "t": 121166.66666666667,
+      "sha256": "b6c4f78be5809bec0a5e12c423513e2fa054cb1dddbc6335b47067c4822d4add",
+      "nativeDraws": 668
+    },
+    {
+      "frame": 5556,
+      "t": 185200,
+      "sha256": "db9d1e01c173e60616859a82a678edff4696c0e1dbade852b7b70c9d0f62f561",
+      "nativeDraws": 888
+    },
+    {
+      "frame": 5901,
+      "t": 196700,
+      "sha256": "5e625175d73763d35d34d262afc5c1fa27fad9676ede653fa6d28f56440a797f",
+      "nativeDraws": 946
+    },
     {
       "frame": 8495,
       "t": 283166.6666666667,
-      "sha256": "d1997df9fd789683db3c65815cf06e10df6ce6858915a6c53b1add7c18b2d31f",
-      "nativeDraws": 1143
+      "sha256": "7284517182eab563c2c324cdf00e0c8841319eb8186735d8ba18b315df68034c",
+      "nativeDraws": 1074
     },
     {
       "frame": 8840,
       "t": 294666.6666666667,
-      "sha256": "a902fc02959bf29bce3fb5c769debd20a21a58b8494abc44a2c586eebc6c16f5",
-      "nativeDraws": 1209
+      "sha256": "eb6d0c8fc18934862e1ea4e32f185979984069111990d5b164962de1bfd9f2fc",
+      "nativeDraws": 1123
     },
     {
       "frame": 10314,
       "t": 343800,
-      "sha256": "3da9cb413ff8422319d81afd91fcd66fb5cdd4d1d8bf5882e2213a71f8f12d3f",
-      "nativeDraws": 1428
+      "sha256": "7b5c55907c46b5d0388f2e454be6bf820d6d015868242968d43a2b91535bc52e",
+      "nativeDraws": 1338
     },
     {
       "frame": 10659,
       "t": 355300,
-      "sha256": "30219f4b1ecc862c63400041dfe81a57d59e85356f00af69241f032f6fdd6fd9",
-      "nativeDraws": 1527
+      "sha256": "7f4a0868763da469fa9bcee4f6f3c148a0679c8f3fa146d903c642450367d6a8",
+      "nativeDraws": 1409
     },
     {
       "frame": 13247,
       "t": 441566.6666666667,
-      "sha256": "6b7fb1652a1829faa8a167bb21bc94a4f008a6b1492a08b793cbadbd3ff26ba3",
-      "nativeDraws": 1854
+      "sha256": "d46394cc70447a69406308203f6bcc3e82091c942fafdbbc1246d3e1b41447c6",
+      "nativeDraws": 1715
     },
     {
       "frame": 13592,
       "t": 453066.6666666667,
-      "sha256": "b644ea2da47ed69689347c412729a603cd12c362e63bdd5d6117a65f410da40e",
-      "nativeDraws": 1935
+      "sha256": "6eb81528e4ec546db03aaafe8e0cd34b1b789bfcd61ad0057082f2949795f66d",
+      "nativeDraws": 1772
     },
     {
       "frame": 15106,
       "t": 503533.3333333333,
-      "sha256": "384167a4dda33bf1393bc60893184e26d7ecab3fb7fe3c828e5b6179548c869d",
-      "nativeDraws": 2184
+      "sha256": "eb02af555cd8485f18a5077753d803336a02b2a4f99adaaf6a27d63ad1083c0e",
+      "nativeDraws": 2019
     },
     {
       "frame": 15451,
       "t": 515033.3333333333,
-      "sha256": "df902189cc2432f943782d0b85935545dadf5c3564fd8b6b9dbf00662b034c42",
-      "nativeDraws": 2275
+      "sha256": "d74deac3e3f89cbee95e8fe2262d241cfc2b2e3e4b04e8a6ccf330e40f4ddac0",
+      "nativeDraws": 2082
     },
     {
       "frame": 17270,
       "t": 575666.6666666666,
-      "sha256": "2f8eeedd902b29f9d4572bf07666906cde09586ae59d56510e586cf414a37db9",
-      "nativeDraws": 2591
+      "sha256": "de587667e0adee1da1ab705e44f61df1c0c898021b84c23727a02e655409ce40",
+      "nativeDraws": 2391
     }
   ],
   "browserErrors": [],

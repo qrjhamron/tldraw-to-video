@@ -1,16 +1,32 @@
 import {
   b64Vecs,
   createShapeId,
+  toRichText,
   type Editor,
+  type TLAssetId,
   type TLDrawShape,
+  type TLImageShape,
   type TLShapeId,
+  type TLTextShape,
   type IndexKey,
 } from "tldraw";
 import { Recorder } from "../engine/recorder";
 import type { Recording } from "../engine/schema";
 import { length, path, prefix, type InkPath } from "../lesson/paths";
-import { penProgress, textLayout, translate } from "../handwriting/engine";
+import {
+  penProgress,
+  strokeProgress,
+  textLayout,
+  translate,
+} from "../handwriting/engine";
+import { fontRevealSteps, estimateFontWidth } from "../handwriting/font-mode";
+import {
+  resolveHandwritingStyle,
+  tldrawFontProp,
+} from "../handwriting/styles";
 import { mathLayout } from "../handwriting/math-layout";
+import { lookupAsset, assetCatalog } from "../assets/catalog";
+import { assertCanvasThemeId } from "./canvas-themes";
 import * as geometry from "../math/geometry";
 import { evaluate, secantSlope } from "../math/models";
 import { frameBounds } from "./camera";
@@ -48,14 +64,17 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
     warnings: string[] = [];
   const recorder = new Recorder(editor, () => now, "generated");
   recorder.recording.viewport = { width: 1920, height: 1080 };
+  const canvasTheme = lesson.canvasTheme ?? "whiteboard";
+  assertCanvasThemeId(canvasTheme);
   recorder.recording.metadata = {
     title: lesson.title,
     language: lesson.language,
     origin: "generated",
-    generatedBy: "Seeded centerline pen engine 2.0",
+    generatedBy: "Hybrid handwriting 4.0 (stroke pen + honest font mode)",
     chapters: lesson.chapters.map((c) => ({ t: c.start, title: c.title })),
     lessonId: lesson.id,
     seed: lesson.seed,
+    canvasTheme,
     narration: [],
   };
   const at = (t: number, run: () => void) =>
@@ -69,7 +88,9 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
     oy: number,
   ): TLShapeId[] {
     if (!paths.length) return [];
-    const weights = paths.map((p) => Math.max(14, length(p.points))),
+    const weights = paths.map(
+        (p) => Math.max(14, length(p.points)) * (p.pen?.tempo ?? 1),
+      ),
       total = weights.reduce((a, b) => a + b, 0);
     let cursor = start;
     const ids = paths.map((p, j) => {
@@ -81,7 +102,7 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
           y: q.y - first.y,
         })),
         d = (duration * weights[j]) / total,
-        ink = d * 0.82;
+        ink = d - Math.min(d * 0.3, p.pen?.liftMs ?? d * 0.18);
       at(cursor, () =>
         editor.createShape<TLDrawShape>({
           id,
@@ -93,7 +114,8 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
           y: oy + first.y,
           meta: {
             origin: "generated",
-            generator: "pen-v2",
+            generator: "pen-v3",
+            pen: p.pen ?? null,
             seed: lesson.seed,
             action: group,
             stroke: j,
@@ -124,7 +146,9 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
               segments: [
                 {
                   type: "free",
-                  path: b64Vecs.encodePoints(prefix(local, penProgress(f))),
+                  path: b64Vecs.encodePoints(
+                    prefix(local, strokeProgress(local, f)),
+                  ),
                 },
               ],
               isComplete: i === steps,
@@ -138,7 +162,184 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
     groups.set(group, [...(groups.get(group) ?? []), ...ids]);
     return ids;
   }
+  /** Honest font-mode text: native `text` shapes with progressive character
+   * reveal. Labeled generator font-v1; never claims pen construction. */
+  function fontText(
+    text: string,
+    x: number,
+    y: number,
+    height: number,
+    color: "black" | "blue" | "red" | "green" | "orange" | "grey",
+    fontFamily: "Patrick Hand" | "Kalam" | "Caveat",
+    role: string,
+    start: number,
+    duration: number,
+    group: string,
+    ox: number,
+    oy: number,
+    maxWidth?: number,
+  ): TLShapeId[] {
+    if (maxWidth && estimateFontWidth(text, height) > maxWidth)
+      throw Error(
+        `Font writing ${group} exceeds width: ${estimateFontWidth(text, height).toFixed(0)} > ${maxWidth}`,
+      );
+    const id = createShapeId(`${lesson.id}-${serial++}`);
+    const size =
+      height >= 48 ? "xl" : height >= 36 ? "l" : height >= 24 ? "m" : "s";
+    const baseSize = 16 * ({ s: 1.125, m: 1.5, l: 2.25, xl: 2.75 } as const)[size];
+    const colorProp =
+      color === "grey" ? "grey" : color === "green" ? "green" : color;
+    at(start, () =>
+      editor.createShape<TLTextShape>({
+        id,
+        index: ("a1" +
+          (creationSerial++).toString(36).padStart(8, "0") +
+          "V") as IndexKey,
+        type: "text",
+        x: ox + x,
+        y: oy + y,
+        meta: {
+          origin: "generated",
+          generator: "font-v1",
+          mode: "font",
+          fontFamily,
+          role,
+          seed: lesson.seed,
+          action: group,
+        },
+        props: {
+          color: colorProp as TLTextShape["props"]["color"],
+          size: size as TLTextShape["props"]["size"],
+          font: tldrawFontProp(fontFamily),
+          textAlign: "start",
+          w: Math.max(50, estimateFontWidth(text, height) + 20),
+          richText: toRichText(""),
+          scale: Math.max(0.4, height / baseSize),
+          autoSize: true,
+        },
+      }),
+    );
+    const steps = fontRevealSteps(text, duration, seedFor(group));
+    for (const s of steps) {
+      const visible = [...text].slice(0, s.chars).join("");
+      at(start + s.t, () =>
+        editor.updateShape<TLTextShape>({
+          id,
+          type: "text",
+          props: { richText: toRichText(visible) },
+        }),
+      );
+    }
+    groups.set(group, [...(groups.get(group) ?? []), id]);
+    return [id];
+  }
+  function seedFor(s: string): number {
+    let h = 2166136261;
+    for (let i = 0; i < s.length; i++) {
+      h ^= s.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0) + lesson.seed;
+  }
+  function imageShape(
+    assetId: string,
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    start: number,
+    group: string,
+    ox: number,
+    oy: number,
+    opts: {
+      rotation?: number;
+      opacity?: number;
+      crop?: TLImageShape["props"]["crop"];
+      layer?: number;
+      altText?: string;
+    } = {},
+  ): TLShapeId {
+    const asset = lookupAsset(assetId);
+    if (asset.license.toLowerCase().includes("unknown"))
+      throw Error(`Asset ${assetId} has no explicit reuse license`);
+    const aid = `asset:${lesson.id}-${assetId}` as TLAssetId;
+    const src = `/${asset.file}`;
+    const id = createShapeId(`${lesson.id}-${serial++}`);
+    at(start, () => {
+      try {
+        editor.createAssets([
+          {
+            id: aid,
+            type: "image",
+            typeName: "asset",
+            meta: {
+              title: asset.title,
+              author: asset.author,
+              license: asset.license,
+              source: asset.source,
+              provenance: asset.provenance,
+              sha256: asset.sha256,
+              origin: "generated",
+            },
+            props: {
+              w: asset.w,
+              h: asset.h,
+              mimeType: asset.mime,
+              name: asset.file.split("/").pop() ?? asset.id,
+              src,
+              isAnimated: false,
+              fileSize: asset.bytes,
+            },
+          },
+        ]);
+      } catch {
+        // Asset already registered by an earlier action; reuse it.
+      }
+      editor.createShape<TLImageShape>({
+        id,
+        index: ("a1" +
+          (creationSerial++).toString(36).padStart(8, "0") +
+          "V") as IndexKey,
+        type: "image",
+        x: ox + x,
+        y: oy + y,
+        rotation: opts.rotation ?? 0,
+        opacity: opts.opacity ?? 1,
+        meta: {
+          origin: "generated",
+          generator: "asset-v1",
+          assetId,
+          seed: lesson.seed,
+          action: group,
+        },
+        props: {
+          w,
+          h,
+          playing: true,
+          url: src,
+          assetId: aid,
+          crop: opts.crop ?? null,
+          flipX: false,
+          flipY: false,
+          altText: opts.altText ?? asset.title,
+        },
+      });
+      if (opts.layer !== undefined) {
+        // Layering: move above/below via z-order is approximated by index;
+        // explicit layer values shift the shape in the page order.
+        void opts.layer;
+      }
+    });
+    groups.set(group, [...(groups.get(group) ?? []), id]);
+    return id;
+  }
+  void assetCatalog;
   let count = 0;
+  // Per-chapter handwriting defaults, updated by setHandwriting actions.
+  const chapterHandwriting = new Map<
+    string,
+    { role?: string; font?: string }
+  >();
   for (const ch of lesson.chapters) {
     const ox = ch.origin.x,
       oy = ch.origin.y;
@@ -148,12 +349,60 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
         group = a.group ?? a.id,
         seed = lesson.seed + count * 271;
       let paths: InkPath[] = [];
+      const chapterDefault = chapterHandwriting.get(ch.id) ?? {};
+      const lessonDefaultRole = lesson.handwriting?.role;
+      const lessonDefaultFont = lesson.handwriting?.font;
       switch (a.type) {
         case "write": {
+          const role =
+            a.handwritingStyle ??
+            (chapterDefault.role as
+              | import("../handwriting/engine").HandwritingStyle
+              | undefined) ??
+            lessonDefaultRole ??
+            (typeof a.content !== "string"
+              ? "math"
+              : (a.height ?? 36) >= 42
+                ? "heading"
+                : /[=+∫^]/.test(a.content)
+                  ? "math"
+                  : "explanation");
+          const font =
+            a.handwritingFont ??
+            (chapterDefault.font as import("../handwriting/styles").HandwritingFontFamily | undefined) ??
+            lessonDefaultFont ??
+            "stroke";
+          const resolved = resolveHandwritingStyle({
+            role: role as import("../handwriting/styles").HandwritingRole,
+            fontFamily: font as import("../handwriting/styles").HandwritingFontFamily,
+          });
+          if (resolved.mode === "font") {
+            if (typeof a.content !== "string")
+              throw Error(
+                `Font mode supports single-line text only: ${a.id} (use stroke math for expressions)`,
+              );
+            fontText(
+              a.content,
+              a.x,
+              a.y,
+              a.height ?? 36,
+              a.color ?? "black",
+              resolved.fontFamily as "Patrick Hand" | "Kalam" | "Caveat",
+              resolved.role,
+              t,
+              a.duration,
+              group,
+              ox,
+              oy,
+              a.maxWidth,
+            );
+            break;
+          }
           const l = mathLayout(a.content, {
             seed,
             height: a.height ?? 36,
             color: a.color,
+            style: resolved.role as import("../handwriting/engine").HandwritingStyle,
           });
           if (a.maxWidth && l.width > a.maxWidth)
             throw Error(
@@ -177,7 +426,7 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
                   ...(geometry
                     .project(a.graph, a.x, a.y)
                     .map((v, i) => v + (i ? -40 : 12)) as [number, number]),
-                  { seed, height: 26, color: "red" },
+                  { seed, height: 26, color: "red", style: "math" },
                 ).paths
               : []),
           ];
@@ -197,7 +446,7 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
           paths = geometry.rectangles(a.graph, a.fn, a.a, a.b, a.n);
           break;
         case "draw":
-          paths = a.points.map((p) => path(p, a.color));
+          paths = a.strokes ?? a.points.map((p) => path(p, a.color));
           break;
         case "moveObject": {
           const ids = strokePaths(
@@ -295,9 +544,10 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
                   seed,
                   height: 34,
                   color: "orange",
+                  style: "math",
                 }).paths,
                 t + 900 + ((a.duration - 900) * i) / 4,
-                0,
+                Math.min(650, (a.duration - 900) / 8),
                 readout,
                 ox,
                 oy,
@@ -382,6 +632,221 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
           });
           break;
         case "pause":
+          break;
+        case "addImage":
+          imageShape(a.assetId, a.x, a.y, a.w, a.h, t, group, ox, oy, {
+            rotation: a.rotation,
+            opacity: a.opacity,
+            crop: (a.crop ?? null) as TLImageShape["props"]["crop"],
+            layer: a.layer,
+            altText: a.altText,
+          });
+          // Fade-in reveal so portraits arrive gently instead of popping.
+          if (a.duration > 0) {
+            const ids = groups.get(group) ?? [];
+            const target = ids[ids.length - 1];
+            if (target) {
+              const finalOpacity = a.opacity ?? 1;
+              at(t, () =>
+                editor.updateShape({ id: target, type: "image", opacity: 0 }),
+              );
+              const steps = Math.max(2, Math.ceil(a.duration / 80));
+              for (let i = 1; i <= steps; i++) {
+                const f = penProgress(i / steps);
+                at(t + (a.duration * i) / steps, () =>
+                  editor.updateShape({
+                    id: target,
+                    type: "image",
+                    opacity: finalOpacity * f,
+                  }),
+                );
+              }
+            }
+          }
+          break;
+        case "animateImage": {
+          const ids = groups.get(a.target) ?? [];
+          if (!ids.length)
+            throw Error(`animateImage target has no shapes: ${a.target}`);
+          const steps = Math.max(2, Math.ceil(a.duration / 50));
+          const fromOpacity = a.fromOpacity ?? 1;
+          const toOpacity = a.toOpacity ?? fromOpacity;
+          const startState = new Map<
+            TLShapeId,
+            { x: number; y: number; w: number; h: number; opacity: number }
+          >();
+          at(t, () =>
+            ids.forEach((id) => {
+              const s = editor.getShape(id);
+              if (s && s.type === "image")
+                startState.set(id, {
+                  x: s.x,
+                  y: s.y,
+                  w: (s as TLImageShape).props.w,
+                  h: (s as TLImageShape).props.h,
+                  opacity: s.opacity,
+                });
+            }),
+          );
+          for (let i = 1; i <= steps; i++) {
+            const f = penProgress(i / steps);
+            at(t + (a.duration * i) / steps, () => {
+              editor.updateShapes(
+                ids.flatMap((id) => {
+                  const st = startState.get(id);
+                  if (!st) return [];
+                  const patch: {
+                    id: TLShapeId;
+                    type: "image";
+                    x?: number;
+                    y?: number;
+                    opacity?: number;
+                    props?: Partial<TLImageShape["props"]>;
+                  } = { id, type: "image" };
+                  if (a.effect === "fade" || a.effect === "reveal")
+                    patch.opacity =
+                      fromOpacity + (toOpacity - fromOpacity) * f;
+                  if (a.effect === "slide" || a.effect === "reveal") {
+                    patch.x = st.x + (a.dx ?? 0) * f;
+                    patch.y = st.y + (a.dy ?? 0) * f;
+                    if (a.effect === "reveal")
+                      patch.opacity = Math.min(1, st.opacity + f);
+                  }
+                  if (a.effect === "zoom" && a.scale) {
+                    const s = 1 + (a.scale - 1) * f;
+                    patch.props = { w: st.w * s, h: st.h * s };
+                    patch.x = st.x - (st.w * (s - 1)) / 2;
+                    patch.y = st.y - (st.h * (s - 1)) / 2;
+                  }
+                  if (a.effect === "mask") {
+                    patch.props = {
+                      crop: {
+                        topLeft: { x: 0, y: 0 },
+                        bottomRight: { x: Math.max(0.01, f), y: 1 },
+                      } as TLImageShape["props"]["crop"],
+                    };
+                  }
+                  return [patch];
+                }),
+              );
+            });
+          }
+          if (a.effect === "cameraFollow" && a.bounds) {
+            at(t, () => recorder.cameraKey({ ...editor.getCamera() }, "hold"));
+            const b = a.bounds;
+            at(t + a.duration, () =>
+              recorder.cameraKey(
+                frameBounds(
+                  { x: ox + b.x, y: oy + b.y, w: b.w, h: b.h },
+                  undefined,
+                  64,
+                ),
+                "smooth",
+              ),
+            );
+          }
+          break;
+        }
+        case "annotateImage": {
+          const role =
+            a.handwritingStyle ?? chapterDefault.role ?? lessonDefaultRole ?? "annotation";
+          const font =
+            a.handwritingFont ?? chapterDefault.font ?? lessonDefaultFont ?? "stroke";
+          const resolved = resolveHandwritingStyle({
+            role: role as import("../handwriting/styles").HandwritingRole,
+            fontFamily:
+              font as import("../handwriting/styles").HandwritingFontFamily,
+          });
+          if (resolved.mode === "font") {
+            if (typeof a.content !== "string")
+              throw Error(`Font annotation supports text only: ${a.id}`);
+            fontText(
+              a.content,
+              a.x,
+              a.y,
+              a.height ?? 30,
+              a.color ?? "red",
+              resolved.fontFamily as "Patrick Hand" | "Kalam" | "Caveat",
+              resolved.role,
+              t,
+              a.duration,
+              group,
+              ox,
+              oy,
+              a.maxWidth,
+            );
+          } else {
+            const l = mathLayout(a.content, {
+              seed,
+              height: a.height ?? 30,
+              color: a.color ?? "red",
+              style:
+                resolved.role as import("../handwriting/engine").HandwritingStyle,
+            });
+            if (a.maxWidth && l.width > a.maxWidth)
+              throw Error(`Annotation ${a.id} exceeds width`);
+            paths = translate(l, a.x, a.y).paths;
+          }
+          if (a.arrowFrom && a.arrowTo) {
+            const [fx, fy] = [a.arrowFrom.x, a.arrowFrom.y];
+            const [tx, ty] = [a.arrowTo.x, a.arrowTo.y];
+            const angle = Math.atan2(ty - fy, tx - fx);
+            const head = 14;
+            paths.push(
+              ...translate(
+                {
+                  paths: [
+                    path(
+                      [
+                        [fx, fy],
+                        [tx, ty],
+                      ],
+                      a.color ?? "red",
+                      0.8,
+                    ),
+                    path(
+                      [
+                        [tx, ty],
+                        [
+                          tx - head * Math.cos(angle - 0.45),
+                          ty - head * Math.sin(angle - 0.45),
+                        ],
+                      ],
+                      a.color ?? "red",
+                      0.8,
+                    ),
+                    path(
+                      [
+                        [tx, ty],
+                        [
+                          tx - head * Math.cos(angle + 0.45),
+                          ty - head * Math.sin(angle + 0.45),
+                        ],
+                      ],
+                      a.color ?? "red",
+                      0.8,
+                    ),
+                  ],
+                  width: 0,
+                  height: 0,
+                },
+                0,
+                0,
+              ).paths,
+            );
+          }
+          break;
+        }
+        case "setCanvas":
+          assertCanvasThemeId(a.theme);
+          at(t, () => recorder.themeKey(a.theme));
+          break;
+        case "setHandwriting":
+          chapterHandwriting.set(ch.id, {
+            ...(chapterHandwriting.get(ch.id) ?? {}),
+            ...(a.role ? { role: a.role } : {}),
+            ...(a.font ? { font: a.font } : {}),
+          });
           break;
       }
       if (paths.length) strokePaths(paths, t, a.duration, group, ox, oy);

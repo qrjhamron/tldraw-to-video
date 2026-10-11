@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420">
+  <title>Garis sekan dan garis singgung pada parabola</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 380 L40 30 M40 380 L610 380" stroke="#263238" stroke-width="3"/>
+    <path d="M60 350 C 200 340 320 260 560 60" stroke="#285d92" stroke-width="5"/>
+    <path d="M150 330 L470 130" stroke="#b47a25" stroke-width="4" stroke-dasharray="12 7"/>
+    <path d="M240 300 L560 180" stroke="#b84d46" stroke-width="4"/>
+    <circle cx="305" cy="252" r="9" fill="#b84d46" stroke="none"/>
+    <circle cx="180" cy="318" r="8" fill="#b47a25" stroke="none"/>
+    <circle cx="440" cy="152" r="8" fill="#b47a25" stroke="none"/>
+  </g>
+  <g font-family="sans-serif" font-size="22" fill="#263238">
+    <text x="300" y="300">P</text>
+    <text x="150" y="350">Q</text>
+    <text x="470" y="140">Q′</text>
+    <text x="480" y="230" fill="#b84d46">singgung</text>
+    <text x="360" y="120" fill="#b47a25">sekan</text>
+  </g>
+</svg>

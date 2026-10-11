@@ -16,7 +16,10 @@ import "./style.css";
 import { Recorder } from "./engine/recorder";
 import { Replay } from "./engine/replay";
 import { cameraAt } from "./engine/state";
+import { inlineAssetsForExport } from "./engine/svg-inline";
+import { drawTextShapes, ensureExportFonts } from "./engine/text-canvas";
 import { parseRecording, type Recording } from "./engine/schema";
+import { themeAt, paintCanvasTheme } from "./story/canvas-themes";
 import { createCalculusLesson } from "./lesson/calculus";
 import { compileLesson } from "./story/compiler";
 import { flagshipLesson } from "./story/flagship";
@@ -184,27 +187,32 @@ function App() {
             if (events[m].t <= t) lo = m + 1;
             else hi = m;
           }
-          const key = `${lo}:${c.x}:${c.y}:${c.z}:${generic}`;
+          const theme = themeAt(api.recording, t);
+          const key = `${lo}:${c.x}:${c.y}:${c.z}:${generic}:${theme.id}`;
           if (key === lastKey && lastRecording === api.recording)
             return lastFrame;
           const shapes = editor.getCurrentPageShapesSorted().filter((s) => {
             const b = editor.getShapePageBounds(s);
             return b && bounds.collides(b);
           });
+          // Font-mode text shapes render via foreignObject HTML, which taints
+          // canvas rasterization; draw them directly with canvas text.
+          const textShapes = shapes.filter((s) => s.type === "text");
+          const svgShapes = shapes.filter((s) => s.type !== "text");
           // Official SDK SVG exporter reconstructs each native draw shape at time t.
           const fast =
             api.recording.metadata.lessonId &&
             !generic &&
-            shapes.every(
+            svgShapes.every(
               (s) =>
                 s.type === "draw" &&
-                s.props.fill === "none" &&
+                (s as TLDrawShape).props.fill === "none" &&
                 s.parentId === editor.getCurrentPageId(),
             );
-          const result = shapes.length
+          const result = svgShapes.length
             ? fast
-              ? { svg: drawSvg.render(shapes as TLDrawShape[], c) }
-              : await editor.getSvgString(shapes, {
+              ? { svg: drawSvg.render(svgShapes as TLDrawShape[], c) }
+              : await editor.getSvgString(svgShapes, {
                   bounds,
                   scale: c.z,
                   padding: 0,
@@ -212,15 +220,13 @@ function App() {
                   darkMode: false,
                 })
             : undefined;
-          ctx.fillStyle =
-            api.recording.metadata.lessonId ||
-            api.recording.metadata.theme === "teaching"
-              ? "#faf8f2"
-              : "white";
-          ctx.fillRect(0, 0, 1920, 1080);
+          paintCanvasTheme(ctx, theme, 1920, 1080, c);
           if (result) {
+            const svg = fast
+              ? result.svg
+              : await inlineAssetsForExport(result.svg);
             const url = URL.createObjectURL(
-              new Blob([result.svg], { type: "image/svg+xml" }),
+              new Blob([svg], { type: "image/svg+xml" }),
             );
             const img = new Image();
             try {
@@ -230,6 +236,15 @@ function App() {
             } finally {
               URL.revokeObjectURL(url);
             }
+          }
+          if (textShapes.length) {
+            await ensureExportFonts();
+            drawTextShapes(
+              ctx,
+              editor,
+              textShapes as import("tldraw").TLTextShape[],
+              c,
+            );
           }
           lastKey = key;
           lastRecording = api.recording;

@@ -1,11 +1,15 @@
-# tldraw-to-video 2.0
+# tldraw-to-video
 
-A reusable educational whiteboard engine built with the real tldraw SDK. Handwriting, diagrams and mathematical notation are native pressure-aware draw shapes; an event-sourced recorder preserves their point geometry, and deterministic replay reconstructs the document at each offline video frame.
+A reusable educational whiteboard engine built with the real tldraw SDK. Stroke handwriting, diagrams and mathematical notation are native pressure-aware draw shapes; opt-in handwritten fonts render as honestly labeled native text shapes; placed portraits and diagrams are native image shapes with provenance. An event-sourced recorder preserves geometry, and deterministic replay reconstructs the document at each offline video frame.
 
-The flagship Indonesian lesson, **Kalkulus: Matematika untuk Memahami Perubahan**, follows motion → limits → derivatives → accumulation → the fundamental theorem → a final challenge. Eight chapters, a moving car, model-driven secants/tangents, explicit algebra, refined Riemann rectangles and an intentional thinking pause. Narration uses actual Edge TTS audio, voice `id-ID-GadisNeural`, with measured clip durations. Generated handwriting is clearly labeled as procedural geometry, never human-recorded penmanship.
+The flagship Indonesian lesson, **Kalkulus: Matematika untuk Memahami Perubahan**, follows motion → history (Newton/Leibniz portraits on notebook paper) → limits → derivatives → accumulation → the fundamental theorem → a final challenge, with graph paper for derivations. Eight chapters, a moving car, model-driven secants/tangents, explicit algebra, refined Riemann rectangles and an intentional thinking pause. Narration uses actual Edge TTS audio, voice `id-ID-GadisNeural`, with measured clip durations. Generated handwriting is clearly labeled as procedural geometry, never human-recorded penmanship; font-mode text never claims pen construction.
 
 ## Delivered artifacts
 
+- [30-second handwriting comparison](output/handwriting-comparison.mp4)
+- [60-second visual proof-of-concept](output/visual-poc.mp4)
+- [Handwriting audit and implementation](docs/HANDWRITING.md)
+- [Visual assets](docs/VISUAL_ASSETS.md) · [Canvas themes](docs/CANVAS_THEMES.md) · [MCP tools](docs/MCP_TOOLS.md)
 - [Silent flagship MP4](output/calculus_flagship_silent.mp4)
 - [Narrated flagship MP4](output/calculus_flagship_narrated.mp4)
 - [Semantic lesson](examples/calculus-flagship.lesson.json)
@@ -14,7 +18,7 @@ The flagship Indonesian lesson, **Kalkulus: Matematika untuk Memahami Perubahan*
 - [Original 180-second lesson](output/calculus_intro_180s.mp4)
 - [2.0 verification report](docs/VERIFICATION_2.md)
 
-Both flagship videos are 1920×1080, 30 FPS H.264, **9:37.167** long. The narrated version contains real Indonesian TTS; the silent version has no audio track. Media checks, 29 unit tests and browser suites pass; representative decoded frames were visually inspected.
+Both flagship videos are 1920×1080, 30 FPS H.264, **9:37.167** long. The narrated version contains real Indonesian TTS; the silent version has no audio track. Media checks, 40 unit tests and browser suites pass; representative decoded frames were visually inspected.
 
 ## Run
 
@@ -40,7 +44,7 @@ python3 -m venv .venv
 .venv/bin/pip install edge-tts==7.2.8
 TTS_PYTHON=.venv/bin/python npm run tts
 npm run lesson:compile
-npm run export:flagship
+npm run export:flagship -- --cache output/render-cache-handwriting-final
 npm run verify:flagship
 ```
 
@@ -63,10 +67,13 @@ npm run verify:media      # original media verification
 - [Recording/project format](docs/RECORDING_FORMAT.md)
 - [Export and resume](docs/EXPORT.md)
 - [TTS configuration and alignment](docs/TTS.md)
+- [Visual assets](docs/VISUAL_ASSETS.md)
+- [Canvas themes](docs/CANVAS_THEMES.md)
+- [MCP tools](docs/MCP_TOOLS.md)
 - [Algebra example](examples/algebra.lesson.json)
 - [Legacy implementation reference](docs/LEGACY.md)
 
-Core modules: `engine` (recorder/replay), `handwriting` (seeded ordered centerlines and structured math layout), `math` (analytic models and projected geometry), `story` (typed content/compiler/camera), `audio` (duration validation and time warp), `editing` (materialized clips and document diffs). Rendering has no calculus-specific logic. Strict TypeScript, a pinned lockfile, Node tests and real-browser CI checks support reproducibility.
+Core modules: `engine` (recorder/replay), `handwriting` (seeded ordered centerlines, structured math layout, honest font mode), `assets` (registry, provenance, sanitization), `math` (analytic models and projected geometry), `story` (typed content/compiler/camera/themes), `audio` (duration validation and time warp), `editing` (materialized clips and document diffs), `mcp` (tool implementations). Rendering has no calculus-specific logic. Strict TypeScript, a pinned lockfile, Node tests and real-browser CI checks support reproducibility.
 
 ## Scope and limitations
 
@@ -74,4 +81,4 @@ Native erasure removes whole draw shapes; partial-path erasure is not supported 
 
 ## Credits
 
-The retained Hershey single-line data comes from [Hershey Text](https://github.com/techninja/hersheytextjs), under its [MIT license](src/lesson/HERSHEY-LICENSE.txt). Custom mathematical centerline glyphs are authored in this repository. tldraw and self-hosted assets retain their [SDK license](public/tldraw/LICENSE.md). Historical content is based on [MacTutor’s calculus history](https://mathshistory.st-andrews.ac.uk/HistTopics/The_rise_of_calculus/), acknowledging earlier work alongside Newton and Leibniz.
+The production handwriting glyphs are authored ordered pen trajectories in [glyphs.ts](src/handwriting/glyphs.ts). Hershey is retained only for the comparison fixture. The Hershey single-line data comes from [Hershey Text](https://github.com/techninja/hersheytextjs), under its [MIT license](src/lesson/HERSHEY-LICENSE.txt). Custom mathematical centerline glyphs are authored in this repository. Font-mode handwriting uses Patrick Hand, Kalam, and Caveat under the SIL Open Font License (see [attribution](assets/ATTRIBUTION.md)). Portraits are public-domain paintings via Wikimedia Commons; see [attribution](assets/ATTRIBUTION.md) and `assets/manifest.json` for provenance. tldraw and self-hosted assets retain their [SDK license](public/tldraw/LICENSE.md). Historical content is based on [MacTutor’s calculus history](https://mathshistory.st-andrews.ac.uk/HistTopics/The_rise_of_calculus/), acknowledging earlier work alongside Newton and Leibniz.

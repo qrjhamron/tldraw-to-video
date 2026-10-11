@@ -1,6 +1,11 @@
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { openStudio } from "./browser";
 import { flagshipLesson } from "../src/story/flagship";
+import {
+  alignNarration,
+  narrationSchedule,
+  type AudioClip,
+} from "../src/audio/timeline";
 import { algebraExample } from "../src/story/example";
 await mkdir("output/flagship-inspection", { recursive: true });
 await mkdir("examples", { recursive: true });
@@ -18,7 +23,41 @@ try {
     await readFile("output/audio/narration-manifest.json", "utf8"),
   );
   aligned = manifest.status === "available";
-} catch {}
+  if (aligned) {
+    // Rebuild layout-dependent actions (including cancellation marks) from the
+    // current glyph metrics, then reuse the measured audio timing, not stale visuals.
+    const authored = flagshipLesson();
+    const previous = JSON.parse(
+      await readFile("public/flagship.lesson.json", "utf8"),
+    );
+    const spoken = new Map(
+      previous.chapters.flatMap((c: any) =>
+        c.actions
+          .filter((a: any) => a.type === "narrate")
+          .map((a: any) => [a.id, a.text]),
+      ),
+    );
+    for (const ch of authored.chapters)
+      for (const a of ch.actions)
+        if (a.type === "narrate" && spoken.get(a.id) !== a.text)
+          throw Error(`Narration changed: ${a.id}; regenerate audio`);
+    const clips = manifest.schedule as AudioClip[];
+    const lesson = alignNarration(authored, clips);
+    const schedule = narrationSchedule(lesson, clips);
+    if (
+      lesson.duration !== manifest.durationMs ||
+      schedule.some((s, i) => s.t !== manifest.schedule[i].t)
+    )
+      throw Error("Existing audio timeline does not match the current lesson");
+    await writeFile("public/flagship.lesson.json", JSON.stringify(lesson));
+    await writeFile(
+      "output/audio/aligned.lesson.json",
+      JSON.stringify(lesson, null, 2),
+    );
+  }
+} catch (e) {
+  if (aligned) throw e;
+}
 const session = await openStudio(
   "?export=1&offline=1&generate=1" + (aligned ? "&aligned=1" : ""),
 );

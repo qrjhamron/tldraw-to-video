@@ -3,7 +3,7 @@
     {
       "file": "output/calculus_flagship_silent.mp4",
       "passed": true,
-      "videoSha256": "d9850c5a3b99c62de09792f35f4994d710e265bcb57efd8b6b72fd3da0e0ab04",
+      "videoSha256": "fb3bf180d22bd38007d23c9bb264ba13054248199b45883fbf2449117e12ed29",
       "codec": "h264",
       "width": 1920,
       "height": 1080,
@@ -16,7 +16,7 @@
     {
       "file": "output/calculus_flagship_narrated.mp4",
       "passed": true,
-      "videoSha256": "d9850c5a3b99c62de09792f35f4994d710e265bcb57efd8b6b72fd3da0e0ab04",
+      "videoSha256": "fb3bf180d22bd38007d23c9bb264ba13054248199b45883fbf2449117e12ed29",
       "codec": "h264",
       "width": 1920,
       "height": 1080,
@@ -33,25 +33,25 @@
       "t": 3,
       "points": 2,
       "nativeShapes": 1,
-      "inkPixels": 21
+      "inkPixels": 29
     },
     {
       "t": 3.033333333333333,
-      "points": 15,
+      "points": 28,
       "nativeShapes": 1,
-      "inkPixels": 195
+      "inkPixels": 232
     },
     {
       "t": 3.066666666666667,
-      "points": 20,
+      "points": 37,
       "nativeShapes": 2,
-      "inkPixels": 273
+      "inkPixels": 326
     },
     {
       "t": 3.1,
-      "points": 33,
+      "points": 69,
       "nativeShapes": 2,
-      "inkPixels": 441
+      "inkPixels": 550
     }
   ],
   "decodedInspectionTimes": [

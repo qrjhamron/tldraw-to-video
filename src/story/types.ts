@@ -14,11 +14,59 @@ export type Action = Timing &
     | {
         type: "write";
         content: MathExpr;
+        handwritingStyle?: import("../handwriting/engine").HandwritingStyle;
+        handwritingFont?: import("../handwriting/styles").HandwritingFontFamily;
         x: number;
         y: number;
         height?: number;
         color?: Color;
         maxWidth?: number;
+      }
+    | {
+        type: "addImage";
+        assetId: string;
+        x: number;
+        y: number;
+        w: number;
+        h: number;
+        rotation?: number;
+        opacity?: number;
+        crop?: { topLeft: { x: number; y: number }; bottomRight: { x: number; y: number } } | null;
+        layer?: number;
+        altText?: string;
+      }
+    | {
+        type: "animateImage";
+        target: string;
+        effect: "reveal" | "fade" | "slide" | "zoom" | "mask" | "cameraFollow";
+        dx?: number;
+        dy?: number;
+        scale?: number;
+        fromOpacity?: number;
+        toOpacity?: number;
+        bounds?: { x: number; y: number; w: number; h: number };
+      }
+    | {
+        type: "annotateImage";
+        content: MathExpr;
+        x: number;
+        y: number;
+        height?: number;
+        color?: Color;
+        handwritingStyle?: import("../handwriting/engine").HandwritingStyle;
+        handwritingFont?: import("../handwriting/styles").HandwritingFontFamily;
+        maxWidth?: number;
+        arrowFrom?: { x: number; y: number };
+        arrowTo?: { x: number; y: number };
+      }
+    | {
+        type: "setCanvas";
+        theme: import("./canvas-themes").CanvasThemeId;
+      }
+    | {
+        type: "setHandwriting";
+        role?: import("../handwriting/engine").HandwritingStyle;
+        font?: import("../handwriting/styles").HandwritingFontFamily;
       }
     | { type: "drawAxes"; graph: Graph }
     | { type: "drawGraph"; graph: Graph; fn: FunctionModel; color?: Color }
@@ -55,7 +103,12 @@ export type Action = Timing &
         b: number;
         n: number;
       }
-    | { type: "draw"; points: number[][][]; color?: Color }
+    | {
+        type: "draw";
+        points: number[][][];
+        color?: Color;
+        strokes?: import("../lesson/paths").InkPath[];
+      }
     | {
         type: "moveObject";
         points: number[][][];
@@ -100,6 +153,11 @@ export interface Lesson {
   duration: number;
   chapters: Chapter[];
   sources?: { title: string; url: string }[];
+  canvasTheme?: import("./canvas-themes").CanvasThemeId;
+  handwriting?: {
+    role?: import("../handwriting/engine").HandwritingStyle;
+    font?: import("../handwriting/styles").HandwritingFontFamily;
+  };
 }
 export function validateLesson(lesson: Lesson) {
   if (
@@ -118,6 +176,23 @@ export function validateLesson(lesson: Lesson) {
     lesson.language !== "id"
   )
     throw Error("Invalid lesson metadata");
+  if (
+    lesson.canvasTheme !== undefined &&
+    !["whiteboard", "graph", "notebook", "darkboard"].includes(lesson.canvasTheme)
+  )
+    throw Error("Unsupported canvas theme");
+  if (
+    lesson.handwriting !== undefined &&
+    ((lesson.handwriting.role &&
+      !["title", "heading", "explanation", "annotation", "math"].includes(
+        lesson.handwriting.role,
+      )) ||
+      (lesson.handwriting.font &&
+        !["stroke", "Patrick Hand", "Kalam", "Caveat"].includes(
+          lesson.handwriting.font,
+        )))
+  )
+    throw Error("Unsupported lesson handwriting preset");
   const chapterIds = new Set<string>();
   const supported = new Set([
     "write",
@@ -138,6 +213,11 @@ export function validateLesson(lesson: Lesson) {
     "zoomCamera",
     "pause",
     "narrate",
+    "addImage",
+    "animateImage",
+    "annotateImage",
+    "setCanvas",
+    "setHandwriting",
   ]);
   const ids = new Set<string>();
   let end = 0;
@@ -189,6 +269,74 @@ export function validateLesson(lesson: Lesson) {
         throw Error("Secant animation needs > 900ms");
       if (a.type === "moveObject" && a.duration <= 900)
         throw Error("Object animation needs > 900ms");
+      if (
+        (a.type === "write" || a.type === "annotateImage") &&
+        a.handwritingStyle &&
+        !["title", "heading", "explanation", "annotation", "math"].includes(
+          a.handwritingStyle,
+        )
+      )
+        throw Error("Unsupported handwriting style");
+      if (
+        (a.type === "write" || a.type === "annotateImage") &&
+        a.handwritingFont &&
+        !["stroke", "Patrick Hand", "Kalam", "Caveat"].includes(a.handwritingFont)
+      )
+        throw Error("Unsupported handwriting font");
+      if (
+        a.type === "addImage" &&
+        (!a.assetId ||
+          ![a.x, a.y, a.w, a.h].every(Number.isFinite) ||
+          a.w <= 0 ||
+          a.h <= 0 ||
+          (a.opacity !== undefined && (a.opacity < 0 || a.opacity > 1)) ||
+          (a.rotation !== undefined && !Number.isFinite(a.rotation)))
+      )
+        throw Error("Invalid image placement");
+      if (
+        a.type === "animateImage" &&
+        !["reveal", "fade", "slide", "zoom", "mask", "cameraFollow"].includes(
+          a.effect,
+        )
+      )
+        throw Error("Unsupported image effect");
+      if (
+        a.type === "setCanvas" &&
+        !["whiteboard", "graph", "notebook", "darkboard"].includes(a.theme)
+      )
+        throw Error("Unsupported canvas theme");
+      if (
+        a.type === "setHandwriting" &&
+        ((a.role &&
+          !["title", "heading", "explanation", "annotation", "math"].includes(
+            a.role,
+          )) ||
+          (a.font &&
+            !["stroke", "Patrick Hand", "Kalam", "Caveat"].includes(a.font)))
+      )
+        throw Error("Unsupported handwriting preset");
+      if (
+        a.type === "draw" &&
+        a.strokes &&
+        a.strokes.some(
+          (p) =>
+            !Number.isFinite(p.scale) ||
+            p.scale <= 0 ||
+            !p.points.length ||
+            !["black", "blue", "red", "green", "orange", "grey"].includes(
+              p.color,
+            ) ||
+            p.points.some(
+              (q) =>
+                !Number.isFinite(q.x) ||
+                !Number.isFinite(q.y) ||
+                !Number.isFinite(q.z) ||
+                q.z < 0 ||
+                q.z > 1,
+            ),
+        )
+      )
+        throw Error("Invalid native ink paths");
       if (ids.has(a.id)) throw Error(`Duplicate action ${a.id}`);
       ids.add(a.id);
       if (
