@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "firstShapeId": "shape:lesson-0",
+  "consecutiveFrameNativePointCounts": [
+    2,
+    8,
+    14,
+    21,
+    27
+  ],
+  "decodedVideoInkPixels": [
+    {
+      "file": "output/inspection/decoded/00-0.000s.png",
+      "inkPixels": 44
+    },
+    {
+      "file": "output/inspection/decoded/01-0.033s.png",
+      "inkPixels": 160
+    },
+    {
+      "file": "output/inspection/decoded/02-0.067s.png",
+      "inkPixels": 302
+    },
+    {
+      "file": "output/inspection/decoded/03-0.100s.png",
+      "inkPixels": 434
+    },
+    {
+      "file": "output/inspection/decoded/04-0.200s.png",
+      "inkPixels": 826
+    }
+  ],
+  "decodedFrameTimes": [
+    0,
+    0.03333333333333333,
+    0.06666666666666667,
+    0.1,
+    0.2,
+    1,
+    19.5,
+    34,
+    50,
+    59.6,
+    96,
+    114.5,
+    118,
+    120,
+    141,
+    146.5,
+    150.5,
+    157,
+    172.5,
+    179.5
+  ]
+}

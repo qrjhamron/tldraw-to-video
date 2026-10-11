@@ -1,0 +1,144 @@
+{
+  "output": "output/calculus_intro_180s.mp4",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 5400,
+  "durationMs": 180000,
+  "recordingSha256": "09eac988331d3b3c467cd94052028bb5be7dd0bda1c9fc7026b3d395296e9ef8",
+  "recordingEvents": 9222,
+  "sdkVersion": "5.5.2",
+  "pipeline": "Explicit frame times → checkpoint replay → native SDK SVG export → Chromium rasterization → JPEG pipe → libx264",
+  "samples": [
+    {
+      "frame": 0,
+      "t": 0,
+      "sha256": "24c5705e5f298f156fd7f097a09479e7afdb7ef33dcc1bc026dfd898dc8afc8b",
+      "eventCursor": 1,
+      "shapeCount": 1,
+      "nativeDrawCount": 1
+    },
+    {
+      "frame": 450,
+      "t": 15000,
+      "sha256": "f426a3f0798ad4037f2d478f0f6a82c61d1fb236ae9c0d8ebc6aed1fd514cc5c",
+      "eventCursor": 878,
+      "shapeCount": 115,
+      "nativeDrawCount": 115
+    },
+    {
+      "frame": 900,
+      "t": 30000,
+      "sha256": "b19c4fbb9c4879b3d89b0b08c5c7cf0b0684378854e91160d82e99b5b34f50b0",
+      "eventCursor": 1560,
+      "shapeCount": 204,
+      "nativeDrawCount": 204
+    },
+    {
+      "frame": 1800,
+      "t": 60000,
+      "sha256": "6bd70719fe33eecc69b770c078cbdad4e0956d40a8a8e73b29f8fae4cda7ebd7",
+      "eventCursor": 3667,
+      "shapeCount": 362,
+      "nativeDrawCount": 362
+    },
+    {
+      "frame": 2250,
+      "t": 75000,
+      "sha256": "371b672f73bf87987b6f0bd090b0c55e46bf69e957788a6b2d4420bbc6591a48",
+      "eventCursor": 4257,
+      "shapeCount": 448,
+      "nativeDrawCount": 448
+    },
+    {
+      "frame": 2700,
+      "t": 90000,
+      "sha256": "9616487fbe943c76c2cd76f49fa8ba2ca3e0ab5d805a5ed9c40f821dcff0f746",
+      "eventCursor": 4948,
+      "shapeCount": 530,
+      "nativeDrawCount": 530
+    },
+    {
+      "frame": 3150,
+      "t": 105000,
+      "sha256": "2f7e2a8f6f625cf7b7d05abadfc2219ae895b371cd0f055b9b00530991ea75be",
+      "eventCursor": 5517,
+      "shapeCount": 636,
+      "nativeDrawCount": 636
+    },
+    {
+      "frame": 3450,
+      "t": 115000,
+      "sha256": "52741188837d99e4cad23386e4654108113f6a6e2b92fd0f5e52b5cd7176b0fa",
+      "eventCursor": 6090,
+      "shapeCount": 731,
+      "nativeDrawCount": 731
+    },
+    {
+      "frame": 3540,
+      "t": 118000,
+      "sha256": "3bda583504b0c8cda96279eaa200df7396666006105722d9ea40e74701f0acae",
+      "eventCursor": 6181,
+      "shapeCount": 640,
+      "nativeDrawCount": 640
+    },
+    {
+      "frame": 3600,
+      "t": 120000,
+      "sha256": "ffa06b505d35caa1ef719eb6a3f2f0d480cf8268316ea2d98ff51f0ea2b84fac",
+      "eventCursor": 6229,
+      "shapeCount": 592,
+      "nativeDrawCount": 592
+    },
+    {
+      "frame": 4050,
+      "t": 135000,
+      "sha256": "7f1ad5c91f4ba7473967cbee5176a82d3929b65034ee342e3ac1c56c8d1e6d9c",
+      "eventCursor": 6863,
+      "shapeCount": 691,
+      "nativeDrawCount": 691
+    },
+    {
+      "frame": 4350,
+      "t": 145000,
+      "sha256": "b8f7c636acb451836fec51d395bb63a19d408df26184db9a3ea35a69da8f2bf3",
+      "eventCursor": 7437,
+      "shapeCount": 791,
+      "nativeDrawCount": 791
+    },
+    {
+      "frame": 4650,
+      "t": 155000,
+      "sha256": "ed4a140c71ae9b697bfb80ad4eb02b889b95121c061cba6264ad3ea7c538bbc3",
+      "eventCursor": 7943,
+      "shapeCount": 849,
+      "nativeDrawCount": 849
+    },
+    {
+      "frame": 4950,
+      "t": 165000,
+      "sha256": "d5d354c2e6fa4d923a513e595ad18f3da5476d1c80a6cee5618f7d6815724355",
+      "eventCursor": 8430,
+      "shapeCount": 947,
+      "nativeDrawCount": 947
+    },
+    {
+      "frame": 5250,
+      "t": 175000,
+      "sha256": "92efd1f0fcda7b0897395518be1bacd3e6c4ebc593cf311e54f56f743cdc1990",
+      "eventCursor": 8912,
+      "shapeCount": 1028,
+      "nativeDrawCount": 1028
+    },
+    {
+      "frame": 5370,
+      "t": 179000,
+      "sha256": "26709fccc53f8ff37aea04f615404debcf5b3b858ff0e26679ba6fbcbf891c04",
+      "eventCursor": 9211,
+      "shapeCount": 1104,
+      "nativeDrawCount": 1104
+    }
+  ],
+  "browserErrors": [],
+  "renderSeconds": 412.175
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "codec": "h264",
+  "width": 1920,
+  "height": 1080,
+  "frameRate": "30/1",
+  "frames": 5400,
+  "durationSeconds": 180,
+  "audioStreams": 0,
+  "uniqueOrderedPresentationTimestamps": 5400,
+  "fullDecode": "passed",
+  "bytes": 3992302
+}

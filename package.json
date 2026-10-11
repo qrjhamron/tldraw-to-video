@@ -1,0 +1,32 @@
+{
+  "name": "native-stroke-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "test": "tsx --test tests/*.test.ts",
+    "test:browser": "tsx scripts/verify-browser.ts",
+    "export": "tsx scripts/export.ts",
+    "verify:media": "tsx scripts/verify-media.ts",
+    "inspect:media": "tsx scripts/inspect-media.ts",
+    "test:controls": "tsx scripts/verify-controls.ts"
+  },
+  "dependencies": {
+    "@tldraw/assets": "5.5.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tldraw": "5.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "playwright": "^1.58.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "tests": [
+    "Play/pause/resume",
+    "4× speed",
+    "Restart",
+    "Native timeline End seek",
+    "Chapter navigation",
+    "Viewport-independent drawing export",
+    "Start/stop pointer recording",
+    "Import recording"
+  ],
+  "browserErrors": []
+}

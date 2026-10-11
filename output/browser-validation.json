@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "test": "Native document and exported pixels are identical after checkpoint scrubbing",
+      "passed": true
+    },
+    {
+      "test": "Actual editor replay is frame-independent at 24, 30 and 60 FPS",
+      "passed": true
+    },
+    {
+      "test": "Native pointer input and consecutive point/style/transform commits are recorded",
+      "passed": true
+    },
+    {
+      "test": "Human recording/replay equivalence: geometry, pressure, styling, transforms, erasing, undo/redo and camera",
+      "passed": true
+    }
+  ],
+  "browserErrors": []
+}
