@@ -14,7 +14,7 @@
       "passed": true
     },
     {
-      "test": "Human recording/replay equivalence: geometry, pressure, styling, transforms, erasing, undo/redo and camera",
+      "test": "Manual recording/replay equivalence with generated pointer input: geometry, pressure, styling, transforms, erasing, undo/redo and camera",
       "passed": true
     }
   ],

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "file": "output/algebra_demo.mp4",
+  "width": 1920,
+  "height": 1080,
+  "codec": "h264",
+  "fps": "30/1",
+  "frames": 750,
+  "duration": 25,
+  "decoded": true
+}

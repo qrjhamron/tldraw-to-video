@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "file": "output/calculus_flagship_silent.mp4",
+      "bytes": 12132394,
+      "sha256": "019a71b65d00a3228943befa84817d3540456c076f1b005c382352110af48ba4"
+    },
+    {
+      "file": "output/calculus_flagship_narrated.mp4",
+      "bytes": 21508288,
+      "sha256": "3a5d79b920d05b4919766af690950a9d28a274a4de2fb2db1fa8f41dd0c47992"
+    },
+    {
+      "file": "output/algebra_demo.mp4",
+      "bytes": 121382,
+      "sha256": "64fcc7dc38063b4354d3e25fbd7fc6fd18baba520c8afa10c01417e2ef6e240c"
+    },
+    {
+      "file": "public/flagship.recording.json",
+      "bytes": 39835934,
+      "sha256": "3946db0ddda7668db1c55dcd65665a107861696a59b82109426929fc301f42ec"
+    },
+    {
+      "file": "public/flagship.lesson.json",
+      "bytes": 32047,
+      "sha256": "9724c6bf9b710e9f5c92aecfa04fea62c05dcb6e706cbcb2a597ab0d42a5353b"
+    }
+  ]
+}

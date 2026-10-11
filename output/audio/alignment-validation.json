@@ -1,0 +1,193 @@
+{
+  "passed": true,
+  "provider": "edge-tts-7.2.8",
+  "voice": "id-ID-GadisNeural",
+  "logicalDurationMs": 577160,
+  "segments": [
+    {
+      "id": "motion-4",
+      "t": 0,
+      "actualDurationMs": 16079.999999999998,
+      "slotMs": 18000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "motion-11",
+      "t": 20000,
+      "actualDurationMs": 16104,
+      "slotMs": 19000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "motion-17",
+      "t": 40000,
+      "actualDurationMs": 19728,
+      "slotMs": 20128,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "history-24",
+      "t": 68128,
+      "actualDurationMs": 17424,
+      "slotMs": 18000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "history-31",
+      "t": 87128,
+      "actualDurationMs": 20640,
+      "slotMs": 21040,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "limits-43",
+      "t": 120168,
+      "actualDurationMs": 16944,
+      "slotMs": 18000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "limits-47",
+      "t": 139168,
+      "actualDurationMs": 19272,
+      "slotMs": 22000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "limits-52",
+      "t": 164168,
+      "actualDurationMs": 19128,
+      "slotMs": 19528,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "derivative-59",
+      "t": 196696,
+      "actualDurationMs": 17232,
+      "slotMs": 22000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "derivative-62",
+      "t": 218696,
+      "actualDurationMs": 18360,
+      "slotMs": 19000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "derivative-67",
+      "t": 240696,
+      "actualDurationMs": 18456,
+      "slotMs": 20000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "derivative-71",
+      "t": 262696,
+      "actualDurationMs": 19560,
+      "slotMs": 19960,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "application-81",
+      "t": 293656,
+      "actualDurationMs": 20208,
+      "slotMs": 22000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "application-87",
+      "t": 317656,
+      "actualDurationMs": 22248,
+      "slotMs": 22648,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "integration-95",
+      "t": 354304,
+      "actualDurationMs": 19440,
+      "slotMs": 20000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "integration-102",
+      "t": 376304,
+      "actualDurationMs": 19536,
+      "slotMs": 21000,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "integration-108",
+      "t": 398304,
+      "actualDurationMs": 17472,
+      "slotMs": 17872,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "integration-114",
+      "t": 417176,
+      "actualDurationMs": 23496,
+      "slotMs": 23896,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "connection-124",
+      "t": 453072,
+      "actualDurationMs": 21888,
+      "slotMs": 22288,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "connection-128",
+      "t": 477360,
+      "actualDurationMs": 24288,
+      "slotMs": 24688,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "challenge-135",
+      "t": 513048,
+      "actualDurationMs": 18720,
+      "slotMs": 19120,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "challenge-139",
+      "t": 539168,
+      "actualDurationMs": 21144,
+      "slotMs": 21544,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    },
+    {
+      "id": "challenge-142",
+      "t": 561212,
+      "actualDurationMs": 15048,
+      "slotMs": 15448,
+      "hashVerified": true,
+      "wordBoundariesWithinAudio": true
+    }
+  ],
+  "wordAccuracy": "Range/order validation only; synchronization uses decoded audio durations, not assumed word timestamp accuracy"
+}

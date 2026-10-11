@@ -1,0 +1,80 @@
+{
+  "results": [
+    {
+      "file": "output/calculus_flagship_silent.mp4",
+      "passed": true,
+      "videoSha256": "d9850c5a3b99c62de09792f35f4994d710e265bcb57efd8b6b72fd3da0e0ab04",
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frames": "17315",
+      "fps": "30/1",
+      "duration": "577.166667",
+      "audio": false,
+      "uniquePTS": 17315
+    },
+    {
+      "file": "output/calculus_flagship_narrated.mp4",
+      "passed": true,
+      "videoSha256": "d9850c5a3b99c62de09792f35f4994d710e265bcb57efd8b6b72fd3da0e0ab04",
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frames": "17315",
+      "fps": "30/1",
+      "duration": "577.166667",
+      "audio": true,
+      "uniquePTS": 17315
+    }
+  ],
+  "identicalSilentNarratedVideoStreams": true,
+  "progressiveNativeInk": [
+    {
+      "t": 3,
+      "points": 2,
+      "nativeShapes": 1,
+      "inkPixels": 21
+    },
+    {
+      "t": 3.033333333333333,
+      "points": 15,
+      "nativeShapes": 1,
+      "inkPixels": 195
+    },
+    {
+      "t": 3.066666666666667,
+      "points": 20,
+      "nativeShapes": 2,
+      "inkPixels": 273
+    },
+    {
+      "t": 3.1,
+      "points": 33,
+      "nativeShapes": 2,
+      "inkPixels": 441
+    }
+  ],
+  "decodedInspectionTimes": [
+    3,
+    3.033333333333333,
+    3.066666666666667,
+    3.1,
+    12,
+    64.628,
+    78.128,
+    109.668,
+    123.168,
+    185.196,
+    198.696,
+    283.156,
+    296.656,
+    343.804,
+    357.304,
+    441.572,
+    455.072,
+    503.548,
+    517.048,
+    575.66
+  ],
+  "frameSchedule": "All frame PTS equal frame index / 30; no missing logical frames."
+}

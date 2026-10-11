@@ -1,0 +1,74 @@
+{
+  "output": "output/calculus_flagship_silent.mp4",
+  "narrated": true,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 17315,
+  "duration": 577.1666666666666,
+  "logicalDurationMs": 577160,
+  "recordingSha256": "3946db0ddda7668db1c55dcd65665a107861696a59b82109426929fc301f42ec",
+  "events": 24071,
+  "rendered": 9515,
+  "resumed": 7800,
+  "elapsedSeconds": 559.676,
+  "samples": [
+    {
+      "frame": 8495,
+      "t": 283166.6666666667,
+      "sha256": "d1997df9fd789683db3c65815cf06e10df6ce6858915a6c53b1add7c18b2d31f",
+      "nativeDraws": 1143
+    },
+    {
+      "frame": 8840,
+      "t": 294666.6666666667,
+      "sha256": "a902fc02959bf29bce3fb5c769debd20a21a58b8494abc44a2c586eebc6c16f5",
+      "nativeDraws": 1209
+    },
+    {
+      "frame": 10314,
+      "t": 343800,
+      "sha256": "3da9cb413ff8422319d81afd91fcd66fb5cdd4d1d8bf5882e2213a71f8f12d3f",
+      "nativeDraws": 1428
+    },
+    {
+      "frame": 10659,
+      "t": 355300,
+      "sha256": "30219f4b1ecc862c63400041dfe81a57d59e85356f00af69241f032f6fdd6fd9",
+      "nativeDraws": 1527
+    },
+    {
+      "frame": 13247,
+      "t": 441566.6666666667,
+      "sha256": "6b7fb1652a1829faa8a167bb21bc94a4f008a6b1492a08b793cbadbd3ff26ba3",
+      "nativeDraws": 1854
+    },
+    {
+      "frame": 13592,
+      "t": 453066.6666666667,
+      "sha256": "b644ea2da47ed69689347c412729a603cd12c362e63bdd5d6117a65f410da40e",
+      "nativeDraws": 1935
+    },
+    {
+      "frame": 15106,
+      "t": 503533.3333333333,
+      "sha256": "384167a4dda33bf1393bc60893184e26d7ecab3fb7fe3c828e5b6179548c869d",
+      "nativeDraws": 2184
+    },
+    {
+      "frame": 15451,
+      "t": 515033.3333333333,
+      "sha256": "df902189cc2432f943782d0b85935545dadf5c3564fd8b6b9dbf00662b034c42",
+      "nativeDraws": 2275
+    },
+    {
+      "frame": 17270,
+      "t": 575666.6666666666,
+      "sha256": "2f8eeedd902b29f9d4572bf07666906cde09586ae59d56510e586cf414a37db9",
+      "nativeDraws": 2591
+    }
+  ],
+  "browserErrors": [],
+  "colorConversion": "Chromium sRGB/full-range JPEG BT.601 matrix \u2192 zscale transfer/matrix conversion \u2192 limited-range Rec.709 H.264",
+  "pipeline": "Absolute frame time \u2192 native tldraw replay \u2192 native SDK SVG \u2192 Chromium JPEG raster \u2192 resumable H.264 chunks \u2192 lossless concat"
+}

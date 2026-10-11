@@ -1,0 +1,41 @@
+
+> native-stroke-studio@2.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ video chunk fingerprints ignore JSON key order but preserve native state dependencies (259.424349ms)
+✔ a later edit leaves earlier chunk inputs identical (142.083529ms)
+✔ nonvisual user profiles do not invalidate native video geometry (159.154151ms)
+✔ imported snapshots can declare unknown acquisition provenance without claiming human input (141.097361ms)
+✔ trim copy materializes original boundary state and preserves later geometry (155.187824ms)
+✔ retiming preserves exact records and proportional camera timing (166.8899ms)
+✔ reordered clips restore explicit independent initial states (297.555658ms)
+✔ versioned recording is ordered, exact duration, and explicitly generated (122.520631ms)
+✔ compressed native draw geometry, pressure, and styling are preserved as records (45.77239ms)
+✔ incremental point prefixes grow within each authored stroke, before completion (52.37585ms)
+✔ checkpoints produce identical documents to replay from time zero, including boundary ties (55.038126ms)
+✔ native whole-stroke eraser events remove records and survive seeking (2.563897ms)
+✔ camera hold, smooth pan, zoom, and interpolation are evaluated at time, never by frame deltas (0.877363ms)
+✔ frame-independent ordered event folding at 24, 30, 60 FPS and irregular steps (5.863267ms)
+✔ vector lettering and arc-length reveal preserve full final paths and mathematical glyphs (1.605696ms)
+✔ seeded centerline penmanship is reproducible, restrained and pressure-aware (7.295167ms)
+✔ b64 stroke encoding preserves coordinates within SDK Float16 delta precision (0.848402ms)
+✔ math layout makes fractions, scripts, limits, radicals and sums into pen strokes (1.822621ms)
+✔ minimum jerk pen motion has zero entry and exit velocity (0.207756ms)
+✔ analytic calculus and secant limit compute the correct quantities (1.342773ms)
+✔ optimization, ticks and affine coordinates derive from models (0.43078ms)
+✔ graph and camera bounds keep mathematical coordinates in the safe frame (1.227063ms)
+✔ flagship content spans eight coherent chapters and a thinking pause (6.103782ms)
+✔ actual narration durations expand visual timing monotonically with aligned segments (2.83555ms)
+✔ predictive director frames off-canvas writing before the pen begins (31.697295ms)
+✔ zero-frequency sine reduces to its constant offset for integration (0.288154ms)
+✔ simulated car displacement agrees with its position-time function (3.867658ms)
+✔ invalid semantic chapters, graph ranges and models fail before native compilation (4.692561ms)
+✔ narration adapters reject nonfinite and negative provider word timestamps (0.47937ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2959.266594

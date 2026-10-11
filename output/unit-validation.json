@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "tests": 29,
+  "command": "npm test",
+  "coverage": "Recording/replay, native b64 geometry, checkpoints, frame independence, camera, pen seeds, mathematical models, audio alignment, editing and cache inputs"
+}

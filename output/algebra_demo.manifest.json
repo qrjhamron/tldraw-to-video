@@ -1,0 +1,32 @@
+{
+  "output": "output/algebra_demo.mp4",
+  "narrated": false,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "frames": 750,
+  "duration": 25,
+  "logicalDurationMs": 25000,
+  "recordingSha256": "9a5d31ec1266ff7aa8f30249b392f6dbc264f840535dc9e24a0b64e091d1371f",
+  "events": 626,
+  "rendered": 750,
+  "resumed": 0,
+  "elapsedSeconds": 67.167,
+  "samples": [
+    {
+      "frame": 300,
+      "t": 10000,
+      "sha256": "ca78c251553345fcf1f155990fb4b080fa341d0103123ef9245897e67fafd9e6",
+      "nativeDraws": 16
+    },
+    {
+      "frame": 705,
+      "t": 23500,
+      "sha256": "ab074dc8c553e75b5c36d290692945efa55ade489eff25365b11fc925ecec8d9",
+      "nativeDraws": 22
+    }
+  ],
+  "browserErrors": [],
+  "colorConversion": "Chromium sRGB/full-range JPEG BT.601 matrix → zscale transfer/matrix conversion → limited-range Rec.709 H.264",
+  "pipeline": "Absolute frame time → native tldraw replay → native SDK SVG → Chromium JPEG raster → resumable H.264 chunks → lossless concat"
+}

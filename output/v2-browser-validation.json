@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "test": "Eight-chapter flagship uses exclusively generated native draw records",
+      "passed": true,
+      "details": {
+        "duration": 577160,
+        "events": 24071,
+        "chapters": 8,
+        "narration": 23,
+        "native": true,
+        "generated": true
+      }
+    },
+    {
+      "test": "Native flagship checkpoint seeking restores records and pixels",
+      "passed": true
+    },
+    {
+      "test": "Cached public DrawShapeUtil SVG adapter matches official SDK export",
+      "passed": true,
+      "details": {
+        "meanChannelDifference": 0.0010707626028806584,
+        "changedPixelFraction": 0
+      }
+    },
+    {
+      "test": "Progressive native point paths and pressure are present",
+      "passed": true,
+      "details": {
+        "prefixes": 2341,
+        "pressures": true
+      }
+    },
+    {
+      "test": "Non-calculus lesson compiles reproducibly through the real Editor",
+      "passed": true
+    },
+    {
+      "test": "Manual recorder preserves the active native palette",
+      "passed": true,
+      "details": {
+        "recorded": "teaching",
+        "replayed": "teaching"
+      }
+    }
+  ],
+  "browserErrors": []
+}

@@ -1,0 +1,14 @@
+{
+  "measuredNormalizedMaster": {
+    "input_i": "-16.06",
+    "input_tp": "-1.49",
+    "input_lra": "4.50",
+    "input_thresh": "-26.39",
+    "output_i": "-15.99",
+    "output_tp": "-1.50",
+    "output_lra": "4.40",
+    "output_thresh": "-26.31",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.01"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "Native pressure/point inspector",
+    "Trim copy materializes native boundary state",
+    "Writing speed adjustment",
+    "Import and compile a non-calculus semantic lesson",
+    "Chapter reorder copy",
+    "Reused native geometry retains generated provenance",
+    "Snapshot import makes no unsupported human provenance claim"
+  ],
+  "browserErrors": []
+}

@@ -1,0 +1,2322 @@
+{
+  "format": "stroke-lesson",
+  "version": 1,
+  "id": "calculus-flagship",
+  "title": "Kalkulus: Matematika untuk Memahami Perubahan",
+  "language": "id",
+  "seed": 20261011,
+  "duration": 577160,
+  "chapters": [
+    {
+      "id": "motion",
+      "title": "1 · Masalah perubahan",
+      "start": 0,
+      "duration": 66128,
+      "origin": {
+        "x": 0,
+        "y": 0
+      },
+      "objectives": [
+        "Membedakan kecepatan rata-rata dan sesaat",
+        "Membaca grafik posisi terhadap waktu"
+      ],
+      "actions": [
+        {
+          "id": "motion-0",
+          "type": "moveCamera",
+          "at": 0,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "motion-1",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "KALKULUS: MEMAHAMI PERUBAHAN",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "motion-2",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "motion-3",
+          "type": "write",
+          "at": 8200,
+          "duration": 5000,
+          "content": "Kecepatan mobil tepat pada satu detik?",
+          "x": 80,
+          "y": 160,
+          "height": 36,
+          "color": "black",
+          "maxWidth": 1480
+        },
+        {
+          "id": "motion-4",
+          "type": "narrate",
+          "at": 0,
+          "duration": 18000,
+          "text": "Bayangkan sebuah mobil yang mulai bergerak. Bagaimana kita mengetahui kecepatannya tepat pada detik tertentu? Jarak total dibagi waktu memberi kecepatan rata-rata. Tetapi rata-rata tidak menceritakan setiap saat dalam perjalanan."
+        },
+        {
+          "id": "motion-5",
+          "type": "moveObject",
+          "at": 14000,
+          "duration": 12000,
+          "points": [
+            [
+              [
+                170,
+                250
+              ],
+              [
+                185,
+                250
+              ],
+              [
+                200,
+                225
+              ],
+              [
+                250,
+                225
+              ],
+              [
+                275,
+                250
+              ],
+              [
+                295,
+                250
+              ],
+              [
+                295,
+                275
+              ],
+              [
+                170,
+                275
+              ],
+              [
+                170,
+                250
+              ]
+            ],
+            [
+              [
+                206,
+                275
+              ],
+              [
+                205.4616216792467,
+                278.39918693812444
+              ],
+              [
+                203.89918693812442,
+                281.4656377752172
+              ],
+              [
+                201.4656377752172,
+                283.89918693812444
+              ],
+              [
+                198.39918693812442,
+                285.4616216792467
+              ],
+              [
+                195,
+                286
+              ],
+              [
+                191.60081306187558,
+                285.4616216792467
+              ],
+              [
+                188.5343622247828,
+                283.89918693812444
+              ],
+              [
+                186.10081306187558,
+                281.4656377752172
+              ],
+              [
+                184.5383783207533,
+                278.39918693812444
+              ],
+              [
+                184,
+                275
+              ],
+              [
+                184.5383783207533,
+                271.60081306187556
+              ],
+              [
+                186.10081306187558,
+                268.5343622247828
+              ],
+              [
+                188.5343622247828,
+                266.10081306187556
+              ],
+              [
+                191.60081306187558,
+                264.5383783207533
+              ],
+              [
+                195,
+                264
+              ],
+              [
+                198.39918693812442,
+                264.5383783207533
+              ],
+              [
+                201.4656377752172,
+                266.10081306187556
+              ],
+              [
+                203.89918693812442,
+                268.5343622247828
+              ],
+              [
+                205.4616216792467,
+                271.60081306187556
+              ],
+              [
+                206,
+                275
+              ]
+            ],
+            [
+              [
+                281,
+                275
+              ],
+              [
+                280.4616216792467,
+                278.39918693812444
+              ],
+              [
+                278.89918693812444,
+                281.4656377752172
+              ],
+              [
+                276.4656377752172,
+                283.89918693812444
+              ],
+              [
+                273.39918693812444,
+                285.4616216792467
+              ],
+              [
+                270,
+                286
+              ],
+              [
+                266.60081306187556,
+                285.4616216792467
+              ],
+              [
+                263.5343622247828,
+                283.89918693812444
+              ],
+              [
+                261.10081306187556,
+                281.4656377752172
+              ],
+              [
+                259.5383783207533,
+                278.39918693812444
+              ],
+              [
+                259,
+                275
+              ],
+              [
+                259.5383783207533,
+                271.60081306187556
+              ],
+              [
+                261.10081306187556,
+                268.5343622247828
+              ],
+              [
+                263.5343622247828,
+                266.10081306187556
+              ],
+              [
+                266.60081306187556,
+                264.5383783207533
+              ],
+              [
+                270,
+                264
+              ],
+              [
+                273.39918693812444,
+                264.5383783207533
+              ],
+              [
+                276.4656377752172,
+                266.10081306187556
+              ],
+              [
+                278.89918693812444,
+                268.5343622247828
+              ],
+              [
+                280.4616216792467,
+                271.60081306187556
+              ],
+              [
+                281,
+                275
+              ]
+            ]
+          ],
+          "dx": 450,
+          "dy": 0,
+          "color": "blue",
+          "motion": {
+            "fn": {
+              "kind": "polynomial",
+              "coefficients": [
+                0,
+                0,
+                1
+              ]
+            },
+            "from": 0,
+            "to": 4
+          }
+        },
+        {
+          "id": "motion-6",
+          "type": "drawAxes",
+          "at": 18000,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 16
+          }
+        },
+        {
+          "id": "motion-7",
+          "type": "drawGraph",
+          "at": 21300,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 16
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "motion-8",
+          "type": "write",
+          "at": 25000,
+          "duration": 2000,
+          "content": "posisi s (m)",
+          "x": 140,
+          "y": 286,
+          "height": 26,
+          "color": "black",
+          "maxWidth": 1420
+        },
+        {
+          "id": "motion-9",
+          "type": "write",
+          "at": 27000,
+          "duration": 2000,
+          "content": "waktu t (s)",
+          "x": 500,
+          "y": 790,
+          "height": 26,
+          "color": "black",
+          "maxWidth": 1060
+        },
+        {
+          "id": "motion-10",
+          "type": "write",
+          "at": 29000,
+          "duration": 3000,
+          "content": "s(t) = t^2",
+          "x": 920,
+          "y": 300,
+          "height": 38,
+          "color": "blue",
+          "maxWidth": 640
+        },
+        {
+          "id": "motion-11",
+          "type": "narrate",
+          "at": 20000,
+          "duration": 19000,
+          "text": "Model sederhana kita adalah posisi sama dengan waktu kuadrat. Kurvanya makin curam. Mobil menempuh jarak lebih besar pada selang waktu yang sama. Jadi kecepatannya berubah, meskipun kita belum punya rumus kecepatan sesaat."
+        },
+        {
+          "id": "motion-12",
+          "type": "plotPoint",
+          "at": 33000,
+          "duration": 1000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 16
+          },
+          "x": 1,
+          "y": 1,
+          "label": "(1,1)"
+        },
+        {
+          "id": "motion-13",
+          "type": "plotPoint",
+          "at": 34500,
+          "duration": 1000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 16
+          },
+          "x": 3,
+          "y": 9,
+          "label": "(3,9)"
+        },
+        {
+          "id": "motion-14",
+          "type": "write",
+          "at": 36000,
+          "duration": 3000,
+          "content": "Selang 1 sampai 3 detik:",
+          "x": 920,
+          "y": 390,
+          "height": 29,
+          "color": "black",
+          "maxWidth": 640
+        },
+        {
+          "id": "motion-15",
+          "type": "write",
+          "at": 40000,
+          "duration": 5296.84210526316,
+          "content": {
+            "type": "row",
+            "items": [
+              "v rata-rata =",
+              {
+                "type": "fraction",
+                "numerator": "9 - 1",
+                "denominator": "3 - 1"
+              }
+            ]
+          },
+          "x": 920,
+          "y": 453,
+          "height": 30,
+          "color": "black",
+          "maxWidth": 640
+        },
+        {
+          "id": "motion-16",
+          "type": "write",
+          "at": 46356.21052631579,
+          "duration": 2118.736842105267,
+          "content": "= 4 m/s",
+          "x": 1100,
+          "y": 585,
+          "height": 38,
+          "color": "orange",
+          "maxWidth": 460
+        },
+        {
+          "id": "motion-17",
+          "type": "narrate",
+          "at": 40000,
+          "duration": 20128,
+          "text": "Antara detik satu dan tiga, posisi berubah dari satu menjadi sembilan meter. Delapan meter dalam dua detik berarti rata-rata empat meter per detik. Tapi pada detik dua, apakah nilainya juga empat? Kita perlu memperkecil selang waktu, bukan sekadar menghitung perjalanan penuh."
+        },
+        {
+          "id": "motion-18",
+          "type": "write",
+          "at": 51653.05263157895,
+          "duration": 5296.84210526316,
+          "content": "Bagaimana jika selangnya mengecil?",
+          "x": 80,
+          "y": 856,
+          "height": 34,
+          "color": "red",
+          "maxWidth": 1480
+        },
+        {
+          "id": "motion-19",
+          "type": "pause",
+          "at": 58009.26315789474,
+          "duration": 5118.73684210526,
+          "reason": "Bandingkan kecepatan rata-rata dengan pertanyaan sesaat"
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "2 · Ide yang bertumbuh",
+      "start": 66128,
+      "duration": 45040,
+      "origin": {
+        "x": 1900,
+        "y": 0
+      },
+      "objectives": [
+        "Memahami kontribusi Newton dan Leibniz tanpa mitos penemu tunggal"
+      ],
+      "actions": [
+        {
+          "id": "history-20",
+          "type": "moveCamera",
+          "at": 0,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "history-21",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "IDE YANG BERTUMBUH",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "history-22",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "history-23",
+          "type": "write",
+          "at": 9000,
+          "duration": 4000,
+          "content": "Tangen, luas, dan gerak",
+          "x": 80,
+          "y": 170,
+          "height": 40,
+          "color": "black",
+          "maxWidth": 1480
+        },
+        {
+          "id": "history-24",
+          "type": "narrate",
+          "at": 2000,
+          "duration": 18000,
+          "text": "Pertanyaan tentang gerak dan luas sudah lama menarik perhatian para matematikawan. Metode tangen, luas, dan gagasan besaran sangat kecil berkembang sebelum kalkulus modern. Fermat, Cavalieri, dan Barrow termasuk bagian dari perjalanan itu."
+        },
+        {
+          "id": "history-25",
+          "type": "write",
+          "at": 14000,
+          "duration": 4000,
+          "content": "Fermat · Cavalieri · Barrow",
+          "x": 80,
+          "y": 265,
+          "height": 36,
+          "color": "black",
+          "maxWidth": 1480
+        },
+        {
+          "id": "history-26",
+          "type": "draw",
+          "at": 19000,
+          "duration": 1000,
+          "points": [
+            [
+              [
+                80,
+                345
+              ],
+              [
+                1500,
+                345
+              ]
+            ],
+            [
+              [
+                400,
+                335
+              ],
+              [
+                400,
+                355
+              ]
+            ],
+            [
+              [
+                980,
+                335
+              ],
+              [
+                980,
+                355
+              ]
+            ]
+          ],
+          "color": "orange"
+        },
+        {
+          "id": "history-27",
+          "type": "write",
+          "at": 21000,
+          "duration": 2504.7619047619046,
+          "content": "Newton",
+          "x": 130,
+          "y": 410,
+          "height": 46,
+          "color": "blue",
+          "maxWidth": 1430
+        },
+        {
+          "id": "history-28",
+          "type": "write",
+          "at": 24005.714285714286,
+          "duration": 2504.7619047619046,
+          "content": "Leibniz",
+          "x": 920,
+          "y": 410,
+          "height": 46,
+          "color": "blue",
+          "maxWidth": 640
+        },
+        {
+          "id": "history-29",
+          "type": "write",
+          "at": 27011.428571428572,
+          "duration": 3506.6666666666642,
+          "content": "Gerak dan laju perubahan",
+          "x": 130,
+          "y": 505,
+          "height": 30,
+          "color": "black",
+          "maxWidth": 1430
+        },
+        {
+          "id": "history-30",
+          "type": "write",
+          "at": 30518.095238095237,
+          "duration": 3506.6666666666715,
+          "content": "Notasi dan metode umum",
+          "x": 920,
+          "y": 505,
+          "height": 29,
+          "color": "black",
+          "maxWidth": 640
+        },
+        {
+          "id": "history-31",
+          "type": "narrate",
+          "at": 21000,
+          "duration": 21040,
+          "text": "Pada abad ketujuh belas, Isaac Newton dan Gottfried Wilhelm Leibniz mengembangkan pendekatan kalkulus secara independen. Newton banyak memikirkan gerak dan perubahan. Leibniz membangun notasi yang sangat berguna. Kerja mereka menghubungkan masalah-masalah ini dalam metode umum, di atas fondasi para pendahulu."
+        },
+        {
+          "id": "history-32",
+          "type": "write",
+          "at": 35026.666666666664,
+          "duration": 4007.619047619053,
+          "content": "Perubahan ↔ akumulasi",
+          "x": 430,
+          "y": 660,
+          "height": 44,
+          "color": "red",
+          "maxWidth": 1130
+        },
+        {
+          "id": "history-33",
+          "type": "write",
+          "at": 39535.23809523809,
+          "duration": 3004.761904761908,
+          "content": "Satu bahasa untuk gerak dan geometri.",
+          "x": 180,
+          "y": 796,
+          "height": 32,
+          "color": "black",
+          "maxWidth": 1380
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "title": "3 · Mendekati, bukan membagi nol",
+      "start": 111168,
+      "duration": 75528,
+      "origin": {
+        "x": 3800,
+        "y": 0
+      },
+      "objectives": [
+        "Memahami limit lewat sekan yang mendekati tangen",
+        "Membedakan pendekatan dengan substitusi nol"
+      ],
+      "actions": [
+        {
+          "id": "limits-34",
+          "type": "moveCamera",
+          "at": 0,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "limits-35",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "LIMIT: APA YANG DIDEKATI?",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "limits-36",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "limits-37",
+          "type": "drawAxes",
+          "at": 9000,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 9
+          }
+        },
+        {
+          "id": "limits-38",
+          "type": "drawGraph",
+          "at": 12300,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 9
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "limits-39",
+          "type": "write",
+          "at": 10000,
+          "duration": 3000,
+          "content": "f(x) = x^2",
+          "x": 930,
+          "y": 170,
+          "height": 40,
+          "color": "blue",
+          "maxWidth": 630
+        },
+        {
+          "id": "limits-40",
+          "type": "plotPoint",
+          "at": 17000,
+          "duration": 1000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 9
+          },
+          "x": 1,
+          "y": 1,
+          "label": "P(1,1)"
+        },
+        {
+          "id": "limits-41",
+          "type": "write",
+          "at": 18000,
+          "duration": 3000,
+          "content": "P tetap. Q bergerak.",
+          "x": 930,
+          "y": 270,
+          "height": 30,
+          "color": "black",
+          "maxWidth": 630
+        },
+        {
+          "id": "limits-42",
+          "type": "write",
+          "at": 23000,
+          "duration": 3000,
+          "content": "Sekan: dua titik",
+          "x": 930,
+          "y": 335,
+          "height": 34,
+          "color": "orange",
+          "maxWidth": 630
+        },
+        {
+          "id": "limits-43",
+          "type": "narrate",
+          "at": 9000,
+          "duration": 18000,
+          "text": "Sekarang lihat parabola. Titik P tetap di satu koma satu. Titik Q berada pada kurva di sebelah kanannya. Garis melalui dua titik itu adalah sekan. Kemiringannya mengukur perubahan rata-rata antara P dan Q."
+        },
+        {
+          "id": "limits-44",
+          "type": "animateSecant",
+          "at": 27000,
+          "duration": 29083.368421052633,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 9
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          },
+          "x": 1,
+          "from": 2.7,
+          "to": 1.005,
+          "labelX": 960,
+          "labelY": 580
+        },
+        {
+          "id": "limits-45",
+          "type": "write",
+          "at": 29000,
+          "duration": 3000,
+          "content": "Q makin dekat ke P",
+          "x": 930,
+          "y": 410,
+          "height": 30,
+          "color": "black",
+          "maxWidth": 630
+        },
+        {
+          "id": "limits-46",
+          "type": "write",
+          "at": 35000,
+          "duration": 3000,
+          "content": "Selang makin kecil",
+          "x": 930,
+          "y": 476,
+          "height": 30,
+          "color": "black",
+          "maxWidth": 630
+        },
+        {
+          "id": "limits-47",
+          "type": "narrate",
+          "at": 28000,
+          "duration": 22000,
+          "text": "Perhatikan Q bergerak mendekati P. Garis sekan berputar, lalu makin mirip sebuah garis tertentu. Kemiringan mendekati dua. Limit berbicara tentang nilai yang didekati, ketika selangnya makin kecil. Kita tidak perlu menempatkan dua titik berbeda di posisi yang persis sama."
+        },
+        {
+          "id": "limits-48",
+          "type": "erase",
+          "at": 57111.15789473684,
+          "duration": 1027.7894736842136,
+          "target": "limits-44"
+        },
+        {
+          "id": "limits-49",
+          "type": "animateTangent",
+          "at": 59166.73684210526,
+          "duration": 2055.578947368427,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 9
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          },
+          "x": 1,
+          "triangle": 1
+        },
+        {
+          "id": "limits-50",
+          "type": "write",
+          "at": 59166.73684210526,
+          "duration": 4111.157894736847,
+          "content": "Tangen: laju sesaat",
+          "x": 930,
+          "y": 675,
+          "height": 30,
+          "color": "red",
+          "maxWidth": 630
+        },
+        {
+          "id": "limits-51",
+          "type": "write",
+          "at": 63277.89473684211,
+          "duration": 3083.368421052626,
+          "content": "Δx = 1   Δy = 2",
+          "x": 290,
+          "y": 845,
+          "height": 30,
+          "color": "red",
+          "maxWidth": 1270
+        },
+        {
+          "id": "limits-52",
+          "type": "narrate",
+          "at": 53000,
+          "duration": 19528,
+          "text": "Garis batas itu adalah tangen. Di titik P, kemiringannya dua: bergerak satu satuan ke kanan pada garis tangen berarti naik dua. Ini intuisi laju sesaat. Pada langkah berikutnya kita akan membuktikannya, sambil memastikan tidak pernah membagi dengan nol."
+        }
+      ]
+    },
+    {
+      "id": "derivative",
+      "title": "4 · Turunan dari definisi",
+      "start": 186696,
+      "duration": 97960,
+      "origin": {
+        "x": 5700,
+        "y": 0
+      },
+      "objectives": [
+        "Menurunkan x kuadrat dari hasil bagi selisih",
+        "Menjelaskan pembatalan h untuk h bukan nol",
+        "Menafsirkan turunan sebagai kemiringan"
+      ],
+      "actions": [
+        {
+          "id": "derivative-53",
+          "type": "moveCamera",
+          "at": 0,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "derivative-54",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "TURUNAN: DARI RATA-RATA KE SESAAT",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "derivative-55",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "derivative-56",
+          "type": "write",
+          "at": 9000,
+          "duration": 3000,
+          "content": "f(x) = x^2",
+          "x": 80,
+          "y": 160,
+          "height": 40,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "derivative-57",
+          "type": "write",
+          "at": 14000,
+          "duration": 8000,
+          "content": {
+            "type": "row",
+            "items": [
+              "f'(x) =",
+              {
+                "type": "limit",
+                "under": "h → 0",
+                "body": {
+                  "type": "fraction",
+                  "numerator": "f(x+h) - f(x)",
+                  "denominator": "h"
+                }
+              }
+            ]
+          },
+          "x": 80,
+          "y": 255,
+          "height": 38,
+          "color": "black",
+          "maxWidth": 1480
+        },
+        {
+          "id": "derivative-58",
+          "type": "write",
+          "at": 22000,
+          "duration": 2000,
+          "content": "h ≠ 0",
+          "x": 1310,
+          "y": 325,
+          "height": 30,
+          "color": "red",
+          "maxWidth": 250
+        },
+        {
+          "id": "derivative-59",
+          "type": "narrate",
+          "at": 10000,
+          "duration": 22000,
+          "text": "Kita tulis rata-rata perubahan sebagai selisih nilai fungsi dibagi selisih masukan. Masukan bertambah h, jadi selisihnya h. Turunan adalah limit hasil bagi ini saat h mendekati nol. Selama menyederhanakan, h tetap bukan nol."
+        },
+        {
+          "id": "derivative-60",
+          "type": "write",
+          "at": 26000,
+          "duration": 7000,
+          "content": {
+            "type": "row",
+            "items": [
+              "q(h) =",
+              {
+                "type": "fraction",
+                "numerator": "(x+h)^2 - x^2",
+                "denominator": "h"
+              }
+            ]
+          },
+          "x": 80,
+          "y": 460,
+          "height": 36,
+          "color": "black",
+          "group": "expansion",
+          "maxWidth": 1480
+        },
+        {
+          "id": "derivative-61",
+          "type": "write",
+          "at": 35000,
+          "duration": 8000,
+          "content": {
+            "type": "row",
+            "items": [
+              "q(h) =",
+              {
+                "type": "fraction",
+                "numerator": "x^2 + 2xh + h^2 - x^2",
+                "denominator": "h"
+              }
+            ]
+          },
+          "x": 80,
+          "y": 635,
+          "height": 36,
+          "color": "black",
+          "group": "expansion",
+          "maxWidth": 1480
+        },
+        {
+          "id": "derivative-62",
+          "type": "narrate",
+          "at": 32000,
+          "duration": 19000,
+          "text": "Untuk fungsi kuadrat, gantikan nilai fungsi dengan rumusnya. Kuadrat dari x tambah h adalah x kuadrat tambah dua x h tambah h kuadrat. Ini berasal dari mengalikan x tambah h dengan dirinya sendiri. Kedua suku x kuadrat kemudian saling menghapus."
+        },
+        {
+          "id": "derivative-63",
+          "type": "draw",
+          "at": 45000,
+          "duration": 1000,
+          "points": [
+            [
+              [
+                297.662130155867,
+                659.0414900788296
+              ],
+              [
+                353.9512288573295,
+                659.0414900788296
+              ]
+            ],
+            [
+              [
+                766.4280078866148,
+                659.2527319687875
+              ],
+              [
+                822.3429784416389,
+                659.2527319687875
+              ]
+            ]
+          ],
+          "color": "red",
+          "group": "expansion"
+        },
+        {
+          "id": "derivative-64",
+          "type": "write",
+          "at": 46000,
+          "duration": 4000,
+          "content": "(x+h)(x+h) = x^2 + 2xh + h^2",
+          "x": 700,
+          "y": 850,
+          "height": 26,
+          "color": "black",
+          "group": "expansion",
+          "maxWidth": 860
+        },
+        {
+          "id": "derivative-65",
+          "type": "erase",
+          "at": 52000,
+          "duration": 3000,
+          "target": "expansion"
+        },
+        {
+          "id": "derivative-66",
+          "type": "write",
+          "at": 56000,
+          "duration": 9000,
+          "content": {
+            "type": "row",
+            "items": [
+              "q(h) =",
+              {
+                "type": "fraction",
+                "numerator": "2xh + h^2",
+                "denominator": "h"
+              },
+              "=",
+              {
+                "type": "fraction",
+                "numerator": "h(2x+h)",
+                "denominator": "h"
+              },
+              "= 2x + h"
+            ]
+          },
+          "x": 80,
+          "y": 485,
+          "height": 34,
+          "color": "black",
+          "maxWidth": 1480
+        },
+        {
+          "id": "derivative-67",
+          "type": "narrate",
+          "at": 54000,
+          "duration": 20000,
+          "text": "Pembilang yang tersisa adalah dua x h tambah h kuadrat. Keduanya memiliki faktor h. Karena h bukan nol, kita boleh membagi pembilang dan penyebut dengan h. Hasilnya dua x tambah h. Barulah sekarang ambil limit: ketika h mendekati nol, hasilnya mendekati dua x."
+        },
+        {
+          "id": "derivative-68",
+          "type": "write",
+          "at": 71000,
+          "duration": 4000,
+          "content": "f'(x) = 2x",
+          "x": 80,
+          "y": 740,
+          "height": 52,
+          "color": "red",
+          "maxWidth": 1480
+        },
+        {
+          "id": "derivative-69",
+          "type": "underline",
+          "at": 75500,
+          "duration": 1087.0588235294126,
+          "x": 80,
+          "y": 825,
+          "width": 600,
+          "color": "red"
+        },
+        {
+          "id": "derivative-70",
+          "type": "write",
+          "at": 77174.11764705883,
+          "duration": 4696.470588235286,
+          "content": "x = 3 → f'(3) = 6",
+          "x": 900,
+          "y": 765,
+          "height": 32,
+          "color": "red",
+          "maxWidth": 660
+        },
+        {
+          "id": "derivative-71",
+          "type": "narrate",
+          "at": 76000,
+          "duration": 19960,
+          "text": "Jadi turunan x kuadrat adalah dua x. Kita tidak mengganti h dengan nol di pecahan awal; itu akan menghasilkan pembagian yang tidak terdefinisi. Penyederhanaan menunjukkan perilaku nilai-nilai di dekat nol. Di x sama dengan tiga, kemiringan tangen adalah enam."
+        }
+      ]
+    },
+    {
+      "id": "application",
+      "title": "5 · Gerak sebagai aplikasi",
+      "start": 284656,
+      "duration": 60648,
+      "origin": {
+        "x": 7600,
+        "y": 0
+      },
+      "objectives": [
+        "Menghubungkan posisi, kecepatan, percepatan",
+        "Menghitung jarak dari model gerak"
+      ],
+      "actions": [
+        {
+          "id": "application-72",
+          "type": "moveCamera",
+          "at": 0,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "application-73",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "POSISI → KECEPATAN → PERCEPATAN",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "application-74",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "application-75",
+          "type": "drawAxes",
+          "at": 9000,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 8
+          }
+        },
+        {
+          "id": "application-76",
+          "type": "drawGraph",
+          "at": 12300,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 8
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              2
+            ]
+          }
+        },
+        {
+          "id": "application-77",
+          "type": "write",
+          "at": 10000,
+          "duration": 3000,
+          "content": "v(t) = 2t",
+          "x": 930,
+          "y": 170,
+          "height": 40,
+          "color": "blue",
+          "maxWidth": 630
+        },
+        {
+          "id": "application-78",
+          "type": "write",
+          "at": 17000,
+          "duration": 3000,
+          "content": "s(t) = t^2 meter",
+          "x": 930,
+          "y": 285,
+          "height": 34,
+          "color": "black",
+          "maxWidth": 630
+        },
+        {
+          "id": "application-79",
+          "type": "write",
+          "at": 22000,
+          "duration": 4000,
+          "content": "v(t) = s'(t) = 2t",
+          "x": 930,
+          "y": 360,
+          "height": 34,
+          "color": "blue",
+          "maxWidth": 630
+        },
+        {
+          "id": "application-80",
+          "type": "write",
+          "at": 28000,
+          "duration": 4000,
+          "content": "a(t) = v'(t)\n= 2 m/s^2",
+          "x": 930,
+          "y": 437,
+          "height": 34,
+          "color": "red",
+          "maxWidth": 630
+        },
+        {
+          "id": "application-81",
+          "type": "narrate",
+          "at": 9000,
+          "duration": 22000,
+          "text": "Kembali ke mobil. Posisi adalah waktu kuadrat meter, dengan waktu dalam detik. Turunan posisi memberi kecepatan dua t meter per detik. Turunan kecepatan memberi percepatan dua meter per detik kuadrat. Grafik kecepatan berupa garis lurus yang naik: mobil bertambah cepat dengan laju tetap."
+        },
+        {
+          "id": "application-82",
+          "type": "plotPoint",
+          "at": 34029.454545454544,
+          "duration": 1029.4545454545441,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 8
+          },
+          "x": 3,
+          "y": 6,
+          "label": "(3,6)"
+        },
+        {
+          "id": "application-83",
+          "type": "write",
+          "at": 34029.454545454544,
+          "duration": 3088.3636363636397,
+          "content": "Pada t = 3 detik:",
+          "x": 930,
+          "y": 555,
+          "height": 32,
+          "color": "black",
+          "maxWidth": 630
+        },
+        {
+          "id": "application-84",
+          "type": "write",
+          "at": 38147.27272727273,
+          "duration": 3088.3636363636324,
+          "content": "v(3) = 6 m/s",
+          "x": 930,
+          "y": 625,
+          "height": 38,
+          "color": "blue",
+          "maxWidth": 630
+        },
+        {
+          "id": "application-85",
+          "type": "write",
+          "at": 42265.09090909091,
+          "duration": 4117.8181818181765,
+          "content": "Jarak 0 sampai 3 detik?",
+          "x": 80,
+          "y": 842,
+          "height": 34,
+          "color": "orange",
+          "maxWidth": 1480
+        },
+        {
+          "id": "application-86",
+          "type": "shadeArea",
+          "at": 46382.90909090909,
+          "duration": 3088.3636363636397,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 4,
+            "yMin": 0,
+            "yMax": 8
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              2
+            ]
+          },
+          "a": 0,
+          "b": 3
+        },
+        {
+          "id": "application-87",
+          "type": "narrate",
+          "at": 33000,
+          "duration": 22648,
+          "text": "Pada detik tiga, kecepatan mobil enam meter per detik. Turunan juga membantu optimasi dan analisis perubahan dalam sains serta teknik. Dalam model yang sama ini, kita dapat bertanya sebaliknya: jika tahu kecepatan, bagaimana mengumpulkan jarak yang ditempuh? Luas di bawah grafik kecepatan akan membawa kita ke integral."
+        }
+      ]
+    },
+    {
+      "id": "integration",
+      "title": "6 · Luas menjadi akumulasi",
+      "start": 345304,
+      "duration": 97768,
+      "origin": {
+        "x": 9500,
+        "y": 0
+      },
+      "objectives": [
+        "Memahami jumlah Riemann",
+        "Menghitung integral tentu sederhana",
+        "Membedakan hasil eksak dan pendekatan"
+      ],
+      "actions": [
+        {
+          "id": "integration-88",
+          "type": "moveCamera",
+          "at": 0,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "integration-89",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "INTEGRAL: MENGUMPULKAN BAGIAN KECIL",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "integration-90",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "integration-91",
+          "type": "write",
+          "at": 9000,
+          "duration": 4000,
+          "content": "Bagaimana menghitung luas di bawah kurva?",
+          "x": 80,
+          "y": 165,
+          "height": 34,
+          "color": "black",
+          "maxWidth": 1480
+        },
+        {
+          "id": "integration-92",
+          "type": "drawAxes",
+          "at": 14000,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 2.4,
+            "yMin": 0,
+            "yMax": 5
+          }
+        },
+        {
+          "id": "integration-93",
+          "type": "drawGraph",
+          "at": 17300,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 2.4,
+            "yMin": 0,
+            "yMax": 5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "integration-94",
+          "type": "write",
+          "at": 19000,
+          "duration": 4000,
+          "content": "y = x^2, 0 ≤ x ≤ 2",
+          "x": 920,
+          "y": 280,
+          "height": 30,
+          "color": "blue",
+          "maxWidth": 640
+        },
+        {
+          "id": "integration-95",
+          "type": "narrate",
+          "at": 9000,
+          "duration": 20000,
+          "text": "Bagaimana menghitung luas daerah yang batas atasnya melengkung? Kita bagi interval menjadi beberapa bagian. Pada tiap bagian, buat persegi panjang dengan tinggi dari kurva. Lebar kali tinggi memberi luas kecil. Jumlahkan semuanya untuk mendekati luas total."
+        },
+        {
+          "id": "integration-96",
+          "type": "drawRiemannRectangles",
+          "at": 24000,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 2.4,
+            "yMin": 0,
+            "yMax": 5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          },
+          "a": 0,
+          "b": 2,
+          "n": 4
+        },
+        {
+          "id": "integration-97",
+          "type": "write",
+          "at": 26000,
+          "duration": 3000,
+          "content": "Awal: 4 bagian",
+          "x": 920,
+          "y": 375,
+          "height": 30,
+          "color": "orange",
+          "maxWidth": 640
+        },
+        {
+          "id": "integration-98",
+          "type": "write",
+          "at": 30000,
+          "duration": 3000,
+          "content": "Luas ≈ 2.625",
+          "x": 920,
+          "y": 435,
+          "height": 32,
+          "color": "orange",
+          "maxWidth": 640
+        },
+        {
+          "id": "integration-99",
+          "type": "erase",
+          "at": 34000,
+          "duration": 1000,
+          "target": "integration-96"
+        },
+        {
+          "id": "integration-100",
+          "type": "drawRiemannRectangles",
+          "at": 36000,
+          "duration": 3000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 2.4,
+            "yMin": 0,
+            "yMax": 5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          },
+          "a": 0,
+          "b": 2,
+          "n": 12
+        },
+        {
+          "id": "integration-101",
+          "type": "write",
+          "at": 36000,
+          "duration": 4000,
+          "content": "12 → 36 → makin halus",
+          "x": 920,
+          "y": 510,
+          "height": 28,
+          "color": "black",
+          "maxWidth": 640
+        },
+        {
+          "id": "integration-102",
+          "type": "narrate",
+          "at": 31000,
+          "duration": 21000,
+          "text": "Di sini kita memakai tinggi pada titik tengah setiap interval. Empat persegi panjang memberi dua koma enam dua lima. Ketika pembagiannya lebih banyak, celah terhadap kurva mengecil. Yang penting bukan satu gambar tertentu, tetapi limit dari jumlah luas saat lebar interval menuju nol."
+        },
+        {
+          "id": "integration-103",
+          "type": "erase",
+          "at": 41000,
+          "duration": 1000,
+          "target": "integration-100"
+        },
+        {
+          "id": "integration-104",
+          "type": "drawRiemannRectangles",
+          "at": 43000,
+          "duration": 4000,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 2.4,
+            "yMin": 0,
+            "yMax": 5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          },
+          "a": 0,
+          "b": 2,
+          "n": 36
+        },
+        {
+          "id": "integration-105",
+          "type": "erase",
+          "at": 49000,
+          "duration": 2000,
+          "target": "integration-104"
+        },
+        {
+          "id": "integration-106",
+          "type": "shadeArea",
+          "at": 52000,
+          "duration": 3382.9333333333343,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 2.4,
+            "yMin": 0,
+            "yMax": 5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              0,
+              1
+            ]
+          },
+          "a": 0,
+          "b": 2
+        },
+        {
+          "id": "integration-107",
+          "type": "write",
+          "at": 53000,
+          "duration": 5957.333333333336,
+          "content": {
+            "type": "integral",
+            "lower": "0",
+            "upper": "2",
+            "body": "x^2 dx"
+          },
+          "x": 920,
+          "y": 600,
+          "height": 38,
+          "color": "blue",
+          "maxWidth": 640
+        },
+        {
+          "id": "integration-108",
+          "type": "narrate",
+          "at": 53000,
+          "duration": 17872,
+          "text": "Notasi integral merangkum proses akumulasi itu. Untuk x kuadrat dari nol sampai dua, kita akan memakai fungsi yang turunannya x kuadrat, yaitu x pangkat tiga dibagi tiga. Ambil nilainya di batas atas, lalu kurangi nilai di batas bawah."
+        },
+        {
+          "id": "integration-109",
+          "type": "moveCamera",
+          "at": 61340.26666666667,
+          "duration": 2978.6666666666642,
+          "bounds": {
+            "x": 1710,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "integration-110",
+          "type": "write",
+          "at": 64914.666666666664,
+          "duration": 3574.4000000000015,
+          "content": "MENGHITUNG NILAI EKSAK",
+          "x": 1710,
+          "y": 160,
+          "height": 36,
+          "color": "blue",
+          "maxWidth": 1500
+        },
+        {
+          "id": "integration-111",
+          "type": "write",
+          "at": 69680.53333333334,
+          "duration": 5605.18095238095,
+          "content": {
+            "type": "row",
+            "items": [
+              "F(x) =",
+              {
+                "type": "fraction",
+                "numerator": "x^3",
+                "denominator": "3"
+              }
+            ]
+          },
+          "x": 1720,
+          "y": 285,
+          "height": 38,
+          "color": "black",
+          "maxWidth": 1400
+        },
+        {
+          "id": "integration-112",
+          "type": "write",
+          "at": 76992.57142857143,
+          "duration": 8534.28571428571,
+          "content": {
+            "type": "row",
+            "items": [
+              "F(2) - F(0) =",
+              {
+                "type": "fraction",
+                "numerator": "8",
+                "denominator": "3"
+              },
+              "- 0"
+            ]
+          },
+          "x": 1720,
+          "y": 475,
+          "height": 38,
+          "color": "black",
+          "maxWidth": 1400
+        },
+        {
+          "id": "integration-113",
+          "type": "write",
+          "at": 87233.71428571429,
+          "duration": 6827.428571428565,
+          "content": {
+            "type": "row",
+            "items": [
+              "Luas =",
+              {
+                "type": "fraction",
+                "numerator": "8",
+                "denominator": "3"
+              },
+              "≈ 2.667"
+            ]
+          },
+          "x": 1720,
+          "y": 675,
+          "height": 42,
+          "color": "red",
+          "maxWidth": 1400
+        },
+        {
+          "id": "integration-114",
+          "type": "narrate",
+          "at": 71872,
+          "duration": 23896,
+          "text": "Dua pangkat tiga dibagi tiga, dikurangi nol, menghasilkan delapan per tiga. Itu nilai eksak. Dua koma enam enam tujuh hanyalah pembulatan. Luas pendekatan tadi makin mendekati nilai ini. Integral tentu memberi total bertanda; daerah kita berada di atas sumbu, sehingga totalnya adalah luas positif."
+        }
+      ]
+    },
+    {
+      "id": "connection",
+      "title": "7 · Dua arah dari satu ide",
+      "start": 443072,
+      "duration": 61976,
+      "origin": {
+        "x": 13300,
+        "y": 0
+      },
+      "objectives": [
+        "Memahami teorema dasar kalkulus secara visual",
+        "Menghubungkan penambahan luas dengan tinggi kurva"
+      ],
+      "actions": [
+        {
+          "id": "connection-overview",
+          "type": "zoomCamera",
+          "at": 0,
+          "duration": 3000,
+          "bounds": {
+            "x": -2250,
+            "y": 0,
+            "w": 3890,
+            "h": 920
+          }
+        },
+        {
+          "id": "connection-115",
+          "type": "moveCamera",
+          "at": 5000,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "connection-116",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "PERUBAHAN DAN AKUMULASI TERHUBUNG",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "connection-117",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "connection-118",
+          "type": "drawAxes",
+          "at": 9000,
+          "duration": 3026.181818181818,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 4.5
+          }
+        },
+        {
+          "id": "connection-119",
+          "type": "drawGraph",
+          "at": 12330.10909090909,
+          "duration": 3039.272727272728,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 4.5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "connection-120",
+          "type": "write",
+          "at": 9000,
+          "duration": 3026.181818181818,
+          "content": "f(x) = x",
+          "x": 930,
+          "y": 170,
+          "height": 38,
+          "color": "blue",
+          "maxWidth": 630
+        },
+        {
+          "id": "connection-121",
+          "type": "shadeArea",
+          "at": 17091.636363636364,
+          "duration": 4052.363636363636,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 4.5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              1
+            ]
+          },
+          "a": 0,
+          "b": 2
+        },
+        {
+          "id": "connection-122",
+          "type": "write",
+          "at": 17091.636363636364,
+          "duration": 4052.363636363636,
+          "content": "A(x) = luas dari 0 ke x",
+          "x": 930,
+          "y": 285,
+          "height": 30,
+          "color": "black",
+          "maxWidth": 630
+        },
+        {
+          "id": "connection-123",
+          "type": "write",
+          "at": 23170.18181818182,
+          "duration": 5065.454545454544,
+          "content": {
+            "type": "row",
+            "items": [
+              "A(x) =",
+              {
+                "type": "fraction",
+                "numerator": "x^2",
+                "denominator": "2"
+              }
+            ]
+          },
+          "x": 930,
+          "y": 380,
+          "height": 38,
+          "color": "orange",
+          "maxWidth": 630
+        },
+        {
+          "id": "connection-124",
+          "type": "narrate",
+          "at": 10000,
+          "duration": 22288,
+          "text": "Perhatikan garis y sama dengan x. Luas dari nol sampai x membentuk segitiga: setengah kali alas x kali tinggi x. Jadi fungsi akumulasi A adalah setengah x kuadrat. Jika batas kanan maju sedikit, luas bertambah berupa pita sempit. Tinggi pita hampir sama dengan nilai fungsi di batas kanan."
+        },
+        {
+          "id": "connection-125",
+          "type": "shadeArea",
+          "at": 33288,
+          "duration": 2073.391304347824,
+          "graph": {
+            "x": 145,
+            "y": 330,
+            "width": 630,
+            "height": 420,
+            "xMin": 0,
+            "xMax": 3,
+            "yMin": 0,
+            "yMax": 4.5
+          },
+          "fn": {
+            "kind": "polynomial",
+            "coefficients": [
+              0,
+              1
+            ]
+          },
+          "a": 2,
+          "b": 2.12
+        },
+        {
+          "id": "connection-126",
+          "type": "write",
+          "at": 34288,
+          "duration": 4293.565217391304,
+          "content": "ΔA ≈ f(x) Δx",
+          "x": 930,
+          "y": 570,
+          "height": 34,
+          "color": "black",
+          "maxWidth": 630
+        },
+        {
+          "id": "connection-127",
+          "type": "write",
+          "at": 41801.739130434784,
+          "duration": 4293.565217391304,
+          "content": "A'(x) = x = f(x)",
+          "x": 930,
+          "y": 657,
+          "height": 34,
+          "color": "red",
+          "maxWidth": 630
+        },
+        {
+          "id": "connection-128",
+          "type": "narrate",
+          "at": 34288,
+          "duration": 24688,
+          "text": "Tambahan luas kira-kira tinggi kali tambahan lebar. Dibagi tambahan lebar, laju perubahan luas mendekati tinggi kurva. Jadi turunan fungsi akumulasi mengembalikan fungsi semula. Inilah inti teorema dasar kalkulus untuk fungsi kontinu. Sebaliknya, mengintegralkan turunan memberi perubahan total, lewat nilai fungsi di dua batas."
+        },
+        {
+          "id": "connection-129",
+          "type": "write",
+          "at": 50388.86956521739,
+          "duration": 5366.956521739128,
+          "content": "Turunan A → f; integral f → A",
+          "x": 80,
+          "y": 844,
+          "height": 32,
+          "color": "red",
+          "maxWidth": 1480
+        }
+      ]
+    },
+    {
+      "id": "challenge",
+      "title": "8 · Coba, lalu hubungkan",
+      "start": 505048,
+      "duration": 72112,
+      "origin": {
+        "x": 15200,
+        "y": 0
+      },
+      "objectives": [
+        "Menyelesaikan tantangan kecepatan dan jarak",
+        "Merangkum turunan dan integral"
+      ],
+      "actions": [
+        {
+          "id": "challenge-130",
+          "type": "moveCamera",
+          "at": 0,
+          "duration": 2800,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "w": 1640,
+            "h": 920
+          }
+        },
+        {
+          "id": "challenge-131",
+          "type": "write",
+          "at": 3000,
+          "duration": 4000,
+          "content": "TANTANGAN: DUA PERTANYAAN, SATU GERAK",
+          "x": 80,
+          "y": 50,
+          "height": 42,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "challenge-132",
+          "type": "underline",
+          "at": 7200,
+          "duration": 800,
+          "x": 80,
+          "y": 118,
+          "width": 1480
+        },
+        {
+          "id": "challenge-133",
+          "type": "write",
+          "at": 9274.666666666666,
+          "duration": 5098.666666666668,
+          "content": "v(t) = 2t m/s, mulai dari s(0)=0",
+          "x": 80,
+          "y": 170,
+          "height": 36,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "challenge-134",
+          "type": "write",
+          "at": 15648,
+          "duration": 5098.666666666668,
+          "content": "Pada t=2: kecepatan? Jarak total?",
+          "x": 80,
+          "y": 280,
+          "height": 36,
+          "color": "black",
+          "maxWidth": 1480
+        },
+        {
+          "id": "challenge-135",
+          "type": "narrate",
+          "at": 8000,
+          "duration": 19120,
+          "text": "Sekarang giliranmu. Mobil mulai di posisi nol dengan kecepatan dua t meter per detik. Pada detik dua, berapa kecepatannya, dan berapa jarak total yang sudah ditempuh? Dua pertanyaan ini meminta dua cara berpikir. Coba jawab sebelum kita lanjut."
+        },
+        {
+          "id": "challenge-136",
+          "type": "pause",
+          "at": 27120,
+          "duration": 7000,
+          "reason": "Waktu berpikir untuk tantangan"
+        },
+        {
+          "id": "challenge-137",
+          "type": "write",
+          "at": 34120,
+          "duration": 7181.333333333336,
+          "content": "Kecepatan: v(2) = 2(2) = 4 m/s",
+          "x": 80,
+          "y": 407,
+          "height": 36,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "challenge-138",
+          "type": "write",
+          "at": 42737.6,
+          "duration": 8617.599999999999,
+          "content": {
+            "type": "row",
+            "items": [
+              "Jarak:",
+              {
+                "type": "integral",
+                "lower": "0",
+                "upper": "2",
+                "body": "2t dt"
+              },
+              "= [t^2] dari 0 ke 2 = 4 m"
+            ]
+          },
+          "x": 80,
+          "y": 515,
+          "height": 32,
+          "color": "orange",
+          "maxWidth": 1480
+        },
+        {
+          "id": "challenge-139",
+          "type": "narrate",
+          "at": 34120,
+          "duration": 21544,
+          "text": "Kecepatan sesaatnya empat meter per detik. Untuk jarak, akumulasikan kecepatan dari nol sampai dua. Integral dua t adalah t kuadrat, sehingga jaraknya empat meter. Angkanya sama dalam contoh ini, tetapi makna dan satuannya berbeda: satu laju sesaat, satu total yang terkumpul."
+        },
+        {
+          "id": "challenge-140",
+          "type": "write",
+          "at": 54227.73333333334,
+          "duration": 6227.377777777772,
+          "content": "Turunan membantu memahami perubahan.",
+          "x": 80,
+          "y": 725,
+          "height": 34,
+          "color": "red",
+          "maxWidth": 1480
+        },
+        {
+          "id": "challenge-141",
+          "type": "write",
+          "at": 60455.11111111111,
+          "duration": 6865.777777777781,
+          "content": "Integral membantu memahami akumulasi.",
+          "x": 80,
+          "y": 805,
+          "height": 34,
+          "color": "blue",
+          "maxWidth": 1480
+        },
+        {
+          "id": "challenge-142",
+          "type": "narrate",
+          "at": 56164,
+          "duration": 15448,
+          "text": "Turunan membantu kita memahami perubahan. Integral membantu kita memahami akumulasi. Dua arah dari satu ide: memahami dunia dengan membagi perubahan menjadi bagian kecil, lalu menghubungkannya kembali."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "MacTutor: The rise of calculus",
+      "url": "https://mathshistory.st-andrews.ac.uk/HistTopics/The_rise_of_calculus/"
+    }
+  ]
+}

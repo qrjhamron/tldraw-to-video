@@ -1,0 +1,4717 @@
+{
+  "status": "available",
+  "provider": "edge-tts-7.2.8",
+  "voice": "id-ID-GadisNeural",
+  "durationMs": 577160,
+  "originalDurationMs": 540000,
+  "schedule": [
+    {
+      "id": "motion-4",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/6208b25ce421d5e525b0c1843fec79c45de2ba3e66f8216ea9a95cf8675b3afc.mp3",
+      "durationMs": 16079.999999999998,
+      "sha256": "aa2a09d056e97009a3c6a3a44567c92bd4fda1140e47edda3056dc7fa4c8914b",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 619.583,
+          "text": "Bayangkan"
+        },
+        {
+          "offsetMs": 719.583,
+          "durationMs": 315.208,
+          "text": "sebuah"
+        },
+        {
+          "offsetMs": 1034.791,
+          "durationMs": 434.791,
+          "text": "mobil"
+        },
+        {
+          "offsetMs": 1469.583,
+          "durationMs": 228.25,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 1697.833,
+          "durationMs": 326.083,
+          "text": "mulai"
+        },
+        {
+          "offsetMs": 2023.916,
+          "durationMs": 456.541,
+          "text": "bergerak"
+        },
+        {
+          "offsetMs": 3202.166,
+          "durationMs": 608.708,
+          "text": "Bagaimana"
+        },
+        {
+          "offsetMs": 3810.875,
+          "durationMs": 369.541,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 4180.416,
+          "durationMs": 554.333,
+          "text": "mengetahui"
+        },
+        {
+          "offsetMs": 4734.791,
+          "durationMs": 630.416,
+          "text": "kecepatannya"
+        },
+        {
+          "offsetMs": 5365.208,
+          "durationMs": 456.541,
+          "text": "tepat"
+        },
+        {
+          "offsetMs": 5821.75,
+          "durationMs": 228.25,
+          "text": "pada"
+        },
+        {
+          "offsetMs": 6050,
+          "durationMs": 271.75,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 6321.75,
+          "durationMs": 576.083,
+          "text": "tertentu"
+        },
+        {
+          "offsetMs": 7626.083,
+          "durationMs": 358.708,
+          "text": "Jarak"
+        },
+        {
+          "offsetMs": 7984.791,
+          "durationMs": 391.291,
+          "text": "total"
+        },
+        {
+          "offsetMs": 8376.083,
+          "durationMs": 347.833,
+          "text": "dibagi"
+        },
+        {
+          "offsetMs": 8723.916,
+          "durationMs": 391.291,
+          "text": "waktu"
+        },
+        {
+          "offsetMs": 9115.208,
+          "durationMs": 347.833,
+          "text": "memberi"
+        },
+        {
+          "offsetMs": 9463.041,
+          "durationMs": 608.708,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 10071.75,
+          "durationMs": 782.625,
+          "text": "rata-rata"
+        },
+        {
+          "offsetMs": 11582.625,
+          "durationMs": 434.75,
+          "text": "Tetapi"
+        },
+        {
+          "offsetMs": 12017.375,
+          "durationMs": 532.625,
+          "text": "rata-rata"
+        },
+        {
+          "offsetMs": 12550,
+          "durationMs": 304.333,
+          "text": "tidak"
+        },
+        {
+          "offsetMs": 12854.333,
+          "durationMs": 663.041,
+          "text": "menceritakan"
+        },
+        {
+          "offsetMs": 13517.375,
+          "durationMs": 369.583,
+          "text": "setiap"
+        },
+        {
+          "offsetMs": 13886.958,
+          "durationMs": 413.041,
+          "text": "saat"
+        },
+        {
+          "offsetMs": 14300,
+          "durationMs": 304.333,
+          "text": "dalam"
+        },
+        {
+          "offsetMs": 14604.333,
+          "durationMs": 750,
+          "text": "perjalanan"
+        }
+      ],
+      "t": 0,
+      "slotMs": 18000
+    },
+    {
+      "id": "motion-11",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/d9cffd7ed3af1702f510d1fb56d3f82e0f7a4733f8829c96acf839776f4eee95.mp3",
+      "durationMs": 16104,
+      "sha256": "51ec96e8f280b7a1e1d7a6f793194d68911fbf1e34539d86be3c9c3ec51bc37d",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 369.583,
+          "text": "Model"
+        },
+        {
+          "offsetMs": 469.583,
+          "durationMs": 467.375,
+          "text": "sederhana"
+        },
+        {
+          "offsetMs": 936.958,
+          "durationMs": 423.916,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 1360.875,
+          "durationMs": 358.708,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 1719.583,
+          "durationMs": 391.291,
+          "text": "posisi"
+        },
+        {
+          "offsetMs": 2110.875,
+          "durationMs": 445.666,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 2556.541,
+          "durationMs": 315.208,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 2871.75,
+          "durationMs": 413.041,
+          "text": "waktu"
+        },
+        {
+          "offsetMs": 3284.791,
+          "durationMs": 489.125,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4495.666,
+          "durationMs": 586.958,
+          "text": "Kurvanya"
+        },
+        {
+          "offsetMs": 5082.625,
+          "durationMs": 467.375,
+          "text": "makin"
+        },
+        {
+          "offsetMs": 5550,
+          "durationMs": 543.458,
+          "text": "curam"
+        },
+        {
+          "offsetMs": 6821.75,
+          "durationMs": 391.291,
+          "text": "Mobil"
+        },
+        {
+          "offsetMs": 7213.041,
+          "durationMs": 358.708,
+          "text": "menempuh"
+        },
+        {
+          "offsetMs": 7571.75,
+          "durationMs": 380.416,
+          "text": "jarak"
+        },
+        {
+          "offsetMs": 7952.166,
+          "durationMs": 195.666,
+          "text": "lebih"
+        },
+        {
+          "offsetMs": 8147.833,
+          "durationMs": 358.708,
+          "text": "besar"
+        },
+        {
+          "offsetMs": 8506.541,
+          "durationMs": 250,
+          "text": "pada"
+        },
+        {
+          "offsetMs": 8756.541,
+          "durationMs": 271.708,
+          "text": "selang"
+        },
+        {
+          "offsetMs": 9028.25,
+          "durationMs": 347.833,
+          "text": "waktu"
+        },
+        {
+          "offsetMs": 9376.083,
+          "durationMs": 173.916,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 9550,
+          "durationMs": 500,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 10778.25,
+          "durationMs": 391.291,
+          "text": "Jadi"
+        },
+        {
+          "offsetMs": 11169.583,
+          "durationMs": 586.958,
+          "text": "kecepatannya"
+        },
+        {
+          "offsetMs": 11756.541,
+          "durationMs": 543.458,
+          "text": "berubah"
+        },
+        {
+          "offsetMs": 12593.458,
+          "durationMs": 521.75,
+          "text": "meskipun"
+        },
+        {
+          "offsetMs": 13115.208,
+          "durationMs": 271.75,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 13386.958,
+          "durationMs": 250,
+          "text": "belum"
+        },
+        {
+          "offsetMs": 13636.958,
+          "durationMs": 271.75,
+          "text": "punya"
+        },
+        {
+          "offsetMs": 13908.708,
+          "durationMs": 402.166,
+          "text": "rumus"
+        },
+        {
+          "offsetMs": 14310.875,
+          "durationMs": 597.833,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 14908.708,
+          "durationMs": 456.541,
+          "text": "sesaat"
+        }
+      ],
+      "t": 20000,
+      "slotMs": 19000
+    },
+    {
+      "id": "motion-17",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/9463dae98dea98b371799e7d7d12926f83e088da1c9e3217d487f72563dafd45.mp3",
+      "durationMs": 19728,
+      "sha256": "593edef69a7ef0a19f2e50dcf8e119a521a1056c45587e574a321e9582bf9526",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 456.541,
+          "text": "Antara"
+        },
+        {
+          "offsetMs": 556.541,
+          "durationMs": 282.583,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 839.125,
+          "durationMs": 369.583,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 1208.708,
+          "durationMs": 195.625,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 1404.333,
+          "durationMs": 500,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 2197.833,
+          "durationMs": 391.291,
+          "text": "posisi"
+        },
+        {
+          "offsetMs": 2589.125,
+          "durationMs": 413.041,
+          "text": "berubah"
+        },
+        {
+          "offsetMs": 3002.166,
+          "durationMs": 195.666,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 3197.833,
+          "durationMs": 445.625,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 3643.458,
+          "durationMs": 434.791,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 4078.25,
+          "durationMs": 478.25,
+          "text": "sembilan"
+        },
+        {
+          "offsetMs": 4556.541,
+          "durationMs": 478.25,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 5756.541,
+          "durationMs": 423.875,
+          "text": "Delapan"
+        },
+        {
+          "offsetMs": 6180.416,
+          "durationMs": 326.083,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 6506.541,
+          "durationMs": 304.333,
+          "text": "dalam"
+        },
+        {
+          "offsetMs": 6810.875,
+          "durationMs": 250,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 7060.875,
+          "durationMs": 391.291,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 7452.166,
+          "durationMs": 489.125,
+          "text": "berarti"
+        },
+        {
+          "offsetMs": 7941.291,
+          "durationMs": 489.125,
+          "text": "rata-rata"
+        },
+        {
+          "offsetMs": 8430.416,
+          "durationMs": 369.583,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 8800,
+          "durationMs": 347.833,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 9147.833,
+          "durationMs": 173.916,
+          "text": "per"
+        },
+        {
+          "offsetMs": 9321.75,
+          "durationMs": 391.291,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 10441.291,
+          "durationMs": 380.416,
+          "text": "Tapi"
+        },
+        {
+          "offsetMs": 10821.75,
+          "durationMs": 260.875,
+          "text": "pada"
+        },
+        {
+          "offsetMs": 11082.625,
+          "durationMs": 315.208,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 11397.833,
+          "durationMs": 445.666,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 12147.833,
+          "durationMs": 413.041,
+          "text": "apakah"
+        },
+        {
+          "offsetMs": 12560.875,
+          "durationMs": 478.25,
+          "text": "nilainya"
+        },
+        {
+          "offsetMs": 13039.125,
+          "durationMs": 326.083,
+          "text": "juga"
+        },
+        {
+          "offsetMs": 13365.208,
+          "durationMs": 336.958,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 14430.416,
+          "durationMs": 336.958,
+          "text": "Kita"
+        },
+        {
+          "offsetMs": 14767.375,
+          "durationMs": 326.083,
+          "text": "perlu"
+        },
+        {
+          "offsetMs": 15093.458,
+          "durationMs": 554.333,
+          "text": "memperkecil"
+        },
+        {
+          "offsetMs": 15647.833,
+          "durationMs": 304.333,
+          "text": "selang"
+        },
+        {
+          "offsetMs": 15952.166,
+          "durationMs": 478.25,
+          "text": "waktu"
+        },
+        {
+          "offsetMs": 16756.541,
+          "durationMs": 315.208,
+          "text": "bukan"
+        },
+        {
+          "offsetMs": 17071.75,
+          "durationMs": 423.916,
+          "text": "sekadar"
+        },
+        {
+          "offsetMs": 17495.666,
+          "durationMs": 467.375,
+          "text": "menghitung"
+        },
+        {
+          "offsetMs": 17963.041,
+          "durationMs": 576.083,
+          "text": "perjalanan"
+        },
+        {
+          "offsetMs": 18539.125,
+          "durationMs": 456.541,
+          "text": "penuh"
+        }
+      ],
+      "t": 40000,
+      "slotMs": 20128
+    },
+    {
+      "id": "history-24",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/bfe796521790a8908166c7aab85cb93075e4b429f081308965b5370044113a11.mp3",
+      "durationMs": 17424,
+      "sha256": "d988b87edcba97f4e67f229ce39c4fe7b448d78fe3a64a2bb1a8928826993533",
+      "words": [
+        {
+          "offsetMs": 95.125,
+          "durationMs": 739.125,
+          "text": "Pertanyaan"
+        },
+        {
+          "offsetMs": 834.25,
+          "durationMs": 304.333,
+          "text": "tentang"
+        },
+        {
+          "offsetMs": 1138.583,
+          "durationMs": 260.875,
+          "text": "gerak"
+        },
+        {
+          "offsetMs": 1399.458,
+          "durationMs": 163.041,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 1562.5,
+          "durationMs": 315.208,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 1877.708,
+          "durationMs": 271.75,
+          "text": "sudah"
+        },
+        {
+          "offsetMs": 2149.458,
+          "durationMs": 282.625,
+          "text": "lama"
+        },
+        {
+          "offsetMs": 2432.083,
+          "durationMs": 336.958,
+          "text": "menarik"
+        },
+        {
+          "offsetMs": 2769.041,
+          "durationMs": 565.208,
+          "text": "perhatian"
+        },
+        {
+          "offsetMs": 3334.25,
+          "durationMs": 271.708,
+          "text": "para"
+        },
+        {
+          "offsetMs": 3605.958,
+          "durationMs": 1054.333,
+          "text": "matematikawan"
+        },
+        {
+          "offsetMs": 5386.958,
+          "durationMs": 500,
+          "text": "Metode"
+        },
+        {
+          "offsetMs": 5886.958,
+          "durationMs": 586.958,
+          "text": "tangen"
+        },
+        {
+          "offsetMs": 6789.125,
+          "durationMs": 576.083,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 7713.041,
+          "durationMs": 217.375,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 7930.416,
+          "durationMs": 434.791,
+          "text": "gagasan"
+        },
+        {
+          "offsetMs": 8365.208,
+          "durationMs": 380.416,
+          "text": "besaran"
+        },
+        {
+          "offsetMs": 8745.666,
+          "durationMs": 326.083,
+          "text": "sangat"
+        },
+        {
+          "offsetMs": 9071.75,
+          "durationMs": 336.958,
+          "text": "kecil"
+        },
+        {
+          "offsetMs": 9408.708,
+          "durationMs": 510.875,
+          "text": "berkembang"
+        },
+        {
+          "offsetMs": 9919.583,
+          "durationMs": 391.291,
+          "text": "sebelum"
+        },
+        {
+          "offsetMs": 10310.875,
+          "durationMs": 532.583,
+          "text": "kalkulus"
+        },
+        {
+          "offsetMs": 10843.458,
+          "durationMs": 510.875,
+          "text": "modern"
+        },
+        {
+          "offsetMs": 12082.625,
+          "durationMs": 586.958,
+          "text": "Fermat"
+        },
+        {
+          "offsetMs": 13006.541,
+          "durationMs": 760.875,
+          "text": "Cavalieri"
+        },
+        {
+          "offsetMs": 14093.458,
+          "durationMs": 195.666,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 14289.125,
+          "durationMs": 282.625,
+          "text": "Barrow"
+        },
+        {
+          "offsetMs": 14571.75,
+          "durationMs": 478.25,
+          "text": "termasuk"
+        },
+        {
+          "offsetMs": 15050,
+          "durationMs": 413.041,
+          "text": "bagian"
+        },
+        {
+          "offsetMs": 15463.041,
+          "durationMs": 195.666,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 15658.708,
+          "durationMs": 576.083,
+          "text": "perjalanan"
+        },
+        {
+          "offsetMs": 16234.791,
+          "durationMs": 456.541,
+          "text": "itu"
+        }
+      ],
+      "t": 68128,
+      "slotMs": 18000
+    },
+    {
+      "id": "history-31",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/9b4778684da3308569bab37f56ddb68de332500df4fc67f9fc8b9ecd8f3a2cd6.mp3",
+      "durationMs": 20640,
+      "sha256": "44a5ebcfc5d0958b6b024ec7bc1eb2d59355947708a43ff398c88ad6839ff96d",
+      "words": [
+        {
+          "offsetMs": 95.125,
+          "durationMs": 347.791,
+          "text": "Pada"
+        },
+        {
+          "offsetMs": 442.916,
+          "durationMs": 271.75,
+          "text": "abad"
+        },
+        {
+          "offsetMs": 714.666,
+          "durationMs": 336.958,
+          "text": "ketujuh"
+        },
+        {
+          "offsetMs": 1051.625,
+          "durationMs": 445.666,
+          "text": "belas"
+        },
+        {
+          "offsetMs": 1823.375,
+          "durationMs": 282.583,
+          "text": "Isaac"
+        },
+        {
+          "offsetMs": 2105.958,
+          "durationMs": 380.416,
+          "text": "Newton"
+        },
+        {
+          "offsetMs": 2486.416,
+          "durationMs": 152.166,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 2638.583,
+          "durationMs": 467.375,
+          "text": "Gottfried"
+        },
+        {
+          "offsetMs": 3105.958,
+          "durationMs": 369.583,
+          "text": "Wilhelm"
+        },
+        {
+          "offsetMs": 3475.541,
+          "durationMs": 521.75,
+          "text": "Leibniz"
+        },
+        {
+          "offsetMs": 3997.291,
+          "durationMs": 532.583,
+          "text": "mengembangkan"
+        },
+        {
+          "offsetMs": 4529.875,
+          "durationMs": 445.666,
+          "text": "pendekatan"
+        },
+        {
+          "offsetMs": 4975.541,
+          "durationMs": 576.083,
+          "text": "kalkulus"
+        },
+        {
+          "offsetMs": 5551.625,
+          "durationMs": 445.666,
+          "text": "secara"
+        },
+        {
+          "offsetMs": 5997.291,
+          "durationMs": 826.083,
+          "text": "independen"
+        },
+        {
+          "offsetMs": 7550,
+          "durationMs": 467.375,
+          "text": "Newton"
+        },
+        {
+          "offsetMs": 8017.375,
+          "durationMs": 380.416,
+          "text": "banyak"
+        },
+        {
+          "offsetMs": 8397.833,
+          "durationMs": 543.458,
+          "text": "memikirkan"
+        },
+        {
+          "offsetMs": 8941.291,
+          "durationMs": 326.083,
+          "text": "gerak"
+        },
+        {
+          "offsetMs": 9267.375,
+          "durationMs": 239.125,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 9506.541,
+          "durationMs": 739.125,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 10973.916,
+          "durationMs": 576.083,
+          "text": "Leibniz"
+        },
+        {
+          "offsetMs": 11550,
+          "durationMs": 391.291,
+          "text": "membangun"
+        },
+        {
+          "offsetMs": 11941.291,
+          "durationMs": 510.875,
+          "text": "notasi"
+        },
+        {
+          "offsetMs": 12452.166,
+          "durationMs": 152.166,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 12604.333,
+          "durationMs": 358.708,
+          "text": "sangat"
+        },
+        {
+          "offsetMs": 12963.041,
+          "durationMs": 608.708,
+          "text": "berguna"
+        },
+        {
+          "offsetMs": 14300,
+          "durationMs": 369.583,
+          "text": "Kerja"
+        },
+        {
+          "offsetMs": 14669.583,
+          "durationMs": 358.666,
+          "text": "mereka"
+        },
+        {
+          "offsetMs": 15028.25,
+          "durationMs": 554.333,
+          "text": "menghubungkan"
+        },
+        {
+          "offsetMs": 15582.625,
+          "durationMs": 695.625,
+          "text": "masalah-masalah"
+        },
+        {
+          "offsetMs": 16278.25,
+          "durationMs": 315.208,
+          "text": "ini"
+        },
+        {
+          "offsetMs": 16593.458,
+          "durationMs": 271.75,
+          "text": "dalam"
+        },
+        {
+          "offsetMs": 16865.208,
+          "durationMs": 369.583,
+          "text": "metode"
+        },
+        {
+          "offsetMs": 17234.791,
+          "durationMs": 478.25,
+          "text": "umum"
+        },
+        {
+          "offsetMs": 18006.541,
+          "durationMs": 119.541,
+          "text": "di"
+        },
+        {
+          "offsetMs": 18126.083,
+          "durationMs": 282.625,
+          "text": "atas"
+        },
+        {
+          "offsetMs": 18408.708,
+          "durationMs": 456.5,
+          "text": "fondasi"
+        },
+        {
+          "offsetMs": 18865.208,
+          "durationMs": 315.208,
+          "text": "para"
+        },
+        {
+          "offsetMs": 19180.416,
+          "durationMs": 728.25,
+          "text": "pendahulu"
+        }
+      ],
+      "t": 87128,
+      "slotMs": 21040
+    },
+    {
+      "id": "limits-43",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/25a5ed60f624cc5eeef122307600275b49fb298c2859d123962267f6996965d0.mp3",
+      "durationMs": 16944,
+      "sha256": "9b5dd0c9f643644620afdef50014024a4c1b6c72a4e8219b25ebf64c2121d3e1",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 565.208,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 665.208,
+          "durationMs": 380.416,
+          "text": "lihat"
+        },
+        {
+          "offsetMs": 1045.666,
+          "durationMs": 782.625,
+          "text": "parabola"
+        },
+        {
+          "offsetMs": 2550,
+          "durationMs": 347.833,
+          "text": "Titik"
+        },
+        {
+          "offsetMs": 2897.833,
+          "durationMs": 173.916,
+          "text": "P"
+        },
+        {
+          "offsetMs": 3071.75,
+          "durationMs": 380.416,
+          "text": "tetap"
+        },
+        {
+          "offsetMs": 3452.166,
+          "durationMs": 119.583,
+          "text": "di"
+        },
+        {
+          "offsetMs": 3571.75,
+          "durationMs": 347.833,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 3919.583,
+          "durationMs": 293.458,
+          "text": "koma"
+        },
+        {
+          "offsetMs": 4213.041,
+          "durationMs": 510.875,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 5452.166,
+          "durationMs": 326.083,
+          "text": "Titik"
+        },
+        {
+          "offsetMs": 5778.25,
+          "durationMs": 184.791,
+          "text": "Q"
+        },
+        {
+          "offsetMs": 5963.041,
+          "durationMs": 358.708,
+          "text": "berada"
+        },
+        {
+          "offsetMs": 6321.75,
+          "durationMs": 217.375,
+          "text": "pada"
+        },
+        {
+          "offsetMs": 6539.125,
+          "durationMs": 467.375,
+          "text": "kurva"
+        },
+        {
+          "offsetMs": 7006.541,
+          "durationMs": 141.291,
+          "text": "di"
+        },
+        {
+          "offsetMs": 7147.833,
+          "durationMs": 369.541,
+          "text": "sebelah"
+        },
+        {
+          "offsetMs": 7517.375,
+          "durationMs": 652.166,
+          "text": "kanannya"
+        },
+        {
+          "offsetMs": 8897.833,
+          "durationMs": 434.791,
+          "text": "Garis"
+        },
+        {
+          "offsetMs": 9332.625,
+          "durationMs": 434.75,
+          "text": "melalui"
+        },
+        {
+          "offsetMs": 9767.375,
+          "durationMs": 250,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 10017.375,
+          "durationMs": 282.625,
+          "text": "titik"
+        },
+        {
+          "offsetMs": 10300,
+          "durationMs": 391.291,
+          "text": "itu"
+        },
+        {
+          "offsetMs": 10691.291,
+          "durationMs": 478.25,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 11169.583,
+          "durationMs": 554.333,
+          "text": "sekan"
+        },
+        {
+          "offsetMs": 12452.166,
+          "durationMs": 739.125,
+          "text": "Kemiringannya"
+        },
+        {
+          "offsetMs": 13191.291,
+          "durationMs": 434.791,
+          "text": "mengukur"
+        },
+        {
+          "offsetMs": 13626.083,
+          "durationMs": 445.666,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 14071.75,
+          "durationMs": 565.208,
+          "text": "rata-rata"
+        },
+        {
+          "offsetMs": 14636.958,
+          "durationMs": 434.791,
+          "text": "antara"
+        },
+        {
+          "offsetMs": 15071.75,
+          "durationMs": 391.291,
+          "text": "P"
+        },
+        {
+          "offsetMs": 15463.041,
+          "durationMs": 282.625,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 15745.666,
+          "durationMs": 467.375,
+          "text": "Q"
+        }
+      ],
+      "t": 120168,
+      "slotMs": 18000
+    },
+    {
+      "id": "limits-47",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/4f8b661723f3f053b0e77818bb1c90ef1ebc237d9f04a10b3bd22328998d53bc.mp3",
+      "durationMs": 19272,
+      "sha256": "52a13f41afd2517d8306074437eae496e2c2c368b65a959c0586e7973f556478",
+      "words": [
+        {
+          "offsetMs": 95.125,
+          "durationMs": 652.166,
+          "text": "Perhatikan"
+        },
+        {
+          "offsetMs": 747.291,
+          "durationMs": 173.916,
+          "text": "Q"
+        },
+        {
+          "offsetMs": 921.208,
+          "durationMs": 380.416,
+          "text": "bergerak"
+        },
+        {
+          "offsetMs": 1301.625,
+          "durationMs": 445.666,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 1747.291,
+          "durationMs": 260.875,
+          "text": "P"
+        },
+        {
+          "offsetMs": 2008.166,
+          "durationMs": 369.541,
+          "text": "Garis"
+        },
+        {
+          "offsetMs": 2377.708,
+          "durationMs": 304.333,
+          "text": "sekan"
+        },
+        {
+          "offsetMs": 2682.083,
+          "durationMs": 608.708,
+          "text": "berputar"
+        },
+        {
+          "offsetMs": 3584.25,
+          "durationMs": 293.458,
+          "text": "lalu"
+        },
+        {
+          "offsetMs": 3877.708,
+          "durationMs": 293.458,
+          "text": "makin"
+        },
+        {
+          "offsetMs": 4171.208,
+          "durationMs": 326.083,
+          "text": "mirip"
+        },
+        {
+          "offsetMs": 4497.291,
+          "durationMs": 402.166,
+          "text": "sebuah"
+        },
+        {
+          "offsetMs": 4899.458,
+          "durationMs": 358.708,
+          "text": "garis"
+        },
+        {
+          "offsetMs": 5258.166,
+          "durationMs": 630.416,
+          "text": "tertentu"
+        },
+        {
+          "offsetMs": 6615.208,
+          "durationMs": 673.916,
+          "text": "Kemiringan"
+        },
+        {
+          "offsetMs": 7289.125,
+          "durationMs": 597.833,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 7886.958,
+          "durationMs": 521.75,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 9136.958,
+          "durationMs": 380.416,
+          "text": "Limit"
+        },
+        {
+          "offsetMs": 9517.375,
+          "durationMs": 467.375,
+          "text": "berbicara"
+        },
+        {
+          "offsetMs": 9984.791,
+          "durationMs": 347.833,
+          "text": "tentang"
+        },
+        {
+          "offsetMs": 10332.625,
+          "durationMs": 304.333,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 10636.958,
+          "durationMs": 141.291,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 10778.25,
+          "durationMs": 663.041,
+          "text": "didekati"
+        },
+        {
+          "offsetMs": 11745.666,
+          "durationMs": 347.791,
+          "text": "ketika"
+        },
+        {
+          "offsetMs": 12093.458,
+          "durationMs": 423.916,
+          "text": "selangnya"
+        },
+        {
+          "offsetMs": 12517.375,
+          "durationMs": 434.791,
+          "text": "makin"
+        },
+        {
+          "offsetMs": 12952.166,
+          "durationMs": 543.458,
+          "text": "kecil"
+        },
+        {
+          "offsetMs": 14223.916,
+          "durationMs": 315.208,
+          "text": "Kita"
+        },
+        {
+          "offsetMs": 14539.125,
+          "durationMs": 260.875,
+          "text": "tidak"
+        },
+        {
+          "offsetMs": 14800,
+          "durationMs": 282.625,
+          "text": "perlu"
+        },
+        {
+          "offsetMs": 15082.625,
+          "durationMs": 586.958,
+          "text": "menempatkan"
+        },
+        {
+          "offsetMs": 15669.583,
+          "durationMs": 239.125,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 15908.708,
+          "durationMs": 315.208,
+          "text": "titik"
+        },
+        {
+          "offsetMs": 16223.916,
+          "durationMs": 608.708,
+          "text": "berbeda"
+        },
+        {
+          "offsetMs": 16832.625,
+          "durationMs": 141.291,
+          "text": "di"
+        },
+        {
+          "offsetMs": 16973.916,
+          "durationMs": 586.958,
+          "text": "posisi"
+        },
+        {
+          "offsetMs": 17560.875,
+          "durationMs": 141.291,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 17702.166,
+          "durationMs": 347.833,
+          "text": "persis"
+        },
+        {
+          "offsetMs": 18050,
+          "durationMs": 478.25,
+          "text": "sama"
+        }
+      ],
+      "t": 139168,
+      "slotMs": 22000
+    },
+    {
+      "id": "limits-52",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/26e1aa9727879fea0ed15f2b9eac411f4c8a005224b2b2f4ec541dd47e3dd1f8.mp3",
+      "durationMs": 19128,
+      "sha256": "3f68cf1c15ffc1e70b594bccfc56e889e9473c45ebf516220bf1ccb8e263b27b",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 391.291,
+          "text": "Garis"
+        },
+        {
+          "offsetMs": 491.291,
+          "durationMs": 304.333,
+          "text": "batas"
+        },
+        {
+          "offsetMs": 795.666,
+          "durationMs": 391.291,
+          "text": "itu"
+        },
+        {
+          "offsetMs": 1186.958,
+          "durationMs": 489.125,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 1676.083,
+          "durationMs": 663.041,
+          "text": "tangen"
+        },
+        {
+          "offsetMs": 3060.875,
+          "durationMs": 184.791,
+          "text": "Di"
+        },
+        {
+          "offsetMs": 3245.666,
+          "durationMs": 358.666,
+          "text": "titik"
+        },
+        {
+          "offsetMs": 3604.333,
+          "durationMs": 358.708,
+          "text": "P"
+        },
+        {
+          "offsetMs": 4234.791,
+          "durationMs": 641.291,
+          "text": "kemiringannya"
+        },
+        {
+          "offsetMs": 4876.083,
+          "durationMs": 500,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 5647.833,
+          "durationMs": 358.708,
+          "text": "bergerak"
+        },
+        {
+          "offsetMs": 6006.541,
+          "durationMs": 315.208,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 6321.75,
+          "durationMs": 402.166,
+          "text": "satuan"
+        },
+        {
+          "offsetMs": 6723.916,
+          "durationMs": 76.083,
+          "text": "ke"
+        },
+        {
+          "offsetMs": 6800,
+          "durationMs": 347.833,
+          "text": "kanan"
+        },
+        {
+          "offsetMs": 7147.833,
+          "durationMs": 184.791,
+          "text": "pada"
+        },
+        {
+          "offsetMs": 7332.625,
+          "durationMs": 304.333,
+          "text": "garis"
+        },
+        {
+          "offsetMs": 7636.958,
+          "durationMs": 413.041,
+          "text": "tangen"
+        },
+        {
+          "offsetMs": 8050,
+          "durationMs": 489.125,
+          "text": "berarti"
+        },
+        {
+          "offsetMs": 8539.125,
+          "durationMs": 336.958,
+          "text": "naik"
+        },
+        {
+          "offsetMs": 8876.083,
+          "durationMs": 445.666,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 10050,
+          "durationMs": 315.208,
+          "text": "Ini"
+        },
+        {
+          "offsetMs": 10365.208,
+          "durationMs": 543.458,
+          "text": "intuisi"
+        },
+        {
+          "offsetMs": 10908.708,
+          "durationMs": 413.041,
+          "text": "laju"
+        },
+        {
+          "offsetMs": 11321.75,
+          "durationMs": 532.625,
+          "text": "sesaat"
+        },
+        {
+          "offsetMs": 12576.083,
+          "durationMs": 347.833,
+          "text": "Pada"
+        },
+        {
+          "offsetMs": 12923.916,
+          "durationMs": 380.416,
+          "text": "langkah"
+        },
+        {
+          "offsetMs": 13304.333,
+          "durationMs": 500,
+          "text": "berikutnya"
+        },
+        {
+          "offsetMs": 13804.333,
+          "durationMs": 282.625,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 14086.958,
+          "durationMs": 304.333,
+          "text": "akan"
+        },
+        {
+          "offsetMs": 14391.291,
+          "durationMs": 847.833,
+          "text": "membuktikannya"
+        },
+        {
+          "offsetMs": 15521.75,
+          "durationMs": 391.291,
+          "text": "sambil"
+        },
+        {
+          "offsetMs": 15913.041,
+          "durationMs": 597.833,
+          "text": "memastikan"
+        },
+        {
+          "offsetMs": 16510.875,
+          "durationMs": 260.875,
+          "text": "tidak"
+        },
+        {
+          "offsetMs": 16771.75,
+          "durationMs": 347.833,
+          "text": "pernah"
+        },
+        {
+          "offsetMs": 17119.583,
+          "durationMs": 554.333,
+          "text": "membagi"
+        },
+        {
+          "offsetMs": 17673.916,
+          "durationMs": 358.708,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 18032.625,
+          "durationMs": 358.708,
+          "text": "nol"
+        }
+      ],
+      "t": 164168,
+      "slotMs": 19528
+    },
+    {
+      "id": "derivative-59",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/bbad07ba471bcf551ad9403fd85c9dd60c83e8049537384737d03533ee791f67.mp3",
+      "durationMs": 17232,
+      "sha256": "deaad3fa0266a6099a71a3759db4ce8c205d9dc5d0b81fac5ee05c1da31071f1",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 315.208,
+          "text": "Kita"
+        },
+        {
+          "offsetMs": 415.208,
+          "durationMs": 358.708,
+          "text": "tulis"
+        },
+        {
+          "offsetMs": 773.916,
+          "durationMs": 402.166,
+          "text": "rata-rata"
+        },
+        {
+          "offsetMs": 1176.083,
+          "durationMs": 554.333,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 1730.416,
+          "durationMs": 358.708,
+          "text": "sebagai"
+        },
+        {
+          "offsetMs": 2089.125,
+          "durationMs": 489.125,
+          "text": "selisih"
+        },
+        {
+          "offsetMs": 2578.25,
+          "durationMs": 282.625,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 2860.875,
+          "durationMs": 554.333,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 3415.208,
+          "durationMs": 543.458,
+          "text": "dibagi"
+        },
+        {
+          "offsetMs": 3958.708,
+          "durationMs": 543.458,
+          "text": "selisih"
+        },
+        {
+          "offsetMs": 4502.166,
+          "durationMs": 663.041,
+          "text": "masukan"
+        },
+        {
+          "offsetMs": 5886.958,
+          "durationMs": 521.75,
+          "text": "Masukan"
+        },
+        {
+          "offsetMs": 6408.708,
+          "durationMs": 434.75,
+          "text": "bertambah"
+        },
+        {
+          "offsetMs": 6843.458,
+          "durationMs": 336.958,
+          "text": "h"
+        },
+        {
+          "offsetMs": 7506.541,
+          "durationMs": 326.083,
+          "text": "jadi"
+        },
+        {
+          "offsetMs": 7832.625,
+          "durationMs": 543.458,
+          "text": "selisihnya"
+        },
+        {
+          "offsetMs": 8376.083,
+          "durationMs": 434.791,
+          "text": "h"
+        },
+        {
+          "offsetMs": 8810.875,
+          "durationMs": 771.75,
+          "text": "Turunan"
+        },
+        {
+          "offsetMs": 9582.625,
+          "durationMs": 391.291,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 9973.916,
+          "durationMs": 293.458,
+          "text": "limit"
+        },
+        {
+          "offsetMs": 10267.375,
+          "durationMs": 413.041,
+          "text": "hasil"
+        },
+        {
+          "offsetMs": 10680.416,
+          "durationMs": 239.125,
+          "text": "bagi"
+        },
+        {
+          "offsetMs": 10919.583,
+          "durationMs": 358.666,
+          "text": "ini"
+        },
+        {
+          "offsetMs": 11278.25,
+          "durationMs": 347.833,
+          "text": "saat"
+        },
+        {
+          "offsetMs": 11626.083,
+          "durationMs": 195.666,
+          "text": "h"
+        },
+        {
+          "offsetMs": 11821.75,
+          "durationMs": 500,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 12321.75,
+          "durationMs": 380.416,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 13430.416,
+          "durationMs": 500,
+          "text": "Selama"
+        },
+        {
+          "offsetMs": 13930.416,
+          "durationMs": 967.375,
+          "text": "menyederhanakan"
+        },
+        {
+          "offsetMs": 15169.583,
+          "durationMs": 173.875,
+          "text": "h"
+        },
+        {
+          "offsetMs": 15343.458,
+          "durationMs": 391.291,
+          "text": "tetap"
+        },
+        {
+          "offsetMs": 15734.791,
+          "durationMs": 402.166,
+          "text": "bukan"
+        },
+        {
+          "offsetMs": 16136.958,
+          "durationMs": 369.583,
+          "text": "nol"
+        }
+      ],
+      "t": 196696,
+      "slotMs": 22000
+    },
+    {
+      "id": "derivative-62",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/92656eb8ea5a7a3132b3143de6419fcc5b129e3a195eed6e8cf6e17a739178a5.mp3",
+      "durationMs": 18360,
+      "sha256": "c4e10a1bbffb59a7b28fee72cea8c3ac6bdb837221df4adf4bc0a0966ea5e8ed",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 358.708,
+          "text": "Untuk"
+        },
+        {
+          "offsetMs": 458.708,
+          "durationMs": 336.958,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 795.666,
+          "durationMs": 510.875,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 1600,
+          "durationMs": 489.125,
+          "text": "gantikan"
+        },
+        {
+          "offsetMs": 2089.125,
+          "durationMs": 260.875,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 2350,
+          "durationMs": 500,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 2850,
+          "durationMs": 380.416,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 3230.416,
+          "durationMs": 684.791,
+          "text": "rumusnya"
+        },
+        {
+          "offsetMs": 4636.958,
+          "durationMs": 467.375,
+          "text": "Kuadrat"
+        },
+        {
+          "offsetMs": 5104.333,
+          "durationMs": 195.666,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 5300,
+          "durationMs": 271.75,
+          "text": "x"
+        },
+        {
+          "offsetMs": 5571.75,
+          "durationMs": 293.458,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 5865.208,
+          "durationMs": 250,
+          "text": "h"
+        },
+        {
+          "offsetMs": 6115.208,
+          "durationMs": 369.583,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 6484.791,
+          "durationMs": 271.75,
+          "text": "x"
+        },
+        {
+          "offsetMs": 6756.541,
+          "durationMs": 336.916,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 7093.458,
+          "durationMs": 326.083,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 7419.583,
+          "durationMs": 250,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 7669.583,
+          "durationMs": 347.791,
+          "text": "x"
+        },
+        {
+          "offsetMs": 8017.375,
+          "durationMs": 271.75,
+          "text": "h"
+        },
+        {
+          "offsetMs": 8289.125,
+          "durationMs": 402.166,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 8691.291,
+          "durationMs": 173.916,
+          "text": "h"
+        },
+        {
+          "offsetMs": 8865.208,
+          "durationMs": 478.25,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 10071.75,
+          "durationMs": 315.208,
+          "text": "Ini"
+        },
+        {
+          "offsetMs": 10386.958,
+          "durationMs": 456.5,
+          "text": "berasal"
+        },
+        {
+          "offsetMs": 10843.458,
+          "durationMs": 239.125,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 11082.625,
+          "durationMs": 478.25,
+          "text": "mengalikan"
+        },
+        {
+          "offsetMs": 11560.875,
+          "durationMs": 336.958,
+          "text": "x"
+        },
+        {
+          "offsetMs": 11897.833,
+          "durationMs": 336.958,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 12234.791,
+          "durationMs": 304.333,
+          "text": "h"
+        },
+        {
+          "offsetMs": 12539.125,
+          "durationMs": 347.833,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 12886.958,
+          "durationMs": 434.791,
+          "text": "dirinya"
+        },
+        {
+          "offsetMs": 13321.75,
+          "durationMs": 608.708,
+          "text": "sendiri"
+        },
+        {
+          "offsetMs": 14658.708,
+          "durationMs": 391.291,
+          "text": "Kedua"
+        },
+        {
+          "offsetMs": 15050,
+          "durationMs": 315.208,
+          "text": "suku"
+        },
+        {
+          "offsetMs": 15365.208,
+          "durationMs": 239.125,
+          "text": "x"
+        },
+        {
+          "offsetMs": 15604.333,
+          "durationMs": 358.708,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 15963.041,
+          "durationMs": 532.625,
+          "text": "kemudian"
+        },
+        {
+          "offsetMs": 16495.666,
+          "durationMs": 369.541,
+          "text": "saling"
+        },
+        {
+          "offsetMs": 16865.208,
+          "durationMs": 760.875,
+          "text": "menghapus"
+        }
+      ],
+      "t": 218696,
+      "slotMs": 19000
+    },
+    {
+      "id": "derivative-67",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/11a2da460d2634d1b731e85812b28bf32ce67c6a4f4d33aa06e5b5a9aec1e8d0.mp3",
+      "durationMs": 18456,
+      "sha256": "b2135a0f496ead7cde15707c17aaf896d73296a5aa904fe46222a0e40a33b040",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 489.125,
+          "text": "Pembilang"
+        },
+        {
+          "offsetMs": 589.125,
+          "durationMs": 108.708,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 697.833,
+          "durationMs": 467.375,
+          "text": "tersisa"
+        },
+        {
+          "offsetMs": 1165.208,
+          "durationMs": 423.916,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 1589.125,
+          "durationMs": 271.75,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 1860.875,
+          "durationMs": 293.458,
+          "text": "x"
+        },
+        {
+          "offsetMs": 2154.333,
+          "durationMs": 239.125,
+          "text": "h"
+        },
+        {
+          "offsetMs": 2393.458,
+          "durationMs": 391.291,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 2784.791,
+          "durationMs": 195.625,
+          "text": "h"
+        },
+        {
+          "offsetMs": 2980.416,
+          "durationMs": 478.25,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4180.416,
+          "durationMs": 500,
+          "text": "Keduanya"
+        },
+        {
+          "offsetMs": 4680.416,
+          "durationMs": 434.791,
+          "text": "memiliki"
+        },
+        {
+          "offsetMs": 5115.208,
+          "durationMs": 445.666,
+          "text": "faktor"
+        },
+        {
+          "offsetMs": 5560.875,
+          "durationMs": 423.916,
+          "text": "h"
+        },
+        {
+          "offsetMs": 5984.791,
+          "durationMs": 641.291,
+          "text": "Karena"
+        },
+        {
+          "offsetMs": 6626.083,
+          "durationMs": 173.916,
+          "text": "h"
+        },
+        {
+          "offsetMs": 6800,
+          "durationMs": 369.583,
+          "text": "bukan"
+        },
+        {
+          "offsetMs": 7169.583,
+          "durationMs": 347.833,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 7800,
+          "durationMs": 206.541,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 8006.541,
+          "durationMs": 271.708,
+          "text": "boleh"
+        },
+        {
+          "offsetMs": 8278.25,
+          "durationMs": 315.208,
+          "text": "membagi"
+        },
+        {
+          "offsetMs": 8593.458,
+          "durationMs": 434.791,
+          "text": "pembilang"
+        },
+        {
+          "offsetMs": 9028.25,
+          "durationMs": 141.291,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 9169.583,
+          "durationMs": 413.041,
+          "text": "penyebut"
+        },
+        {
+          "offsetMs": 9582.625,
+          "durationMs": 293.458,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 9876.083,
+          "durationMs": 413.041,
+          "text": "h"
+        },
+        {
+          "offsetMs": 10289.125,
+          "durationMs": 771.75,
+          "text": "Hasilnya"
+        },
+        {
+          "offsetMs": 11060.875,
+          "durationMs": 271.75,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 11332.625,
+          "durationMs": 293.458,
+          "text": "x"
+        },
+        {
+          "offsetMs": 11626.083,
+          "durationMs": 304.333,
+          "text": "tambah"
+        },
+        {
+          "offsetMs": 11930.416,
+          "durationMs": 402.166,
+          "text": "h"
+        },
+        {
+          "offsetMs": 12332.625,
+          "durationMs": 641.291,
+          "text": "Barulah"
+        },
+        {
+          "offsetMs": 12973.916,
+          "durationMs": 369.541,
+          "text": "sekarang"
+        },
+        {
+          "offsetMs": 13343.458,
+          "durationMs": 336.958,
+          "text": "ambil"
+        },
+        {
+          "offsetMs": 13680.416,
+          "durationMs": 358.708,
+          "text": "limit"
+        },
+        {
+          "offsetMs": 14321.75,
+          "durationMs": 391.291,
+          "text": "ketika"
+        },
+        {
+          "offsetMs": 14713.041,
+          "durationMs": 130.416,
+          "text": "h"
+        },
+        {
+          "offsetMs": 14843.458,
+          "durationMs": 423.916,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 15267.375,
+          "durationMs": 358.708,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 15832.625,
+          "durationMs": 543.458,
+          "text": "hasilnya"
+        },
+        {
+          "offsetMs": 16376.083,
+          "durationMs": 521.75,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 16897.833,
+          "durationMs": 271.75,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 17169.583,
+          "durationMs": 543.458,
+          "text": "x"
+        }
+      ],
+      "t": 240696,
+      "slotMs": 20000
+    },
+    {
+      "id": "derivative-71",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/463e9ba2d89ef7802d7f6c366e0fc92deb18d43062cca2defbc8d0af72f22c26.mp3",
+      "durationMs": 19560,
+      "sha256": "b6dd9d81394e3400113ce53ba42e1502c8e7f15a318a77ab7ff7f38663f5c8be",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 413.041,
+          "text": "Jadi"
+        },
+        {
+          "offsetMs": 513.041,
+          "durationMs": 423.916,
+          "text": "turunan"
+        },
+        {
+          "offsetMs": 936.958,
+          "durationMs": 293.458,
+          "text": "x"
+        },
+        {
+          "offsetMs": 1230.416,
+          "durationMs": 434.791,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 1665.208,
+          "durationMs": 500,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 2165.208,
+          "durationMs": 336.958,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 2502.166,
+          "durationMs": 565.208,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3789.125,
+          "durationMs": 326.083,
+          "text": "Kita"
+        },
+        {
+          "offsetMs": 4115.208,
+          "durationMs": 271.75,
+          "text": "tidak"
+        },
+        {
+          "offsetMs": 4386.958,
+          "durationMs": 467.375,
+          "text": "mengganti"
+        },
+        {
+          "offsetMs": 4854.333,
+          "durationMs": 195.666,
+          "text": "h"
+        },
+        {
+          "offsetMs": 5050,
+          "durationMs": 326.083,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 5376.083,
+          "durationMs": 250,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 5626.083,
+          "durationMs": 119.583,
+          "text": "di"
+        },
+        {
+          "offsetMs": 5745.666,
+          "durationMs": 380.416,
+          "text": "pecahan"
+        },
+        {
+          "offsetMs": 6126.083,
+          "durationMs": 489.125,
+          "text": "awal"
+        },
+        {
+          "offsetMs": 7006.541,
+          "durationMs": 271.708,
+          "text": "itu"
+        },
+        {
+          "offsetMs": 7278.25,
+          "durationMs": 282.625,
+          "text": "akan"
+        },
+        {
+          "offsetMs": 7560.875,
+          "durationMs": 554.333,
+          "text": "menghasilkan"
+        },
+        {
+          "offsetMs": 8115.208,
+          "durationMs": 521.75,
+          "text": "pembagian"
+        },
+        {
+          "offsetMs": 8636.958,
+          "durationMs": 173.916,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 8810.875,
+          "durationMs": 336.958,
+          "text": "tidak"
+        },
+        {
+          "offsetMs": 9147.833,
+          "durationMs": 945.666,
+          "text": "terdefinisi"
+        },
+        {
+          "offsetMs": 10815.208,
+          "durationMs": 858.708,
+          "text": "Penyederhanaan"
+        },
+        {
+          "offsetMs": 11673.916,
+          "durationMs": 565.208,
+          "text": "menunjukkan"
+        },
+        {
+          "offsetMs": 12239.125,
+          "durationMs": 478.25,
+          "text": "perilaku"
+        },
+        {
+          "offsetMs": 12717.375,
+          "durationMs": 717.375,
+          "text": "nilai-nilai"
+        },
+        {
+          "offsetMs": 13434.791,
+          "durationMs": 173.916,
+          "text": "di"
+        },
+        {
+          "offsetMs": 13608.708,
+          "durationMs": 402.166,
+          "text": "dekat"
+        },
+        {
+          "offsetMs": 14010.875,
+          "durationMs": 413.041,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 15158.708,
+          "durationMs": 195.625,
+          "text": "Di"
+        },
+        {
+          "offsetMs": 15354.333,
+          "durationMs": 206.541,
+          "text": "x"
+        },
+        {
+          "offsetMs": 15560.875,
+          "durationMs": 282.583,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 15843.458,
+          "durationMs": 293.458,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 16136.958,
+          "durationMs": 510.875,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 16941.291,
+          "durationMs": 478.25,
+          "text": "kemiringan"
+        },
+        {
+          "offsetMs": 17419.583,
+          "durationMs": 423.875,
+          "text": "tangen"
+        },
+        {
+          "offsetMs": 17843.458,
+          "durationMs": 467.375,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 18310.875,
+          "durationMs": 521.75,
+          "text": "enam"
+        }
+      ],
+      "t": 262696,
+      "slotMs": 19960
+    },
+    {
+      "id": "application-81",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/6c86ec3b7885f7333e363deef09ec1ab8be620a0f962d0d6aa3df405d100d759.mp3",
+      "durationMs": 20208,
+      "sha256": "436c6891fe04b1b4580e028087888321d83c1c6a2135986477ef268a66d70813",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 576.083,
+          "text": "Kembali"
+        },
+        {
+          "offsetMs": 676.083,
+          "durationMs": 173.916,
+          "text": "ke"
+        },
+        {
+          "offsetMs": 850,
+          "durationMs": 586.958,
+          "text": "mobil"
+        },
+        {
+          "offsetMs": 2158.708,
+          "durationMs": 532.583,
+          "text": "Posisi"
+        },
+        {
+          "offsetMs": 2691.291,
+          "durationMs": 423.916,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 3115.208,
+          "durationMs": 315.208,
+          "text": "waktu"
+        },
+        {
+          "offsetMs": 3430.416,
+          "durationMs": 380.416,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 3810.875,
+          "durationMs": 467.375,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 4550,
+          "durationMs": 271.75,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 4821.75,
+          "durationMs": 445.625,
+          "text": "waktu"
+        },
+        {
+          "offsetMs": 5267.375,
+          "durationMs": 369.583,
+          "text": "dalam"
+        },
+        {
+          "offsetMs": 5636.958,
+          "durationMs": 315.208,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 6680.416,
+          "durationMs": 445.666,
+          "text": "Turunan"
+        },
+        {
+          "offsetMs": 7126.083,
+          "durationMs": 445.666,
+          "text": "posisi"
+        },
+        {
+          "offsetMs": 7571.75,
+          "durationMs": 326.083,
+          "text": "memberi"
+        },
+        {
+          "offsetMs": 7897.833,
+          "durationMs": 543.458,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 8441.291,
+          "durationMs": 260.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 8702.166,
+          "durationMs": 141.291,
+          "text": "t"
+        },
+        {
+          "offsetMs": 8843.458,
+          "durationMs": 380.416,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 9223.916,
+          "durationMs": 184.791,
+          "text": "per"
+        },
+        {
+          "offsetMs": 9408.708,
+          "durationMs": 391.291,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 10528.25,
+          "durationMs": 478.25,
+          "text": "Turunan"
+        },
+        {
+          "offsetMs": 11006.541,
+          "durationMs": 489.125,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 11495.666,
+          "durationMs": 293.458,
+          "text": "memberi"
+        },
+        {
+          "offsetMs": 11789.125,
+          "durationMs": 543.458,
+          "text": "percepatan"
+        },
+        {
+          "offsetMs": 12332.625,
+          "durationMs": 250,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 12582.625,
+          "durationMs": 391.291,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 12973.916,
+          "durationMs": 163.041,
+          "text": "per"
+        },
+        {
+          "offsetMs": 13136.958,
+          "durationMs": 326.083,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 13463.041,
+          "durationMs": 500,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 14691.291,
+          "durationMs": 434.791,
+          "text": "Grafik"
+        },
+        {
+          "offsetMs": 15126.083,
+          "durationMs": 467.375,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 15593.458,
+          "durationMs": 293.458,
+          "text": "berupa"
+        },
+        {
+          "offsetMs": 15886.958,
+          "durationMs": 358.708,
+          "text": "garis"
+        },
+        {
+          "offsetMs": 16245.666,
+          "durationMs": 293.458,
+          "text": "lurus"
+        },
+        {
+          "offsetMs": 16539.125,
+          "durationMs": 130.416,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 16669.583,
+          "durationMs": 380.416,
+          "text": "naik"
+        },
+        {
+          "offsetMs": 17343.458,
+          "durationMs": 336.958,
+          "text": "mobil"
+        },
+        {
+          "offsetMs": 17680.416,
+          "durationMs": 413.041,
+          "text": "bertambah"
+        },
+        {
+          "offsetMs": 18093.458,
+          "durationMs": 402.166,
+          "text": "cepat"
+        },
+        {
+          "offsetMs": 18495.666,
+          "durationMs": 315.208,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 18810.875,
+          "durationMs": 293.458,
+          "text": "laju"
+        },
+        {
+          "offsetMs": 19104.333,
+          "durationMs": 369.583,
+          "text": "tetap"
+        }
+      ],
+      "t": 293656,
+      "slotMs": 22000
+    },
+    {
+      "id": "application-87",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/763cd069cd4a5a3000410b8725ef577973985b17a2c99041e67e0be9ad656a1c.mp3",
+      "durationMs": 22248,
+      "sha256": "3cc27938d1f9495a9110f85826ce6d8a1f482fd01c9fe17d5f6270257fe1d2ea",
+      "words": [
+        {
+          "offsetMs": 95.125,
+          "durationMs": 358.666,
+          "text": "Pada"
+        },
+        {
+          "offsetMs": 453.791,
+          "durationMs": 326.083,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 779.875,
+          "durationMs": 500,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 1573.375,
+          "durationMs": 500,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 2073.375,
+          "durationMs": 380.416,
+          "text": "mobil"
+        },
+        {
+          "offsetMs": 2453.791,
+          "durationMs": 347.833,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 2801.625,
+          "durationMs": 315.208,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 3116.833,
+          "durationMs": 184.791,
+          "text": "per"
+        },
+        {
+          "offsetMs": 3301.625,
+          "durationMs": 380.416,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 4408.708,
+          "durationMs": 489.125,
+          "text": "Turunan"
+        },
+        {
+          "offsetMs": 4897.833,
+          "durationMs": 282.583,
+          "text": "juga"
+        },
+        {
+          "offsetMs": 5180.416,
+          "durationMs": 413.041,
+          "text": "membantu"
+        },
+        {
+          "offsetMs": 5593.458,
+          "durationMs": 652.166,
+          "text": "optimasi"
+        },
+        {
+          "offsetMs": 6245.666,
+          "durationMs": 152.166,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 6397.833,
+          "durationMs": 532.583,
+          "text": "analisis"
+        },
+        {
+          "offsetMs": 6930.416,
+          "durationMs": 532.625,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 7463.041,
+          "durationMs": 315.208,
+          "text": "dalam"
+        },
+        {
+          "offsetMs": 7778.25,
+          "durationMs": 326.083,
+          "text": "sains"
+        },
+        {
+          "offsetMs": 8104.333,
+          "durationMs": 347.833,
+          "text": "serta"
+        },
+        {
+          "offsetMs": 8452.166,
+          "durationMs": 456.541,
+          "text": "teknik"
+        },
+        {
+          "offsetMs": 9636.958,
+          "durationMs": 347.833,
+          "text": "Dalam"
+        },
+        {
+          "offsetMs": 9984.791,
+          "durationMs": 315.208,
+          "text": "model"
+        },
+        {
+          "offsetMs": 10300,
+          "durationMs": 152.166,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 10452.166,
+          "durationMs": 271.75,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 10723.916,
+          "durationMs": 434.791,
+          "text": "ini"
+        },
+        {
+          "offsetMs": 11452.166,
+          "durationMs": 260.875,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 11713.041,
+          "durationMs": 271.75,
+          "text": "dapat"
+        },
+        {
+          "offsetMs": 11984.791,
+          "durationMs": 402.166,
+          "text": "bertanya"
+        },
+        {
+          "offsetMs": 12386.958,
+          "durationMs": 728.25,
+          "text": "sebaliknya"
+        },
+        {
+          "offsetMs": 13408.708,
+          "durationMs": 326.083,
+          "text": "jika"
+        },
+        {
+          "offsetMs": 13734.791,
+          "durationMs": 282.583,
+          "text": "tahu"
+        },
+        {
+          "offsetMs": 14017.375,
+          "durationMs": 695.666,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 14995.666,
+          "durationMs": 543.458,
+          "text": "bagaimana"
+        },
+        {
+          "offsetMs": 15539.125,
+          "durationMs": 565.208,
+          "text": "mengumpulkan"
+        },
+        {
+          "offsetMs": 16104.333,
+          "durationMs": 336.958,
+          "text": "jarak"
+        },
+        {
+          "offsetMs": 16441.291,
+          "durationMs": 108.708,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 16550,
+          "durationMs": 586.958,
+          "text": "ditempuh"
+        },
+        {
+          "offsetMs": 17865.208,
+          "durationMs": 402.166,
+          "text": "Luas"
+        },
+        {
+          "offsetMs": 18267.375,
+          "durationMs": 119.583,
+          "text": "di"
+        },
+        {
+          "offsetMs": 18386.958,
+          "durationMs": 250,
+          "text": "bawah"
+        },
+        {
+          "offsetMs": 18636.958,
+          "durationMs": 413.041,
+          "text": "grafik"
+        },
+        {
+          "offsetMs": 19050,
+          "durationMs": 521.75,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 19571.75,
+          "durationMs": 326.083,
+          "text": "akan"
+        },
+        {
+          "offsetMs": 19897.833,
+          "durationMs": 336.958,
+          "text": "membawa"
+        },
+        {
+          "offsetMs": 20234.791,
+          "durationMs": 391.291,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 20626.083,
+          "durationMs": 163.041,
+          "text": "ke"
+        },
+        {
+          "offsetMs": 20789.125,
+          "durationMs": 728.25,
+          "text": "integral"
+        }
+      ],
+      "t": 317656,
+      "slotMs": 22648
+    },
+    {
+      "id": "integration-95",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/8678e15d0771de2dfd9a93d9d73cc0fbd7c8af225122793d1a1f7ecef8238aff.mp3",
+      "durationMs": 19440,
+      "sha256": "6aa7917343457960f65641adadb3aeedbf9578dacf479be9dc8df8681d69e0b7",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 597.833,
+          "text": "Bagaimana"
+        },
+        {
+          "offsetMs": 697.833,
+          "durationMs": 413.041,
+          "text": "menghitung"
+        },
+        {
+          "offsetMs": 1110.875,
+          "durationMs": 293.458,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 1404.333,
+          "durationMs": 489.125,
+          "text": "daerah"
+        },
+        {
+          "offsetMs": 1893.458,
+          "durationMs": 152.166,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 2045.666,
+          "durationMs": 326.083,
+          "text": "batas"
+        },
+        {
+          "offsetMs": 2371.75,
+          "durationMs": 521.708,
+          "text": "atasnya"
+        },
+        {
+          "offsetMs": 2893.458,
+          "durationMs": 619.583,
+          "text": "melengkung"
+        },
+        {
+          "offsetMs": 4234.791,
+          "durationMs": 358.666,
+          "text": "Kita"
+        },
+        {
+          "offsetMs": 4593.458,
+          "durationMs": 250,
+          "text": "bagi"
+        },
+        {
+          "offsetMs": 4843.458,
+          "durationMs": 521.75,
+          "text": "interval"
+        },
+        {
+          "offsetMs": 5365.208,
+          "durationMs": 489.125,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 5854.333,
+          "durationMs": 489.125,
+          "text": "beberapa"
+        },
+        {
+          "offsetMs": 6343.458,
+          "durationMs": 663.041,
+          "text": "bagian"
+        },
+        {
+          "offsetMs": 7729.875,
+          "durationMs": 347.833,
+          "text": "Pada"
+        },
+        {
+          "offsetMs": 8077.708,
+          "durationMs": 336.958,
+          "text": "tiap"
+        },
+        {
+          "offsetMs": 8414.666,
+          "durationMs": 586.958,
+          "text": "bagian"
+        },
+        {
+          "offsetMs": 9425.541,
+          "durationMs": 217.375,
+          "text": "buat"
+        },
+        {
+          "offsetMs": 9642.916,
+          "durationMs": 315.208,
+          "text": "persegi"
+        },
+        {
+          "offsetMs": 9958.166,
+          "durationMs": 489.125,
+          "text": "panjang"
+        },
+        {
+          "offsetMs": 10447.291,
+          "durationMs": 326.083,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 10773.375,
+          "durationMs": 445.666,
+          "text": "tinggi"
+        },
+        {
+          "offsetMs": 11219.041,
+          "durationMs": 271.708,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 11490.75,
+          "durationMs": 586.958,
+          "text": "kurva"
+        },
+        {
+          "offsetMs": 12810.875,
+          "durationMs": 358.708,
+          "text": "Lebar"
+        },
+        {
+          "offsetMs": 13169.583,
+          "durationMs": 239.125,
+          "text": "kali"
+        },
+        {
+          "offsetMs": 13408.708,
+          "durationMs": 456.5,
+          "text": "tinggi"
+        },
+        {
+          "offsetMs": 13865.208,
+          "durationMs": 358.708,
+          "text": "memberi"
+        },
+        {
+          "offsetMs": 14223.916,
+          "durationMs": 369.541,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 14593.458,
+          "durationMs": 543.458,
+          "text": "kecil"
+        },
+        {
+          "offsetMs": 15865.208,
+          "durationMs": 597.833,
+          "text": "Jumlahkan"
+        },
+        {
+          "offsetMs": 16463.041,
+          "durationMs": 489.125,
+          "text": "semuanya"
+        },
+        {
+          "offsetMs": 16952.166,
+          "durationMs": 402.166,
+          "text": "untuk"
+        },
+        {
+          "offsetMs": 17354.333,
+          "durationMs": 467.375,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 17821.75,
+          "durationMs": 358.666,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 18180.416,
+          "durationMs": 521.75,
+          "text": "total"
+        }
+      ],
+      "t": 354304,
+      "slotMs": 20000
+    },
+    {
+      "id": "integration-102",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/46716543c631e08b323876471d3c8428fde8059bb48ed52d9b4f879552206a70.mp3",
+      "durationMs": 19536,
+      "sha256": "ff2f56376611897a759a284ba39b2ffcff85cefddeacc266caaddaecd2ef2107",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 173.916,
+          "text": "Di"
+        },
+        {
+          "offsetMs": 273.916,
+          "durationMs": 347.833,
+          "text": "sini"
+        },
+        {
+          "offsetMs": 621.75,
+          "durationMs": 315.208,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 936.958,
+          "durationMs": 369.583,
+          "text": "memakai"
+        },
+        {
+          "offsetMs": 1306.541,
+          "durationMs": 413.041,
+          "text": "tinggi"
+        },
+        {
+          "offsetMs": 1719.583,
+          "durationMs": 239.125,
+          "text": "pada"
+        },
+        {
+          "offsetMs": 1958.708,
+          "durationMs": 336.958,
+          "text": "titik"
+        },
+        {
+          "offsetMs": 2295.666,
+          "durationMs": 358.666,
+          "text": "tengah"
+        },
+        {
+          "offsetMs": 2654.333,
+          "durationMs": 467.375,
+          "text": "setiap"
+        },
+        {
+          "offsetMs": 3121.75,
+          "durationMs": 739.125,
+          "text": "interval"
+        },
+        {
+          "offsetMs": 4582.625,
+          "durationMs": 347.791,
+          "text": "Empat"
+        },
+        {
+          "offsetMs": 4930.416,
+          "durationMs": 326.083,
+          "text": "persegi"
+        },
+        {
+          "offsetMs": 5256.541,
+          "durationMs": 445.625,
+          "text": "panjang"
+        },
+        {
+          "offsetMs": 5702.166,
+          "durationMs": 315.208,
+          "text": "memberi"
+        },
+        {
+          "offsetMs": 6017.375,
+          "durationMs": 304.333,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 6321.75,
+          "durationMs": 326.083,
+          "text": "koma"
+        },
+        {
+          "offsetMs": 6647.833,
+          "durationMs": 391.291,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 7039.125,
+          "durationMs": 260.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 7300,
+          "durationMs": 500,
+          "text": "lima"
+        },
+        {
+          "offsetMs": 8528.25,
+          "durationMs": 402.166,
+          "text": "Ketika"
+        },
+        {
+          "offsetMs": 8930.416,
+          "durationMs": 608.708,
+          "text": "pembagiannya"
+        },
+        {
+          "offsetMs": 9539.125,
+          "durationMs": 282.625,
+          "text": "lebih"
+        },
+        {
+          "offsetMs": 9821.75,
+          "durationMs": 445.666,
+          "text": "banyak"
+        },
+        {
+          "offsetMs": 10550,
+          "durationMs": 239.125,
+          "text": "celah"
+        },
+        {
+          "offsetMs": 10789.125,
+          "durationMs": 380.416,
+          "text": "terhadap"
+        },
+        {
+          "offsetMs": 11169.583,
+          "durationMs": 402.166,
+          "text": "kurva"
+        },
+        {
+          "offsetMs": 11571.75,
+          "durationMs": 641.291,
+          "text": "mengecil"
+        },
+        {
+          "offsetMs": 12941.291,
+          "durationMs": 250,
+          "text": "Yang"
+        },
+        {
+          "offsetMs": 13191.291,
+          "durationMs": 369.583,
+          "text": "penting"
+        },
+        {
+          "offsetMs": 13560.875,
+          "durationMs": 282.583,
+          "text": "bukan"
+        },
+        {
+          "offsetMs": 13843.458,
+          "durationMs": 315.208,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 14158.708,
+          "durationMs": 304.333,
+          "text": "gambar"
+        },
+        {
+          "offsetMs": 14463.041,
+          "durationMs": 630.416,
+          "text": "tertentu"
+        },
+        {
+          "offsetMs": 15397.833,
+          "durationMs": 358.708,
+          "text": "tetapi"
+        },
+        {
+          "offsetMs": 15756.541,
+          "durationMs": 380.416,
+          "text": "limit"
+        },
+        {
+          "offsetMs": 16136.958,
+          "durationMs": 173.916,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 16310.875,
+          "durationMs": 336.958,
+          "text": "jumlah"
+        },
+        {
+          "offsetMs": 16647.833,
+          "durationMs": 293.458,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 16941.291,
+          "durationMs": 271.75,
+          "text": "saat"
+        },
+        {
+          "offsetMs": 17213.041,
+          "durationMs": 271.75,
+          "text": "lebar"
+        },
+        {
+          "offsetMs": 17484.791,
+          "durationMs": 521.75,
+          "text": "interval"
+        },
+        {
+          "offsetMs": 18006.541,
+          "durationMs": 380.416,
+          "text": "menuju"
+        },
+        {
+          "offsetMs": 18386.958,
+          "durationMs": 402.166,
+          "text": "nol"
+        }
+      ],
+      "t": 376304,
+      "slotMs": 21000
+    },
+    {
+      "id": "integration-108",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/2a7352150c572bf708886cb6ee1319b0b5d9739df89972dc7257ab8cbccf4a49.mp3",
+      "durationMs": 17472,
+      "sha256": "54fb5c6fce93c9d33646202c602cbe4bbe927371eaddaceeb949cba9ed6173fa",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 532.625,
+          "text": "Notasi"
+        },
+        {
+          "offsetMs": 632.625,
+          "durationMs": 489.125,
+          "text": "integral"
+        },
+        {
+          "offsetMs": 1121.75,
+          "durationMs": 467.375,
+          "text": "merangkum"
+        },
+        {
+          "offsetMs": 1589.125,
+          "durationMs": 456.541,
+          "text": "proses"
+        },
+        {
+          "offsetMs": 2045.666,
+          "durationMs": 728.25,
+          "text": "akumulasi"
+        },
+        {
+          "offsetMs": 2773.916,
+          "durationMs": 456.541,
+          "text": "itu"
+        },
+        {
+          "offsetMs": 3952.166,
+          "durationMs": 369.583,
+          "text": "Untuk"
+        },
+        {
+          "offsetMs": 4321.75,
+          "durationMs": 239.125,
+          "text": "x"
+        },
+        {
+          "offsetMs": 4560.875,
+          "durationMs": 413.041,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 4973.916,
+          "durationMs": 217.375,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 5191.291,
+          "durationMs": 282.625,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 5473.916,
+          "durationMs": 347.833,
+          "text": "sampai"
+        },
+        {
+          "offsetMs": 5821.75,
+          "durationMs": 456.541,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 6593.458,
+          "durationMs": 217.375,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 6810.875,
+          "durationMs": 271.75,
+          "text": "akan"
+        },
+        {
+          "offsetMs": 7082.625,
+          "durationMs": 326.083,
+          "text": "memakai"
+        },
+        {
+          "offsetMs": 7408.708,
+          "durationMs": 413.041,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 7821.75,
+          "durationMs": 108.666,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 7930.416,
+          "durationMs": 413.041,
+          "text": "turunannya"
+        },
+        {
+          "offsetMs": 8343.458,
+          "durationMs": 271.75,
+          "text": "x"
+        },
+        {
+          "offsetMs": 8615.208,
+          "durationMs": 445.666,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 9354.333,
+          "durationMs": 347.833,
+          "text": "yaitu"
+        },
+        {
+          "offsetMs": 9702.166,
+          "durationMs": 271.75,
+          "text": "x"
+        },
+        {
+          "offsetMs": 9973.916,
+          "durationMs": 304.333,
+          "text": "pangkat"
+        },
+        {
+          "offsetMs": 10278.25,
+          "durationMs": 391.291,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 10669.583,
+          "durationMs": 489.125,
+          "text": "dibagi"
+        },
+        {
+          "offsetMs": 11158.708,
+          "durationMs": 543.458,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 12430.416,
+          "durationMs": 369.583,
+          "text": "Ambil"
+        },
+        {
+          "offsetMs": 12800,
+          "durationMs": 456.541,
+          "text": "nilainya"
+        },
+        {
+          "offsetMs": 13256.541,
+          "durationMs": 97.791,
+          "text": "di"
+        },
+        {
+          "offsetMs": 13354.333,
+          "durationMs": 347.833,
+          "text": "batas"
+        },
+        {
+          "offsetMs": 13702.166,
+          "durationMs": 543.458,
+          "text": "atas"
+        },
+        {
+          "offsetMs": 14517.375,
+          "durationMs": 260.875,
+          "text": "lalu"
+        },
+        {
+          "offsetMs": 14778.25,
+          "durationMs": 445.666,
+          "text": "kurangi"
+        },
+        {
+          "offsetMs": 15223.916,
+          "durationMs": 456.5,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 15680.416,
+          "durationMs": 152.166,
+          "text": "di"
+        },
+        {
+          "offsetMs": 15832.625,
+          "durationMs": 391.291,
+          "text": "batas"
+        },
+        {
+          "offsetMs": 16223.916,
+          "durationMs": 510.875,
+          "text": "bawah"
+        }
+      ],
+      "t": 398304,
+      "slotMs": 17872
+    },
+    {
+      "id": "integration-114",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/ce0a0f292276ca2267538c5a46adfc3cc84b512ed7ce994bea7b029f5b8326e1.mp3",
+      "durationMs": 23496,
+      "sha256": "5c1e5661d64c6f89efebd617adeccd0cd7d76b565aad7c2d42dd1a5adcceaa74",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 293.458,
+          "text": "Dua"
+        },
+        {
+          "offsetMs": 393.458,
+          "durationMs": 347.833,
+          "text": "pangkat"
+        },
+        {
+          "offsetMs": 741.291,
+          "durationMs": 326.083,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 1067.375,
+          "durationMs": 369.583,
+          "text": "dibagi"
+        },
+        {
+          "offsetMs": 1436.958,
+          "durationMs": 543.458,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 2284.791,
+          "durationMs": 500,
+          "text": "dikurangi"
+        },
+        {
+          "offsetMs": 2784.791,
+          "durationMs": 391.291,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 3436.958,
+          "durationMs": 641.291,
+          "text": "menghasilkan"
+        },
+        {
+          "offsetMs": 4078.25,
+          "durationMs": 478.25,
+          "text": "delapan"
+        },
+        {
+          "offsetMs": 4556.541,
+          "durationMs": 141.291,
+          "text": "per"
+        },
+        {
+          "offsetMs": 4697.833,
+          "durationMs": 565.208,
+          "text": "tiga"
+        },
+        {
+          "offsetMs": 5984.791,
+          "durationMs": 358.666,
+          "text": "Itu"
+        },
+        {
+          "offsetMs": 6343.458,
+          "durationMs": 369.583,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 6713.041,
+          "durationMs": 489.125,
+          "text": "eksak"
+        },
+        {
+          "offsetMs": 7930.416,
+          "durationMs": 293.458,
+          "text": "Dua"
+        },
+        {
+          "offsetMs": 8223.916,
+          "durationMs": 315.208,
+          "text": "koma"
+        },
+        {
+          "offsetMs": 8539.125,
+          "durationMs": 293.458,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 8832.625,
+          "durationMs": 369.541,
+          "text": "enam"
+        },
+        {
+          "offsetMs": 9202.166,
+          "durationMs": 456.541,
+          "text": "tujuh"
+        },
+        {
+          "offsetMs": 9658.708,
+          "durationMs": 576.083,
+          "text": "hanyalah"
+        },
+        {
+          "offsetMs": 10234.791,
+          "durationMs": 815.208,
+          "text": "pembulatan"
+        },
+        {
+          "offsetMs": 11778.25,
+          "durationMs": 336.958,
+          "text": "Luas"
+        },
+        {
+          "offsetMs": 12115.208,
+          "durationMs": 500,
+          "text": "pendekatan"
+        },
+        {
+          "offsetMs": 12615.208,
+          "durationMs": 336.958,
+          "text": "tadi"
+        },
+        {
+          "offsetMs": 12952.166,
+          "durationMs": 445.666,
+          "text": "makin"
+        },
+        {
+          "offsetMs": 13397.833,
+          "durationMs": 554.333,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 13952.166,
+          "durationMs": 358.708,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 14310.875,
+          "durationMs": 467.375,
+          "text": "ini"
+        },
+        {
+          "offsetMs": 15506.541,
+          "durationMs": 521.708,
+          "text": "Integral"
+        },
+        {
+          "offsetMs": 16028.25,
+          "durationMs": 326.083,
+          "text": "tentu"
+        },
+        {
+          "offsetMs": 16354.333,
+          "durationMs": 271.75,
+          "text": "memberi"
+        },
+        {
+          "offsetMs": 16626.083,
+          "durationMs": 391.291,
+          "text": "total"
+        },
+        {
+          "offsetMs": 17017.375,
+          "durationMs": 641.291,
+          "text": "bertanda"
+        },
+        {
+          "offsetMs": 18028.25,
+          "durationMs": 434.791,
+          "text": "daerah"
+        },
+        {
+          "offsetMs": 18463.041,
+          "durationMs": 293.458,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 18756.541,
+          "durationMs": 347.791,
+          "text": "berada"
+        },
+        {
+          "offsetMs": 19104.333,
+          "durationMs": 119.583,
+          "text": "di"
+        },
+        {
+          "offsetMs": 19223.916,
+          "durationMs": 315.208,
+          "text": "atas"
+        },
+        {
+          "offsetMs": 19539.125,
+          "durationMs": 467.375,
+          "text": "sumbu"
+        },
+        {
+          "offsetMs": 20289.125,
+          "durationMs": 402.166,
+          "text": "sehingga"
+        },
+        {
+          "offsetMs": 20691.291,
+          "durationMs": 554.333,
+          "text": "totalnya"
+        },
+        {
+          "offsetMs": 21245.666,
+          "durationMs": 478.25,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 21723.916,
+          "durationMs": 293.458,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 22017.375,
+          "durationMs": 750,
+          "text": "positif"
+        }
+      ],
+      "t": 417176,
+      "slotMs": 23896
+    },
+    {
+      "id": "connection-124",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/f1cfaa92c3747bfaba364ce01d6793145ea88c10aded4de7d3c48d4c7f47442f.mp3",
+      "durationMs": 21888,
+      "sha256": "3f38e69b4c3566326805d6f8c81a937d0d04add40ead003d3de7a40009fc68fe",
+      "words": [
+        {
+          "offsetMs": 95.125,
+          "durationMs": 652.166,
+          "text": "Perhatikan"
+        },
+        {
+          "offsetMs": 747.291,
+          "durationMs": 326.083,
+          "text": "garis"
+        },
+        {
+          "offsetMs": 1073.375,
+          "durationMs": 108.708,
+          "text": "y"
+        },
+        {
+          "offsetMs": 1182.083,
+          "durationMs": 336.958,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 1519.041,
+          "durationMs": 304.333,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 1823.375,
+          "durationMs": 456.5,
+          "text": "x"
+        },
+        {
+          "offsetMs": 2279.875,
+          "durationMs": 336.958,
+          "text": "Luas"
+        },
+        {
+          "offsetMs": 2616.833,
+          "durationMs": 217.375,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 2834.25,
+          "durationMs": 304.333,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 3138.583,
+          "durationMs": 326.083,
+          "text": "sampai"
+        },
+        {
+          "offsetMs": 3464.666,
+          "durationMs": 326.083,
+          "text": "x"
+        },
+        {
+          "offsetMs": 3790.75,
+          "durationMs": 347.833,
+          "text": "membentuk"
+        },
+        {
+          "offsetMs": 4138.583,
+          "durationMs": 750,
+          "text": "segitiga"
+        },
+        {
+          "offsetMs": 5160.333,
+          "durationMs": 380.416,
+          "text": "setengah"
+        },
+        {
+          "offsetMs": 5540.75,
+          "durationMs": 315.208,
+          "text": "kali"
+        },
+        {
+          "offsetMs": 5855.958,
+          "durationMs": 347.833,
+          "text": "alas"
+        },
+        {
+          "offsetMs": 6203.791,
+          "durationMs": 347.833,
+          "text": "x"
+        },
+        {
+          "offsetMs": 6551.625,
+          "durationMs": 282.625,
+          "text": "kali"
+        },
+        {
+          "offsetMs": 6834.25,
+          "durationMs": 347.833,
+          "text": "tinggi"
+        },
+        {
+          "offsetMs": 7182.083,
+          "durationMs": 597.833,
+          "text": "x"
+        },
+        {
+          "offsetMs": 8506.541,
+          "durationMs": 391.291,
+          "text": "Jadi"
+        },
+        {
+          "offsetMs": 8897.833,
+          "durationMs": 391.291,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 9289.125,
+          "durationMs": 630.416,
+          "text": "akumulasi"
+        },
+        {
+          "offsetMs": 9919.583,
+          "durationMs": 347.791,
+          "text": "A"
+        },
+        {
+          "offsetMs": 10267.375,
+          "durationMs": 391.291,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 10658.708,
+          "durationMs": 402.166,
+          "text": "setengah"
+        },
+        {
+          "offsetMs": 11060.875,
+          "durationMs": 304.333,
+          "text": "x"
+        },
+        {
+          "offsetMs": 11365.208,
+          "durationMs": 467.375,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 12560.875,
+          "durationMs": 413.041,
+          "text": "Jika"
+        },
+        {
+          "offsetMs": 12973.916,
+          "durationMs": 326.083,
+          "text": "batas"
+        },
+        {
+          "offsetMs": 13300,
+          "durationMs": 315.208,
+          "text": "kanan"
+        },
+        {
+          "offsetMs": 13615.208,
+          "durationMs": 315.208,
+          "text": "maju"
+        },
+        {
+          "offsetMs": 13930.416,
+          "durationMs": 586.958,
+          "text": "sedikit"
+        },
+        {
+          "offsetMs": 14832.625,
+          "durationMs": 315.208,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 15147.833,
+          "durationMs": 543.458,
+          "text": "bertambah"
+        },
+        {
+          "offsetMs": 15691.291,
+          "durationMs": 347.833,
+          "text": "berupa"
+        },
+        {
+          "offsetMs": 16039.125,
+          "durationMs": 380.416,
+          "text": "pita"
+        },
+        {
+          "offsetMs": 16419.583,
+          "durationMs": 445.666,
+          "text": "sempit"
+        },
+        {
+          "offsetMs": 17593.458,
+          "durationMs": 391.291,
+          "text": "Tinggi"
+        },
+        {
+          "offsetMs": 17984.791,
+          "durationMs": 282.583,
+          "text": "pita"
+        },
+        {
+          "offsetMs": 18267.375,
+          "durationMs": 369.583,
+          "text": "hampir"
+        },
+        {
+          "offsetMs": 18636.958,
+          "durationMs": 358.708,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 18995.666,
+          "durationMs": 282.583,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 19278.25,
+          "durationMs": 271.75,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 19550,
+          "durationMs": 532.625,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 20082.625,
+          "durationMs": 152.166,
+          "text": "di"
+        },
+        {
+          "offsetMs": 20234.791,
+          "durationMs": 391.291,
+          "text": "batas"
+        },
+        {
+          "offsetMs": 20626.083,
+          "durationMs": 532.625,
+          "text": "kanan"
+        }
+      ],
+      "t": 453072,
+      "slotMs": 22288
+    },
+    {
+      "id": "connection-128",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/4e08cc8b6bb564add43827841094c9a97d1bb77655537ef3a0aa1739c17c43b9.mp3",
+      "durationMs": 24288,
+      "sha256": "e64199b41e9c3e34c1452c6b910e72079ab76f406cbfc8ad164b5cd658ae02eb",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 478.25,
+          "text": "Tambahan"
+        },
+        {
+          "offsetMs": 578.25,
+          "durationMs": 293.458,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 871.75,
+          "durationMs": 467.375,
+          "text": "kira-kira"
+        },
+        {
+          "offsetMs": 1339.125,
+          "durationMs": 456.541,
+          "text": "tinggi"
+        },
+        {
+          "offsetMs": 1795.666,
+          "durationMs": 369.541,
+          "text": "kali"
+        },
+        {
+          "offsetMs": 2165.208,
+          "durationMs": 500,
+          "text": "tambahan"
+        },
+        {
+          "offsetMs": 2665.208,
+          "durationMs": 510.875,
+          "text": "lebar"
+        },
+        {
+          "offsetMs": 3897.833,
+          "durationMs": 521.75,
+          "text": "Dibagi"
+        },
+        {
+          "offsetMs": 4419.583,
+          "durationMs": 402.166,
+          "text": "tambahan"
+        },
+        {
+          "offsetMs": 4821.75,
+          "durationMs": 456.541,
+          "text": "lebar"
+        },
+        {
+          "offsetMs": 5571.75,
+          "durationMs": 336.958,
+          "text": "laju"
+        },
+        {
+          "offsetMs": 5908.708,
+          "durationMs": 467.375,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 6376.083,
+          "durationMs": 347.833,
+          "text": "luas"
+        },
+        {
+          "offsetMs": 6723.916,
+          "durationMs": 456.5,
+          "text": "mendekati"
+        },
+        {
+          "offsetMs": 7180.416,
+          "durationMs": 402.166,
+          "text": "tinggi"
+        },
+        {
+          "offsetMs": 7582.625,
+          "durationMs": 608.708,
+          "text": "kurva"
+        },
+        {
+          "offsetMs": 8919.583,
+          "durationMs": 423.875,
+          "text": "Jadi"
+        },
+        {
+          "offsetMs": 9343.458,
+          "durationMs": 423.916,
+          "text": "turunan"
+        },
+        {
+          "offsetMs": 9767.375,
+          "durationMs": 413.041,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 10180.416,
+          "durationMs": 706.541,
+          "text": "akumulasi"
+        },
+        {
+          "offsetMs": 10886.958,
+          "durationMs": 597.833,
+          "text": "mengembalikan"
+        },
+        {
+          "offsetMs": 11484.791,
+          "durationMs": 413.041,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 11897.833,
+          "durationMs": 597.833,
+          "text": "semula"
+        },
+        {
+          "offsetMs": 13223.916,
+          "durationMs": 413.041,
+          "text": "Inilah"
+        },
+        {
+          "offsetMs": 13636.958,
+          "durationMs": 347.833,
+          "text": "inti"
+        },
+        {
+          "offsetMs": 13984.791,
+          "durationMs": 434.791,
+          "text": "teorema"
+        },
+        {
+          "offsetMs": 14419.583,
+          "durationMs": 336.958,
+          "text": "dasar"
+        },
+        {
+          "offsetMs": 14756.541,
+          "durationMs": 619.541,
+          "text": "kalkulus"
+        },
+        {
+          "offsetMs": 15376.083,
+          "durationMs": 380.416,
+          "text": "untuk"
+        },
+        {
+          "offsetMs": 15756.541,
+          "durationMs": 402.166,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 16158.708,
+          "durationMs": 673.916,
+          "text": "kontinu"
+        },
+        {
+          "offsetMs": 17560.875,
+          "durationMs": 804.333,
+          "text": "Sebaliknya"
+        },
+        {
+          "offsetMs": 18680.416,
+          "durationMs": 804.333,
+          "text": "mengintegralkan"
+        },
+        {
+          "offsetMs": 19484.791,
+          "durationMs": 369.541,
+          "text": "turunan"
+        },
+        {
+          "offsetMs": 19854.333,
+          "durationMs": 293.458,
+          "text": "memberi"
+        },
+        {
+          "offsetMs": 20147.833,
+          "durationMs": 423.916,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 20571.75,
+          "durationMs": 500,
+          "text": "total"
+        },
+        {
+          "offsetMs": 21343.458,
+          "durationMs": 304.333,
+          "text": "lewat"
+        },
+        {
+          "offsetMs": 21647.833,
+          "durationMs": 271.75,
+          "text": "nilai"
+        },
+        {
+          "offsetMs": 21919.583,
+          "durationMs": 532.583,
+          "text": "fungsi"
+        },
+        {
+          "offsetMs": 22452.166,
+          "durationMs": 163.041,
+          "text": "di"
+        },
+        {
+          "offsetMs": 22615.208,
+          "durationMs": 260.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 22876.083,
+          "durationMs": 673.916,
+          "text": "batas"
+        }
+      ],
+      "t": 477360,
+      "slotMs": 24688
+    },
+    {
+      "id": "challenge-135",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/6efcd7dd42dbe926f5e9796139fce1f78fff3f750e4bd58edb0a0f7a7082322d.mp3",
+      "durationMs": 18720,
+      "sha256": "79a4ea0a6a724dd96d2bf5f2f91040722bb1429d89b94b412f9680524c618ca9",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 608.708,
+          "text": "Sekarang"
+        },
+        {
+          "offsetMs": 708.708,
+          "durationMs": 836.958,
+          "text": "giliranmu"
+        },
+        {
+          "offsetMs": 2267.375,
+          "durationMs": 391.291,
+          "text": "Mobil"
+        },
+        {
+          "offsetMs": 2658.708,
+          "durationMs": 304.333,
+          "text": "mulai"
+        },
+        {
+          "offsetMs": 2963.041,
+          "durationMs": 86.958,
+          "text": "di"
+        },
+        {
+          "offsetMs": 3050,
+          "durationMs": 369.583,
+          "text": "posisi"
+        },
+        {
+          "offsetMs": 3419.583,
+          "durationMs": 380.416,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 3800,
+          "durationMs": 336.958,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 4136.958,
+          "durationMs": 510.875,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 4647.833,
+          "durationMs": 260.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 4908.708,
+          "durationMs": 141.291,
+          "text": "t"
+        },
+        {
+          "offsetMs": 5050,
+          "durationMs": 358.708,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 5408.708,
+          "durationMs": 173.916,
+          "text": "per"
+        },
+        {
+          "offsetMs": 5582.625,
+          "durationMs": 369.583,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 6680.416,
+          "durationMs": 380.416,
+          "text": "Pada"
+        },
+        {
+          "offsetMs": 7060.875,
+          "durationMs": 326.083,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 7386.958,
+          "durationMs": 423.916,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 8147.833,
+          "durationMs": 358.708,
+          "text": "berapa"
+        },
+        {
+          "offsetMs": 8506.541,
+          "durationMs": 858.708,
+          "text": "kecepatannya"
+        },
+        {
+          "offsetMs": 9636.958,
+          "durationMs": 206.5,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 9843.458,
+          "durationMs": 260.875,
+          "text": "berapa"
+        },
+        {
+          "offsetMs": 10104.333,
+          "durationMs": 282.625,
+          "text": "jarak"
+        },
+        {
+          "offsetMs": 10386.958,
+          "durationMs": 369.583,
+          "text": "total"
+        },
+        {
+          "offsetMs": 10756.541,
+          "durationMs": 130.416,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 10886.958,
+          "durationMs": 250,
+          "text": "sudah"
+        },
+        {
+          "offsetMs": 11136.958,
+          "durationMs": 597.833,
+          "text": "ditempuh"
+        },
+        {
+          "offsetMs": 12463.041,
+          "durationMs": 282.625,
+          "text": "Dua"
+        },
+        {
+          "offsetMs": 12745.666,
+          "durationMs": 521.708,
+          "text": "pertanyaan"
+        },
+        {
+          "offsetMs": 13267.375,
+          "durationMs": 326.083,
+          "text": "ini"
+        },
+        {
+          "offsetMs": 13593.458,
+          "durationMs": 445.666,
+          "text": "meminta"
+        },
+        {
+          "offsetMs": 14039.125,
+          "durationMs": 304.333,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 14343.458,
+          "durationMs": 336.958,
+          "text": "cara"
+        },
+        {
+          "offsetMs": 14680.416,
+          "durationMs": 663.041,
+          "text": "berpikir"
+        },
+        {
+          "offsetMs": 16071.75,
+          "durationMs": 358.666,
+          "text": "Coba"
+        },
+        {
+          "offsetMs": 16430.416,
+          "durationMs": 380.416,
+          "text": "jawab"
+        },
+        {
+          "offsetMs": 16810.875,
+          "durationMs": 434.791,
+          "text": "sebelum"
+        },
+        {
+          "offsetMs": 17245.666,
+          "durationMs": 315.208,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 17560.875,
+          "durationMs": 413.041,
+          "text": "lanjut"
+        }
+      ],
+      "t": 513048,
+      "slotMs": 19120
+    },
+    {
+      "id": "challenge-139",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/641f40551ae51be30f1fba79903dbc77a79cf83134125c49eb4ddedfb39cf2e7.mp3",
+      "durationMs": 21144,
+      "sha256": "9de07e9f84c4431cd03c0568418b7c00a940683c64e61f491807ddd6ddcfef21",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 576.083,
+          "text": "Kecepatan"
+        },
+        {
+          "offsetMs": 676.083,
+          "durationMs": 521.75,
+          "text": "sesaatnya"
+        },
+        {
+          "offsetMs": 1197.833,
+          "durationMs": 380.416,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 1578.25,
+          "durationMs": 336.958,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 1915.208,
+          "durationMs": 184.791,
+          "text": "per"
+        },
+        {
+          "offsetMs": 2100,
+          "durationMs": 391.291,
+          "text": "detik"
+        },
+        {
+          "offsetMs": 3213.041,
+          "durationMs": 358.708,
+          "text": "Untuk"
+        },
+        {
+          "offsetMs": 3571.75,
+          "durationMs": 445.666,
+          "text": "jarak"
+        },
+        {
+          "offsetMs": 4343.458,
+          "durationMs": 760.875,
+          "text": "akumulasikan"
+        },
+        {
+          "offsetMs": 5104.333,
+          "durationMs": 532.625,
+          "text": "kecepatan"
+        },
+        {
+          "offsetMs": 5636.958,
+          "durationMs": 217.375,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 5854.333,
+          "durationMs": 326.083,
+          "text": "nol"
+        },
+        {
+          "offsetMs": 6180.416,
+          "durationMs": 445.666,
+          "text": "sampai"
+        },
+        {
+          "offsetMs": 6626.083,
+          "durationMs": 489.125,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 7843.458,
+          "durationMs": 543.458,
+          "text": "Integral"
+        },
+        {
+          "offsetMs": 8386.958,
+          "durationMs": 260.875,
+          "text": "dua"
+        },
+        {
+          "offsetMs": 8647.833,
+          "durationMs": 239.125,
+          "text": "t"
+        },
+        {
+          "offsetMs": 8886.958,
+          "durationMs": 380.416,
+          "text": "adalah"
+        },
+        {
+          "offsetMs": 9267.375,
+          "durationMs": 141.291,
+          "text": "t"
+        },
+        {
+          "offsetMs": 9408.708,
+          "durationMs": 489.125,
+          "text": "kuadrat"
+        },
+        {
+          "offsetMs": 10169.583,
+          "durationMs": 554.333,
+          "text": "sehingga"
+        },
+        {
+          "offsetMs": 10723.916,
+          "durationMs": 489.125,
+          "text": "jaraknya"
+        },
+        {
+          "offsetMs": 11213.041,
+          "durationMs": 445.666,
+          "text": "empat"
+        },
+        {
+          "offsetMs": 11658.708,
+          "durationMs": 500,
+          "text": "meter"
+        },
+        {
+          "offsetMs": 12886.958,
+          "durationMs": 500,
+          "text": "Angkanya"
+        },
+        {
+          "offsetMs": 13386.958,
+          "durationMs": 326.083,
+          "text": "sama"
+        },
+        {
+          "offsetMs": 13713.041,
+          "durationMs": 271.75,
+          "text": "dalam"
+        },
+        {
+          "offsetMs": 13984.791,
+          "durationMs": 369.541,
+          "text": "contoh"
+        },
+        {
+          "offsetMs": 14354.333,
+          "durationMs": 434.791,
+          "text": "ini"
+        },
+        {
+          "offsetMs": 15060.875,
+          "durationMs": 347.833,
+          "text": "tetapi"
+        },
+        {
+          "offsetMs": 15408.708,
+          "durationMs": 391.291,
+          "text": "makna"
+        },
+        {
+          "offsetMs": 15800,
+          "durationMs": 152.166,
+          "text": "dan"
+        },
+        {
+          "offsetMs": 15952.166,
+          "durationMs": 532.625,
+          "text": "satuannya"
+        },
+        {
+          "offsetMs": 16484.791,
+          "durationMs": 673.916,
+          "text": "berbeda"
+        },
+        {
+          "offsetMs": 17463.041,
+          "durationMs": 347.833,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 17810.875,
+          "durationMs": 282.583,
+          "text": "laju"
+        },
+        {
+          "offsetMs": 18093.458,
+          "durationMs": 521.75,
+          "text": "sesaat"
+        },
+        {
+          "offsetMs": 18821.75,
+          "durationMs": 304.333,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 19126.083,
+          "durationMs": 402.166,
+          "text": "total"
+        },
+        {
+          "offsetMs": 19528.25,
+          "durationMs": 163.041,
+          "text": "yang"
+        },
+        {
+          "offsetMs": 19691.291,
+          "durationMs": 706.541,
+          "text": "terkumpul"
+        }
+      ],
+      "t": 539168,
+      "slotMs": 21544
+    },
+    {
+      "id": "challenge-142",
+      "provider": "edge-tts-7.2.8",
+      "voice": "id-ID-GadisNeural",
+      "file": "output/audio/cache/c500a2bab144fe1e02d888091c5aa4559f7ccc54b1554fd3d3d8a1bcbdce9baa.mp3",
+      "durationMs": 15048,
+      "sha256": "9054a9e142b24c03c19983c9db10edb24104f4642090e6c87a7cba9dfa449b86",
+      "words": [
+        {
+          "offsetMs": 100,
+          "durationMs": 434.791,
+          "text": "Turunan"
+        },
+        {
+          "offsetMs": 534.791,
+          "durationMs": 500,
+          "text": "membantu"
+        },
+        {
+          "offsetMs": 1034.791,
+          "durationMs": 369.541,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 1404.333,
+          "durationMs": 586.958,
+          "text": "memahami"
+        },
+        {
+          "offsetMs": 1991.291,
+          "durationMs": 750,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 3463.041,
+          "durationMs": 532.625,
+          "text": "Integral"
+        },
+        {
+          "offsetMs": 3995.666,
+          "durationMs": 521.708,
+          "text": "membantu"
+        },
+        {
+          "offsetMs": 4517.375,
+          "durationMs": 369.583,
+          "text": "kita"
+        },
+        {
+          "offsetMs": 4886.958,
+          "durationMs": 565.208,
+          "text": "memahami"
+        },
+        {
+          "offsetMs": 5452.166,
+          "durationMs": 967.375,
+          "text": "akumulasi"
+        },
+        {
+          "offsetMs": 7147.833,
+          "durationMs": 304.333,
+          "text": "Dua"
+        },
+        {
+          "offsetMs": 7452.166,
+          "durationMs": 336.958,
+          "text": "arah"
+        },
+        {
+          "offsetMs": 7789.125,
+          "durationMs": 217.375,
+          "text": "dari"
+        },
+        {
+          "offsetMs": 8006.541,
+          "durationMs": 315.208,
+          "text": "satu"
+        },
+        {
+          "offsetMs": 8321.75,
+          "durationMs": 478.25,
+          "text": "ide"
+        },
+        {
+          "offsetMs": 9104.333,
+          "durationMs": 478.25,
+          "text": "memahami"
+        },
+        {
+          "offsetMs": 9582.625,
+          "durationMs": 402.166,
+          "text": "dunia"
+        },
+        {
+          "offsetMs": 9984.791,
+          "durationMs": 304.333,
+          "text": "dengan"
+        },
+        {
+          "offsetMs": 10289.125,
+          "durationMs": 336.958,
+          "text": "membagi"
+        },
+        {
+          "offsetMs": 10626.083,
+          "durationMs": 500,
+          "text": "perubahan"
+        },
+        {
+          "offsetMs": 11126.083,
+          "durationMs": 315.208,
+          "text": "menjadi"
+        },
+        {
+          "offsetMs": 11441.291,
+          "durationMs": 402.166,
+          "text": "bagian"
+        },
+        {
+          "offsetMs": 11843.458,
+          "durationMs": 467.375,
+          "text": "kecil"
+        },
+        {
+          "offsetMs": 12582.625,
+          "durationMs": 369.541,
+          "text": "lalu"
+        },
+        {
+          "offsetMs": 12952.166,
+          "durationMs": 750,
+          "text": "menghubungkannya"
+        },
+        {
+          "offsetMs": 13702.166,
+          "durationMs": 619.583,
+          "text": "kembali"
+        }
+      ],
+      "t": 561212,
+      "slotMs": 15448
+    }
+  ],
+  "timestampValidation": "Boundaries validated for monotonicity and within decoded clip duration; word-level perceptual accuracy is not assumed. Segment starts align to actual audio duration.",
+  "normalization": "FFmpeg loudnorm I=-16 TP=-1.5 LRA=11"
+}
