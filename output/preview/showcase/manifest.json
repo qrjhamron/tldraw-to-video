@@ -1,0 +1,14 @@
+{
+  "frames": [
+    "output/preview/showcase/t002000.jpg",
+    "output/preview/showcase/t012000.jpg",
+    "output/preview/showcase/t025000.jpg",
+    "output/preview/showcase/t045000.jpg",
+    "output/preview/showcase/t065000.jpg",
+    "output/preview/showcase/t080000.jpg"
+  ],
+  "width": 1920,
+  "height": 1080,
+  "durationMs": 84800,
+  "browserErrors": []
+}

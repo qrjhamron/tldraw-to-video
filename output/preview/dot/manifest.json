@@ -1,0 +1,12 @@
+{
+  "frames": [
+    "output/preview/dot/t012500.jpg",
+    "output/preview/dot/t014000.jpg",
+    "output/preview/dot/t030500.jpg",
+    "output/preview/dot/t032000.jpg"
+  ],
+  "width": 1920,
+  "height": 1080,
+  "durationMs": 84800,
+  "browserErrors": []
+}
