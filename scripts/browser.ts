@@ -12,8 +12,13 @@ export async function openStudio(query='?export=1'){
   const browser=await chromium.launch({headless:true,args:['--no-sandbox']})
   const page=await browser.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1})
   const errors:string[]=[]
+  if(process.env.STUDIO_DEBUG)page.on('console',m=>console.log(m.type(),m.text()))
   page.on('pageerror',e=>errors.push(String(e)))
   await page.goto(base+query)
-  await page.waitForFunction(()=>!!window.studio,undefined,{timeout:120000})
+  try {
+    await page.waitForFunction(()=>!!window.studio||!!document.querySelector('[role=alert]'),undefined,{timeout:120000})
+    const failure=await page.locator('[role=alert]').count()?await page.locator('[role=alert]').textContent():null
+    if(failure)throw Error(failure)
+  }catch(e){await browser.close();server?.kill();throw e}
   return{page,browser,errors,close:async()=>{await browser.close();server?.kill()}}
 }

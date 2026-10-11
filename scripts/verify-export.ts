@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { openStudio } from './browser'
 const manifest=JSON.parse(await readFile('output/export-manifest.json','utf8'))
-const session=await openStudio()
+const session=await openStudio('?export=1&lesson=intro')
 try{
  const recording=await session.page.evaluate(()=>JSON.stringify(window.studio!.recording))
  assert.equal(createHash('sha256').update(recording).digest('hex'),manifest.recordingSha256)

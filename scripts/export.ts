@@ -6,7 +6,7 @@ import { openStudio } from './browser'
 
 const fps=30, frames=5400, output='output/calculus_intro_180s.mp4'
 await mkdir('output/inspection',{recursive:true})
-const session=await openStudio(process.argv.includes('--regenerate')?'?export=1&generate=1':'?export=1')
+const session=await openStudio(process.argv.includes('--regenerate')?'?export=1&lesson=intro&generate=1':'?export=1&lesson=intro')
 const {page}=session
 const recording=await page.evaluate(()=>JSON.stringify(window.studio!.recording))
 await writeFile('output/calculus_intro_180s.recording.json',recording)

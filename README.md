@@ -1,113 +1,75 @@
-# Native Stroke Studio
+# tldraw-to-video 2.0
 
-A React/TypeScript recorder and deterministic animation engine built with **tldraw SDK 5.5.2**. All lesson lettering, formulas, graphs, axes and annotations are native `draw` shapes. There are no text shapes or raster drawing assets in the lesson.
+A reusable educational whiteboard engine built with the real tldraw SDK. Handwriting, diagrams and mathematical notation are native pressure-aware draw shapes; an event-sourced recorder preserves their point geometry, and deterministic replay reconstructs the document at each offline video frame.
 
-## Setup and usage
+The flagship Indonesian lesson, **Kalkulus: Matematika untuk Memahami Perubahan**, follows motion → limits → derivatives → accumulation → the fundamental theorem → a final challenge. Eight chapters, a moving car, model-driven secants/tangents, explicit algebra, refined Riemann rectangles and an intentional thinking pause. Narration uses actual Edge TTS audio, voice `id-ID-GadisNeural`, with measured clip durations. Generated handwriting is clearly labeled as procedural geometry, never human-recorded penmanship.
 
-Requires Node 22+, Playwright Chromium and FFmpeg/FFprobe on PATH.
+## Delivered artifacts
+
+- [Silent flagship MP4](output/calculus_flagship_silent.mp4)
+- [Narrated flagship MP4](output/calculus_flagship_narrated.mp4)
+- [Semantic lesson](examples/calculus-flagship.lesson.json)
+- [Aligned narration lesson](public/flagship.lesson.json)
+- [Native event recording](public/flagship.recording.json)
+- [Original 180-second lesson](output/calculus_intro_180s.mp4)
+- [2.0 verification report](docs/VERIFICATION_2.md)
+
+## Run
+
+Node 22+, Python 3.10+ only for optional TTS, FFmpeg/FFprobe, Chromium:
 
 ```sh
 npm ci
-npx playwright install --with-deps chromium
+npx playwright install chromium
 npm run dev
 ```
 
-Open `http://localhost:5173`. Play/Pause, Restart, playback speed, timeline scrubbing and chapter buttons control the supplied lesson. Playback is read-only; navigation remains available. The viewer fits the original recording viewport to its canvas.
+The app opens the flagship lesson by default. `?lesson=intro` opens the original. Play/pause, restart, speed selection, scrubbing and chapter seeking reconstruct native documents. Record a whiteboard to capture real editor strokes, erase operations, transformations, camera and undo/redo. Save/import JSON, import semantic lesson definitions or pinned-SDK editor snapshots, inspect native point/pressure data, and edit timing through trim, retime and chapter reorder controls. Edited projects remain previewable and downloadable copies.
 
-Choose **Record a whiteboard** to start a human recording. Draw, erase, transform shapes, undo/redo and navigate using the native tldraw tools. **Stop & replay** ends recording. **Save recording** downloads JSON; **Import JSON** restores it. The MP4 button downloads the delivered video.
+A licensed deployment may set `VITE_TLDRAW_LICENSE_KEY` in `.env.local`; no key is required to inspect this development workspace. Assets and their SDK license are self-hosted. Keep credentials out of recordings and lesson definitions.
 
-Assets are served locally from `public/tldraw`. No external font or asset CDN is needed. Set `VITE_TLDRAW_LICENSE_KEY` for licensed production deployment under [tldraw's SDK license](https://tldraw.dev/community/license). The default editor license notice is retained without a key. Video rendering uses the supported drawing-only SVG export API.
-
-## Export and verification
+## Rebuild the flagship
 
 ```sh
-npm run export                  # render the supplied recording
-npm run export -- --regenerate  # author a fresh lesson through the native SDK first
 npm test
-npm run test:browser
-npm run test:controls
-npm run verify:media
-npm run inspect:media
-npx tsx scripts/verify-export.ts
 npm run build
+# Optional Indonesian narration:
+python3 -m venv .venv
+.venv/bin/pip install edge-tts==7.2.8
+TTS_PYTHON=.venv/bin/python npm run tts
+npm run lesson:compile
+npm run export:flagship
+npm run verify:flagship
 ```
 
-Export starts Vite if needed; `STUDIO_URL` can select a running development server. Browser tests use source imports and require Vite development mode. The optional decoded-frame inspection also needs Python 3 and Pillow. Build output is in `dist`. Export copies the video into `public/output`; rebuild afterward to include the latest MP4 in the built app. A temporary MP4 is renamed only after successful encoding.
+Silent export is independent of TTS. The export pipeline evaluates explicit frame times at 30 FPS, reconstructs native tldraw geometry, exports SVG with the SDK, rasterizes in Chromium and encodes H.264 at 1920×1080. Completed ten-second chunks are hash-verified and resumable. No real-time screen recording, controls, text reveal masks or video-generation substitute is used.
 
-Deliverables:
-
-- `output/calculus_intro_180s.mp4`: 1920×1080, H.264/yuv420p, 30 FPS, 5,400 frames, 180 seconds, no audio.
-- `output/calculus_intro_180s.recording.json`: native recording with initial document/schema and session.
-- `output/export-manifest.json`: recording hash, sampled frame hashes and geometry counts.
-- `output/media-validation.json`, `output/browser-validation.json`: machine verification results.
-- `output/inspection`: native frame exports and an application screenshot.
-- `VERIFICATION.md`: validation findings and visual inspection.
-
-## Architecture
-
-`src/engine/recorder.ts` uses supported store side effects: after-create, after-change and after-delete handlers for document records, camera changes and page changes. Hooks run after committed atomic operations. They preserve separate transactions occurring in one animation frame, unlike RAF-batched store listeners. Recording does not poll the canvas or infer geometry from screenshots.
-
-A monotonic clock measures elapsed milliseconds; a sequence number orders equal-time operations. Events retain full native records, prior records when applicable, tool, source (`user`/`remote`) and origin (`human`/`generated`). Draw path strings are copied exactly, including dimensions, pressure, styling, transforms, parent IDs and shape indices. Draw completion and eraser deletion are explicit event kinds. Undo/redo records the resulting document changes instead of replaying commands against another undo stack.
-
-`src/engine/state.ts` folds events into checkpoint maps at five-second boundaries. Maps share immutable record payloads rather than duplicating every stroke. `src/engine/replay.ts` restores checkpoints on backward/large seeks, then consumes events through the requested time. Forward playback processes every intervening event. Restores use remote store transactions and ignore local history. Camera keys use binary search, hold/linear/smoothstep pan and logarithmic zoom interpolation. RAF schedules presentation; explicit time defines the document state.
-
-`src/lesson/paths.ts` decodes single-line Hershey vector glyphs and custom mathematical symbols into pen-down paths. Each path becomes a native draw shape. Arc-length reveal controls writing, with pen-up pauses between strokes. Superscripts and stacked fractions are geometry. `src/lesson/calculus.ts` schedules native `createShape`, `updateShape` and deletion operations at up to 60 point samples per second. A virtual clock feeds the same recorder as human input. Every lesson event and shape declares generated provenance; synthetic pressure and handwriting are never claimed to be human capture.
-
-The secant updates the same draw record and transforms Q. Erasing removes actual shape records in spatial order. Rectangles are refined, removed, and replaced with stroke hatching to reveal accumulation. Camera direction moves continuously across adjacent regions on one infinite page, with a small zoom during the secant explanation.
-
-`window.studio` exposes `editor`, `recording`, `replay`, `seek`, `load` and `renderFrame` for automation. Export samples time `i * 1000 / 30` for `i=0…5399`, reconstructs the native document, and calls `Editor.getSvgString` using camera-derived page bounds. Chromium rasterizes that SDK SVG at 1920×1080. JPEG frames stream with backpressure to FFmpeg/libx264. Unchanged states may reuse their encoded frame after processing all events. This caches stationary frames, not drawing geometry. Exactly one frame is supplied for each scheduled timestamp. No real-time screen recorder or audio stream is used.
-
-## Recording format v1
-
-See `recording.schema.json` for JSON Schema and `src/engine/schema.ts` for the TypeScript schema and validating reader.
-
-```ts
-{
-  format: 'tldraw-stroke-recording', version: 1, sdkVersion: '5.5.2',
-  durationMs: 180000, viewport: { width: 1920, height: 1080 },
-  initial: { document: /* native store and schema */, session: /* native session */ },
-  initialCamera: { x: 0, y: 0, z: 1.2 },
-  metadata: { origin: 'generated', language: 'id', title: '…', chapters: [] },
-  events: [
-    { seq: 0, t: 0, kind: 'create', origin: 'generated', source: 'user',
-      tool: 'draw', id: 'shape:…', record: /* complete native record */ },
-    // update, complete, erase, delete, camera, page
-  ]
-}
+```sh
+npm run test:browser       # legacy native pen/erase/undo/seek equivalence
+npm run test:controls      # browser transport/import/record controls
+npm run test:v2:browser    # flagship and reusable compiler in Chromium
+npm run test:editing       # inspector, trim, retime, reuse and snapshot import
+npm run export            # original exactly 180-second silent lesson
+npm run verify:media      # original media verification
 ```
 
-The reader rejects unsupported versions/SDK versions, invalid times/order and missing required fields. tldraw validates records entering its store. A future SDK upgrade must explicitly migrate event payloads as well as initial snapshots; unknown event schemas are never silently reinterpreted.
+## Architecture and authoring
 
-## SDK limits and adapters
+- [Audit and SDK research](docs/AUDIT.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Lesson authoring](docs/LESSON_AUTHORING.md)
+- [Recording/project format](docs/RECORDING_FORMAT.md)
+- [Export and resume](docs/EXPORT.md)
+- [TTS configuration and alignment](docs/TTS.md)
+- [Algebra example](examples/algebra.lesson.json)
+- [Legacy implementation reference](docs/LEGACY.md)
 
-- **Eraser:** SDK 5.5.2 deletes whole shapes; its native eraser does not provide partial path erasure. Human erasing is recorded from the actual tool. The generated sweep schedules equivalent whole-stroke deletions through `deleteShapes` while the eraser is active. Replay applies those records, without white overlays or opacity masks. Temporary cursor, hover and selection previews are UI state and are excluded from drawing-only video.
-- **Precision:** native paths use a Float32 starting point and Float16 deltas. Existing path strings are preserved exactly; generated paths have the SDK's compression precision. Input coalesced inside a native transaction or by the browser cannot be recovered. Every committed record state is captured.
-- **Navigation:** there are no canvas bounds or pan constraints. Zoom retains the SDK's standard finite range. Extremely wide min/max ratios cause the native hatch-pattern LOD generator to allocate oversized textures. Human camera positions between observed samples are interpolated estimates.
-- **Determinism:** identical recording/time produces identical document and camera state. Pixels are verified in the same Chromium/SDK environment; rasterization can vary across operating systems. Vector pen motion is programmatic handwriting.
-- **Scope:** checkpoints are rebuilt on import and held in memory. This is a local recorder, without an audio or collaboration backend. Stopping during an unfinished stroke preserves its unfinished native state.
+Core modules: `engine` (recorder/replay), `handwriting` (seeded ordered centerlines and structured math layout), `math` (analytic models and projected geometry), `story` (typed content/compiler/camera), `audio` (duration validation and time warp), `editing` (materialized clips and document diffs). Rendering has no calculus-specific logic. Strict TypeScript, a pinned lockfile, Node tests and real-browser CI checks support reproducibility.
 
-## Lesson
+## Scope and limitations
 
-| Time | Visual explanation |
-|---|---|
-| 0–20s | Calculus studies change and accumulation |
-| 20–62s | Coordinate axes, parabola, secant approaching tangent, slope 2 at x=1 |
-| 62–98s | Difference quotient, expansion, cancellation, limit, derivative 2x |
-| 98–115s | Derivative of x²+3x and value 7 at x=2 |
-| 115–121s | Erasing the current work |
-| 121–158s | Accumulation under y=x, refined rectangles, area from 0 to 2 |
-| 158–173s | Definite integral equals 2; triangle-area check |
-| 173–180s | Turunan → laju sesaat; integral → akumulasi |
+Native erasure removes whole draw shapes; partial-path erasure is not supported by the pinned SDK and is not simulated with white paint. Math models currently support polynomials and sine functions, rather than arbitrary symbolic expressions. Math layout is a typed tree, not a complete TeX parser. Raw `.tldr` wrappers need a separate importer; pinned editor snapshots are supported. Imported static geometry cannot recover pen timing that was never recorded. Word timestamps are validated for duration/order but are advisory; segment audio durations drive synchronization. TTS availability depends on Microsoft’s external service. Partial narration cut by a trim is omitted until regenerated.
 
-## Research and attribution
+## Credits
 
-Checked against official documentation and the installed SDK source before implementation:
-
-- [Draw shape format and rendering](https://tldraw.dev/sdk-features/draw-shape)
-- [Store records and snapshots](https://tldraw.dev/sdk-features/store)
-- [Supported side effects](https://tldraw.dev/sdk-features/side-effects)
-- [Camera coordinates and APIs](https://tldraw.dev/sdk-features/camera)
-- [Native eraser behavior](https://tldraw.dev/blog/erasing)
-- [Editor API and SVG export](https://tldraw.dev/reference/editor/Editor)
-
-The `futural` glyph data comes from [Hershey Text](https://github.com/techninja/hersheytextjs); see `src/lesson/HERSHEY-LICENSE.txt`. tldraw and its assets retain their SDK license; `public/tldraw/LICENSE.md` accompanies the copied assets.
+The retained Hershey single-line data comes from [Hershey Text](https://github.com/techninja/hersheytextjs), under its [MIT license](src/lesson/HERSHEY-LICENSE.txt). Custom mathematical centerline glyphs are authored in this repository. tldraw and self-hosted assets retain their [SDK license](public/tldraw/LICENSE.md). Historical content is based on [MacTutor’s calculus history](https://mathshistory.st-andrews.ac.uk/HistTopics/The_rise_of_calculus/), acknowledging earlier work alongside Newton and Leibniz.

@@ -1,6 +1,6 @@
 {
   "name": "native-stroke-studio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,7 +11,13 @@
     "export": "tsx scripts/export.ts",
     "verify:media": "tsx scripts/verify-media.ts",
     "inspect:media": "tsx scripts/inspect-media.ts",
-    "test:controls": "tsx scripts/verify-controls.ts"
+    "test:controls": "tsx scripts/verify-controls.ts",
+    "lesson:compile": "tsx scripts/compile-flagship.ts",
+    "tts": "tsx scripts/narration.ts",
+    "export:flagship": "tsx scripts/export-flagship.ts",
+    "test:v2:browser": "tsx scripts/verify-v2-browser.ts",
+    "verify:flagship": "tsx scripts/verify-flagship-media.ts",
+    "test:editing": "tsx scripts/verify-editing-browser.ts"
   },
   "dependencies": {
     "@tldraw/assets": "5.5.2",

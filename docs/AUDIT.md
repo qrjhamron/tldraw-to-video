@@ -1,6 +1,6 @@
 # Repository audit — 2.0
 
-Inspected baseline commit `0753dde` on 2026-10-11. The working tree was clean and the remote matches this history. Baseline: all eight Node tests passed; strict TypeScript/Vite production build passed. Chromium and FFmpeg are installed. No SDK upgrade is necessary to deliver the new authoring layer: retain lockfile-pinned tldraw 5.5.2.
+Inspected baseline commit `0753dde` on 2026-10-11. The working tree was clean and the remote matches this history. Baseline: all eight Node tests passed; strict TypeScript/Vite production build passed. Chromium and FFmpeg are installed. The npm registry also reports 5.5.2 as the latest version at audit time. No SDK upgrade is necessary to deliver the new authoring layer: retain lockfile-pinned tldraw 5.5.2.
 
 ## Architecture to preserve
 

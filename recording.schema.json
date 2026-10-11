@@ -3,35 +3,287 @@
   "$id": "urn:native-stroke-studio:recording:v1",
   "title": "Native tldraw stroke recording v1",
   "type": "object",
-  "required": ["format", "version", "sdkVersion", "durationMs", "viewport", "initial", "initialCamera", "metadata", "events"],
+  "required": [
+    "format",
+    "version",
+    "sdkVersion",
+    "durationMs",
+    "viewport",
+    "initial",
+    "initialCamera",
+    "metadata",
+    "events"
+  ],
   "properties": {
-    "format": {"const": "tldraw-stroke-recording"},
-    "version": {"const": 1},
-    "sdkVersion": {"const": "5.5.2"},
-    "durationMs": {"type": "number", "minimum": 0},
-    "viewport": {"type": "object", "required": ["width", "height"], "properties": {"width": {"type": "number", "exclusiveMinimum": 0}, "height": {"type": "number", "exclusiveMinimum": 0}}},
-    "initial": {"type": "object", "required": ["document", "session"], "description": "SDK TLEditorSnapshot. Native document schema is included and validated by tldraw."},
-    "initialCamera": {"$ref": "#/$defs/camera"},
-    "metadata": {"type": "object", "required": ["title", "language", "origin"], "properties": {"title": {"type": "string"}, "language": {"type": "string"}, "origin": {"enum": ["human", "generated"]}}},
-    "events": {"type": "array", "items": {"$ref": "#/$defs/event"}, "description": "Ordered by t then seq; seq is the zero-based array index. Runtime reader validates these cross-item constraints."}
+    "format": {
+      "const": "tldraw-stroke-recording"
+    },
+    "version": {
+      "const": 1
+    },
+    "sdkVersion": {
+      "const": "5.5.2"
+    },
+    "durationMs": {
+      "type": "number",
+      "minimum": 0
+    },
+    "viewport": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "initial": {
+      "type": "object",
+      "required": [
+        "document",
+        "session"
+      ],
+      "description": "SDK TLEditorSnapshot. Native document schema is included and validated by tldraw."
+    },
+    "initialCamera": {
+      "$ref": "#/$defs/camera"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "title",
+        "language",
+        "origin"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "human",
+            "generated",
+            "unknown"
+          ]
+        },
+        "lessonId": {
+          "type": "string"
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "narration": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "t",
+              "durationMs",
+              "text"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "t": {
+                "type": "number",
+                "minimum": 0
+              },
+              "durationMs": {
+                "type": "number",
+                "minimum": 0
+              },
+              "text": {
+                "type": "string"
+              },
+              "visual": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "theme": {
+          "enum": [
+            "default",
+            "teaching"
+          ]
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      },
+      "description": "Ordered by t then seq; seq is the zero-based array index. Runtime reader validates these cross-item constraints."
+    }
   },
   "$defs": {
-    "camera": {"type": "object", "required": ["x", "y", "z"], "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "z": {"type": "number", "exclusiveMinimum": 0}}},
-    "record": {"type": "object", "required": ["id", "typeName"], "description": "Full native TLRecord, validated against the installed SDK schema.", "properties": {"id": {"type": "string"}, "typeName": {"type": "string"}}},
-    "event": {
-      "type": "object", "required": ["seq", "t", "kind", "origin", "source", "tool", "id"],
+    "camera": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
       "properties": {
-        "seq": {"type": "integer", "minimum": 0}, "t": {"type": "number", "minimum": 0},
-        "kind": {"enum": ["create", "update", "complete", "erase", "delete", "camera", "page"]},
-        "origin": {"enum": ["human", "generated"]}, "source": {"enum": ["user", "remote"]},
-        "tool": {"type": "string"}, "id": {"type": "string"}, "pageId": {"type": "string"},
-        "record": {"$ref": "#/$defs/record"}, "before": {"$ref": "#/$defs/record"},
-        "camera": {"$ref": "#/$defs/camera"}, "easing": {"enum": ["hold", "linear", "smooth"]}
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "record": {
+      "type": "object",
+      "required": [
+        "id",
+        "typeName"
+      ],
+      "description": "Full native TLRecord, validated against the installed SDK schema.",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "typeName": {
+          "type": "string"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "seq",
+        "t",
+        "kind",
+        "origin",
+        "source",
+        "tool",
+        "id"
+      ],
+      "properties": {
+        "seq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "t": {
+          "type": "number",
+          "minimum": 0
+        },
+        "kind": {
+          "enum": [
+            "create",
+            "update",
+            "complete",
+            "erase",
+            "delete",
+            "camera",
+            "page"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "human",
+            "generated",
+            "unknown"
+          ]
+        },
+        "source": {
+          "enum": [
+            "user",
+            "remote"
+          ]
+        },
+        "tool": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "pageId": {
+          "type": "string"
+        },
+        "record": {
+          "$ref": "#/$defs/record"
+        },
+        "before": {
+          "$ref": "#/$defs/record"
+        },
+        "camera": {
+          "$ref": "#/$defs/camera"
+        },
+        "easing": {
+          "enum": [
+            "hold",
+            "linear",
+            "smooth"
+          ]
+        }
       },
       "allOf": [
-        {"if": {"properties": {"kind": {"enum": ["create", "update", "complete"]}}}, "then": {"required": ["record"]}},
-        {"if": {"properties": {"kind": {"const": "camera"}}}, "then": {"required": ["camera"]}},
-        {"if": {"properties": {"kind": {"const": "page"}}}, "then": {"required": ["pageId"]}}
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "create",
+                  "update",
+                  "complete"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "record"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "camera"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "camera"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "page"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "pageId"
+            ]
+          }
+        }
       ]
     }
   }

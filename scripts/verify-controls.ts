@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { writeFile } from 'node:fs/promises'
 import { openStudio } from './browser'
-const session=await openStudio('')
+const session=await openStudio('?lesson=intro')
 const {page}=session
 try{
  const timeline=page.getByRole('slider',{name:'Timeline'})

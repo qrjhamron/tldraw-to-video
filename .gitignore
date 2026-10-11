@@ -4,3 +4,9 @@ output/*.partial.mp4
 
 .env
 .env.local
+output/render-cache/
+output/audio/cache/
+output/audio/*.wav
+.venv/
+output/render-cache-*/
+output/render-profile.json
