@@ -24,6 +24,26 @@ import {
   listAssetsTool,
   inspectAssetTool,
 } from "../src/mcp/tools.js";
+import {
+  createMathExpression,
+  transformMathExpression,
+  expressionMathExpr,
+  validateMathSteps,
+} from "../src/mcp/math-tools.js";
+import {
+  animateMathGraph,
+  animateGeometry,
+  setSemanticColors,
+  planLessonScenes,
+  directSceneTool,
+  autoLayoutScene,
+  validateSceneLayout,
+  reframeCamera,
+  inspectTimeline,
+  runVisualQa,
+  renderLessonPreview,
+  alignNarrationTool,
+} from "../src/mcp/director-tools.js";
 
 const server = new McpServer({
   name: "tldraw-visual-studio",
@@ -128,6 +148,159 @@ server.tool("inspect_asset", "Inspect one asset by id or file", { id: z.string()
   const r = await inspectAssetTool(args.id);
   return { content: [{ type: "text", text: JSON.stringify(r) }] };
 });
+
+// --- Math engine tools ---
+
+server.tool(
+  "create_math_expression",
+  "Parse/validate a math expression into the semantic AST with stable ids",
+  { source: z.string() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(createMathExpression(args)) }] }),
+);
+
+server.tool(
+  "transform_math_expression",
+  "Apply a verified AST transform and numerically verify the step",
+  {
+    source: z.string(),
+    op: z.enum(["expand", "factor-common", "factor-diffsq", "factor-trinomial", "simplify", "substitute", "balance", "solve-linear", "complete-square", "cancel"]),
+    arg: z.string().optional(),
+    operand: z.string().optional(),
+    verify: z.boolean().optional(),
+  },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(transformMathExpression(args)) }] }),
+);
+
+server.tool(
+  "validate_math_steps",
+  "Verify a rewrite chain; reports equivalent/conditional/implication/approximation/heuristic/invalid",
+  { steps: z.array(z.object({ source: z.string(), rule: z.string().optional(), conditions: z.array(z.string()).optional() })) },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(validateMathSteps(args)) }] }),
+);
+
+server.tool(
+  "math_expression_layout",
+  "Lower a parsed expression to MathExpr layout JSON",
+  { source: z.string() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(expressionMathExpr(args)) }] }),
+);
+
+// --- Director tools ---
+
+const sceneSchema = z.any().describe("ScenePlan JSON");
+
+server.tool(
+  "animate_math_graph",
+  "Append axes/curves/morph/secant/tangent/shade/riemann/points graph actions",
+  {
+    lesson: lessonSchema, chapterId: z.string().optional(), at: z.number(), duration: z.number().optional(),
+    graph: z.any().describe("Graph frame { x,y,width,height,xMin,xMax,yMin,yMax }"),
+    axes: z.boolean().optional(), curves: z.array(z.any()).optional(), morph: z.any().optional(),
+    secant: z.any().optional(), tangent: z.any().optional(), shade: z.any().optional(),
+    riemann: z.any().optional(), points: z.array(z.any()).optional(),
+  },
+  async (args) => {
+    const { lesson, ...params } = args as { lesson: unknown } & import("../src/mcp/director-tools.js").GraphAnimationInput;
+    return { content: [{ type: "text", text: JSON.stringify(animateMathGraph(lesson, params)) }] };
+  },
+);
+
+server.tool(
+  "animate_geometry",
+  "Append diagram construction steps (rect/ellipse/areaModel/fractionBar/triangle/...)",
+  { lesson: lessonSchema, chapterId: z.string().optional(), at: z.number(), duration: z.number().optional(), shapes: z.array(z.any()) },
+  async (args) => {
+    const { lesson, ...params } = args as { lesson: unknown; chapterId?: string; at: number; duration?: number; shapes: never[] };
+    return { content: [{ type: "text", text: JSON.stringify(animateGeometry(lesson, params)) }] };
+  },
+);
+
+server.tool(
+  "set_semantic_colors",
+  "Split a write action into per-symbol painted MathExpr colors",
+  {
+    lesson: lessonSchema, chapterId: z.string().optional(), actionId: z.string(),
+    colors: z.record(z.string(), z.enum(["black", "blue", "red", "green", "orange", "grey"])),
+    color: z.enum(["black", "blue", "red", "green", "orange", "grey"]).optional(),
+  },
+  async (args) => {
+    const { lesson, ...params } = args as { lesson: unknown } & Parameters<typeof setSemanticColors>[1];
+    return { content: [{ type: "text", text: JSON.stringify(setSemanticColors(lesson, params)) }] };
+  },
+);
+
+server.tool(
+  "plan_lesson_scenes",
+  "Validate/normalize a lesson plan (checks ids, tricks, scene refs, budgets)",
+  { plan: z.any() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(planLessonScenes(args)) }] }),
+);
+
+server.tool(
+  "direct_scene",
+  "Lower a ScenePlan into timed lesson actions with budget scaling and contrast QA",
+  { scene: sceneSchema, seed: z.number().optional() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(directSceneTool(args)) }] }),
+);
+
+server.tool(
+  "auto_layout_scene",
+  "Direct a scene and report overlaps/out-of-frame regions plus per-beat frames",
+  { scene: sceneSchema, seed: z.number().optional() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(autoLayoutScene(args)) }] }),
+);
+
+server.tool(
+  "validate_scene_layout",
+  "Static QA: overlap/clipping/contrast/reading-order for a compiled chapter lesson",
+  { lesson: lessonSchema, chapterId: z.string().optional() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(validateSceneLayout(args)) }] }),
+);
+
+server.tool(
+  "reframe_camera",
+  "Append a context-preserving camera frame over bounds or measured actions",
+  {
+    lesson: lessonSchema, chapterId: z.string().optional(), at: z.number(), duration: z.number().optional(),
+    bounds: z.object({ x: z.number(), y: z.number(), w: z.number(), h: z.number() }).optional(),
+    actionIds: z.array(z.string()).optional(), margin: z.number().optional(),
+  },
+  async (args) => {
+    const { lesson, ...params } = args as { lesson: unknown } & Parameters<typeof reframeCamera>[1];
+    return { content: [{ type: "text", text: JSON.stringify(reframeCamera(lesson, params)) }] };
+  },
+);
+
+server.tool(
+  "align_narration",
+  "Synthesize Indonesian narration (measured durations) and warp visuals to fit",
+  { lesson: lessonSchema, outputDir: z.string().optional(), voice: z.string().optional(), rate: z.string().optional(), applySpeechRules: z.boolean().optional(), regenerate: z.boolean().optional() },
+  async (args) => {
+    const { lesson, ...params } = args as { lesson: unknown } & Omit<Parameters<typeof alignNarrationTool>[0], "lesson">;
+    return { content: [{ type: "text", text: JSON.stringify(await alignNarrationTool({ lesson, ...params })) }] };
+  },
+);
+
+server.tool(
+  "inspect_timeline",
+  "Summarize a lesson timeline: actions, narrations, cues, measured vs estimated",
+  { lesson: lessonSchema },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(inspectTimeline(args.lesson)) }] }),
+);
+
+server.tool(
+  "run_visual_qa",
+  "Static visual QA: layout issues, narration coverage, camera coverage",
+  { lesson: lessonSchema, chapterId: z.string().optional(), minContrast: z.number().optional() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(runVisualQa(args)) }] }),
+);
+
+server.tool(
+  "render_lesson_preview",
+  "Render 1-12 preview frames (ms timestamps) via the real headless studio",
+  { lesson: lessonSchema, timesMs: z.array(z.number()).min(1).max(12), outDir: z.string().optional(), timeoutMs: z.number().optional() },
+  async (args) => ({ content: [{ type: "text", text: JSON.stringify(await renderLessonPreview(args)) }] }),
+);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);

@@ -448,6 +448,143 @@ export function compileLesson(editor: Editor, input: Lesson): Compilation {
         case "draw":
           paths = a.strokes ?? a.points.map((p) => path(p, a.color));
           break;
+        case "diagram": {
+          const d = a.diagram;
+          switch (d.kind) {
+            case "rect":
+              paths = geometry.rect(d.x, d.y, d.w, d.h, d.color);
+              break;
+            case "ellipse":
+              paths = geometry.ellipse(d.cx, d.cy, d.rx, d.ry, d.color);
+              break;
+            case "circle":
+              paths = geometry.ellipse(d.cx, d.cy, d.r, d.r, d.color ?? "red");
+              break;
+            case "arrow":
+              paths = geometry.vector(
+                d.from.x,
+                d.from.y,
+                d.to.x - d.from.x,
+                d.to.y - d.from.y,
+                d.color,
+              );
+              break;
+            case "areaModel":
+              paths = geometry.areaModel(d.x, d.y, d.w, d.h, d.rows, d.cols, d.color);
+              break;
+            case "fractionBar":
+              paths = geometry.fractionBar(d.x, d.y, d.w, d.h, d.filled, d.total, d.color);
+              break;
+            case "triangle":
+              paths = geometry.triangle(d.a, d.b, d.c, d.color);
+              break;
+            case "rightTriangle":
+              paths = geometry.rightTriangle(d.x, d.y, d.legX, d.legY, d.color);
+              break;
+            case "projection":
+              paths = geometry.projection(d.x, d.y, d.dx, d.dy, d.ux, d.uy, d.color);
+              break;
+            case "vector":
+              paths = geometry.vector(d.x, d.y, d.dx, d.dy, d.color);
+              break;
+          }
+          break;
+        }
+        case "animateCurve": {
+          // Parameter-driven morph between two models of the same kind.
+          const lerpModel = (f: number): import("../math/models").FunctionModel => {
+            const L = (x: number, y: number) => x + (y - x) * f;
+            const from = a.from,
+              to = a.to;
+            if (from.kind === "polynomial" && to.kind === "polynomial")
+              return {
+                kind: "polynomial",
+                coefficients: from.coefficients.map((c, i) => L(c, to.coefficients[i])),
+              };
+            if (from.kind === "sine" && to.kind === "sine")
+              return {
+                kind: "sine",
+                amplitude: L(from.amplitude, to.amplitude),
+                frequency: L(from.frequency, to.frequency),
+                offset: L(from.offset ?? 0, to.offset ?? 0),
+              };
+            if (from.kind === "exp" && to.kind === "exp")
+              return {
+                kind: "exp",
+                base: L(from.base, to.base),
+                coefficient: L(from.coefficient ?? 1, to.coefficient ?? 1),
+              };
+            if (from.kind === "log" && to.kind === "log")
+              return {
+                kind: "log",
+                base: L(from.base, to.base),
+                coefficient: L(from.coefficient ?? 1, to.coefficient ?? 1),
+              };
+            throw Error("animateCurve needs matching model kinds");
+          };
+          const color = a.color ?? "blue";
+          const first = geometry.functionPlot(a.graph, lerpModel(0), color);
+          const ids = strokePaths(first.length ? first : [path([[0, 0], [1, 1]], color)], t, 800, group, ox, oy);
+          let dotId: import("tldraw").TLShapeId | undefined;
+          if (a.pointX !== undefined) {
+            const y0 = evaluate(lerpModel(0), a.pointX);
+            if (Number.isFinite(y0))
+              dotId = strokePaths([geometry.point(a.graph, a.pointX, y0, "red")], t, 800, group, ox, oy)[0];
+          }
+          const steps = Math.ceil((a.duration - 900) / 50);
+          for (let i = 0; i <= steps; i++) {
+            const f = penProgress(i / steps);
+            at(t + 900 + ((a.duration - 900) * i) / steps, () => {
+              const model = lerpModel(f);
+              const curves = geometry.functionPlot(a.graph, model, color);
+              const target = ids[0];
+              const pts = curves.length
+                ? curves[0].points
+                : [{ x: 0, y: 0, z: 0.5 }];
+              const anchor = pts[0];
+              editor.updateShape<TLDrawShape>({
+                id: target,
+                type: "draw",
+                x: ox + anchor.x,
+                y: oy + anchor.y,
+                props: {
+                  segments: [
+                    {
+                      type: "free",
+                      path: b64Vecs.encodePoints(
+                        pts.map((v) => ({ ...v, x: v.x - anchor.x, y: v.y - anchor.y })),
+                      ),
+                    },
+                  ],
+                },
+              });
+              if (a.pointX !== undefined && curves.length && dotId) {
+                const y = evaluate(model, a.pointX);
+                if (Number.isFinite(y)) {
+                  const dot = geometry.point(a.graph, a.pointX, y, "red");
+                  const d0 = dot.points[0];
+                  editor.updateShape<TLDrawShape>({
+                    id: dotId,
+                    type: "draw",
+                    x: ox + d0.x,
+                    y: oy + d0.y,
+                    props: {
+                      segments: [
+                        {
+                          type: "free",
+                          path: b64Vecs.encodePoints(
+                            dot.points.map((v) => ({ ...v, x: v.x - d0.x, y: v.y - d0.y })),
+                          ),
+                        },
+                      ],
+                    },
+                  });
+                }
+              }
+            });
+          }
+          break;
+        }
         case "moveObject": {
           const ids = strokePaths(
             a.points.map((p) => path(p, a.color)),

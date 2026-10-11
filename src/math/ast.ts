@@ -396,7 +396,7 @@ function wrap(e: Expr, parentKind: string, self: (x: Expr) => MathExpr): MathExp
 /** Lower an AST to layout-ready MathExpr, preserving per-node colors. */
 export function toMathExpr(e: Expr): MathExpr {
   const tint = (m: MathExpr, color: Color | undefined): MathExpr =>
-    color ? tint(m, color) : m;
+    color ? paint(m, color) : m;
   const self = (x: Expr): MathExpr => {
     switch (x.kind) {
       case "num":

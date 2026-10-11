@@ -191,3 +191,22 @@ test("AST renders to multi-color layout expressions", () => {
   assert.equal(typeof m, "object");
   assert.ok(JSON.stringify(m).includes("="));
 });
+
+test("toMathExpr applies painted colors without recursing", () => {
+  const s = createScope();
+  const ast = parse("x + h = 3", s);
+  const paintSym = (e: (typeof ast)): void => {
+    if (e.kind === "sym" && e.name === "x") (e as { color?: string }).color = "blue";
+    for (const k of ["terms", "factors"] as const) {
+      const kids = (e as unknown as Record<string, unknown>)[k];
+      if (Array.isArray(kids)) kids.forEach((c) => paintSym(c as typeof ast));
+    }
+    for (const k of ["left", "right", "arg", "num", "den", "base", "exp"] as const) {
+      const c = (e as unknown as Record<string, unknown>)[k];
+      if (c && typeof c === "object") paintSym(c as typeof ast);
+    }
+  };
+  paintSym(ast);
+  const m = toMathExpr(ast);
+  assert.ok(JSON.stringify(m).includes("blue"));
+});
