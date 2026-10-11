@@ -37,7 +37,10 @@ const fps = 30,
 if (!output.endsWith(".mp4")) throw Error("Output must be an MP4 path");
 await mkdir(dirname(output), { recursive: true });
 await mkdir(dir, { recursive: true });
-await mkdir("output/flagship-inspection", { recursive: true });
+const inspectionDir = custom
+  ? output.replace(/\.mp4$/, ".inspection")
+  : "output/flagship-inspection";
+await mkdir(inspectionDir, { recursive: true });
 const session = await openStudio("?export=1&offline=1"),
   { page } = session;
 if (inputRecording) {
@@ -191,7 +194,7 @@ try {
           buffer = Buffer.from(jpeg.split(",")[1], "base64");
         if (!encoder.stdin.write(buffer)) await once(encoder.stdin, "drain");
         if (samples.includes(i)) {
-          await writeFile(`output/flagship-inspection/frame-${i}.jpg`, buffer);
+          await writeFile(`${inspectionDir}/frame-${i}.jpg`, buffer);
           const native = await page.evaluate(() => {
             const s = window.studio!;
             return s.editor

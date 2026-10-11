@@ -10,3 +10,5 @@ output/audio/*.wav
 .venv/
 output/render-cache-*/
 output/render-profile.json
+output/render-progress.log
+output/render-exit-code.txt

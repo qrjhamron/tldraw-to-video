@@ -1,8 +1,10 @@
 import { execFileSync } from "node:child_process";
 import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import assert from "node:assert/strict";
-import { b64Vecs } from "tldraw";
+import { createHash } from "node:crypto";
+import { b64Vecs } from "@tldraw/tlschema";
 import { applyRecordEvent } from "../src/engine/state";
+const videoHashes: string[] = [];
 const manifest = JSON.parse(
     await readFile("output/flagship-export-manifest.json", "utf8"),
   ),
@@ -23,11 +25,13 @@ for (const [file, audio] of [
           "-count_frames",
           "-show_streams",
           "-show_format",
+          "-show_entries",
+          "stream=codec_name,codec_type,width,height,avg_frame_rate,nb_read_frames,pix_fmt,duration,color_space,color_transfer,color_primaries:format=duration:frame=media_type,best_effort_timestamp_time",
           "-of",
           "json",
           file,
         ],
-        { encoding: "utf8" },
+        { encoding: "utf8", maxBuffer: 16e6 },
       ),
     ),
     video = probe.streams.find(
@@ -58,31 +62,37 @@ for (const [file, audio] of [
   execFileSync("ffmpeg", ["-v", "error", "-i", file, "-f", "null", "-"], {
     stdio: ["ignore", "ignore", "pipe"],
   });
-  const timestamps = execFileSync(
-    "ffprobe",
-    [
-      "-v",
-      "error",
-      "-select_streams",
-      "v:0",
-      "-show_entries",
-      "frame=best_effort_timestamp_time",
-      "-of",
-      "csv=p=0",
-      file,
-    ],
-    { encoding: "utf8", maxBuffer: 8e6 },
-  )
-    .trim()
-    .split("\n")
-    .filter((l) => /^\d/.test(l))
-    .map((l) => Number(l.split(",")[0]));
+  const timestamps = probe.frames
+    .filter((f: { media_type: string }) => f.media_type === "video")
+    .map((f: { best_effort_timestamp_time: string }) =>
+      Number(f.best_effort_timestamp_time),
+    );
   assert.equal(timestamps.length, manifest.frames);
   for (let i = 0; i < timestamps.length; i++)
     assert.ok(Math.abs(timestamps[i] - i / 30) < 0.00001);
+  const videoBytes = execFileSync(
+    "ffmpeg",
+    [
+      "-v",
+      "error",
+      "-i",
+      file,
+      "-map",
+      "0:v:0",
+      "-c",
+      "copy",
+      "-f",
+      "h264",
+      "pipe:1",
+    ],
+    { maxBuffer: 100e6 },
+  );
+  const videoSha256 = createHash("sha256").update(videoBytes).digest("hex");
+  videoHashes.push(videoSha256);
   results.push({
     file,
     passed: true,
+    videoSha256,
     codec: video.codec_name,
     width: video.width,
     height: video.height,
@@ -93,6 +103,12 @@ for (const [file, audio] of [
     uniquePTS: timestamps.length,
   });
 }
+if (videoHashes.length === 2)
+  assert.equal(
+    videoHashes[0],
+    videoHashes[1],
+    "Narrated mux preserves the exact video stream",
+  );
 const r = JSON.parse(await readFile("public/flagship.recording.json", "utf8")),
   times = [
     3,
@@ -171,6 +187,8 @@ await writeFile(
   JSON.stringify(
     {
       results,
+      identicalSilentNarratedVideoStreams:
+        videoHashes.length === 2 && videoHashes[0] === videoHashes[1],
       progressiveNativeInk: progressive,
       decodedInspectionTimes: times,
       frameSchedule:

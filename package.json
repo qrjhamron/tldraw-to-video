@@ -23,7 +23,8 @@
     "@tldraw/assets": "5.5.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tldraw": "5.5.2"
+    "tldraw": "5.5.2",
+    "@tldraw/tlschema": "5.5.2"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

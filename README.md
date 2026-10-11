@@ -14,6 +14,8 @@ The flagship Indonesian lesson, **Kalkulus: Matematika untuk Memahami Perubahan*
 - [Original 180-second lesson](output/calculus_intro_180s.mp4)
 - [2.0 verification report](docs/VERIFICATION_2.md)
 
+Both flagship videos are 1920×1080, 30 FPS H.264, **9:37.167** long. The narrated version contains real Indonesian TTS; the silent version has no audio track. Media checks, 29 unit tests and browser suites pass; representative decoded frames were visually inspected.
+
 ## Run
 
 Node 22+, Python 3.10+ only for optional TTS, FFmpeg/FFprobe, Chromium:
