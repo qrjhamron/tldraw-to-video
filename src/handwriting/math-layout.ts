@@ -1,18 +1,32 @@
 import { path } from "../lesson/paths";
-import { textLayout, translate, type Layout, type PenStyle } from "./engine";
+import {
+  textLayout,
+  translate,
+  type Color,
+  type Layout,
+  type PenStyle,
+} from "./engine";
+export interface MathColor {
+  color?: Color;
+}
 export type MathExpr =
   | string
-  | { type: "row"; items: MathExpr[] }
-  | { type: "fraction"; numerator: MathExpr; denominator: MathExpr }
-  | { type: "script"; base: MathExpr; sup?: MathExpr; sub?: MathExpr }
-  | { type: "root"; body: MathExpr }
-  | { type: "limit"; under: MathExpr; body: MathExpr }
-  | {
+  | ({ type: "row"; items: MathExpr[] } & MathColor)
+  | ({ type: "fraction"; numerator: MathExpr; denominator: MathExpr } & MathColor)
+  | ({ type: "script"; base: MathExpr; sup?: MathExpr; sub?: MathExpr } & MathColor)
+  | ({ type: "root"; body: MathExpr } & MathColor)
+  | ({ type: "limit"; under: MathExpr; body: MathExpr } & MathColor)
+  | ({
       type: "integral" | "sum";
       lower?: MathExpr;
       upper?: MathExpr;
       body: MathExpr;
-    };
+    } & MathColor);
+/** Attach an ink color to any expression node (inherited by its subtree). */
+export const paint = (expr: MathExpr, color: Color): MathExpr =>
+  typeof expr === "string"
+    ? { type: "row", items: [expr], color }
+    : { ...expr, color };
 export const row = (...items: MathExpr[]): MathExpr => ({ type: "row", items });
 export const fraction = (
   numerator: MathExpr,
@@ -27,6 +41,8 @@ export const script = (
  * structures retain real extents, rather than centering by nominal height. */
 export function mathLayout(expr: MathExpr, style: PenStyle): Layout {
   style = { ...style, style: style.style ?? "math" };
+  // Per-node colors override the inherited ink for that subtree.
+  if (typeof expr === "object" && expr.color) style = { ...style, color: expr.color };
   const h = style.height ?? 40,
     c = style.color ?? "black",
     small = { ...style, height: h * 0.62, seed: style.seed + 31 },

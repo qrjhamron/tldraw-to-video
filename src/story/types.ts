@@ -110,6 +110,28 @@ export type Action = Timing &
         strokes?: import("../lesson/paths").InkPath[];
       }
     | {
+        type: "diagram";
+        diagram:
+          | { kind: "rect"; x: number; y: number; w: number; h: number; color?: Color }
+          | { kind: "ellipse"; cx: number; cy: number; rx: number; ry: number; color?: Color }
+          | { kind: "circle"; cx: number; cy: number; r: number; color?: Color }
+          | { kind: "arrow"; from: { x: number; y: number }; to: { x: number; y: number }; color?: Color }
+          | { kind: "areaModel"; x: number; y: number; w: number; h: number; rows: number; cols: number; color?: Color }
+          | { kind: "fractionBar"; x: number; y: number; w: number; h: number; filled: number; total: number; color?: Color }
+          | { kind: "triangle"; a: [number, number]; b: [number, number]; c: [number, number]; color?: Color }
+          | { kind: "rightTriangle"; x: number; y: number; legX: number; legY: number; color?: Color }
+          | { kind: "projection"; x: number; y: number; dx: number; dy: number; ux: number; uy: number; color?: Color }
+          | { kind: "vector"; x: number; y: number; dx: number; dy: number; color?: Color };
+      }
+    | {
+        type: "animateCurve";
+        graph: Graph;
+        from: FunctionModel;
+        to: FunctionModel;
+        color?: Color;
+        pointX?: number;
+      }
+    | {
         type: "moveObject";
         points: number[][][];
         dx: number;
@@ -159,6 +181,75 @@ export interface Lesson {
     font?: import("../handwriting/styles").HandwritingFontFamily;
   };
 }
+export function validateDiagram(
+  d: Extract<Action, { type: "diagram" }>["diagram"],
+) {
+  const fin = (vs: unknown[]) => vs.every((v) => Number.isFinite(v));
+  const colors = ["black", "blue", "red", "green", "orange", "grey"];
+  if (!d || typeof d.kind !== "string") throw Error("Invalid diagram");
+  if (d.color !== undefined && !colors.includes(d.color))
+    throw Error("Invalid diagram color");
+  switch (d.kind) {
+    case "rect":
+      if (!fin([d.x, d.y, d.w, d.h]) || d.w <= 0 || d.h <= 0)
+        throw Error("Invalid rect diagram");
+      break;
+    case "ellipse":
+      if (!fin([d.cx, d.cy, d.rx, d.ry]) || d.rx <= 0 || d.ry <= 0)
+        throw Error("Invalid ellipse diagram");
+      break;
+    case "circle":
+      if (!fin([d.cx, d.cy, d.r]) || d.r <= 0)
+        throw Error("Invalid circle diagram");
+      break;
+    case "arrow":
+      if (!fin([d.from.x, d.from.y, d.to.x, d.to.y]))
+        throw Error("Invalid arrow diagram");
+      break;
+    case "areaModel":
+      if (
+        !fin([d.x, d.y, d.w, d.h]) ||
+        d.w <= 0 ||
+        d.h <= 0 ||
+        !Number.isInteger(d.rows) ||
+        !Number.isInteger(d.cols) ||
+        d.rows < 1 ||
+        d.cols < 1
+      )
+        throw Error("Invalid areaModel diagram");
+      break;
+    case "fractionBar":
+      if (
+        !fin([d.x, d.y, d.w, d.h]) ||
+        d.w <= 0 ||
+        d.h <= 0 ||
+        !Number.isInteger(d.total) ||
+        d.total < 1 ||
+        d.filled < 0 ||
+        d.filled > d.total
+      )
+        throw Error("Invalid fractionBar diagram");
+      break;
+    case "triangle":
+      if (![d.a, d.b, d.c].every((p) => Array.isArray(p) && fin(p)))
+        throw Error("Invalid triangle diagram");
+      break;
+    case "rightTriangle":
+      if (!fin([d.x, d.y, d.legX, d.legY]) || d.legX <= 0 || d.legY <= 0)
+        throw Error("Invalid rightTriangle diagram");
+      break;
+    case "projection":
+      if (!fin([d.x, d.y, d.dx, d.dy, d.ux, d.uy]))
+        throw Error("Invalid projection diagram");
+      break;
+    case "vector":
+      if (!fin([d.x, d.y, d.dx, d.dy])) throw Error("Invalid vector diagram");
+      break;
+    default:
+      throw Error("Unsupported diagram kind");
+  }
+  return d;
+}
 export function validateLesson(lesson: Lesson) {
   if (
     lesson.format !== "stroke-lesson" ||
@@ -204,6 +295,8 @@ export function validateLesson(lesson: Lesson) {
     "shadeArea",
     "drawRiemannRectangles",
     "draw",
+    "diagram",
+    "animateCurve",
     "moveObject",
     "erase",
     "highlight",
@@ -269,6 +362,22 @@ export function validateLesson(lesson: Lesson) {
         throw Error("Secant animation needs > 900ms");
       if (a.type === "moveObject" && a.duration <= 900)
         throw Error("Object animation needs > 900ms");
+      if (a.type === "animateCurve") {
+        if (a.duration <= 900) throw Error("Curve animation needs > 900ms");
+        validateFunction(a.from);
+        validateFunction(a.to);
+        if (a.from.kind !== a.to.kind)
+          throw Error("animateCurve needs matching model kinds");
+        if (
+          a.from.kind === "polynomial" &&
+          a.to.kind === "polynomial" &&
+          a.from.coefficients.length !== a.to.coefficients.length
+        )
+          throw Error("animateCurve needs matching coefficient counts");
+        if (a.pointX !== undefined && !Number.isFinite(a.pointX))
+          throw Error("Invalid animateCurve point");
+      }
+      if (a.type === "diagram") validateDiagram(a.diagram);
       if (
         (a.type === "write" || a.type === "annotateImage") &&
         a.handwritingStyle &&

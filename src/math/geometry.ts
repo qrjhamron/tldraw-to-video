@@ -180,6 +180,156 @@ export function numberLine(
   };
   return axes(g);
 }
+/** Axis-aligned rectangle outline in canvas coordinates. */
+export function rect(
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  color: InkPath["color"] = "black",
+  weight = 1,
+): InkPath[] {
+  if (!(w > 0 && h > 0)) throw Error("rect needs positive w/h");
+  return [
+    path(
+      [
+        [x, y],
+        [x + w, y],
+        [x + w, y + h],
+        [x, y + h],
+        [x, y],
+      ],
+      color,
+      weight,
+    ),
+  ];
+}
+/** Ellipse outline (64 samples) in canvas coordinates. */
+export function ellipse(
+  cx: number,
+  cy: number,
+  rx: number,
+  ry: number,
+  color: InkPath["color"] = "red",
+  weight = 1,
+): InkPath[] {
+  if (!(rx > 0 && ry > 0)) throw Error("ellipse needs positive radii");
+  const pts: number[][] = [];
+  for (let i = 0; i <= 64; i++) {
+    const t = (i / 64) * Math.PI * 2;
+    pts.push([cx + rx * Math.cos(t), cy + ry * Math.sin(t)]);
+  }
+  return [path(pts, color, weight)];
+}
+/** Area-model grid: rows×cols cells over (x,y,w,h) with optional fills. */
+export function areaModel(
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  rows: number,
+  cols: number,
+  color: InkPath["color"] = "blue",
+): InkPath[] {
+  if (!Number.isInteger(rows) || !Number.isInteger(cols) || rows < 1 || cols < 1)
+    throw Error("areaModel needs positive integer rows/cols");
+  const out = rect(x, y, w, h, color);
+  for (let r = 1; r < rows; r++)
+    out.push(path([[x, y + (h * r) / rows], [x + w, y + (h * r) / rows]], color, 0.8));
+  for (let c = 1; c < cols; c++)
+    out.push(path([[x + (w * c) / cols, y], [x + (w * c) / cols, y + h]], color, 0.8));
+  return out;
+}
+/** Fraction bar: `filled` of `total` segments shaded with hatch strokes. */
+export function fractionBar(
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  filled: number,
+  total: number,
+  color: InkPath["color"] = "green",
+): InkPath[] {
+  if (!Number.isInteger(total) || total < 1 || filled < 0 || filled > total)
+    throw Error("fractionBar needs 0 ≤ filled ≤ total, total ≥ 1");
+  const out = rect(x, y, w, h, "black");
+  const sw = w / total;
+  for (let i = 1; i < total; i++)
+    out.push(path([[x + sw * i, y], [x + sw * i, y + h]], "black", 0.7));
+  for (let f = 0; f < filled; f++) {
+    const x0 = x + sw * f;
+    for (let k = 1; k < 6; k++) {
+      const t = (k / 6) * sw;
+      out.push(path([[x0 + t, y + 2], [x0 + t, y + h - 2]], color, 2.2));
+    }
+  }
+  return out;
+}
+/** Triangle through three canvas points. */
+export function triangle(
+  a: [number, number],
+  b: [number, number],
+  c: [number, number],
+  color: InkPath["color"] = "black",
+  weight = 1,
+): InkPath[] {
+  return [path([a, b, c, a], color, weight)];
+}
+/** Right-triangle legs with the right-angle square at the corner. */
+export function rightTriangle(
+  x: number,
+  y: number,
+  legX: number,
+  legY: number,
+  color: InkPath["color"] = "black",
+): InkPath[] {
+  if (!(legX > 0 && legY > 0)) throw Error("rightTriangle needs positive legs");
+  const s = Math.min(18, legX / 4, legY / 4);
+  return [
+    ...triangle([x, y], [x + legX, y], [x, y - legY], color),
+    path(
+      [
+        [x + s, y],
+        [x + s, y - s],
+        [x, y - s],
+      ],
+      color,
+      0.8,
+    ),
+  ];
+}
+/** Projection of vector (dx,dy) onto direction (ux,uy), drawn dashed. */
+export function projection(
+  x: number,
+  y: number,
+  dx: number,
+  dy: number,
+  ux: number,
+  uy: number,
+  color: InkPath["color"] = "orange",
+): InkPath[] {
+  const len = Math.hypot(ux, uy);
+  if (!(len > 0)) throw Error("projection needs a nonzero direction");
+  const t = (dx * ux + dy * uy) / (len * len),
+    px = ux * t,
+    py = uy * t,
+    pts: number[][] = [];
+  for (let i = 0; i <= 20; i += 2) {
+    pts.push([x + (px * i) / 20, y + (py * i) / 20]);
+    pts.push([x + (px * (i + 1)) / 20, y + (py * (i + 1)) / 20]);
+  }
+  return [
+    path(pts, color, 1),
+    path(
+      [
+        [x + dx, y + dy],
+        [x + px, y + py],
+      ],
+      color,
+      0.7,
+    ),
+  ];
+}
 export function vector(
   x: number,
   y: number,

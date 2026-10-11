@@ -1,9 +1,24 @@
 export type FunctionModel =
   | { kind: "polynomial"; coefficients: number[] }
-  | { kind: "sine"; amplitude: number; frequency: number; offset?: number };
+  | { kind: "sine"; amplitude: number; frequency: number; offset?: number }
+  | { kind: "exp"; base: number; coefficient?: number }
+  | { kind: "log"; base: number; coefficient?: number };
 export function validateFunction(f: FunctionModel) {
-  if (!f || (f.kind !== "polynomial" && f.kind !== "sine"))
+  if (
+    !f ||
+    (f.kind !== "polynomial" &&
+      f.kind !== "sine" &&
+      f.kind !== "exp" &&
+      f.kind !== "log")
+  )
     throw Error("Unsupported function model");
+  if (f.kind === "exp" || f.kind === "log") {
+    if (!(f.base > 0) || f.base === 1 || !Number.isFinite(f.base))
+      throw Error("exp/log base must be positive and ≠ 1");
+    if (f.coefficient !== undefined && !Number.isFinite(f.coefficient))
+      throw Error("Invalid exp/log coefficient");
+    return f;
+  }
   const values =
     f.kind === "polynomial"
       ? f.coefficients
@@ -18,23 +33,54 @@ export function validateFunction(f: FunctionModel) {
   return f;
 }
 export function evaluate(f: FunctionModel, x: number): number {
-  return f.kind === "polynomial"
-    ? f.coefficients.reduceRight((v, c) => v * x + c, 0)
-    : f.amplitude * Math.sin(f.frequency * x) + (f.offset ?? 0);
+  switch (f.kind) {
+    case "polynomial":
+      return f.coefficients.reduceRight((v, c) => v * x + c, 0);
+    case "sine":
+      return f.amplitude * Math.sin(f.frequency * x) + (f.offset ?? 0);
+    case "exp":
+      return (f.coefficient ?? 1) * f.base ** x;
+    case "log":
+      return x <= 0
+        ? NaN
+        : ((f.coefficient ?? 1) * Math.log(x)) / Math.log(f.base);
+  }
 }
 export function derivative(f: FunctionModel, x: number): number {
-  return f.kind === "polynomial"
-    ? f.coefficients.slice(1).reduceRight((v, c, i) => v * x + c * (i + 1), 0)
-    : f.amplitude * f.frequency * Math.cos(f.frequency * x);
+  switch (f.kind) {
+    case "polynomial":
+      return f.coefficients
+        .slice(1)
+        .reduceRight((v, c, i) => v * x + c * (i + 1), 0);
+    case "sine":
+      return f.amplitude * f.frequency * Math.cos(f.frequency * x);
+    case "exp":
+      return (f.coefficient ?? 1) * Math.log(f.base) * f.base ** x;
+    case "log":
+      return x <= 0 ? NaN : (f.coefficient ?? 1) / (x * Math.log(f.base));
+  }
 }
 export function integral(f: FunctionModel, a: number, b: number): number {
-  const primitive = (x: number) =>
-    f.kind === "polynomial"
-      ? f.coefficients.reduce((v, c, i) => v + (c * x ** (i + 1)) / (i + 1), 0)
-      : f.frequency === 0
-        ? (f.offset ?? 0) * x
-        : (-f.amplitude * Math.cos(f.frequency * x)) / f.frequency +
-          (f.offset ?? 0) * x;
+  const primitive = (x: number) => {
+    switch (f.kind) {
+      case "polynomial":
+        return f.coefficients.reduce(
+          (v, c, i) => v + (c * x ** (i + 1)) / (i + 1),
+          0,
+        );
+      case "sine":
+        return f.frequency === 0
+          ? (f.offset ?? 0) * x
+          : (-f.amplitude * Math.cos(f.frequency * x)) / f.frequency +
+              (f.offset ?? 0) * x;
+      case "exp":
+        return ((f.coefficient ?? 1) * f.base ** x) / Math.log(f.base);
+      case "log":
+        return x <= 0
+          ? NaN
+          : ((f.coefficient ?? 1) * (x * Math.log(x) - x)) / Math.log(f.base);
+    }
+  };
   return primitive(b) - primitive(a);
 }
 export function secantSlope(f: FunctionModel, a: number, b: number) {
@@ -99,6 +145,55 @@ export function transformPoint(
 ) {
   const [a, b, c, d, e, f] = matrix;
   return { x: a * p.x + c * p.y + e, y: b * p.x + d * p.y + f };
+}
+/** Real roots of ax²+bx+c=0 (a≠0), ascending. Empty when discriminant < 0. */
+export function quadraticRoots(a: number, b: number, c: number): number[] {
+  if (![a, b, c].every(Number.isFinite) || a === 0)
+    throw Error("quadraticRoots needs finite a≠0, b, c");
+  const d = b * b - 4 * a * c;
+  if (d < 0) return [];
+  if (d === 0) return [-b / (2 * a)];
+  const r = Math.sqrt(d);
+  return [(-b - r) / (2 * a), (-b + r) / (2 * a)].sort((x, y) => x - y);
+}
+/** Intersection of y=m1x+b1 and y=m2x+b2; null when parallel. */
+export function intersectLines(
+  m1: number,
+  b1: number,
+  m2: number,
+  b2: number,
+): { x: number; y: number } | null {
+  if (![m1, b1, m2, b2].every(Number.isFinite)) throw Error("Invalid lines");
+  if (m1 === m2) return null;
+  const x = (b2 - b1) / (m1 - m2);
+  return { x, y: m1 * x + b1 };
+}
+/** Bisection root of f(x)=target on [a,b] (requires a sign change). */
+export function bisectRoot(
+  f: FunctionModel,
+  a: number,
+  b: number,
+  target = 0,
+  tolerance = 1e-9,
+): number {
+  let lo = a,
+    hi = b,
+    flo = evaluate(f, lo) - target;
+  const fhi = evaluate(f, hi) - target;
+  if (!Number.isFinite(flo) || !Number.isFinite(fhi) || flo * fhi > 0)
+    throw Error("bisectRoot needs a finite sign change on [a,b]");
+  for (let i = 0; i < 100; i++) {
+    const mid = (lo + hi) / 2,
+      fm = evaluate(f, mid) - target;
+    if (!Number.isFinite(fm)) throw Error("bisectRoot hit a non-finite value");
+    if (Math.abs(fm) <= tolerance || hi - lo <= tolerance) return mid;
+    if (flo * fm <= 0) hi = mid;
+    else {
+      lo = mid;
+      flo = fm;
+    }
+  }
+  return (lo + hi) / 2;
 }
 export function optimizeQuadratic(f: FunctionModel) {
   if (
